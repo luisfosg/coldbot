@@ -24,6 +24,8 @@
         "no-underscore-dangle": "off",
         "no-plusplus": "off",
         "no-unused-vars":"off",
+		"no-restricted-syntax":"off",
+		"no-await-in-loop":"off",
         "no-shadow": "off",
         "no-tabs": 0,
         "no-console": "warn"
