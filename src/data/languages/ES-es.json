@@ -1,0 +1,9 @@
+{
+    "start":{
+        "init": "Form Bot Esta listo como: "
+    },
+    "error":{
+        "catch": "Error Encontrado, Por Favor Contacté a los Desarrolladores",
+        "notCommand": "El Comando No existe"
+    }
+}

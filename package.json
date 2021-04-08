@@ -1,0 +1,26 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "Discord Form Bot",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FormBot/Discord-Bot.git"
+  },
+  "author": "LuisFOsG BryanSMC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FormBot/Discord-Bot/issues"
+  },
+  "homepage": "https://github.com/FormBot/Discord-Bot#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  },
+  "dependencies": {
+    "discord.js": "^12.5.0",
+    "fs": "0.0.1-security"
+  }
+}
