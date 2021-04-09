@@ -1,24 +1,25 @@
 {
-  "name": "y",
+  "name": "cold-bot",
   "version": "1.0.0",
-  "description": "Discord Form Bot",
+  "description": "Discord Bot",
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon src/index.js --exec babel-node",
-	"build": "cross-env NODE_ENV=production babel src --out-dir dist",
+    "build": "cross-env NODE_ENV=production babel src --out-dir dist",
     "start": "cross-env NODE_ENV=production node dist/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FormBot/Discord-Bot.git"
+    "url": "git+https://github.com/LuisFOsG/Cold-Bot.git"
   },
-  "author": "LuisFOsG BryanSMC",
+  "author": "LuisFOsG",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/FormBot/Discord-Bot/issues"
+    "url": "https://github.com/LuisFOsG/Cold-Bot/issues"
   },
-  "homepage": "https://github.com/FormBot/Discord-Bot#readme",
+  "homepage": "https://github.com/LuisFOsG/Cold-Bot#readme",
   "dependencies": {
+    "core-js": "3.10.1",
     "cross-env": "7.0.3",
     "discord.js": "12.5.0",
     "dotenv": "8.2.0",

@@ -7,7 +7,7 @@ export default async ( client, msg ) => {
 	if ( msg.author.bot ) return;
 
 	if ( msg.content.startsWith( `<@!${client.user.id}>` ) ) {
-		sendMsg( msg, `Hi, The Prefix is ${ PREFIX }` );
+		sendMsg( msg, `Hola, El Prefix es: '${ PREFIX }'` );
 		return;
 	}
 

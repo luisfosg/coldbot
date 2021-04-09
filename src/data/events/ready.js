@@ -8,7 +8,7 @@ export default async ( client ) => {
 	client.user.setPresence( {
 		status: 'online',
 		game: {
-			name: 'Cold Bot Start'
+			name: 'Cold Bot Esta Listo B)'
 		}
 	} );
 };
