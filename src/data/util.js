@@ -7,3 +7,7 @@ export async function getConfig() {
 	const config = await import( './configDiscord' );
 	return config;
 }
+
+export async function sendMsg( client, msg ) {
+	client.channel.send( msg );
+}
