@@ -1,10 +1,10 @@
-import { getConfig, sendMsg } from '../util';
+import { sendMsg } from '../util';
+import { setPrefix } from '../../db/setPrefix';
 
 export default async ( client, msg ) => {
-	const config = await getConfig();
-	const PREFIX = config.prefix;
-
 	if ( msg.author.bot ) return;
+
+	const PREFIX = await setPrefix( msg );
 
 	if ( msg.content.startsWith( `<@!${client.user.id}>` ) ) {
 		sendMsg( msg, `Hola, El Prefix es: '${ PREFIX }'` );
