@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 
 import './configServer';
-import * as Util from './data/util';
+import { getLogin } from './data/util';
 
 const importCommands = async ( client ) => {
 	client.commands = new Discord.Collection();
@@ -23,11 +23,12 @@ const importEvents = async ( client ) => {
 		const contentsFile = await import( `./data/events/${file}` );
 
 		client.on( nameFile, contentsFile.default.bind( null, client ) );
+		delete require.cache[require.resolve( `./data/events/${file}` )];
 	}
 };
 
 const start = async () => {
-	const login = await Util.getLogin();
+	const login = await getLogin();
 
 	const client = new Discord.Client();
 
