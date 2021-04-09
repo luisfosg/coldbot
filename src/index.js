@@ -6,21 +6,33 @@ import path from 'path';
 import './configServer';
 import * as Util from './data/util';
 
+const importCommands = async ( client ) => {
+	client.commands = new Discord.Collection();
+
+	const commandFiles = fs.readdirSync( path.join( __dirname, 'data/commands' ) ).filter( ( file ) => file.endsWith( '.js' ) );
+	for ( const file of commandFiles ) {
+		const command = await import( `./data/commands/${file}` );
+		client.commands.set( command.default.name, command.default );
+	}
+};
+
+const importEvents = async ( client ) => {
+	const eventFiles = fs.readdirSync( path.join( __dirname, 'data/events' ) ).filter( ( file ) => file.endsWith( '.js' ) );
+	for ( const file of eventFiles ) {
+		const nameFile = file.substring( 0, file.length - 3 );
+		const contentsFile = await import( `./data/events/${file}` );
+
+		client.on( nameFile, contentsFile.default.bind( null, client ) );
+	}
+};
+
 const start = async () => {
 	const login = await Util.getLogin();
 
 	const client = new Discord.Client();
 
-	client.commands = new Discord.Collection();
-	const commandFiles = fs.readdirSync( path.join( __dirname, 'data/commands' ) ).filter( ( file ) => file.endsWith( '.js' ) );
-	for ( const file of commandFiles ) {
-		const command = await import( `./data/commands/${file}` );
-		client.commands.set( command.name, command );
-	}
-
-	client.on( 'ready', () => {
-		console.log( 'Bot Listo papu' );
-	} );
+	importCommands( client );
+	importEvents( client );
 
 	client.login( login.password );
 };
