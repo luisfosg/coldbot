@@ -6,9 +6,10 @@ export default async ( client, msg ) => {
 	if ( msg.author.bot ) return;
 
 	const PREFIX = await getPrefix( msg );
+	client.prefix = PREFIX;
 
 	if ( msg.content.startsWith( `<@!${client.user.id}>` ) ) {
-		sendMsg( msg, `Hola, El Prefix es: '${ PREFIX }'` );
+		sendMsg( msg, `Hola, El Prefix es: \`${ PREFIX }\`` );
 		return;
 	}
 
