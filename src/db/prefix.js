@@ -5,7 +5,7 @@ import { getConfig } from '../data/util';
 
 const dbPrefix = new db.table( 'prefix' );
 
-export const setPrefix = async ( msg ) => {
+export const getPrefix = async ( msg ) => {
 	const config = await getConfig();
 	let prefix;
 
@@ -17,4 +17,8 @@ export const setPrefix = async ( msg ) => {
 	}
 
 	return prefix;
+};
+
+export const setPrefix = async ( msg, pref ) => {
+	dbPrefix.set( `${ msg.guild.id }`, pref );
 };

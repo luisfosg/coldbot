@@ -1,11 +1,11 @@
 import { sendMsg } from '../util';
-import { setPrefix } from '../../db/setPrefix';
+import { getPrefix } from '../../db/prefix';
 import { checkArgs } from '../functions/checkargs';
 
 export default async ( client, msg ) => {
 	if ( msg.author.bot ) return;
 
-	const PREFIX = await setPrefix( msg );
+	const PREFIX = await getPrefix( msg );
 
 	if ( msg.content.startsWith( `<@!${client.user.id}>` ) ) {
 		sendMsg( msg, `Hola, El Prefix es: '${ PREFIX }'` );
@@ -36,7 +36,7 @@ export default async ( client, msg ) => {
 				msg.reply( 'A Ocurrido un Error Contacta al Administrador :0' );
 			}
 		} else {
-			msg.reply( `Faltan Argumentos, Descripcion: ${ commandFind.description }` );
+			msg.reply( `Faltan Argumentos, Descripción: ${ commandFind.description }` );
 		}
 	}
 };

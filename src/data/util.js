@@ -8,6 +8,6 @@ export async function getConfig() {
 	return config;
 }
 
-export async function sendMsg( client, msg ) {
+export function sendMsg( client, msg ) {
 	client.channel.send( msg );
 }
