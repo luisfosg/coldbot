@@ -1,5 +1,6 @@
 import { sendMsg } from '../util';
 import { setPrefix } from '../../db/setPrefix';
+import { checkArgs } from '../functions/checkargs';
 
 export default async ( client, msg ) => {
 	if ( msg.author.bot ) return;
@@ -25,10 +26,17 @@ export default async ( client, msg ) => {
 			return;
 		}
 
-		try {
-			client.commands.get( CMD ).execute( client, msg, args );
-		} catch ( e ) {
-			msg.reply( 'A Ocurrido un Error Contacta al Administrador :0' );
+		const commandFind = client.commands.get( CMD );
+		const isArgsValid = await checkArgs( commandFind.args, args.length );
+
+		if ( isArgsValid ) {
+			try {
+				commandFind.execute( client, msg, args );
+			} catch ( e ) {
+				msg.reply( 'A Ocurrido un Error Contacta al Administrador :0' );
+			}
+		} else {
+			msg.reply( `Faltan Argumentos, Descripcion: ${ commandFind.description }` );
 		}
 	}
 };
