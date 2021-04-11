@@ -1,15 +1,14 @@
 /* eslint-disable no-console */
-import { getConfig } from '../util';
-
 export default async ( client ) => {
-	const config = await getConfig();
-	console.log( `Bot listo como: ${ client.user.tag }!` );
+	console.log( `\n Bot listo como: ${ client.user.tag }! \n` );
+	console.log( `Numero de Servidores: ${client.guilds.cache.size} ` );
+	console.log( `Numero de Usuarios: ${client.users.cache.size} \n` );
 
-	client.user.setActivity( config.statusBot );
 	client.user.setPresence( {
-		status: 'online',
-		game: {
-			name: 'Cold Bot Esta Listo B)'
-		}
+		activity: {
+			name: `Estoy en ${client.guilds.cache.size} servidores, genial no?`,
+			type: 'WATCHING'
+		},
+		status: 'online'
 	} );
 };
