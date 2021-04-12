@@ -5,7 +5,7 @@ import { sendMsg } from '../util';
 export default {
 	name: 'profile',
 	alias: ['prf'],
-	args: 0,
+	args: 0, /* Indica el menor numero de argumentos posibles */
 	description: 'Da la Informacion de nosotros o si mencionamos a alguien nos da la Informacion de esta persona.',
 	execute: async ( _client, msg, _args ) => {
 		const dataUser = msg.mentions.members.first() || msg.member;

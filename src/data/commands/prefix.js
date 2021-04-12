@@ -10,7 +10,7 @@ export default {
 	execute: async ( _client, msg, args ) => {
 		setPrefix( msg, args[0] );
 
-		sendMsg( msg, `Cambiando el Prefix a '${ args[0] }'` );
+		sendMsg( msg, `Cambiando el Prefix a \`${ args[0] }\`` );
 		msg.delete();
 	},
 };
