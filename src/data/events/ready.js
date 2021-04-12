@@ -6,9 +6,10 @@ export default async ( client ) => {
 
 	client.user.setPresence( {
 		activity: {
-			name: `Estoy en ${client.guilds.cache.size} servidores, genial no?`,
-			type: 'WATCHING'
+			name: `Cold Bot esta en ${client.guilds.cache.size} servidores. Vamo a por mas.`,
+			url: 'https://www.youtube.com/watch?v=XlgqZeeoOtI',
+			type: 'STREAMING'
 		},
-		status: 'online'
+		status: 'dnd'
 	} );
 };
