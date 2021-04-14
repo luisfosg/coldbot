@@ -5,8 +5,11 @@ import { setPrefix } from '../../db/prefix';
 export default {
 	name: 'prefix',
 	alias: ['pref'],
-	args: 1,
 	description: 'Para cambiar el prefix se requiere un argumento.',
+	req: {
+		args: 1,
+		permissions: ['ADMINISTRATOR'],
+	},
 	execute: async ( _client, msg, args ) => {
 		setPrefix( msg, args[0] );
 

@@ -1,6 +1,7 @@
 import { sendMsg } from '../util';
 import { getPrefix } from '../../db/prefix';
-import { checkArgs } from '../functions/checkargs';
+import { checkArgs } from '../functions/checkArgs';
+import { checkPermissions } from '../functions/checkPermissions';
 
 const mentionBot = async ( client, msg ) => {
 	if ( msg.content.startsWith( `<@!${client.user.id}>` ) ) {
@@ -32,16 +33,17 @@ const mentionPrefix = async ( client, msg ) => {
 		}
 
 		const commandFind = client.commands.get( CMD );
-		const isArgsValid = await checkArgs( commandFind.args, args.length );
 
-		if ( isArgsValid ) {
-			try {
-				commandFind.execute( client, msg, args );
-			} catch ( e ) {
-				msg.reply( 'A Ocurrido un Error Contacta al Administrador :0' );
-			}
-		} else {
-			msg.reply( `Faltan Argumentos, Descripción: ${ commandFind.description }` );
+		const isPermitValid = await checkPermissions( msg, commandFind.req.permissions );
+		if ( !isPermitValid ) return msg.reply( `No Posee los Permisos Necesarios, \`Descripción\`: ${ commandFind.description }` );
+
+		const isArgsValid = await checkArgs( commandFind.req.args, args.length );
+		if ( !isArgsValid ) return msg.reply( `Faltan Argumentos, \`Descripción\`: ${ commandFind.description }` );
+
+		try {
+			commandFind.execute( client, msg, args );
+		} catch ( e ) {
+			msg.reply( 'A Ocurrido un Error Contacta al Administrador :0' );
 		}
 	}
 };

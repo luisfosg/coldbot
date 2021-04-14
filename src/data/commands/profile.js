@@ -5,8 +5,11 @@ import { sendMsg } from '../util';
 export default {
 	name: 'profile',
 	alias: ['prf'],
-	args: 0, /* Indica el menor numero de argumentos posibles */
 	description: 'Da la Informacion de nosotros o si mencionamos a alguien nos da la Informacion de esta persona.',
+	req: {
+		args: 0,
+		permissions: [],
+	},
 	execute: async ( _client, msg, args ) => {
 		let user;
 		let error = false;
