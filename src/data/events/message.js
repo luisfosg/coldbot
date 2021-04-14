@@ -1,6 +1,6 @@
 import { sendMsg } from '../util';
 import { getPrefix } from '../../db/prefix';
-import { checkArgs } from '../functions/checkArgs';
+import { checkArgs } from '../functions/checkArg';
 import { checkPermissions } from '../functions/checkPermissions';
 
 const mentionBot = async ( client, msg ) => {
