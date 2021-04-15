@@ -7,14 +7,11 @@ const dbPrefix = new db.table( 'prefix' );
 
 export const getPrefix = async ( msg ) => {
 	const config = await getConfig();
-	let prefix;
 
 	if ( !dbPrefix.has( `${ msg.guild.id }` ) ) {
 		dbPrefix.set( `${ msg.guild.id }`, config.prefix );
-		prefix = dbPrefix.get( `${ msg.guild.id }` );
-	} else {
-		prefix = dbPrefix.get( `${ msg.guild.id }` );
 	}
+	const prefix = dbPrefix.get( `${ msg.guild.id }` );
 
 	return prefix;
 };

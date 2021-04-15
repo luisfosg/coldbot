@@ -1,3 +1,4 @@
+/* eslint-disable no-continue */
 import Discord from 'discord.js';
 import fs from 'fs';
 import path from 'path';
@@ -11,6 +12,9 @@ const importCommands = async ( client ) => {
 	const commandFiles = fs.readdirSync( path.join( __dirname, 'data/commands' ) ).filter( ( file ) => file.endsWith( '.js' ) );
 	for ( const file of commandFiles ) {
 		const command = await import( `./data/commands/${file}` );
+
+		if ( !command.default.req.enable ) continue;
+
 		client.commands.set( command.default.name, command.default );
 	}
 };
@@ -21,7 +25,11 @@ const importEvents = async ( client ) => {
 		const nameFile = file.substring( 0, file.length - 3 );
 		const contentsFile = await import( `./data/events/${file}` );
 
-		client.on( nameFile, contentsFile.default.run.bind( null, client ) );
+		if ( !contentsFile.default.req.enable ) continue;
+
+		const { once } = contentsFile.default.req;
+		client[once ? 'once' : 'on']( nameFile, contentsFile.default.run.bind( null, client ) );
+
 		delete require.cache[require.resolve( `./data/events/${file}` )];
 	}
 };
