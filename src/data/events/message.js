@@ -1,4 +1,4 @@
-import { sendMsg } from '../util';
+import { sendMsg, getConfig } from '../util';
 import { getPrefix } from '../../db/prefix';
 import { checkArgs } from '../functions/checkArgs';
 import { checkPermissions } from '../functions/checkPermissions';
@@ -35,7 +35,7 @@ const mentionPrefix = async ( client, msg ) => {
 		const commandFind = client.commands.get( CMD );
 
 		const isPermitValid = await checkPermissions( msg, commandFind.req.permissions );
-		if ( !isPermitValid ) return msg.reply( `No Posee los Permisos Necesarios, \`Descripción\`: ${ commandFind.description }` );
+		if ( !isPermitValid ) return msg.reply( 'No Posee los Permisos Necesarios.' );
 
 		const isArgsValid = await checkArgs( commandFind.req.args, args.length );
 		if ( !isArgsValid ) return msg.reply( `Faltan Argumentos, \`Descripción\`: ${ commandFind.description }` );
@@ -43,7 +43,8 @@ const mentionPrefix = async ( client, msg ) => {
 		try {
 			commandFind.run( client, msg, args );
 		} catch ( e ) {
-			msg.reply( 'A Ocurrido un Error Contacta al Administrador :0' );
+			const config = await getConfig();
+			msg.reply( `A Ocurrido un Error Contacta al Administrador: \`${ config.devs[0] }\`` );
 		}
 	}
 };
