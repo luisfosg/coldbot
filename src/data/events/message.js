@@ -1,6 +1,6 @@
 import { sendMsg } from '../util';
 import { getPrefix } from '../../db/prefix';
-import { checkArgs } from '../functions/checkArg';
+import { checkArgs } from '../functions/checkArgs';
 import { checkPermissions } from '../functions/checkPermissions';
 
 const mentionBot = async ( client, msg ) => {
@@ -41,19 +41,25 @@ const mentionPrefix = async ( client, msg ) => {
 		if ( !isArgsValid ) return msg.reply( `Faltan Argumentos, \`Descripción\`: ${ commandFind.description }` );
 
 		try {
-			commandFind.execute( client, msg, args );
+			commandFind.run( client, msg, args );
 		} catch ( e ) {
 			msg.reply( 'A Ocurrido un Error Contacta al Administrador :0' );
 		}
 	}
 };
 
-export default async ( client, msg ) => {
-	if ( msg.author.bot ) return;
+export default {
+	req: {
+		once: false,
+		enable: true,
+	},
+	run: async ( client, msg ) => {
+		if ( msg.author.bot ) return;
 
-	const PREFIX = await getPrefix( msg );
-	client.prefix = PREFIX;
+		const PREFIX = await getPrefix( msg );
+		client.prefix = PREFIX;
 
-	mentionBot( client, msg );
-	mentionPrefix( client, msg );
+		mentionBot( client, msg );
+		mentionPrefix( client, msg );
+	},
 };

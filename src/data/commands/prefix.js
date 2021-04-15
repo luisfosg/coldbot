@@ -8,9 +8,10 @@ export default {
 	description: 'Para cambiar el prefix se requiere un argumento.',
 	req: {
 		args: 1,
+		enable: true,
 		permissions: ['ADMINISTRATOR'],
 	},
-	execute: async ( _client, msg, args ) => {
+	run: async ( _client, msg, args ) => {
 		setPrefix( msg, args[0] );
 
 		sendMsg( msg, `Cambiando el Prefix a \`${ args[0] }\`` );

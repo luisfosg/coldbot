@@ -4,9 +4,10 @@ export default {
 	description: 'Cambia el estado del Bot',
 	req: {
 		args: 4,
+		enable: false,
 		permissions: ['ADMINISTRATOR'],
 	},
-	execute: async ( client, _msg, args ) => {
+	run: async ( client, _msg, args ) => {
 		client.user.setPresence( {
 			activity: {
 				name: args[0],

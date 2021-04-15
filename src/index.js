@@ -21,7 +21,7 @@ const importEvents = async ( client ) => {
 		const nameFile = file.substring( 0, file.length - 3 );
 		const contentsFile = await import( `./data/events/${file}` );
 
-		client.on( nameFile, contentsFile.default.bind( null, client ) );
+		client.on( nameFile, contentsFile.default.run.bind( null, client ) );
 		delete require.cache[require.resolve( `./data/events/${file}` )];
 	}
 };

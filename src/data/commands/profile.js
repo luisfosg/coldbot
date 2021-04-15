@@ -8,9 +8,10 @@ export default {
 	description: 'Da la Informacion de nosotros o si mencionamos a alguien nos da la Informacion de esta persona.',
 	req: {
 		args: 0,
+		enable: true,
 		permissions: [],
 	},
-	execute: async ( _client, msg, args ) => {
+	run: async ( _client, msg, args ) => {
 		let user;
 		let error = false;
 
