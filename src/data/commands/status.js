@@ -1,7 +1,7 @@
 export default {
 	name: 'status',
 	alias: ['st'],
-	description: 'Cambia el estado del Bot',
+	description: '',
 	req: {
 		args: 4,
 		enable: false,

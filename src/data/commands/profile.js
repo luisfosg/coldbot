@@ -23,7 +23,7 @@ const profile = async ( msg, user ) => {
 export default {
 	name: 'profile',
 	alias: ['prf'],
-	description: 'Da la Informacion de nosotros o si mencionamos a alguien nos da la Informacion de esta persona.',
+	description: 'No requiere parametros',
 	req: {
 		args: 0,
 		enable: true,

@@ -1,11 +1,12 @@
 import { sendMsg } from '../util';
+import { splDes } from '../configDiscord';
 
 import { setPrefix } from '../../db/prefix';
 
 export default {
 	name: 'prefix',
 	alias: ['pref'],
-	description: 'Para cambiar el prefix se requiere un argumento.',
+	description: `${splDes()}\`nuevo prefix\`${splDes()}`,
 	req: {
 		args: 1,
 		enable: true,

@@ -3,7 +3,7 @@ import { sendMsg } from '../util';
 export default {
 	name: 'help',
 	alias: ['h'],
-	description: 'Help devuelve una ayuda basica de lo que hace el bot, no requiere parametros',
+	description: 'No requiere parametros',
 	req: {
 		args: 0,
 		enable: true,
