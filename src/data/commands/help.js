@@ -5,14 +5,14 @@ import { sendMsg, getConfig } from '../util';
 const commandMessage = async ( client, msg ) => {
 	const embed = new MessageEmbed();
 
-	embed.setColor( 'RANDOM' );
+	embed.setColor( '#E58249' );
 	embed.setTitle( 'Lista de Comandos' );
 	embed.setAuthor( msg.author.username, msg.author.avatarURL() );
 	embed.setTimestamp( Date.now() );
 
 	client.commands.map( ( c ) => embed.addField(
 		`${ client.prefix } ${ c.name }`,
-		`\`Alias:\`${ c.alias.map( ( a ) => `${ a } ` ) } \`Argumentos:\` ${ c.description }`
+		`>>> \`Alias:\`${ c.alias.map( ( a ) => ` ${ a }` ) } \`Argumentos:\` ${ c.description } \t`
 	) );
 
 	return embed;
@@ -22,7 +22,7 @@ const helpMessage = async ( client ) => {
 	const config = await getConfig();
 	const embed = new MessageEmbed();
 
-	embed.setColor( 'RANDOM' );
+	embed.setColor( '#E58249' );
 	if ( !config.splitStrings[0] ) return embed.setDescription( `Hola, El prefix es \`${ client.prefix }\`` );
 
 	embed.setDescription(
