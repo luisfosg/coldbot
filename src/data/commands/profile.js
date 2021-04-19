@@ -5,7 +5,7 @@ import { sendMsg, getUserWithId } from '../util';
 const profile = async ( msg, user ) => {
 	const embed = new MessageEmbed();
 
-	embed.setColor( '#000000' );
+	embed.setColor( 'RANDOM' );
 	embed.setImage( user.displayAvatarURL() );
 	embed.setAuthor( msg.member.user.username, msg.member.user.displayAvatarURL() );
 	embed.setTitle( `${ user.username }#${ user.discriminator }` );
