@@ -15,6 +15,6 @@ export const getSplit = async ( msg ) => {
 	return dbSplitString.get( `${ msg.guild.id }` );
 };
 
-export const setSplit = async ( msg, status, splitString ) => {
-	dbSplitString.set( `${ msg.guild.id }`, { status, splitString } );
+export const setSplit = async ( msg, status, value ) => {
+	dbSplitString.set( `${ msg.guild.id }`, { status, value } );
 };
