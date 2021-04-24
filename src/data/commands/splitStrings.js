@@ -25,7 +25,7 @@ export default {
 			estado = true;
 			setSplit( msg, true, args[1] );
 		} else {
-			setSplit( msg, true, args[1] );
+			setSplit( msg, false, args[1] );
 		}
 
 		sendMsg( msg, `Cambiando el Separador de Argumentos a \`${ args[1] }\`` );

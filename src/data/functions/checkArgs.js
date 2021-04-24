@@ -1,18 +1,15 @@
-import { getConfig } from '../util';
-
 export const checkArgs = async ( argsDefault, args ) => {
 	if ( args >= argsDefault ) return true;
 	return false;
 };
 
-export const divideArgs = async ( string, prefix ) => {
-	const config = await getConfig();
+export const divideArgs = async ( client, string, prefix ) => {
 	let args;
 
 	string = string.slice( prefix.length );
 
-	if ( config.splitStrings[0] ) {
-		args = string.split( config.splitStrings[1] );
+	if ( client.splitStrings.status ) {
+		args = string.split( client.splitStrings.value );
 		args = args.map( ( arg ) => arg.trim() );
 	} else {
 		args = string.trim().split( / +/ );

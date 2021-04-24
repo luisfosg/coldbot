@@ -1,6 +1,6 @@
 import { MessageEmbed } from 'discord.js';
 
-import { sendMsg, getConfig } from '../util';
+import { sendMsg } from '../util';
 
 const commandMessage = async ( client, msg ) => {
 	const embed = new MessageEmbed();
@@ -19,14 +19,13 @@ const commandMessage = async ( client, msg ) => {
 };
 
 const helpMessage = async ( client ) => {
-	const config = await getConfig();
 	const embed = new MessageEmbed();
 
 	embed.setColor( '#E58249' );
-	if ( !config.splitStrings[0] ) return embed.setDescription( `Hola, El prefix es \`${ client.prefix }\`` );
+	if ( !client.splitStrings.status ) return embed.setDescription( `Hola, El prefix es \`${ client.prefix }\`` );
 
 	embed.setDescription(
-		`Hola, El prefix es \`${ client.prefix }\`, y el separador de argumentos es \`${ config.splitStrings[1] }\``
+		`Hola, El prefix es \`${ client.prefix }\`, y el separador de argumentos es \`${ client.splitStrings.value }\``
 	);
 
 	return embed;

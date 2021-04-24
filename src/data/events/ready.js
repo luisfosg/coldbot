@@ -11,7 +11,7 @@ export default {
 
 		client.user.setPresence( {
 			activity: {
-				name: `Cold Bot esta en ${client.guilds.cache.size} servidores. Vamo a por mas.`,
+				name: `Cold Bot esta en ${ client.guilds.cache.size } servidores. Vamo a por mas.`,
 				url: 'https://www.youtube.com/watch?v=XlgqZeeoOtI',
 				type: 'STREAMING'
 			},

@@ -1,5 +1,8 @@
 import { sendMsg, getConfig } from '../util';
+
 import { getPrefix } from '../../db/prefix';
+import { getSplit } from '../../db/splitString';
+
 import { checkArgs, divideArgs } from '../functions/checkArgs';
 import { checkPermissions } from '../functions/checkPermissions';
 
@@ -22,19 +25,18 @@ const checkCommand = async ( client, msg, CMD, args ) => {
 
 const mentionPrefix = async ( client, msg ) => {
 	if ( msg.content.startsWith( client.prefix ) ) {
-		const args = await divideArgs( msg.content, client.prefix );
+		const args = await divideArgs( client, msg.content, client.prefix );
 		let CMD = args.shift().toLowerCase();
 
 		if ( client.commands.find( ( c ) => c.alias.includes( CMD ) ) ) {
 			const com = client.commands.find( ( c ) => c.alias.includes( CMD ) );
 			CMD = com.name;
 		}
-		const config = await getConfig();
 
 		if ( !client.commands.has( CMD ) ) {
-			if ( !config.splitStrings[0] ) return sendMsg( msg, 'El Comando No Existe' );
+			if ( !client.splitStrings.status ) return sendMsg( msg, 'El Comando No Existe' );
 
-			return sendMsg( msg, `El Comando No Existe, recuerde usar \`${ config.splitStrings[1] }\` para separar los argumentos.` );
+			return sendMsg( msg, `El Comando No Existe, recuerde usar \`${ client.splitStrings.value }\` para separar los argumentos.` );
 		}
 
 		checkCommand( client, msg, CMD, args );
@@ -64,6 +66,9 @@ export default {
 		if ( msg.author.bot ) return;
 
 		const PREFIX = await getPrefix( msg );
+
+		client.splitStrings = await getSplit( msg );
+
 		client.prefix = PREFIX;
 
 		mentionBot( client, msg );
