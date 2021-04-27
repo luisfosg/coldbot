@@ -65,11 +65,8 @@ export default {
 	run: async ( client, msg ) => {
 		if ( msg.author.bot ) return;
 
-		const PREFIX = await getPrefix( msg );
-
+		client.prefix = await getPrefix( msg );
 		client.splitStrings = await getSplit( msg );
-
-		client.prefix = PREFIX;
 
 		mentionBot( client, msg );
 		mentionPrefix( client, msg );
