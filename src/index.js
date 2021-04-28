@@ -37,7 +37,7 @@ const importEvents = async ( client ) => {
 const start = async () => {
 	const login = await getLogin();
 
-	const client = new Discord.Client();
+	const client = new Discord.Client( { disableEveryone: false } );
 
 	importCommands( client );
 	importEvents( client );

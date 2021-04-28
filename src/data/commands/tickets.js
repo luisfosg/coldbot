@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { MessageEmbed } from 'discord.js';
 
 import { getMsgTicket, setMsgTicket } from '../../db/ticket';
@@ -46,31 +45,40 @@ export const createTicket = async ( msg, user ) => {
 	} );
 };
 
-const description = async () => {
+const description = async ( msg ) => {
+	const msgId = await getMsgTicket( msg );
+	await msg.channel.messages.fetch( msgId ).then( ( msgTicket ) => {
+		msgTicket.delete();
+	} ).catch( () => {} );
+
 	const embed = new MessageEmbed();
 
 	embed.setColor( '#126554' );
 	embed.setTimestamp();
 	embed.setTitle( 'SOPORTE | ColdBot' );
-	embed.setDescription( '`Reacciona a este mensaje, para abrir un Ticket.`\n\nRecuerden que solo Puede Haber un Maximo de 1 Ticket abierto por persona.' );
+
+	embed.setDescription( '`Reacciona con un 📩, para abrir un Ticket.`\n\nRecuerden que solo Puede Haber un Maximo de 1 Ticket abierto por persona.' );
 
 	return embed;
 };
 
 const deleteDescription = async ( msg ) => {
 	const msgId = await getMsgTicket( msg );
-	const msgTicket = await msg.channel.messages.fetch( msgId );
+	await msg.channel.messages.fetch( msgId ).then( ( msgTicket ) => {
+		msgTicket.delete();
+	} ).catch( () => {} );
 
 	const embed = new MessageEmbed();
 
 	embed.setColor( '#126554' );
 	embed.setTimestamp();
 	embed.setTitle( 'SOPORTE | ColdBot' );
-	embed.setDescription( '`Por el momento las ayudas estan deshabilitadas -. -`' );
+	embed.setDescription( '`Por el momento las ayudas estan deshabilitadas.`' );
 
-	msg.channel.send( embed );
+	msg.channel.send( embed ).then( async ( msgEmbed ) => {
+		await setMsgTicket( msg, msgEmbed.id );
+	} );
 
-	msgTicket.delete();
 	msg.delete();
 };
 
@@ -83,10 +91,10 @@ export default {
 		enable: true,
 		permissions: ['ADMINISTRATOR'],
 	},
-	run: async ( client, msg, args ) => {
+	run: async ( _client, msg, args ) => {
 		if ( args[0] === 'close' ) return deleteDescription( msg );
 
-		const embed = await description( client );
+		const embed = await description( msg );
 
 		msg.channel.send( embed ).then( async ( msgEmbed ) => {
 			await setMsgTicket( msg, msgEmbed.id );

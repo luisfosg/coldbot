@@ -18,7 +18,7 @@ export default {
 		}
 		/* Elimina los Tickets */
 		if ( reaction.message.channel.name.startsWith( 'ticket-' ) && reaction.emoji.name === '❌' ) {
-			reaction.message.channel.delete();
+			reaction.message.channel.delete().catch( () => {} );
 		}
 	},
 };
