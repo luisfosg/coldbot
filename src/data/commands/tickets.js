@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { MessageEmbed } from 'discord.js';
 
-import { setMsgTicket } from '../../db/ticket';
+import { getMsgTicket, setMsgTicket } from '../../db/ticket';
 
 const descriptionTicket = async ( channel, user ) => {
 	const embed = new MessageEmbed();
@@ -57,6 +57,23 @@ const description = async () => {
 	return embed;
 };
 
+const deleteDescription = async ( msg ) => {
+	const msgId = await getMsgTicket( msg );
+	const msgTicket = await msg.channel.messages.fetch( msgId );
+
+	const embed = new MessageEmbed();
+
+	embed.setColor( '#126554' );
+	embed.setTimestamp();
+	embed.setTitle( 'SOPORTE | ColdBot' );
+	embed.setDescription( '`Por el momento las ayudas estan deshabilitadas -. -`' );
+
+	msg.channel.send( embed );
+
+	msgTicket.delete();
+	msg.delete();
+};
+
 export default {
 	name: 'ticket setup',
 	alias: ['ticket'],
@@ -66,7 +83,9 @@ export default {
 		enable: true,
 		permissions: ['ADMINISTRATOR'],
 	},
-	run: async ( client, msg, _args ) => {
+	run: async ( client, msg, args ) => {
+		if ( args[0] === 'close' ) return deleteDescription( msg );
+
 		const embed = await description( client );
 
 		msg.channel.send( embed ).then( async ( msgEmbed ) => {
