@@ -19,7 +19,8 @@ const descriptionTicket = async ( channel, user ) => {
 };
 
 export const createTicket = async ( msg, user ) => {
-	const nameUser = user.username.toLowerCase();
+	let nameUser = user.username.trim().toLowerCase().replace( /\s+/g, '' );
+	nameUser += `⚪${user.discriminator}`;
 
 	const canal = await msg.guild.channels.cache.find(
 		( c ) => c.name === `ticket-${ nameUser }`
