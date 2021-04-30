@@ -1,10 +1,11 @@
 export default {
 	name: 'status',
 	alias: ['st'],
-	description: '',
+	description: 'Comando de Uso exclusivo del dueño del bot',
 	req: {
 		args: 4,
 		enable: false,
+		visible: false,
 		permissions: ['ADMINISTRATOR'],
 	},
 	run: async ( client, _msg, args ) => {

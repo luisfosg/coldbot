@@ -89,6 +89,7 @@ export default {
 	req: {
 		args: 0,
 		enable: true,
+		visible: true,
 		permissions: ['ADMINISTRATOR'],
 	},
 	run: async ( _client, msg, args ) => {

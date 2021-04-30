@@ -38,6 +38,7 @@ export default {
 	req: {
 		args: 0,
 		enable: true,
+		visible: false,
 		permissions: [],
 	},
 	run: async ( client, msg, _args ) => {
