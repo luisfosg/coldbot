@@ -4,7 +4,7 @@ export default {
 	description: 'Comando de Uso exclusivo del dueño del bot',
 	req: {
 		args: 4,
-		enable: false,
+		enable: true,
 		visible: false,
 		permissions: ['ADMINISTRATOR'],
 	},

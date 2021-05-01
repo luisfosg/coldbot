@@ -10,10 +10,15 @@ const commandMessage = async ( client, msg ) => {
 	embed.setAuthor( msg.author.username, msg.author.avatarURL() );
 	embed.setTimestamp( Date.now() );
 
-	client.commands.map( ( c ) => embed.addField(
-		`${ client.prefix } ${ c.name }`,
-		`>>> \`Alias:\`${ c.alias.map( ( a ) => ` ${ a }` ) } \`Argumentos:\` ${ c.description } \t`
-	) );
+	client.commands.map( ( c ) => {
+		if ( c.req.visible ) {
+			return embed.addField(
+				`${ client.prefix } ${ c.name }`,
+				`>>> \`Alias:\`${ c.alias.map( ( a ) => ` ${ a }` ) } \`Argumentos:\` ${ c.description } \t`
+			);
+		}
+		return false;
+	} );
 
 	return embed;
 };
