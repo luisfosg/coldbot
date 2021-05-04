@@ -57,7 +57,7 @@ const description = async ( msg ) => {
 	embed.setTimestamp();
 	embed.setTitle( 'SOPORTE | ColdBot' );
 
-	embed.setDescription( '`Reacciona con un 📩, para abrir un Ticket.`\n\nRecuerden que solo Puede Haber un Maximo de 1 Ticket abierto por persona.' );
+	embed.setDescription( '@everyone `Reacciona con un `📩`, para abrir un Ticket.`\n\nRecuerden que solo Puede Haber un Maximo de 1 Ticket abierto por persona.' );
 
 	return embed;
 };
