@@ -15,7 +15,7 @@ export default {
 		embed.setTitle( '**[CANAL EDITADO]**' );
 		embed.setColor( 'RED' );
 		if ( oldChannel.name === newChannel.name ) {
-			embed.setDescription( 'Se han editado los Permisos y Ajustes Generales' );
+			embed.setDescription( `Se han editado los Permisos y Ajustes Generales.\n\nCanal: ${newChannel.name}` );
 		} else {
 			embed.setDescription( `\nNombre anterior: **${oldChannel.name}**\nNuevo nombre: **${newChannel.name}**\nCanal ID: **${oldChannel.id}**\n` );
 		}
