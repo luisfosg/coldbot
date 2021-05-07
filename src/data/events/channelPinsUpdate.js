@@ -1,6 +1,6 @@
 import { MessageEmbed } from 'discord.js';
 
-import { sendLog } from '../web/logshook';
+import { sendLog } from '../web/hooks';
 
 export default {
 	req: {

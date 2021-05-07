@@ -1,4 +1,4 @@
-import { sendWelcome } from '../web/welcomehook';
+import { sendWelcome } from '../web/hooks';
 
 export default {
 	req: {

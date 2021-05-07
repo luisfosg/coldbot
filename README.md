@@ -31,3 +31,7 @@ npm run dev
 - WEBHOOKLOGS
 
 > Webhook de discord para enviar los logs
+
+- IDSERVER
+
+> Id del servidor (Por Ahora funciona asi para enviar los mensajes de Bienvenida/Despedida).

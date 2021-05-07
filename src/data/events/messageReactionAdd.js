@@ -6,8 +6,11 @@ export default {
 		once: false,
 		enable: true,
 	},
-	run: async ( _client, reaction, user ) => {
+	run: async ( client, reaction, user ) => {
 		if ( user.bot ) return;
+
+		const isticket = client.commands.get( 'ticket setup' );
+		if ( !isticket ) return;
 
 		const msgId = await getMsgTicket( reaction.message );
 
