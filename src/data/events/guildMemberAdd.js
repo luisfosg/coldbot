@@ -10,9 +10,9 @@ const zeewWelcome = async ( member, token ) => {
 	wlc.token( token );
 	wlc.estilo( 'classic' );
 	wlc.avatar( member.user.displayAvatarURL( { format: 'png' } ) );
-	wlc.fondo( 'https://i.imgur.com/mNzTrxn.png' );
+	wlc.fondo( 'https://i.imgur.com/LN6Tsu8.png' );
 	wlc.colorTit( '#FFF' );
-	wlc.titulo( `Bienvenido ${ member.displayName }` );
+	wlc.titulo( `Bienvenid@ ${ member.displayName }` );
 	wlc.colorDesc( '#FFF' );
 	wlc.descripcion( `Al Servidor ${ member.guild.name }` );
 
@@ -41,7 +41,7 @@ export default {
 
 			embed.setTitle( '**[Nuevo Miembro]**' );
 			embed.setColor( 'RED' );
-			embed.setDescription( `${ member } a entrado al Servidor ${member.guild.name}.` );
+			embed.setDescription( `${ member } ha entrado al Servidor ${member.guild.name}.` );
 			embed.setTimestamp();
 			embed.setFooter( member.guild.name, member.guild.iconURL() );
 
