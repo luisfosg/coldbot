@@ -1,26 +1,8 @@
-import { MessageEmbed, MessageAttachment } from 'discord.js';
-import Zeew from 'zeew';
+import { MessageEmbed } from 'discord.js';
 
+import { zeewWelcome } from '../functions/zeewImages';
 import { sendLog, sendWelcome } from '../web/hooks';
 import { getLogin } from '../util';
-
-const zeewWelcome = async ( member, token ) => {
-	const wlc = new Zeew.Bienvenida();
-
-	wlc.token( token );
-	wlc.estilo( 'classic' );
-	wlc.avatar( member.user.displayAvatarURL( { format: 'png' } ) );
-	wlc.fondo( 'https://i.imgur.com/LN6Tsu8.png' );
-	wlc.colorTit( '#FFF' );
-	wlc.titulo( `Bienvenid@ ${ member.displayName }` );
-	wlc.colorDesc( '#FFF' );
-	wlc.descripcion( `Al Servidor ${ member.guild.name }` );
-
-	const img = await Zeew.WelcomeZeew( wlc );
-	const att = new MessageAttachment( img, 'zeewapi-img.gif' );
-
-	sendWelcome( att );
-};
 
 const welcomeNormal = ( member ) => {
 	const message = `Bienvenido ${ member } al Servidor ${ member.guild.name }!!`;

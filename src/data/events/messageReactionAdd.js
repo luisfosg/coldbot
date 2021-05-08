@@ -9,8 +9,7 @@ export default {
 	run: async ( client, reaction, user ) => {
 		if ( user.bot ) return;
 
-		const isticket = client.commands.get( 'ticket setup' );
-		if ( !isticket ) return;
+		if ( !client.commands.get( 'ticket setup' ) ) return;
 
 		const msgId = await getMsgTicket( reaction.message );
 

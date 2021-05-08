@@ -12,7 +12,7 @@ export default {
 
 		const embed = new MessageEmbed();
 
-		embed.setTitle( '**[CANAL EDITADO]**' );
+		embed.setTitle( '**[Canal Editado]**' );
 		embed.setColor( 'RED' );
 		if ( oldChannel.name === newChannel.name ) {
 			embed.setDescription( `Se han editado los Permisos y Ajustes Generales.\n\nCanal: ${newChannel.name}` );
