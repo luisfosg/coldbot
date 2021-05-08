@@ -1,6 +1,6 @@
 import { MessageEmbed } from 'discord.js';
 
-import { sendMsg, getUserWithId } from '../util';
+import { sendMsg, getUserWithId } from '../../util';
 
 const profile = async ( msg, user ) => {
 	const embed = new MessageEmbed();

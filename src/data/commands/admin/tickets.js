@@ -1,6 +1,6 @@
 import { MessageEmbed } from 'discord.js';
 
-import { getMsgTicket, setMsgTicket } from '../../db/ticket';
+import { getMsgTicket, setMsgTicket } from '../../../db/ticket';
 
 const descriptionTicket = async ( channel, user ) => {
 	const embed = new MessageEmbed();

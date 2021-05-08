@@ -1,6 +1,6 @@
-import { sendMsg } from '../util';
+import { sendMsg } from '../../util';
 
-import { getSplit, setSplit } from '../../db/splitString';
+import { getSplit, setSplit } from '../../../db/splitString';
 
 export default {
 	name: 'split',

@@ -1,6 +1,6 @@
 /* eslint-disable no-continue */
 import Discord from 'discord.js';
-import fs from 'fs';
+import { readdirSync } from 'fs';
 import path from 'path';
 
 import './configServer';
@@ -10,27 +10,26 @@ import { getLogin } from './data/util';
 const importCommands = async ( client ) => {
 	client.commands = new Discord.Collection();
 
-	const commandFiles = fs.readdirSync( path.join( __dirname, 'data/commands' ) ).filter( ( file ) => file.endsWith( '.js' ) );
-	for ( const file of commandFiles ) {
-		const command = await import( `./data/commands/${file}` );
+	for ( const subfolder of readdirSync( path.join( __dirname, 'data/commands' ) ) ) {
+		for ( const commandFile of readdirSync( path.join( __dirname, `data/commands/${ subfolder }` ) ) ) {
+			const command = await import( `./data/commands/${ subfolder }/${ commandFile }` );
 
-		if ( !command.default.req.enable ) continue;
-
-		client.commands.set( command.default.name, command.default );
+			if ( !command.default.req.enable ) continue;
+			client.commands.set( command.default.name, command.default );
+		}
 	}
 };
 
 const importEvents = async ( client ) => {
-	const eventFiles = fs.readdirSync( path.join( __dirname, 'data/events' ) ).filter( ( file ) => file.endsWith( '.js' ) );
-	for ( const file of eventFiles ) {
-		const contentsFile = await import( `./data/events/${file}` );
+	for ( const eventFile of readdirSync( path.join( __dirname, 'data/events' ) ) ) {
+		const contentsFile = await import( `./data/events/${ eventFile }` );
 
 		if ( !contentsFile.default.req.enable ) continue;
 
 		const { once } = contentsFile.default.req;
 		client[once ? 'once' : 'on']( contentsFile.default.name, contentsFile.default.run.bind( null, client ) );
 
-		delete require.cache[require.resolve( `./data/events/${file}` )];
+		delete require.cache[require.resolve( `./data/events/${eventFile}` )];
 	}
 };
 

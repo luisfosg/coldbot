@@ -1,7 +1,7 @@
-import { sendMsg } from '../util';
-import { splDes } from '../configDiscord';
+import { sendMsg } from '../../util';
+import { splDes } from '../../configDiscord';
 
-import { setPrefix } from '../../db/prefix';
+import { setPrefix } from '../../../db/prefix';
 
 export default {
 	name: 'prefix',

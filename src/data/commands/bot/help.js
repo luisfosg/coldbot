@@ -1,6 +1,6 @@
 import { MessageEmbed } from 'discord.js';
 
-import { sendMsg } from '../util';
+import { sendMsg } from '../../util';
 
 const commandMessage = async ( client, msg ) => {
 	const embed = new MessageEmbed();
