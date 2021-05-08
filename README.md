@@ -35,3 +35,9 @@ npm run dev
 - IDSERVER
 
 > Id del servidor (Por Ahora funciona asi para enviar los mensajes de Bienvenida/Despedida).
+
+- ZEEW
+
+> Si Tienes Token de [Zeew][enlacezeew] y quieres usar sus mensajes de Bienvenida, Usa esta Variable ;)
+
+[enlacezeew]: https://www.npmjs.com/package/zeew

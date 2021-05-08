@@ -3,6 +3,11 @@ import { MessageEmbed } from 'discord.js';
 import { sendLog, sendWelcome } from '../web/hooks';
 import { getLogin } from '../util';
 
+const goodbyeNormal = ( member ) => {
+	const message = `Hasta Luego ${ member } B)`;
+	sendWelcome( message );
+};
+
 export default {
 	req: {
 		once: false,
@@ -22,8 +27,5 @@ export default {
 
 			return sendLog( embed );
 		}
-
-		const message = `Hasta Luego ${ member } B)`;
-		sendWelcome( message );
 	},
 };
