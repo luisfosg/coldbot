@@ -5,6 +5,7 @@ import { getSplit, setSplit } from '../../../db/splitString';
 export default {
 	name: 'split',
 	alias: ['spl', 'string'],
+	category: 'bot',
 	description: '',
 	req: {
 		args: 2,

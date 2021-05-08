@@ -39,6 +39,7 @@ const helpMessage = async ( client ) => {
 export default {
 	name: 'help',
 	alias: ['h'],
+	category: 'bot',
 	description: 'No requiere parametros',
 	req: {
 		args: 0,

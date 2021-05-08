@@ -6,6 +6,7 @@ import { setPrefix } from '../../../db/prefix';
 export default {
 	name: 'prefix',
 	alias: ['pref'],
+	category: 'bot',
 	description: `${splDes()}*nuevo prefix*${splDes()}`,
 	req: {
 		args: 1,

@@ -23,6 +23,7 @@ const profile = async ( msg, user ) => {
 export default {
 	name: 'profile',
 	alias: ['prf'],
+	category: 'general',
 	description: 'No requiere parametros',
 	req: {
 		args: 0,

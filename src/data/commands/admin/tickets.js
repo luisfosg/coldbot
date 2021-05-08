@@ -85,6 +85,7 @@ const deleteDescription = async ( msg ) => {
 export default {
 	name: 'ticket setup',
 	alias: ['ticket'],
+	category: 'admin',
 	description: 'No requiere parametros',
 	req: {
 		args: 0,
