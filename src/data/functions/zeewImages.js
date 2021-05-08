@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { MessageAttachment } from 'discord.js';
 import Zeew from 'zeew';
 
@@ -15,9 +16,10 @@ export const zeewWelcome = async ( member, token ) => {
 	wlc.colorDesc( '#FFF' );
 	wlc.descripcion( `Al Servidor ${ member.guild.name }` );
 
-	const img = await Zeew.WelcomeZeew( wlc ).catch( () => {} );
+	const img = await Zeew.WelcomeZeew( wlc ).catch( () => { console.log( '*Error en Zeew*' ); } );
 	const att = new MessageAttachment( img, 'zeewapi-img.gif' );
 
+	sendWelcome( `Bienvenid@ ${ member }` );
 	sendWelcome( att );
 };
 
@@ -33,7 +35,7 @@ export const zeewGoodbye = async ( member, token ) => {
 	wlc.colorDesc( '#FFF' );
 	wlc.descripcion( '!Hasta Luego¡' );
 
-	const img = await Zeew.WelcomeZeew( wlc ).catch( () => {} );
+	const img = await Zeew.WelcomeZeew( wlc ).catch( () => { console.log( '*Error en Zeew*' ); } );
 	const att = new MessageAttachment( img, 'zeewapi-img.gif' );
 
 	sendWelcome( att );

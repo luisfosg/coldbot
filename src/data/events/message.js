@@ -58,6 +58,7 @@ const mentionBot = async ( client, msg ) => {
 };
 
 export default {
+	name: 'message',
 	req: {
 		once: false,
 		enable: true,

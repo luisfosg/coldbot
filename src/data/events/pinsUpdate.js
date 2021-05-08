@@ -3,6 +3,7 @@ import { MessageEmbed } from 'discord.js';
 import { sendLog } from '../web/hooks';
 
 export default {
+	name: 'channelPinsUpdate',
 	req: {
 		once: false,
 		enable: true,

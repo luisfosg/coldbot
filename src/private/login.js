@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { WebhookClient } from 'discord.js';
 
 export const password = process.env.PASSWORD;

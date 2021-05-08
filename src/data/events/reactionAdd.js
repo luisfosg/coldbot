@@ -2,6 +2,7 @@ import { getMsgTicket } from '../../db/ticket';
 import { createTicket } from '../commands/tickets';
 
 export default {
+	name: 'messageReactionAdd',
 	req: {
 		once: false,
 		enable: true,

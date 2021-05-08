@@ -10,6 +10,7 @@ const welcomeNormal = ( member ) => {
 };
 
 export default {
+	name: 'guildMemberAdd',
 	req: {
 		once: false,
 		enable: true,

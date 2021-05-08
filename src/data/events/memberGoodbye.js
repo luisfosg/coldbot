@@ -10,6 +10,7 @@ const goodbyeNormal = ( member ) => {
 };
 
 export default {
+	name: 'guildMemberRemove',
 	req: {
 		once: false,
 		enable: true,

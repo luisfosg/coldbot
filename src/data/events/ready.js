@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 export default {
+	name: 'ready',
 	req: {
 		once: true,
 		enable: true,
