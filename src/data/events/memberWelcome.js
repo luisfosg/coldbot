@@ -18,7 +18,6 @@ export default {
 	run: async ( _client, member ) => {
 		const login = await getLogin();
 
-		/* Se verifica si se hace un Log, o se envia la Bienvenida */
 		if ( member.guild.id !== login.idServer ) {
 			const embed = new MessageEmbed();
 
@@ -32,6 +31,7 @@ export default {
 		}
 
 		if ( login.zeewToken ) {
+			member.send( `${member} Holaaa, Bienvenid@ a ${member.guild.name}.` );
 			zeewWelcome( member, login.zeewToken );
 		} else {
 			welcomeNormal( member );
