@@ -48,6 +48,7 @@ export default {
 	name: 'profile',
 	alias: ['prf'],
 	category: 'general',
+	usage: '',
 	description: 'No requiere parametros',
 	req: {
 		args: 0,

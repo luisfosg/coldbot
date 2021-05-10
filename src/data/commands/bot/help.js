@@ -43,6 +43,7 @@ export default {
 	name: 'help',
 	alias: ['h'],
 	category: 'bot',
+	usage: '',
 	description: 'No requiere parametros',
 	req: {
 		args: 0,
@@ -51,8 +52,10 @@ export default {
 		visible: false,
 		permissions: [],
 	},
-	run: async ( client, msg, _args ) => {
+	run: async ( client, msg, args ) => {
 		let embed;
+
+		if ( args[0] ) return sendMsg( msg, args[0] );
 
 		embed = await helpMessage( client );
 		sendMsg( msg, embed );

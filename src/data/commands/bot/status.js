@@ -2,6 +2,7 @@ export default {
 	name: 'status',
 	alias: ['st'],
 	category: 'bot',
+	usage: '',
 	description: 'Comando de Uso exclusivo del dueño del bot',
 	req: {
 		args: 4,

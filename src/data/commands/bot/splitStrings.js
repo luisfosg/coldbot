@@ -6,6 +6,7 @@ export default {
 	name: 'split',
 	alias: ['spl', 'string'],
 	category: 'bot',
+	usage: '',
 	description: '',
 	req: {
 		args: 2,

@@ -7,6 +7,7 @@ export default {
 	name: 'prefix',
 	alias: ['pref'],
 	category: 'bot',
+	usage: '',
 	description: `${splDes()}*nuevo prefix*${splDes()}`,
 	req: {
 		args: 1,
