@@ -9,6 +9,7 @@ export default {
 	description: '',
 	req: {
 		args: 2,
+		dm: false,
 		enable: true,
 		visible: true,
 		permissions: ['ADMINISTRATOR'],

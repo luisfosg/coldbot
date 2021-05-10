@@ -3,12 +3,15 @@ import { sendMsg, getConfig } from '../util';
 import { getPrefix } from '../../db/prefix';
 import { getSplit } from '../../db/splitString';
 
-import { checkArgs, divideArgs } from '../functions/checkArgs';
+import { checkArgs, checkMd, divideArgs } from '../functions/checkArgs';
 import { checkPermissions } from '../functions/checkPermissions';
 
 const checkCommand = async ( client, msg, CMD, args ) => {
 	const config = await getConfig();
 	const commandFind = client.commands.get( CMD );
+
+	const isMd = checkMd( commandFind.req.dm, msg.channel.type );
+	if ( !isMd ) return msg.reply( 'El Comando no se puede usar en  MD (dm)' );
 
 	const isPermitValid = await checkPermissions( msg, commandFind.req.permissions );
 	if ( !isPermitValid ) return msg.reply( 'No Posee los Permisos Necesarios.' );

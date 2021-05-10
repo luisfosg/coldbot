@@ -10,7 +10,10 @@ const commandMessage = async ( client, msg ) => {
 	embed.setAuthor( msg.author.username, msg.author.avatarURL() );
 	embed.setTimestamp( Date.now() );
 
+	const isdm = msg.channel.type;
+
 	client.commands.map( ( c ) => {
+		if ( ( isdm === 'dm' ) && !c.req.dm ) return false;
 		if ( c.req.visible ) {
 			return embed.addField(
 				`${ client.prefix } ${ c.name }`,
@@ -43,6 +46,7 @@ export default {
 	description: 'No requiere parametros',
 	req: {
 		args: 0,
+		dm: true,
 		enable: true,
 		visible: false,
 		permissions: [],
@@ -56,6 +60,6 @@ export default {
 		embed = await commandMessage( client, msg );
 		sendMsg( msg, embed );
 
-		msg.delete();
+		msg.delete().catch( () => {} );
 	},
 };

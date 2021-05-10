@@ -51,6 +51,7 @@ export default {
 	description: 'No requiere parametros',
 	req: {
 		args: 0,
+		dm: false,
 		enable: true,
 		visible: true,
 		permissions: [],

@@ -10,6 +10,7 @@ export default {
 	description: `${splDes()}*nuevo prefix*${splDes()}`,
 	req: {
 		args: 1,
+		dm: false,
 		enable: true,
 		visible: true,
 		permissions: ['ADMINISTRATOR'],

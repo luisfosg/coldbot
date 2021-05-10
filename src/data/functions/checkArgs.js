@@ -3,6 +3,11 @@ export const checkArgs = async ( argsDefault, args ) => {
 	return false;
 };
 
+export const checkMd = ( reqMd, type ) => {
+	if ( !reqMd && ( type === 'dm' ) ) return false;
+	return true;
+};
+
 export const divideArgs = async ( client, string, prefix ) => {
 	let args;
 
