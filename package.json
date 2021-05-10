@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/LuisFOsG/Cold-Bot#readme",
   "dependencies": {
+    "canvas": "^2.7.0",
     "core-js": "3.10.1",
     "cross-env": "7.0.3",
     "discord.js": "12.5.0",

@@ -1,23 +1,13 @@
-import { MessageEmbed } from 'discord.js';
+import { MessageAttachment } from 'discord.js';
 
+import { roundImage } from '../../functions/imageRound';
 import { sendMsg, getUserWithId } from '../../util';
 
 const profile = async ( msg, user ) => {
-	const embed = new MessageEmbed();
+	const image = await roundImage( user.displayAvatarURL( { format: 'png' } ), 150, 150 );
+	const att = new MessageAttachment( image.toBuffer(), 'avatar.png' );
 
-	embed.setColor( '#000000' );
-	embed.setImage( user.displayAvatarURL() );
-	embed.setAuthor( msg.member.user.username, msg.member.user.displayAvatarURL() );
-	embed.setTitle( `${ user.username }#${ user.discriminator }` );
-	embed.setTimestamp( Date.now() );
-
-	if ( user.bot ) {
-		embed.setFooter( 'Bot' );
-	} else {
-		embed.setFooter( 'Human' );
-	}
-
-	return embed;
+	sendMsg( msg, att );
 };
 
 export default {
@@ -40,9 +30,8 @@ export default {
 		if ( user === 'notFound' ) return sendMsg( msg, 'Usuario No Encontrado' );
 
 		const dataUser = user || msg.member;
-		const embed = await profile( msg, dataUser.user );
+		profile( msg, dataUser.user );
 
-		sendMsg( msg, embed );
 		msg.delete();
 	},
 };
