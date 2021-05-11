@@ -4,7 +4,7 @@
 
 ## 𝔻𝕖𝕤𝕔𝕣𝕚𝕡𝕔𝕚𝕠́𝕟
 
-Cold Bot esta creado con el objetivo de autoaprendizaje y por esta misma razón Cold Bot es Publico.
+Cold Bot ha sido creado por mero autoaprendizaje y por esta misma razón Cold Bot es Publico.
 
 Aún asi no vendria mal un respectivo credito <3
 
@@ -47,6 +47,10 @@ npm run dev
 - IDSERVER
 
 > Id del servidor (Por Ahora funciona asi para enviar los mensajes de Bienvenida/Despedida).
+
+- DBNAME
+
+> Nombre de la base de datos, Opcional
 
 - ZEEW
 

@@ -1,5 +1,5 @@
 /* eslint-disable new-cap */
-import db from 'quick.db';
+import { db } from './configDb';
 
 import { getConfig } from '../data/util';
 

@@ -24,7 +24,7 @@
     "cross-env": "7.0.3",
     "discord.js": "12.5.0",
     "dotenv": "8.2.0",
-    "quick.db": "7.1.3",
+    "quick.db": "github:lorencerri/quick.db",
     "regenerator-runtime": "0.13.7",
     "zeew": "^0.1.11"
   },

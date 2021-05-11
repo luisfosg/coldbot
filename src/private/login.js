@@ -3,6 +3,7 @@ import { WebhookClient } from 'discord.js';
 export const password = process.env.PASSWORD;
 export const idServer = process.env.IDSERVER;
 export const zeewToken = process.env.ZEEW;
+export const dbName = process.env.DBNAME;
 
 const webhookLogs = process.env.WEBHOOKLOGS;
 const webhookWelcome = process.env.WEBHOOKWELCOME;
