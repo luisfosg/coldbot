@@ -2,48 +2,29 @@ import { MessageEmbed } from 'discord.js';
 
 import { sendMsg } from '../../util';
 
-const commandMessage = async ( client, msg ) => {
+const helpMessage = async ( client, msg ) => {
 	const embed = new MessageEmbed();
 
 	embed.setColor( '#E58249' );
-	embed.setThumbnail( client.user.avatarURL() );
-	embed.setTimestamp( Date.now() );
-	embed.setTitle( 'Lista de Comandos' );
-	embed.setAuthor( msg.author.username, msg.author.avatarURL() );
-
-	embed.setDescription(
-		`Para ver una descripción mas detallada del Comando use: \n\`${
-			client.splitStrings.status ? `${client.prefix}h ${client.splitStrings.value }` : `${client.prefix}h`
-		} <comando>\``
-	);
-
-	const isdm = msg.channel.type;
-
-	client.commands.map( ( c ) => {
-		if ( ( isdm === 'dm' ) && !c.req.dm ) return false;
-		if ( c.req.visible ) {
-			return embed.addField(
-				`${ client.prefix } ${ c.name }`,
-				'------------------------------'
-			);
-		}
-		return false;
-	} );
-
-	return embed;
-};
-
-const helpMessage = async ( client ) => {
-	const embed = new MessageEmbed();
-
-	embed.setColor( '#E58249' );
+	embed.setAuthor( client.user.username, client.user.avatarURL() );
 	embed.setDescription(
 		`Hola, El prefix es \`${ client.prefix }\` ${
 			client.splitStrings.status ? `, y el separador de argumentos es \`${ client.splitStrings.value }\`` : ''
-		}`
+		}
+		\n:small_blue_diamond:Para ver los comandos usa el comando \`cmd\`
+		:small_blue_diamond:Para ver una descripción mas detallada del Comando use: \`${client.splitStrings.status ? `${client.prefix}h ${client.splitStrings.value }` : `${client.prefix}h`} <comando>\`
+		`
 	);
 
-	return embed;
+	embed.addField(
+		'Links',
+		`
+		:snowflake: [Servidor de Soporte](https://discord.gg/y6jrugZUxe)
+		:snowflake: [Invitame a tu servidor](https://discord.com/api/oauth2/authorize?client_id=754052349764304937&permissions=8&scope=bot)
+		`
+	);
+
+	sendMsg( msg, embed );
 };
 
 const helpCommand = async ( client, msg, commandArg ) => {
@@ -86,19 +67,15 @@ export default {
 		args: 0,
 		dm: true,
 		enable: true,
-		visible: false,
+		visible: true,
 		permissions: [],
 	},
 	run: async ( client, msg, args ) => {
-		let embed;
-
-		if ( args[0] ) return helpCommand( client, msg, args[0] );
-
-		embed = await helpMessage( client );
-		sendMsg( msg, embed );
-
-		embed = await commandMessage( client, msg );
-		sendMsg( msg, embed );
+		if ( args[0] ) {
+			helpCommand( client, msg, args[0] );
+		} else {
+			await helpMessage( client, msg );
+		}
 
 		msg.delete().catch( () => {} );
 	},
