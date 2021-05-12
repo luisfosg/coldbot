@@ -10,15 +10,15 @@ export default {
 		enable: true,
 	},
 	run: async ( client ) => {
-		console.log( await getLanguageUtil( client, language ) );
+		const lang = await getLanguageUtil( client, language );
 		/* ================= */
-		console.log( `\n Bot listo como: ${ client.user.tag }! \n` );
-		console.log( `Numero de Servidores: ${client.guilds.cache.size} ` );
-		console.log( `Numero de Usuarios: ${client.users.cache.size} \n` );
+		console.log( `\n ${ lang.ready.bot }${ client.user.tag }! \n` );
+		console.log( `${ lang.ready.servers }${client.guilds.cache.size} ` );
+		console.log( `${ lang.ready.users }${client.users.cache.size} \n` );
 
 		client.user.setPresence( {
 			activity: {
-				name: `Cold Bot esta en ${ client.guilds.cache.size } servidores. Vamo a por mas.`,
+				name: `${ lang.ready.acti1 }${ client.guilds.cache.size }${ lang.ready.acti2 }`,
 				url: 'https://www.youtube.com/watch?v=XlgqZeeoOtI',
 				type: 'STREAMING'
 			},

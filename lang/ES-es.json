@@ -1,3 +1,9 @@
 {
-	"es": "es"
+	"ready": {
+		"bot": "Bot listo como: ",
+		"servers": "Numero de Servidores: ",
+		"users": "Numero de Usuarios: ",
+		"acti1": "Cold Bot esta en ",
+		"acti2": " servidores. Vamo a por mas."
+	}
 }
