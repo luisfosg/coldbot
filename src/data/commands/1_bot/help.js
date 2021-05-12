@@ -11,7 +11,7 @@ const helpMessage = async ( client, msg ) => {
 		`Hola, El prefix es \`${ client.prefix }\` ${
 			client.splitStrings.status ? `, y el separador de argumentos es \`${ client.splitStrings.value }\`` : ''
 		}
-		\n:small_blue_diamond:Para ver los comandos usa el comando \`cmd\`
+		\n:small_blue_diamond:Para ver los comandos usa el comando \`cmds\`
 		:small_blue_diamond:Para ver una descripción mas detallada del Comando use: \`${client.splitStrings.status ? `${client.prefix}h ${client.splitStrings.value }` : `${client.prefix}h`} <comando>\`
 		`
 	);
@@ -62,7 +62,7 @@ export default {
 	alias: ['h'],
 	category: 'bot',
 	usage: '',
-	description: 'No requiere parametros',
+	description: '',
 	req: {
 		args: 0,
 		dm: true,

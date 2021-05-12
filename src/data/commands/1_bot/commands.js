@@ -59,7 +59,7 @@ export default {
 		args: 0,
 		dm: true,
 		enable: true,
-		visible: false,
+		visible: true,
 		permissions: [],
 	},
 	run: async ( client, msg, _args ) => {

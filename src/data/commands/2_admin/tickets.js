@@ -87,7 +87,7 @@ export default {
 	alias: ['ticket'],
 	category: 'admin',
 	usage: '',
-	description: 'No requiere parametros',
+	description: '',
 	req: {
 		args: 0,
 		dm: false,

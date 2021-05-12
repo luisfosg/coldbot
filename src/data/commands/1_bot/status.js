@@ -3,7 +3,7 @@ export default {
 	alias: ['st'],
 	category: 'bot',
 	usage: '',
-	description: 'Comando de Uso exclusivo del dueño del bot',
+	description: '',
 	req: {
 		args: 4,
 		dm: true,

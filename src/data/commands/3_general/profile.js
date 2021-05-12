@@ -49,7 +49,7 @@ export default {
 	alias: ['prf'],
 	category: 'general',
 	usage: '',
-	description: 'No requiere parametros',
+	description: '',
 	req: {
 		args: 0,
 		dm: false,

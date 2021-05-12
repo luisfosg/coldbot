@@ -25,7 +25,7 @@ export default {
 	alias: ['momo', 'mm'],
 	category: 'beta',
 	usage: '',
-	description: 'Si Requiere parametros, nmms',
+	description: '',
 	req: {
 		args: 2,
 		dm: true,

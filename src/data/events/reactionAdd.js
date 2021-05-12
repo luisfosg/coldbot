@@ -1,5 +1,5 @@
 import { getMsgTicket } from '../../db/ticket';
-import { createTicket } from '../commands/admin/tickets';
+import { createTicket } from '../commands/2_admin/tickets';
 
 export default {
 	name: 'messageReactionAdd',

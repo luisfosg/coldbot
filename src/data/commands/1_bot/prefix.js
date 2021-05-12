@@ -1,5 +1,4 @@
 import { sendMsg } from '../../util';
-import { splDes } from '../../configDiscord';
 
 import { setPrefix } from '../../../db/prefix';
 
@@ -8,7 +7,7 @@ export default {
 	alias: ['pref'],
 	category: 'bot',
 	usage: '',
-	description: `${splDes()}*nuevo prefix*${splDes()}`,
+	description: '',
 	req: {
 		args: 1,
 		dm: false,
