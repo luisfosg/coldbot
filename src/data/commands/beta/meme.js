@@ -23,7 +23,7 @@ const loadMeme = async ( msg, image, txt, color ) => {
 export default {
 	name: 'meme',
 	alias: ['momo', 'mm'],
-	category: 'general',
+	category: 'beta',
 	usage: '',
 	description: 'Si Requiere parametros, nmms',
 	req: {

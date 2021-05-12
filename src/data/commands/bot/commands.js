@@ -2,26 +2,48 @@ import { MessageEmbed } from 'discord.js';
 
 import { sendMsg } from '../../util';
 
+const printCategory = ( client, msg, embed, category ) => {
+	const isdm = msg.channel.type;
+	const commands = client.commands.filter( ( cmd ) => {
+		if ( cmd.category === category ) {
+			if ( ( isdm === 'dm' ) && !cmd.req.dm ) return false;
+			if ( cmd.req.visible ) {
+				return true;
+			}
+		}
+		return false;
+	} );
+
+	const nameCategory = category.charAt( 0 ).toUpperCase() + category.slice( 1 );
+
+	if ( commands.size > 0 ) {
+		embed.addField(
+			`:snowflake: ${ nameCategory } [${commands.size}]:`, commands.map( ( cmd ) => `\`${ cmd.name }\`` ).join( ' | ' )
+		);
+	}
+};
+
 const commandMessage = async ( client, msg ) => {
+	const categories = [];
 	const embed = new MessageEmbed();
 
 	embed.setColor( '#E58249' );
 	embed.setThumbnail( client.user.avatarURL() );
-	embed.setTimestamp( Date.now() );
-	embed.setTitle( 'Lista de Comandos' );
 	embed.setAuthor( msg.author.username, msg.author.avatarURL() );
+	embed.setTimestamp( Date.now() );
+	embed.setTitle( '> Lista de Comandos' );
 
-	const isdm = msg.channel.type;
+	embed.setDescription( `Comandos: \`${ client.commands.size }\`` );
+	embed.setFooter( '¿El numero de comandos no cuadra con la lista? !Hay Comandos Ocultos¡' );
 
-	client.commands.map( ( c ) => {
-		if ( ( isdm === 'dm' ) && !c.req.dm ) return false;
-		if ( c.req.visible ) {
-			return embed.addField(
-				`${ client.prefix } ${ c.name }`,
-				'------------------------------'
-			);
+	client.commands.forEach( ( c ) => {
+		if ( !categories.includes( c.category ) ) {
+			categories.push( c.category );
 		}
-		return false;
+	} );
+
+	categories.forEach( ( category ) => {
+		printCategory( client, msg, embed, category );
 	} );
 
 	sendMsg( msg, embed );
@@ -29,7 +51,7 @@ const commandMessage = async ( client, msg ) => {
 
 export default {
 	name: 'commands',
-	alias: ['cmd'],
+	alias: ['cmd', 'cmds'],
 	category: 'bot',
 	usage: '',
 	description: '',

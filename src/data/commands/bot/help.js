@@ -40,7 +40,7 @@ const helpCommand = async ( client, msg, commandArg ) => {
 		return sendMsg( msg, embed );
 	}
 
-	embed.setFooter( `Categoria: ${ command.category }` );
+	embed.setFooter( `Categoria: ${ command.category }`, msg.author.avatarURL() );
 	embed.setThumbnail( client.user.avatarURL() );
 	embed.setTitle( `\`Comando: ${ command.name }\`` );
 	embed.addField( 'Alias', `${command.alias.map( ( a ) => ` \`${ a }\`` )}` );
