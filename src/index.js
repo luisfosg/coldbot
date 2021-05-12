@@ -7,6 +7,16 @@ import './configServer';
 
 import { getLogin } from './data/util';
 
+const importLanguages = async ( client ) => {
+	client.languages = new Discord.Collection();
+
+	for ( const languageFile of readdirSync( path.join( __dirname, '../lang' ) ) ) {
+		const languageArray = languageFile.split( '-' );
+		const language = await import( `../lang/${ languageFile }` );
+		client.languages.set( languageArray[0], language.default );
+	}
+};
+
 const importCommands = async ( client ) => {
 	client.commands = new Discord.Collection();
 
@@ -38,6 +48,7 @@ const start = async () => {
 
 	const client = new Discord.Client( { disableEveryone: false } );
 
+	importLanguages( client );
 	importCommands( client );
 	importEvents( client );
 

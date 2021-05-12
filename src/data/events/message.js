@@ -22,7 +22,7 @@ const checkCommand = async ( client, msg, CMD, args ) => {
 	try {
 		commandFind.run( client, msg, args );
 	} catch ( e ) {
-		msg.reply( `A Ocurrido un Error Contacta al Administrador: \`${ config.devs[0] }\`` );
+		msg.reply( `A Ocurrido un Error Contacta al Administrador: <@${ config.devs[0] }>` );
 	}
 };
 

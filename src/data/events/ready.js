@@ -1,4 +1,8 @@
 /* eslint-disable no-console */
+import { language } from '../configDiscord';
+
+import { getLanguageUtil } from '../util';
+
 export default {
 	name: 'ready',
 	req: {
@@ -6,6 +10,8 @@ export default {
 		enable: true,
 	},
 	run: async ( client ) => {
+		console.log( await getLanguageUtil( client, language ) );
+		/* ================= */
 		console.log( `\n Bot listo como: ${ client.user.tag }! \n` );
 		console.log( `Numero de Servidores: ${client.guilds.cache.size} ` );
 		console.log( `Numero de Usuarios: ${client.users.cache.size} \n` );

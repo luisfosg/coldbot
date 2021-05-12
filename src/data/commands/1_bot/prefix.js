@@ -3,8 +3,8 @@ import { sendMsg } from '../../util';
 import { setPrefix } from '../../../db/prefix';
 
 export default {
-	name: 'prefix',
-	alias: ['pref'],
+	name: 'setprefix',
+	alias: ['prefix', 'pref'],
 	category: 'bot',
 	usage: '',
 	description: '',
