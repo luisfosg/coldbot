@@ -1,9 +1,9 @@
 {
+	"language": "Español",
 	"ready": {
-		"bot": "Bot listo como: ",
-		"servers": "Numero de Servidores: ",
-		"users": "Numero de Usuarios: ",
-		"acti1": "Cold Bot esta en ",
-		"acti2": " servidores. Vamo a por mas."
+		"bot": "Bot listo como: {{ nameBot }}",
+		"servers": "Numero de Servidores: {{ servers }}",
+		"users": "Numero de Usuarios: {{ users }}",
+		"actiName": "Cold Bot esta en {{ servers }} servidores. Vamo a por mas."
 	}
 }

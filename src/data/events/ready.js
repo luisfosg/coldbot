@@ -12,13 +12,38 @@ export default {
 	run: async ( client ) => {
 		const lang = await getLanguageUtil( client, language );
 		/* ================= */
-		console.log( `\n ${ lang.ready.bot }${ client.user.tag }! \n` );
-		console.log( `${ lang.ready.servers }${client.guilds.cache.size} ` );
-		console.log( `${ lang.ready.users }${client.users.cache.size} \n` );
+
+		console.log(
+			`\n ${ lang.ready.bot.replace(
+				'{{ nameBot }}',
+				client.user.tag
+			) }! \n`
+		);
+
+		console.log(
+			`${ lang.ready.servers.replace(
+				'{{ servers }}',
+				client.guilds.cache.size
+			) }`
+		);
+
+		console.log(
+			`${ lang.ready.users.replace(
+				'{{ users }}',
+				client.users.cache.size
+			) }\n`
+		);
+
+		/* =========Server Presence======== */
+
+		const name = lang.ready.actiName.replace(
+			'{{ servers }}',
+			client.guilds.cache.size
+		);
 
 		client.user.setPresence( {
 			activity: {
-				name: `${ lang.ready.acti1 }${ client.guilds.cache.size }${ lang.ready.acti2 }`,
+				name,
 				url: 'https://www.youtube.com/watch?v=XlgqZeeoOtI',
 				type: 'STREAMING'
 			},
