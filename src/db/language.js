@@ -11,7 +11,7 @@ export const getLanguage = async ( msg ) => {
 	if ( !msg.guild ) return false;
 
 	if ( !dbLanguage.has( `${ msg.guild.id }` ) ) {
-		dbLanguage.set( `${ msg.guild.id }`, config.language );
+		dbLanguage.set( `${ msg.guild.id }`, config.language.toUpperCase() );
 	}
 	const language = dbLanguage.get( `${ msg.guild.id }` );
 

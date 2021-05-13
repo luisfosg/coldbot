@@ -24,7 +24,6 @@ const printCategory = ( client, msg, embed, category ) => {
 };
 
 const commandMessage = async ( client, msg ) => {
-	const categories = [];
 	const embed = new MessageEmbed();
 
 	embed.setColor( '#E58249' );
@@ -36,13 +35,7 @@ const commandMessage = async ( client, msg ) => {
 	embed.setDescription( `Comandos: \`${ client.commands.size }\`` );
 	embed.setFooter( '¿El numero de comandos no cuadra con la lista? !Hay Comandos Ocultos¡' );
 
-	client.commands.forEach( ( c ) => {
-		if ( !categories.includes( c.category ) ) {
-			categories.push( c.category );
-		}
-	} );
-
-	categories.forEach( ( category ) => {
+	client.categories.forEach( ( category ) => {
 		printCategory( client, msg, embed, category );
 	} );
 

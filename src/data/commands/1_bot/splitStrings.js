@@ -3,8 +3,8 @@ import { sendMsg } from '../../util';
 import { getSplit, setSplit } from '../../../db/splitString';
 
 export default {
-	name: 'split',
-	alias: ['spl', 'string'],
+	name: 'setsplit',
+	alias: ['split', 'string'],
 	category: 'bot',
 	usage: '',
 	description: '',

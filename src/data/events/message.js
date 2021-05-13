@@ -17,7 +17,7 @@ const checkCommand = async ( client, msg, CMD, args ) => {
 	if ( !isPermitValid ) return msg.reply( 'No Posee los Permisos Necesarios.' );
 
 	const isArgsValid = await checkArgs( commandFind.req.args, args.length );
-	if ( !isArgsValid ) return msg.reply( `Faltan Argumentos, Argumentos: ${ commandFind.description }` );
+	if ( !isArgsValid ) return msg.reply( `Faltan Argumentos, Uso del Comando: ${ commandFind.usage }` );
 
 	try {
 		commandFind.run( client, msg, args );
@@ -37,9 +37,7 @@ const mentionPrefix = async ( client, msg ) => {
 		}
 
 		if ( !client.commands.has( CMD ) ) {
-			if ( !client.splitStrings.status ) return sendMsg( msg, 'El Comando No Existe' );
-
-			return sendMsg( msg, `El Comando No Existe, recuerde usar \`${ client.splitStrings.value }\` para separar los argumentos.` );
+			return;
 		}
 
 		checkCommand( client, msg, CMD, args );

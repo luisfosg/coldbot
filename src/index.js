@@ -19,6 +19,7 @@ const importLanguages = async ( client ) => {
 
 const importCommands = async ( client ) => {
 	client.commands = new Discord.Collection();
+	client.categories = [];
 
 	for ( const subfolder of readdirSync( path.join( __dirname, 'data/commands' ) ) ) {
 		for ( const commandFile of readdirSync( path.join( __dirname, `data/commands/${ subfolder }` ) ) ) {
@@ -26,6 +27,10 @@ const importCommands = async ( client ) => {
 
 			if ( !command.default.req.enable ) continue;
 			client.commands.set( command.default.name, command.default );
+
+			if ( !client.categories.includes( command.default.category ) ) {
+				client.categories.push( command.default.category );
+			}
 		}
 	}
 };

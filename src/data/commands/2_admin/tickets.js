@@ -83,8 +83,8 @@ const deleteDescription = async ( msg ) => {
 };
 
 export default {
-	name: 'ticket setup',
-	alias: ['ticket'],
+	name: 'ticket',
+	alias: ['ticket-setup'],
 	category: 'admin',
 	usage: '',
 	description: '',
