@@ -2,6 +2,7 @@
 	"language": "Español",
 	"ready": {
 		"bot": "Bot listo como: {{ nameBot }}",
+		"events": "Eventos: {{ events }}",
 		"commands": "Numero de Comandos: {{ commands }}",
 		"servers": "Numero de Servidores: {{ servers }}",
 		"users": "Numero de Usuarios: {{ users }}",

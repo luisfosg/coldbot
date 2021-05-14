@@ -21,11 +21,21 @@ export default {
 		);
 
 		console.log(
+			`${ lang.ready.events.replace(
+				'{{ events }}',
+				client.eventCount
+			) }`
+		);
+		console.log(
 			`${ lang.ready.commands.replace(
 				'{{ commands }}',
 				client.commands.size
 			) }`
 		);
+
+		console.log( client.categories );
+
+		console.log( '======================' );
 
 		console.log(
 			`${ lang.ready.servers.replace(

@@ -2,6 +2,7 @@
 	"language": "English",
 	"ready": {
 		"bot": "Bot ready as: {{ nameBot }}",
+		"events": "Events: {{ events }}",
 		"commands": "Number of Commands: {{ commands }}",
 		"servers": "Number of Servers: {{ servers }}",
 		"users": "Number of Users: {{ users }}",

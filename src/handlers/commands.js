@@ -5,10 +5,10 @@ import { join } from 'path';
 import { Collection } from 'discord.js';
 import { readdirSync } from 'fs';
 
-const verifyStructure = ( table, command, commandFile ) => {
-	const attributes = ['name', 'alias', 'req', 'category', 'usage', 'description', 'run'];
-	const reqs = ['args', 'dm', 'enable', 'visible', 'permissions'];
+const attributes = ['name', 'alias', 'req', 'category', 'usage', 'description', 'run'];
+const reqs = ['args', 'dm', 'enable', 'visible', 'permissions'];
 
+const verifyStructure = ( table, command, commandFile ) => {
 	for ( const attribute of attributes ) {
 		if ( !command[attribute] ) {
 			table.addRow( commandFile, `❌ -> No tiene el atributo "${ attribute }"` );
