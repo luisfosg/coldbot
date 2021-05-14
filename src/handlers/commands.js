@@ -33,11 +33,20 @@ export const importCommands = async ( client ) => {
 	client.commands = new Collection();
 	client.categories = [];
 
-	const table = new Ascii( 'Commands' );
-	table.setHeading( 'Command', ' Load status' );
+	const table = new Ascii( 'Comandos' );
+	table.setHeading( 'Comando', 'Estado de Carga' );
 
 	for ( const subfolder of readdirSync( join( __dirname, '../data/commands' ) ) ) {
-		for ( const commandFile of readdirSync( join( __dirname, `../data/commands/${ subfolder }` ) ) ) {
+		let archs;
+		try {
+			archs = readdirSync( join( __dirname, `../data/commands/${ subfolder }` ) );
+		} catch ( error ) {
+			table.addRow( subfolder, '❌ -> No puedes Colocar un comando aqui.' );
+			archs = [];
+		}
+
+		for ( const commandFile of archs ) {
+			if ( !commandFile.includes( '.js' ) ) continue;
 			const command = await import( `../data/commands/${ subfolder }/${ commandFile }` );
 
 			const isValid = verifyStructure( table, command.default, commandFile );
@@ -50,7 +59,7 @@ export const importCommands = async ( client ) => {
 			}
 
 			if ( !command.default.req.visible ) {
-				table.addRow( commandFile, '⛔ -> Comando Oculto' );
+				table.addRow( commandFile, '⛔' );
 			} else {
 				table.addRow( commandFile, '✅' );
 			}
