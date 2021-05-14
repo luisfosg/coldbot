@@ -19,14 +19,15 @@
   },
   "homepage": "https://github.com/LuisFOsG/Cold-Bot#readme",
   "dependencies": {
-    "canvas": "^2.7.0",
+    "ascii-table": "0.0.9",
+    "canvas": "2.7.0",
     "core-js": "3.10.1",
     "cross-env": "7.0.3",
     "discord.js": "12.5.0",
     "dotenv": "8.2.0",
     "quick.db": "github:lorencerri/quick.db",
     "regenerator-runtime": "0.13.7",
-    "zeew": "^0.1.11"
+    "zeew": "0.1.11"
   },
   "devDependencies": {
     "@babel/cli": "7.13.14",

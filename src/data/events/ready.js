@@ -21,6 +21,13 @@ export default {
 		);
 
 		console.log(
+			`${ lang.ready.commands.replace(
+				'{{ commands }}',
+				client.commands.size
+			) }`
+		);
+
+		console.log(
 			`${ lang.ready.servers.replace(
 				'{{ servers }}',
 				client.guilds.cache.size

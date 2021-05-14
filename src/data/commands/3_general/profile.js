@@ -48,8 +48,8 @@ export default {
 	name: 'profile',
 	alias: ['prf'],
 	category: 'general',
-	usage: '',
-	description: '',
+	usage: 'no',
+	description: 'no',
 	req: {
 		args: 0,
 		dm: false,

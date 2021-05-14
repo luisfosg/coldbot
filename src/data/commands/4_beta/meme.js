@@ -24,8 +24,8 @@ export default {
 	name: 'meme',
 	alias: ['momo', 'mm'],
 	category: 'beta',
-	usage: '',
-	description: '',
+	usage: 'no',
+	description: 'no',
 	req: {
 		args: 2,
 		dm: true,

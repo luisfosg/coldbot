@@ -45,7 +45,7 @@ const helpCommand = async ( client, msg, commandArg ) => {
 	embed.setTitle( `\`Comando: ${ command.name }\`` );
 	embed.addField( 'Alias', `${command.alias.map( ( a ) => ` \`${ a }\`` )}` );
 	embed.addField( 'Descripción', command.description === '' ? '`No Asignado`' : `\`${ command.description }\`` );
-	embed.addField( 'Uso', command.usage === '' ? '`No Asignado`' : command.usage );
+	embed.addField( 'Uso', command.usage === '' ? '`No Asignado`' : `\`${ command.usage }\`` );
 	embed.setDescription(
 		`
 		Argumentos Minimos Solicitados: **${ command.req.args }**\n
@@ -61,8 +61,8 @@ export default {
 	name: 'help',
 	alias: ['h'],
 	category: 'bot',
-	usage: '',
-	description: '',
+	usage: 'no',
+	description: 'no',
 	req: {
 		args: 0,
 		dm: true,

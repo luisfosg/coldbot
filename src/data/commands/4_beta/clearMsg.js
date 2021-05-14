@@ -19,7 +19,7 @@ export default {
 	name: 'clear',
 	alias: ['cls'],
 	category: 'beta',
-	usage: '',
+	usage: 'no',
 	description: 'Necesita el numero de mensajes a borrar (Por ahora: si no tiene permisos solo puede borrar maximo 3.)',
 	req: {
 		args: 1,

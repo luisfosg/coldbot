@@ -46,8 +46,8 @@ export default {
 	name: 'commands',
 	alias: ['cmd', 'cmds'],
 	category: 'bot',
-	usage: '',
-	description: '',
+	usage: 'no',
+	description: 'no',
 	req: {
 		args: 0,
 		dm: true,

@@ -2,8 +2,8 @@ export default {
 	name: 'status',
 	alias: ['st'],
 	category: 'bot',
-	usage: '',
-	description: '',
+	usage: 'no',
+	description: 'no',
 	req: {
 		args: 4,
 		dm: true,

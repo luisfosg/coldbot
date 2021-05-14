@@ -2,6 +2,7 @@
 	"language": "English",
 	"ready": {
 		"bot": "Bot ready as: {{ nameBot }}",
+		"commands": "Number of Commands: {{ commands }}",
 		"servers": "Number of Servers: {{ servers }}",
 		"users": "Number of Users: {{ users }}",
 		"actiName": "Cold Bot is on {{ servers }} servers. Let's go for more."
