@@ -14,6 +14,12 @@ Aqui Puedes Encontrar:
 - Tickets para dar soportes.
 - Logs de acciones
 
+En busca de tener un estado mas rapido de todos los comandos y eventos, por consola nos creara una tabla con el estado de los comandos y eventos. siguiendo una estructura base.
+
+<p align="center">
+	<img src="public/images/consola.png">
+</p>
+
 ## 𝕀𝕟𝕤𝕥𝕒𝕝𝕒𝕔𝕚𝕠́𝕟
 
 1. Al clonar el proyecto, es recomendable usar npm.
