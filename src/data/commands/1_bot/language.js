@@ -4,7 +4,7 @@ import { setLanguage, getLanguage } from '../../../db/language';
 export default {
 	name: 'setlanguage',
 	alias: ['setlang', 'lang'],
-	category: 'bot',
+	category: 'beta',
 	usage: '',
 	description: '',
 	req: {

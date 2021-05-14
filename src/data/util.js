@@ -28,6 +28,10 @@ export async function getUserWithId( msg, mention ) {
 	return user;
 }
 
-export function sendMsg( client, msg ) {
-	client.channel.send( msg );
+export function sendMsg( msgInfoClient, messageSend ) {
+	msgInfoClient.channel.send( messageSend );
+}
+
+export function getLink( client ) {
+	return `https://discord.com/api/oauth2/authorize?client_id=${ client.user.id }&permissions=8&scope=bot`;
 }

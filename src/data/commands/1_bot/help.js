@@ -1,6 +1,6 @@
 import { MessageEmbed } from 'discord.js';
 
-import { sendMsg } from '../../util';
+import { sendMsg, getLink } from '../../util';
 
 const helpMessage = async ( client, msg ) => {
 	const embed = new MessageEmbed();
@@ -20,7 +20,7 @@ const helpMessage = async ( client, msg ) => {
 		'Links',
 		`
 		:snowflake: [Servidor de Soporte](https://discord.gg/y6jrugZUxe)
-		:snowflake: [Invitame a tu servidor](https://discord.com/api/oauth2/authorize?client_id=754052349764304937&permissions=8&scope=bot)
+		:snowflake: [Invitame a tu servidor](${getLink( client )})
 		`
 	);
 
