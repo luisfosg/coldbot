@@ -6,7 +6,7 @@ import { Collection } from 'discord.js';
 import { readdirSync } from 'fs';
 
 const attributes = ['name', 'alias', 'req', 'category', 'usage', 'description', 'run'];
-const reqs = ['args', 'dm', 'enable', 'visible', 'permissions'];
+const reqs = ['args', 'cooldown', 'dm', 'enable', 'visible', 'permissions'];
 
 const verifyStructure = ( table, command, commandFile ) => {
 	for ( const attribute of attributes ) {

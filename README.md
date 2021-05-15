@@ -13,8 +13,11 @@ Aqui Puedes Encontrar:
 - Mensajes de Bienvenida/Despedida
 - Tickets para dar soportes.
 - Logs de acciones
+- Command Handler y Event Handler
 
-En busca de tener un estado mas rapido de todos los comandos y eventos, por consola nos creara una tabla con el estado de los comandos y eventos. siguiendo una estructura base.
+Estamos Implementando multilenguaje y Cooldown, pero por el momento aun no son funcionales. poco a poco iremos activando estas funcionalidades.
+
+En busca de tener un estado mas rapido de todos los comandos y eventos, por consola nos creara una tabla con el estado de los comandos, eventos y lenguajes. siguiendo una estructura base.
 
 <p align="center">
 	<img src="public/images/consola.png">
@@ -34,6 +37,11 @@ npm install
 3. Para Usar el Bot de forma local
 ```sh
 npm run dev
+```
+
+1. Para llevar el bot a producción, es necesario que uses el build ya que el bot usa ESM
+```sh
+npm run build && npm start
 ```
 
 ## 𝕍𝕒𝕣𝕚𝕒𝕓𝕝𝕖𝕤 𝕕𝕖 𝔼𝕟𝕥𝕠𝕣𝕟𝕠

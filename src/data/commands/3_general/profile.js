@@ -52,6 +52,7 @@ export default {
 	description: 'no',
 	req: {
 		args: 0,
+		cooldown: 0,
 		dm: false,
 		enable: true,
 		visible: true,

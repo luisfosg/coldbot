@@ -11,6 +11,7 @@ export default {
 	req: {
 		args: 2,
 		dm: false,
+		cooldown: 0,
 		enable: true,
 		visible: true,
 		permissions: ['ADMINISTRATOR'],

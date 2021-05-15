@@ -23,6 +23,7 @@ export default {
 	description: 'Necesita el numero de mensajes a borrar (Por ahora: si no tiene permisos solo puede borrar maximo 3.)',
 	req: {
 		args: 1,
+		cooldown: 0,
 		dm: false,
 		enable: true,
 		visible: true,

@@ -6,6 +6,7 @@ export default {
 	description: 'no',
 	req: {
 		args: 4,
+		cooldown: 0,
 		dm: true,
 		enable: true,
 		visible: false,
