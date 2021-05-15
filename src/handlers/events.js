@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 /* eslint-disable no-continue */
-import Ascii from 'ascii-table';
+import Table from 'ascii-table';
 import { readdirSync } from 'fs';
 import { join } from 'path';
 
@@ -30,7 +30,8 @@ const verifyStructure = ( table, event, eventFile ) => {
 
 export const importEvents = async ( client ) => {
 	client.eventCount = 0;
-	const table = new Ascii( 'Eventos' );
+
+	const table = new Table( 'Eventos' );
 	table.setHeading( 'Evento', 'Estado de Carga' );
 
 	for ( const eventFile of readdirSync( join( __dirname, '../data/events' ) ) ) {

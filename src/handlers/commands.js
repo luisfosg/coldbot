@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 /* eslint-disable no-continue */
-import Ascii from 'ascii-table';
+import Table from 'ascii-table';
 import { join } from 'path';
 import { Collection } from 'discord.js';
 import { readdirSync } from 'fs';
@@ -33,7 +33,7 @@ export const importCommands = async ( client ) => {
 	client.commands = new Collection();
 	client.categories = [];
 
-	const table = new Ascii( 'Comandos' );
+	const table = new Table( 'Comandos' );
 	table.setHeading( 'Comando', 'Estado de Carga' );
 
 	for ( const subfolder of readdirSync( join( __dirname, '../data/commands' ) ) ) {

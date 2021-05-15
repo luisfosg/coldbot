@@ -47,7 +47,7 @@ const mentionPrefix = async ( client, msg ) => {
 const mentionBot = async ( client, msg ) => {
 	if ( msg.content.startsWith( `<@!${client.user.id}>` ) ) {
 		if ( msg.content === `<@!${client.user.id}>` ) {
-			sendMsg( msg, `Hola, El Prefix es: \`${ client.prefix }\`` );
+			sendMsg( msg, `Hola, El Prefix es: \`${ client.prefix }\` \nusa \`${ client.prefix }h\` para saber mas` );
 			return;
 		}
 

@@ -9,8 +9,8 @@ export default {
 	},
 	run: async ( client, reaction, user ) => {
 		if ( user.bot ) return;
-
-		if ( !client.commands.get( 'ticket setup' ) ) return;
+		const cmdTicket = client.commands.get( 'ticket' ) || client.commands.find( ( c ) => c.alias.includes( 'ticket' ) );
+		if ( !cmdTicket ) return;
 
 		const msgId = await getMsgTicket( reaction.message );
 
