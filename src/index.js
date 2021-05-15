@@ -13,7 +13,7 @@ const start = async () => {
 
 	const client = new Client( { disableEveryone: false } );
 
-	importLanguages( client );
+	await importLanguages( client );
 	importCommands( client );
 	importEvents( client );
 
