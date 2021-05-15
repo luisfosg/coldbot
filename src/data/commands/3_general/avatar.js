@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import { MessageEmbed } from 'discord.js';
 
 import { sendMsg, getUserWithId } from '../../util';
@@ -28,17 +29,18 @@ export default {
 		visible: true,
 		permissions: [],
 	},
-	run: async ( _client, msg, args ) => {
+	run: async ( client, msg, args ) => {
 		let user;
 
 		if ( args[0] ) {
-			user = await getUserWithId( msg, args[0] );
+			user = await getUserWithId( client, msg, args[0] );
 		}
 		if ( user === 'notFound' ) return sendMsg( msg, 'Usuario No Encontrado' );
 
-		const dataUser = user || msg.member;
+		let dataUser = user || msg.member;
+		!dataUser ? dataUser = msg.author : dataUser = dataUser.user;
 
-		await avatar( msg, dataUser.user );
-		msg.delete();
+		await avatar( msg, dataUser );
+		msg.delete().catch( () => {} );
 	}
 };

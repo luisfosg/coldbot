@@ -21,9 +21,14 @@ export async function getConfig() {
 	return config;
 }
 
-export async function getUserWithId( msg, mention ) {
+export async function getUserWithId( client, msg, mention ) {
 	const id = mention.replace( /[<]|!|@|[>]/g, '' );
-	const user = await msg.guild.members.fetch( id ).catch( () => 'notFound' );
+	let user;
+	if ( msg.guild ) {
+		user = await msg.guild.members.fetch( id ).catch( () => 'notFound' );
+	} else {
+		user = client;
+	}
 
 	return user;
 }
