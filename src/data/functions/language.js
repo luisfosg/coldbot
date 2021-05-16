@@ -19,8 +19,11 @@ export async function setLanguageUtil( guild, language ) {
 
 export const languageChannel = ( client, guild ) => {
 	let selectedLanguage = guildLanguages[guild.id];
+
 	if ( !selectedLanguage ) selectedLanguage = language.toUpperCase();
-	return client.languages.get( selectedLanguage );
+	const lang = client.languages.get( selectedLanguage ) || client.languages.get( 'EN' );
+
+	return lang;
 };
 
 export default languageChannel;

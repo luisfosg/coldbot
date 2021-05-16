@@ -7,6 +7,7 @@ import { readdirSync } from 'fs';
 
 const attributes = ['name', 'alias', 'req', 'category', 'usage', 'description', 'run'];
 const reqs = ['args', 'cooldown', 'dm', 'enable', 'visible', 'permissions'];
+const areFunctions = ['usage', 'description', 'req'];
 
 const verifyStructure = ( table, command, commandFile ) => {
 	for ( const attribute of attributes ) {
@@ -21,6 +22,13 @@ const verifyStructure = ( table, command, commandFile ) => {
 			return false;
 		}
 	}
+	for ( const isFunction of areFunctions ) {
+		if ( typeof command[isFunction] !== 'function' ) {
+			table.addRow( commandFile, `❌ -> "${ isFunction }" no es una función` );
+			return false;
+		}
+	}
+
 	if ( !command.req.enable ) {
 		table.addRow( commandFile, '⚠ -> Comando Deshabilitado' );
 		return false;

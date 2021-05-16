@@ -2,6 +2,10 @@ import { MessageEmbed } from 'discord.js';
 
 import { sendMsg, getLink } from '../../util';
 
+import language from '../../functions/language';
+
+let lang;
+
 const helpMessage = async ( client, msg ) => {
 	const embed = new MessageEmbed();
 
@@ -44,8 +48,8 @@ const helpCommand = async ( client, msg, commandArg ) => {
 	embed.setThumbnail( client.user.avatarURL() );
 	embed.setTitle( `\`Comando: ${ command.name }\`` );
 	embed.addField( 'Alias', `${command.alias.map( ( a ) => ` \`${ a }\`` )}` );
-	embed.addField( 'Descripción', command.description === '' ? '`No Asignado`' : `\`${ command.description }\`` );
-	embed.addField( 'Uso', command.usage === '' ? '`No Asignado`' : `\`${ command.usage }\`` );
+	embed.addField( 'Descripción', `\`${ command.description }\`` );
+	embed.addField( 'Uso', `\`${ command.usage( lang ) }\`` );
 	embed.setDescription(
 		`
 		Argumentos Minimos Solicitados: **${ command.req.args }**\n
@@ -61,7 +65,7 @@ export default {
 	name: 'help',
 	alias: ['h'],
 	category: 'bot',
-	usage: 'no',
+	usage: ( langs ) => langs.help.usage,
 	description: 'no',
 	req: {
 		args: 0,
@@ -72,6 +76,8 @@ export default {
 		permissions: [],
 	},
 	run: async ( client, msg, args ) => {
+		lang = language( client, msg.guild );
+
 		if ( args[0] ) {
 			helpCommand( client, msg, args[0] );
 		} else {

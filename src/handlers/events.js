@@ -6,6 +6,7 @@ import { join } from 'path';
 
 const attributes = ['name', 'req', 'run'];
 const reqs = ['once', 'enable'];
+const areFunctions = ['run'];
 
 const verifyStructure = ( table, event, eventFile ) => {
 	for ( const attribute of attributes ) {
@@ -20,6 +21,13 @@ const verifyStructure = ( table, event, eventFile ) => {
 			return false;
 		}
 	}
+	for ( const isFunction of areFunctions ) {
+		if ( typeof event[isFunction] !== 'function' ) {
+			table.addRow( eventFile, `❌ -> "${ isFunction }" no es una función` );
+			return false;
+		}
+	}
+
 	if ( !event.req.enable ) {
 		table.addRow( eventFile, '⚠ -> Comando Deshabilitado' );
 		return false;

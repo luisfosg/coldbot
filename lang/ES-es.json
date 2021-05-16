@@ -7,5 +7,8 @@
 		"servers": "Numero de Servidores: {{ servers }}",
 		"users": "Numero de Usuarios: {{ users }}",
 		"actiName": "Cold Bot esta en {{ servers }} servidores. Vamo a por mas."
+	},
+	"help": {
+		"usage": "Prueba ES"
 	}
 }
