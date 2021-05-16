@@ -5,15 +5,13 @@ import { getConfig } from '../data/util';
 
 const dbLanguage = new db.table( 'language' );
 
-export const getLanguage = async ( msg ) => {
+export const getLanguage = async ( id ) => {
 	const config = await getConfig();
 
-	if ( !msg.guild ) return false;
-
-	if ( !dbLanguage.has( `${ msg.guild.id }` ) ) {
-		dbLanguage.set( `${ msg.guild.id }`, config.language.toUpperCase() );
+	if ( !dbLanguage.has( `${ id }` ) ) {
+		dbLanguage.set( `${ id }`, config.language.toUpperCase() );
 	}
-	const language = dbLanguage.get( `${ msg.guild.id }` );
+	const language = dbLanguage.get( `${ id }` );
 
 	return language;
 };

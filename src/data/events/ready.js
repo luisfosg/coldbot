@@ -1,7 +1,5 @@
 /* eslint-disable no-console */
-import { language } from '../configDiscord';
-
-import { getLanguageUtil } from '../util';
+import { loadLanguages, languageChannel } from '../functions/language';
 
 export default {
 	name: 'ready',
@@ -10,7 +8,9 @@ export default {
 		enable: true,
 	},
 	run: async ( client ) => {
-		const lang = await getLanguageUtil( client, language );
+		loadLanguages( client );
+		const lang = languageChannel( client, '' );
+
 		/* ================= */
 
 		console.log(
@@ -50,8 +50,6 @@ export default {
 				client.users.cache.size
 			) }\n`
 		);
-
-		/* =========Server Presence======== */
 
 		const name = lang.ready.actiName.replace(
 			'{{ servers }}',
