@@ -33,7 +33,7 @@ const commandMessage = async ( client, msg ) => {
 	embed.setTitle( '> Lista de Comandos' );
 
 	embed.setDescription( `Comandos: \`${ client.commands.size }\`` );
-	embed.setFooter( '¿El numero de comandos no cuadra con la lista? !Hay Comandos Ocultos¡' );
+	embed.setFooter( '¿El numero de comandos no cuadra con la lista? ¡Hay Comandos Ocultos!' );
 
 	client.categories.forEach( ( category ) => {
 		printCategory( client, msg, embed, category );

@@ -13,6 +13,15 @@
 		"settings": "General Settings and Permissions have been edited.\n\nChannel: **{{ channel }}**\nChannel ID : **{{ id }}**",
 		"nameEdited": "\nPrevious name: **{{ oldName }}**\nNew name: **{{ newName }}**\nChannel ID: **{{ id }}**\n"
 	},
+	"emojiUpdate": {
+		"title": "**[Edited Emoji]**",
+		"description": "**{{ oldName }}** emoji was updated to **{{ newName }}**"
+	},
+	"memberGoodbye": {
+		"title": "**[Member Left]**",
+		"description": "{{ member }} left the server {{ server }}.",
+		"message": "Goodbye {{ member }} B)"
+	},
 	"help": {
 		"usage": "Prueba EN",
 		"description": "en"
