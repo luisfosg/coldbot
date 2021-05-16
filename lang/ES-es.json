@@ -22,6 +22,16 @@
 		"description": "{{ member }} salió del Servidor {{ server }}.",
 		"message": "Hasta Luego {{ member }} B)"
 	},
+	"memberWelcome": {
+		"title": "**[Nuevo Miembro]**",
+		"description": "{{ member }} ha entrado al Servidor {{ server }}.",
+		"messageMd": "{{ member }} Holaaa, Bienvenid@ a {{ server }}.",
+		"message": "Bienvenido {{ member }} al Servidor {{ server }}!!"
+	},
+	"pinsUpdate": {
+		"title": "**[Mensaje Anclado]**",
+		"description": "Se actualizo un mensaje anclado en el canal <#{{ id }}>"
+	},
 	"help": {
 		"usage": "Prueba ES",
 		"description": "es"

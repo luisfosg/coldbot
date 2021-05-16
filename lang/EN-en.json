@@ -19,8 +19,18 @@
 	},
 	"memberGoodbye": {
 		"title": "**[Member Left]**",
-		"description": "{{ member }} left the server {{ server }}.",
+		"description": "{{ member }} left the {{ server }} server.",
 		"message": "Goodbye {{ member }} B)"
+	},
+	"memberWelcome": {
+		"title": "**[New Member]**",
+		"description": "{{ member }} has joined the {{ server }} server.",
+		"messageMd": "{{ member }} Hellooooo, Welcome to {{ server }}.",
+		"message": "Welcome {{ member }} to the {{ server }} server!!"
+	},
+	"pinsUpdate": {
+		"title": "**[Pinned Message]**",
+		"description": "Updated a message pinned to channel <#{{ id }}>"
 	},
 	"help": {
 		"usage": "Prueba EN",

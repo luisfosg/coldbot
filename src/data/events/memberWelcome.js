@@ -4,8 +4,14 @@ import { zeewWelcome } from '../functions/zeewImages';
 import { sendLog, sendWelcome } from '../web/hooks';
 import { getLogin } from '../util';
 
-const welcomeNormal = ( member ) => {
-	const message = `Bienvenido ${ member } al Servidor ${ member.guild.name }!!`;
+import language from '../functions/language';
+
+const welcomeNormal = ( lang, member ) => {
+	const message = lang.memberWelcome.message.replace(
+		'{{ member }}', member
+	).replace(
+		'{{ server }}', member.guild.name
+	);
 	sendWelcome( message );
 };
 
@@ -15,15 +21,21 @@ export default {
 		once: false,
 		enable: true,
 	},
-	run: async ( _client, member ) => {
+	run: async ( client, member ) => {
+		const lang = language( client, member.guild );
+
 		const login = await getLogin();
 
 		if ( member.guild.id !== login.idServer ) {
 			const embed = new MessageEmbed();
 
-			embed.setTitle( '**[Nuevo Miembro]**' );
+			embed.setTitle( lang.memberWelcome.title );
 			embed.setColor( 'RED' );
-			embed.setDescription( `${ member } ha entrado al Servidor ${member.guild.name}.` );
+			embed.setDescription( lang.memberWelcome.description.replace(
+				'{{ member }}', member
+			).replace(
+				'{{ server }}', member.guild.name
+			) );
 			embed.setTimestamp();
 			embed.setFooter( member.guild.name, member.guild.iconURL() );
 
@@ -31,10 +43,14 @@ export default {
 		}
 
 		if ( login.zeewToken ) {
-			member.send( `${member} Holaaa, Bienvenid@ a ${member.guild.name}.` );
+			member.send( lang.memberWelcome.messageMd.replace(
+				'{{ member }}', member
+			).replace(
+				'{{ server }}', member.guild.name
+			) );
 			zeewWelcome( member, login.zeewToken );
 		} else {
-			welcomeNormal( member );
+			welcomeNormal( lang, member );
 		}
 	},
 };
