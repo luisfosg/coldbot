@@ -9,27 +9,22 @@ export default {
 	},
 	run: async ( client ) => {
 		loadLanguages( client );
-		const lang = languageChannel( client, '' );
-
-		/* ================= */
+		const lang = languageChannel( client );
 
 		console.log(
 			`\n ${ lang.ready.bot.replace(
-				'{{ nameBot }}',
-				client.user.tag
+				'{{ nameBot }}', client.user.tag
 			) }! \n`
 		);
 
 		console.log(
 			`${ lang.ready.events.replace(
-				'{{ events }}',
-				client.eventCount
+				'{{ events }}', client.eventCount
 			) }`
 		);
 		console.log(
 			`${ lang.ready.commands.replace(
-				'{{ commands }}',
-				client.commands.size
+				'{{ commands }}', client.commands.size
 			) }`
 		);
 
@@ -39,21 +34,18 @@ export default {
 
 		console.log(
 			`${ lang.ready.servers.replace(
-				'{{ servers }}',
-				client.guilds.cache.size
+				'{{ servers }}', client.guilds.cache.size
 			) }`
 		);
 
 		console.log(
 			`${ lang.ready.users.replace(
-				'{{ users }}',
-				client.users.cache.size
+				'{{ users }}', client.users.cache.size
 			) }\n`
 		);
 
 		const name = lang.ready.actiName.replace(
-			'{{ servers }}',
-			client.guilds.cache.size
+			'{{ servers }}', client.guilds.cache.size
 		);
 
 		client.user.setPresence( {

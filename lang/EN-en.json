@@ -8,6 +8,11 @@
 		"users": "Number of Users: {{ users }}",
 		"actiName": "Cold Bot is on {{ servers }} servers. Let's go for more."
 	},
+	"channelUpdate": {
+		"title": "**[Edited Channel]**",
+		"settings": "General Settings and Permissions have been edited.\n\nChannel: **{{ channel }}**\nChannel ID : **{{ id }}**",
+		"nameEdited": "\nPrevious name: **{{ oldName }}**\nNew name: **{{ newName }}**\nChannel ID: **{{ id }}**\n"
+	},
 	"help": {
 		"usage": "Prueba EN",
 		"description": "en"
