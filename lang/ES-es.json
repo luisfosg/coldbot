@@ -1,5 +1,5 @@
 {
-	"language": "Español",
+	"languageName": "Español",
 	"ready": {
 		"bot": "Bot listo como: {{ nameBot }}",
 		"events": "Eventos: {{ events }}",
@@ -9,6 +9,47 @@
 		"actiName": "Cold Bot esta en {{ servers }} servidores. Vamo a por mas."
 	},
 	"help": {
-		"usage": "Prueba ES"
+		"usage": "Prueba ES",
+		"description": "es"
+	},
+	"commands": {
+		"usage": "Prueba ES",
+		"description": "es"
+	},
+	"language": {
+		"usage": "Prueba ES",
+		"description": "es"
+	},
+	"prefix": {
+		"usage": "Prueba ES",
+		"description": "es"
+	},
+	"split": {
+		"usage": "Prueba ES",
+		"description": "es"
+	},
+	"status": {
+		"usage": "Prueba ES",
+		"description": "es"
+	},
+	"ticket": {
+		"usage": "Prueba ES",
+		"description": "es"
+	},
+	"avatar": {
+		"usage": "Prueba ES",
+		"description": "es"
+	},
+	"profile": {
+		"usage": "Prueba ES",
+		"description": "es"
+	},
+	"clear": {
+		"usage": "Prueba ES",
+		"description": "es"
+	},
+	"meme": {
+		"usage": "Prueba ES",
+		"description": "es"
 	}
 }

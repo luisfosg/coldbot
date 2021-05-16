@@ -19,8 +19,8 @@ export default {
 	name: 'clear',
 	alias: ['cls'],
 	category: 'beta',
-	usage: 'no',
-	description: 'Necesita el numero de mensajes a borrar (Por ahora: si no tiene permisos solo puede borrar maximo 3.)',
+	usage: ( langs ) => langs.clear.usage,
+	description: ( langs ) => langs.clear.description,
 	req: {
 		args: 1,
 		cooldown: 0,

@@ -7,7 +7,7 @@ import { readdirSync } from 'fs';
 
 const attributes = ['name', 'alias', 'req', 'category', 'usage', 'description', 'run'];
 const reqs = ['args', 'cooldown', 'dm', 'enable', 'visible', 'permissions'];
-const areFunctions = ['usage', 'description', 'req'];
+const areFunctions = ['usage', 'description', 'run'];
 
 const verifyStructure = ( table, command, commandFile ) => {
 	for ( const attribute of attributes ) {

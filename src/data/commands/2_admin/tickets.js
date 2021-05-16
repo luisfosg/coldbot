@@ -86,8 +86,8 @@ export default {
 	name: 'ticket',
 	alias: ['ticket-setup'],
 	category: 'admin',
-	usage: 'no',
-	description: 'no',
+	usage: ( langs ) => langs.ticket.usage,
+	description: ( langs ) => langs.ticket.description,
 	req: {
 		args: 0,
 		cooldown: 0,

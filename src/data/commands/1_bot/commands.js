@@ -46,8 +46,8 @@ export default {
 	name: 'commands',
 	alias: ['cmd', 'cmds'],
 	category: 'bot',
-	usage: 'no',
-	description: 'no',
+	usage: ( langs ) => langs.commands.usage,
+	description: ( langs ) => langs.commands.description,
 	req: {
 		args: 0,
 		cooldown: 0,

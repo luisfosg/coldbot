@@ -48,8 +48,8 @@ export default {
 	name: 'profile',
 	alias: ['prf'],
 	category: 'general',
-	usage: 'no',
-	description: 'no',
+	usage: ( langs ) => langs.profile.usage,
+	description: ( langs ) => langs.profile.description,
 	req: {
 		args: 0,
 		cooldown: 0,

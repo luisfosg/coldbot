@@ -24,8 +24,8 @@ export default {
 	name: 'meme',
 	alias: ['momo', 'mm'],
 	category: 'beta',
-	usage: 'no',
-	description: 'no',
+	usage: ( langs ) => langs.meme.usage,
+	description: ( langs ) => langs.meme.description,
 	req: {
 		args: 2,
 		cooldown: 0,

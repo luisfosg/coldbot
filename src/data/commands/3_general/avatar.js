@@ -19,8 +19,8 @@ export default {
 	name: 'getavatar',
 	alias: ['avatar'],
 	category: 'general',
-	usage: 'no',
-	description: 'no',
+	usage: ( langs ) => langs.avatar.usage,
+	description: ( langs ) => langs.avatar.description,
 	req: {
 		args: 0,
 		cooldown: 0,

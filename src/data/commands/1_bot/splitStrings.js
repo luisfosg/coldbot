@@ -6,8 +6,8 @@ export default {
 	name: 'setsplit',
 	alias: ['split', 'string'],
 	category: 'bot',
-	usage: 'no',
-	description: 'no',
+	usage: ( langs ) => langs.split.usage,
+	description: ( langs ) => langs.split.description,
 	req: {
 		args: 2,
 		dm: false,

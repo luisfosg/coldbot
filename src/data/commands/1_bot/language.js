@@ -6,8 +6,8 @@ export default {
 	name: 'setlanguage',
 	alias: ['setlang', 'lang'],
 	category: 'beta',
-	usage: 'no',
-	description: 'no',
+	usage: ( langs ) => langs.language.usage,
+	description: ( langs ) => langs.language.description,
 	req: {
 		args: 0,
 		cooldown: 0,

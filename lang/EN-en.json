@@ -1,5 +1,5 @@
 {
-	"language": "English",
+	"languageName": "English",
 	"ready": {
 		"bot": "Bot ready as: {{ nameBot }}",
 		"events": "Events: {{ events }}",
@@ -9,6 +9,47 @@
 		"actiName": "Cold Bot is on {{ servers }} servers. Let's go for more."
 	},
 	"help": {
-		"usage": "Prueba EN"
+		"usage": "Prueba EN",
+		"description": "en"
+	},
+	"commands": {
+		"usage": "Prueba EN",
+		"description": "en"
+	},
+	"language": {
+		"usage": "Prueba EN",
+		"description": "en"
+	},
+	"prefix": {
+		"usage": "Prueba EN",
+		"description": "en"
+	},
+	"split": {
+		"usage": "Prueba EN",
+		"description": "en"
+	},
+	"status": {
+		"usage": "Prueba EN",
+		"description": "en"
+	},
+	"ticket": {
+		"usage": "Prueba EN",
+		"description": "en"
+	},
+	"avatar": {
+		"usage": "Prueba EN",
+		"description": "en"
+	},
+	"profile": {
+		"usage": "Prueba EN",
+		"description": "en"
+	},
+	"clear": {
+		"usage": "Prueba EN",
+		"description": "en"
+	},
+	"meme": {
+		"usage": "Prueba EN",
+		"description": "en"
 	}
 }

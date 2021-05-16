@@ -48,7 +48,7 @@ const helpCommand = async ( client, msg, commandArg ) => {
 	embed.setThumbnail( client.user.avatarURL() );
 	embed.setTitle( `\`Comando: ${ command.name }\`` );
 	embed.addField( 'Alias', `${command.alias.map( ( a ) => ` \`${ a }\`` )}` );
-	embed.addField( 'Descripción', `\`${ command.description }\`` );
+	embed.addField( 'Descripción', `\`${ command.description( lang ) }\`` );
 	embed.addField( 'Uso', `\`${ command.usage( lang ) }\`` );
 	embed.setDescription(
 		`
@@ -66,7 +66,7 @@ export default {
 	alias: ['h'],
 	category: 'bot',
 	usage: ( langs ) => langs.help.usage,
-	description: 'no',
+	description: ( langs ) => langs.help.description,
 	req: {
 		args: 0,
 		cooldown: 0,

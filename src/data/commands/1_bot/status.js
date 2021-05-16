@@ -2,8 +2,8 @@ export default {
 	name: 'status',
 	alias: ['st'],
 	category: 'bot',
-	usage: 'no',
-	description: 'no',
+	usage: ( langs ) => langs.status.usage,
+	description: ( langs ) => langs.status.description,
 	req: {
 		args: 4,
 		cooldown: 0,
