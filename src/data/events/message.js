@@ -52,7 +52,7 @@ const mentionBot = async ( client, msg ) => {
 	lang = language( client, msg.guild );
 	if ( msg.content.startsWith( `<@!${client.user.id}>` ) || msg.content.startsWith( `<@${client.user.id}>` ) ) {
 		if ( msg.content === `<@!${client.user.id}>` || msg.content === `<@${client.user.id}>` ) {
-			sendMsg( msg, lang.message.mentionBot.replaceAll( '{{ prefix }}', client.prefix ) );
+			sendMsg( msg, lang.message.mentionBot.replace( /{{ prefix }}/g, client.prefix ) );
 			return;
 		}
 		let data;
