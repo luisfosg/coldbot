@@ -1,4 +1,5 @@
 import { MessageEmbed } from 'discord.js';
+import { async } from 'regenerator-runtime';
 
 import { getMsgTicket, setMsgTicket } from '../../../db/ticket';
 
@@ -17,6 +18,15 @@ const descriptionTicket = async ( channel, user ) => {
 	} );
 };
 
+const createCategory = async ( msg, name ) => {
+	const channel = await msg.guild.channels.create( name, {
+		reason: 'Ticket Category',
+		type: 'category'
+	} );
+
+	return channel;
+};
+
 export const createTicket = async ( msg, user ) => {
 	let nameUser = user.username.trim().toLowerCase().replace( /\s+/g, '' );
 	nameUser += `⚪${user.discriminator}`;
@@ -25,6 +35,9 @@ export const createTicket = async ( msg, user ) => {
 		( c ) => c.name === `ticket-${ nameUser }`
 	);
 	if ( canal ) return;
+
+	let categoryTicket = await msg.guild.channels.cache.find( ( ch ) => ch.name === '📨 Tickets' );
+	if ( !categoryTicket ) categoryTicket = await createCategory( msg, '📨 Tickets' );
 
 	msg.guild.channels.create( `ticket-${ nameUser }`,
 		{
@@ -39,7 +52,8 @@ export const createTicket = async ( msg, user ) => {
 					deny: ['VIEW_CHANNEL']
 				}
 			],
-			type: 'text'
+			type: 'text',
+			parent: categoryTicket
 		} ).then( ( channel ) => {
 		descriptionTicket( channel, user );
 	} );
