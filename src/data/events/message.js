@@ -50,14 +50,16 @@ const mentionPrefix = async ( client, msg ) => {
 
 const mentionBot = async ( client, msg ) => {
 	lang = language( client, msg.guild );
-
-	if ( msg.content.startsWith( `<@!${client.user.id}>` ) ) {
-		if ( msg.content === `<@!${client.user.id}>` ) {
+	if ( msg.content.startsWith( `<@!${client.user.id}>` ) || msg.content.startsWith( `<@${client.user.id}>` ) ) {
+		if ( msg.content === `<@!${client.user.id}>` || msg.content === `<@${client.user.id}>` ) {
 			sendMsg( msg, lang.message.mentionBot.replaceAll( '{{ prefix }}', client.prefix ) );
 			return;
 		}
+		let data;
 
-		const data = `<@!${client.user.id}>`;
+		// eslint-disable-next-line no-unused-expressions
+		msg.content.startsWith( `<@${client.user.id}>` ) ? data = `<@${client.user.id}>` : data = `<@!${client.user.id}>`;
+
 		const args = msg.content.slice( data.length ).trim().split( / +/ );
 		args.unshift( client.prefix );
 		msg.content = args.join( ' ' );
