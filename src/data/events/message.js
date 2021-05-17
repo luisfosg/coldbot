@@ -6,23 +6,27 @@ import { getSplit } from '../../db/splitString';
 import { checkArgs, checkMd, divideArgs } from '../functions/checkArgs';
 import { checkPermissions } from '../functions/checkPermissions';
 
+import language from '../functions/language';
+
+let lang;
+
 const checkCommand = async ( client, msg, CMD, args ) => {
 	const config = await getConfig();
 	const commandFind = client.commands.get( CMD );
 
 	const isMd = checkMd( commandFind.req.dm, msg.channel.type );
-	if ( !isMd ) return msg.reply( 'El Comando no se puede usar en  MD (dm)' );
+	if ( !isMd ) return msg.reply( lang.message.notMd );
 
 	const isPermitValid = await checkPermissions( msg, commandFind.req.permissions );
-	if ( !isPermitValid ) return msg.reply( 'No Posee los Permisos Necesarios.' );
+	if ( !isPermitValid ) return msg.reply( lang.message.invalidPermissions );
 
 	const isArgsValid = await checkArgs( commandFind.req.args, args.length );
-	if ( !isArgsValid ) return msg.reply( `Faltan Argumentos, Uso del Comando: ${ commandFind.usage }` );
+	if ( !isArgsValid ) return msg.reply( lang.message.invalidArgs.replace( '{{ usage }}', commandFind.usage( lang ) ) );
 
 	try {
 		commandFind.run( client, msg, args );
 	} catch ( e ) {
-		msg.reply( `A Ocurrido un Error Contacta al Administrador: <@${ config.devs[0] }>` );
+		msg.reply( lang.message.error.replace( '{{ dev }}', config.devs[0][0] ) );
 	}
 };
 
@@ -45,9 +49,11 @@ const mentionPrefix = async ( client, msg ) => {
 };
 
 const mentionBot = async ( client, msg ) => {
+	lang = language( client, msg.guild );
+
 	if ( msg.content.startsWith( `<@!${client.user.id}>` ) ) {
 		if ( msg.content === `<@!${client.user.id}>` ) {
-			sendMsg( msg, `Hola, El Prefix es: \`${ client.prefix }\` \nusa \`${ client.prefix }h\` para saber mas` );
+			sendMsg( msg, lang.message.mentionBot.replaceAll( '{{ prefix }}', client.prefix ) );
 			return;
 		}
 

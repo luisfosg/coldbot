@@ -8,6 +8,13 @@
 		"users": "Numero de Usuarios: {{ users }}",
 		"actiName": "Cold Bot esta en {{ servers }} servidores. Vamo´ a por mas."
 	},
+	"message": {
+		"mentionBot": "Hola, El Prefix es: `{{ prefix }}` \nusa `{{ prefix }}h` para saber mas",
+		"notMd": "El Comando no se puede usar en  MD (dm).",
+		"invalidPermissions": "No Posee los Permisos Necesarios.",
+		"invalidArgs": "Faltan Argumentos, Uso del Comando: {{ usage }}",
+		"error": "A Ocurrido un Error Contacta al Administrador: {{ dev }}"
+	},
 	"channelUpdate": {
 		"title": "**[Canal Editado]**",
 		"settings": "Se han editado los Permisos y Ajustes Generales.\n\nCanal: **{{ channel }}** \nCanal ID : **{{ id }}**",
