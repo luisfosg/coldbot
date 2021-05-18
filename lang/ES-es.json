@@ -60,7 +60,24 @@
 	},
 	"help": {
 		"usage": "Prueba ES",
-		"description": "es"
+		"description": "es",
+		"complements": {
+			"complement1": ", y el separador de argumentos es `{{ value }}`",
+			"complement2": "🪐 Este comando requiere algunos permisos para su uso",
+			"complement3": "🪐 Este comando es libre de permisos",
+			"complement4": "🪐 Este comando se puede usar en MD [dm]",
+			"complement5": "🪐 Este comando no se puede usar en MD [dm]"
+		},
+		"text": "Hola, El prefix es `{{ prefix }}` {{ text1 }} \n:small_blue_diamond:Para ver los comandos usa el comando `cmds` \n :small_blue_diamond:Para ver una descripción mas detallada del Comando use: `{{ prefix }}h {{ text2 }} <comando>`",
+		"titleLink": "Enlaces",
+		"links": ":snowflake: [Servidor de Soporte](https://discord.gg/y6jrugZUxe)\n:snowflake: [Invitame a tu servidor]({{ link }})",
+		"notFound": "Comando No Encontrado.",
+		"category": "Categoria: {{ category }}",
+		"name": "`Comando: {{ command }}`",
+		"alias": "Alias",
+		"descripCommand": "Descripción",
+		"usageCommand": "Uso",
+		"settingsCommand": "```Argumentos Minimos Solicitados: {{ args }}\n\n{{ md }}\n{{ permissions }}```"
 	},
 	"commands": {
 		"usage": "Prueba ES",

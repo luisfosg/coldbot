@@ -8,15 +8,15 @@ import { join } from 'path';
 export const importLanguages = async ( client ) => {
 	client.languages = new Collection();
 
-	const table = new Table( 'Lenguajes' );
-	table.setHeading( 'Lenguaje', 'Estado de Carga' );
+	const table = new Table( 'Languages' );
+	table.setHeading( 'Language', 'State of Charge' );
 
 	for ( const languageFile of readdirSync( join( __dirname, '../../lang' ) ) ) {
 		if ( !languageFile.includes( '.json' ) ) continue;
 
 		const languageArray = languageFile.split( '-' );
 		const language = await import( `../../lang/${ languageFile }` );
-		client.languages.set( languageArray[0], language.default );
+		client.languages.set( languageArray[0].toUpperCase(), language.default );
 
 		table.addRow( languageFile, '✅' );
 	}

@@ -12,20 +12,17 @@ const helpMessage = async ( client, msg ) => {
 	embed.setColor( '#E58249' );
 	embed.setAuthor( client.user.username, client.user.avatarURL() );
 	embed.setDescription(
-		`Hola, El prefix es \`${ client.prefix }\` ${
-			client.splitStrings.status ? `, y el separador de argumentos es \`${ client.splitStrings.value }\`` : ''
-		}
-		\n:small_blue_diamond:Para ver los comandos usa el comando \`cmds\`
-		:small_blue_diamond:Para ver una descripción mas detallada del Comando use: \`${client.splitStrings.status ? `${client.prefix}h ${client.splitStrings.value }` : `${client.prefix}h`} <comando>\`
-		`
+		lang.help.text.replace(
+			/{{ prefix }}/g, client.prefix
+		).replace(
+			'{{ text1 }}', client.splitStrings.status ? lang.help.complements.complement1.replace( '{{ value }}', client.splitStrings.value ) : ''
+		).replace(
+			'{{ text2 }}', client.splitStrings.status ? `${ client.splitStrings.value }` : ''
+		)
 	);
 
 	embed.addField(
-		'Links',
-		`
-		:snowflake: [Servidor de Soporte](https://discord.gg/y6jrugZUxe)
-		:snowflake: [Invitame a tu servidor](${getLink( client )})
-		`
+		lang.help.titleLink, lang.help.links.replace( '{{ link }}', getLink( client ) )
 	);
 
 	sendMsg( msg, embed );
@@ -40,22 +37,24 @@ const helpCommand = async ( client, msg, commandArg ) => {
 	// eslint-disable-next-line max-len
 	const command = client.commands.get( commandArg ) || client.commands.find( ( c ) => c.alias.includes( commandArg ) );
 	if ( !command || !command.req.visible ) {
-		embed.setTitle( 'Comando No Encontrado.' );
+		embed.setTitle( lang.help.notFound );
 		return sendMsg( msg, embed );
 	}
 
-	embed.setFooter( `Categoria: ${ command.category }`, msg.author.avatarURL() );
-	embed.setThumbnail( client.user.avatarURL() );
-	embed.setTitle( `\`Comando: ${ command.name }\`` );
-	embed.addField( 'Alias', `${command.alias.map( ( a ) => ` \`${ a }\`` )}` );
-	embed.addField( 'Descripción', `\`${ command.description( lang ) }\`` );
-	embed.addField( 'Uso', `\`${ command.usage( lang ) }\`` );
+	embed.setFooter( lang.help.category.replace( '{{ category }}', command.category ), msg.author.avatarURL() );
+	embed.setTitle( lang.help.name.replace( '{{ command }}', command.name ) );
+	embed.addField( lang.help.alias, `${command.alias.map( ( a ) => ` \`${ a }\`` )}` );
+	embed.addField( lang.help.descripCommand, `\`${ command.description( lang ) }\`` );
+	embed.addField( lang.help.usageCommand, `\`${ command.usage( lang ) }\`` );
+
 	embed.setDescription(
-		`
-		Argumentos Minimos Solicitados: **${ command.req.args }**\n
-		${ command.req.dm ? 'Este comando se puede usar en MD (dm)' : 'Este comando no se puede usar en MD (dm)' }
-		${ command.req.permissions.length > 0 ? 'Este comando requiere algunos permisos para su uso' : 'Este comando es libre de permisos' }
-		`
+		lang.help.settingsCommand.replace(
+			'{{ args }}', command.req.args
+		).replace(
+			'{{ md }}', command.req.dm ? lang.help.complements.complement4 : lang.help.complements.complement5
+		).replace(
+			'{{ permissions }}', command.req.permissions.length > 0 ? lang.help.complements.complement2 : lang.help.complements.complement3
+		)
 	);
 
 	sendMsg( msg, embed );
