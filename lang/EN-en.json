@@ -1,5 +1,19 @@
 {
 	"languageName": "English",
+	"init": {
+		"events": {
+			"title": "Events",
+			"head1": "Event"
+		},
+		"head": "State of Charge",
+		"error": "An error occurred when logging, Verify the password or Internet :X",
+		"notAttribute": "❌ -> does not have the attribute '{{ attribute }}'",
+		"notReq": "❌ -> 'req' does not have the attribute '{{ req }}'",
+		"notFunction": "❌ -> '{{ notFunction }}' is not a function",
+		"disabled": "⚠ -> It is Disabled",
+		"hidden": "⛔",
+		"good": "✅"
+	},
 	"ready": {
 		"bot": "Bot ready as: {{ nameBot }}",
 		"events": "Events: {{ events }}",

@@ -1,5 +1,19 @@
 {
 	"languageName": "Español",
+	"init": {
+		"events": {
+			"title": "Eventos",
+			"head1": "Evento"
+		},
+		"head": "Estado de Carga",
+		"error": "Ocurrio Un Error al Loggearse Verifica El Password o Internet :X",
+		"notAttribute": "❌ -> No tiene el atributo '{{ attribute }}'",
+		"notReq": "❌ -> 'req' No tiene el atributo '{{ req }}'",
+		"notFunction": "❌ -> '{{ notFunction }}' no es una función",
+		"disabled": "⚠ -> Se Encuentra Deshabilitado",
+		"hidden": "⛔",
+		"good": "✅"
+	},
 	"ready": {
 		"bot": "Bot listo como: {{ nameBot }}",
 		"events": "Eventos: {{ events }}",

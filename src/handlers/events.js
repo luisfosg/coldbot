@@ -4,6 +4,8 @@ import Table from 'ascii-table';
 import { readdirSync } from 'fs';
 import { join } from 'path';
 
+let lang;
+
 const attributes = ['name', 'req', 'run'];
 const reqs = ['once', 'enable'];
 const areFunctions = ['run'];
@@ -11,36 +13,37 @@ const areFunctions = ['run'];
 const verifyStructure = ( table, event, eventFile ) => {
 	for ( const attribute of attributes ) {
 		if ( !event[attribute] ) {
-			table.addRow( eventFile, `❌ -> No tiene el atributo "${ attribute }"` );
+			table.addRow( eventFile, lang.init.notAttribute.replace( '{{ attribute }}', attribute ) );
 			return false;
 		}
 	}
 	for ( const req of reqs ) {
 		if ( event.req[req] === undefined ) {
-			table.addRow( eventFile, `❌ -> "req" No tiene el atributo "${ req }"` );
+			table.addRow( eventFile, lang.init.notReq.replace( '{{ req }}', req ) );
 			return false;
 		}
 	}
 	for ( const isFunction of areFunctions ) {
 		if ( typeof event[isFunction] !== 'function' ) {
-			table.addRow( eventFile, `❌ -> "${ isFunction }" no es una función` );
+			table.addRow( eventFile, lang.init.notFunction.replace( '{{ notFunction }}', isFunction ) );
 			return false;
 		}
 	}
 
 	if ( !event.req.enable ) {
-		table.addRow( eventFile, '⚠ -> Comando Deshabilitado' );
+		table.addRow( eventFile, lang.init.disabled );
 		return false;
 	}
 
 	return true;
 };
 
-export const importEvents = async ( client ) => {
+export const importEvents = async ( client, language ) => {
+	lang = language;
 	client.eventCount = 0;
 
-	const table = new Table( 'Eventos' );
-	table.setHeading( 'Evento', 'Estado de Carga' );
+	const table = new Table( lang.init.events.title );
+	table.setHeading( lang.init.events.head1, lang.init.head );
 
 	for ( const eventFile of readdirSync( join( __dirname, '../data/events' ) ) ) {
 		if ( !eventFile.includes( '.js' ) ) continue;
@@ -54,9 +57,9 @@ export const importEvents = async ( client ) => {
 
 		client.eventCount++;
 		if ( once ) {
-			table.addRow( eventFile, '⛔' );
+			table.addRow( eventFile, lang.init.hidden );
 		} else {
-			table.addRow( eventFile, '✅' );
+			table.addRow( eventFile, lang.init.good );
 		}
 
 		delete require.cache[require.resolve( `../data/events/${eventFile}` )];
