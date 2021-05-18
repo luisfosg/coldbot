@@ -5,51 +5,54 @@ import { join } from 'path';
 import { Collection } from 'discord.js';
 import { readdirSync } from 'fs';
 
-const attributes = ['name', 'alias', 'req', 'category', 'usage', 'description', 'run'];
+let lang;
+
+const attributes = ['name', 'alias', 'category', 'usage', 'description', 'req', 'run'];
 const reqs = ['args', 'cooldown', 'dm', 'enable', 'visible', 'permissions'];
 const areFunctions = ['usage', 'description', 'run'];
 
 const verifyStructure = ( table, command, commandFile ) => {
 	for ( const attribute of attributes ) {
 		if ( !command[attribute] ) {
-			table.addRow( commandFile, `❌ -> No tiene el atributo "${ attribute }"` );
+			table.addRow( commandFile, lang.init.notAttribute.replace( '{{ attribute }}', attribute ) );
 			return false;
 		}
 	}
 	for ( const req of reqs ) {
 		if ( command.req[req] === undefined ) {
-			table.addRow( commandFile, `❌ -> "req" No tiene el atributo "${ req }"` );
+			table.addRow( commandFile, lang.init.notReq.replace( '{{ req }}', req ) );
 			return false;
 		}
 	}
 	for ( const isFunction of areFunctions ) {
 		if ( typeof command[isFunction] !== 'function' ) {
-			table.addRow( commandFile, `❌ -> "${ isFunction }" no es una función` );
+			table.addRow( commandFile, lang.init.notFunction.replace( '{{ notFunction }}', isFunction ) );
 			return false;
 		}
 	}
 
 	if ( !command.req.enable ) {
-		table.addRow( commandFile, '⚠ -> Comando Deshabilitado' );
+		table.addRow( commandFile, lang.init.disabled );
 		return false;
 	}
 
 	return true;
 };
 
-export const importCommands = async ( client ) => {
+export const importCommands = async ( client, language ) => {
+	lang = language;
 	client.commands = new Collection();
 	client.categories = [];
 
-	const table = new Table( 'Comandos' );
-	table.setHeading( 'Comando', 'Estado de Carga' );
+	const table = new Table( lang.init.commands.title );
+	table.setHeading( lang.init.commands.head1, lang.init.head );
 
 	for ( const subfolder of readdirSync( join( __dirname, '../data/commands' ) ) ) {
 		let archs;
 		try {
 			archs = readdirSync( join( __dirname, `../data/commands/${ subfolder }` ) );
 		} catch ( error ) {
-			table.addRow( subfolder, '❌ -> No puedes Colocar un comando aqui.' );
+			table.addRow( subfolder, lang.init.commands.notWorking );
 			archs = [];
 		}
 
@@ -67,9 +70,9 @@ export const importCommands = async ( client ) => {
 			}
 
 			if ( !command.default.req.visible ) {
-				table.addRow( commandFile, '⛔' );
+				table.addRow( commandFile, lang.init.hidden );
 			} else {
-				table.addRow( commandFile, '✅' );
+				table.addRow( commandFile, lang.init.good );
 			}
 		}
 	}

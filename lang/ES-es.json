@@ -5,6 +5,11 @@
 			"title": "Eventos",
 			"head1": "Evento"
 		},
+		"commands": {
+			"title": "Comandos",
+			"head1": "Comando",
+			"notWorking": "❌ -> No puedes Colocar un comando aqui."
+		},
 		"head": "Estado de Carga",
 		"error": "Ocurrio Un Error al Loggearse Verifica El Password o Internet :X",
 		"notAttribute": "❌ -> No tiene el atributo '{{ attribute }}'",
