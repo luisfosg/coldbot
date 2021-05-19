@@ -1,3 +1,5 @@
+import { MessageEmbed } from 'discord.js';
+
 import { sendMsg } from '../../util';
 import { setLanguage, getLanguage } from '../../../db/language';
 import { setLanguageUtil, languageChannel } from '../../functions/language';
@@ -20,7 +22,16 @@ export default {
 		const lang = languageChannel( client, msg.guild );
 
 		if ( !args[0] ) {
-			return sendMsg( msg, lang.language.selected.replace( '{{ lang }}', await getLanguage( msg.guild.id ) ) );
+			sendMsg( msg, lang.language.selected.replace( '{{ lang }}', await getLanguage( msg.guild.id ) ) );
+			const embed = new MessageEmbed();
+
+			embed.setTitle( lang.language.title );
+			embed.setDescription(
+				client.languages.map( ( l ) => `\`${ l.languageName }\`` )
+			);
+
+			sendMsg( msg, embed );
+			return;
 		}
 
 		args[0] = args[0].toUpperCase();

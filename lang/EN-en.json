@@ -1,5 +1,5 @@
 {
-	"languageName": "English",
+	"languageName": "EN",
 	"general": {
 		"userNotFound": "User Not Found"
 	},
@@ -92,6 +92,7 @@
 	"language": {
 		"usage": "Prueba EN",
 		"description": "en",
+		"title": "Languages",
 		"notFound": "Language not available",
 		"selected": "The selected language is `{{ lang }}`",
 		"chosenOne": "Language updated to `{{ lang }}`"

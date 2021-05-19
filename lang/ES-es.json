@@ -1,5 +1,5 @@
 {
-	"languageName": "Español",
+	"languageName": "ES",
 	"general": {
 		"userNotFound": "Usuario No Encontrado"
 	},
@@ -92,6 +92,7 @@
 	"language": {
 		"usage": "Prueba ES",
 		"description": "es",
+		"title": "Lenguajes",
 		"notFound": "Idioma no disponible",
 		"selected": "El lenguaje seleccionado es `{{ lang }}`",
 		"chosenOne": "Idioma actualizado a `{{ lang }}`"
