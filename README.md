@@ -4,18 +4,19 @@
 
 ## 𝔻𝕖𝕤𝕔𝕣𝕚𝕡𝕔𝕚𝕠́𝕟
 
-Cold Bot ha sido creado por mero autoaprendizaje y por esta misma razón Cold Bot es Publico.
+Cold Bot ha sido creado por mero autoaprendizaje y por esta misma razón Cold Bot es de codigo abierto(Open Source).
 
 Aún asi no vendria mal un respectivo credito <3
 
 Aqui Puedes Encontrar:
 
+- Bot Multilenguaje
 - Mensajes de Bienvenida/Despedida
 - Tickets para dar soportes.
 - Logs de acciones
 - Command Handler y Event Handler
 
-Estamos Implementando multilenguaje y Cooldown, pero por el momento aun no son funcionales. poco a poco iremos activando estas funcionalidades.
+Estamos Implementando Cooldown, pero por el momento aun no es funcional. poco a poco iremos activando esta funcionalidad.
 
 En busca de tener un estado mas rapido de todos los comandos y eventos, por consola nos creara una tabla con el estado de los comandos, eventos y lenguajes. siguiendo una estructura base.
 
