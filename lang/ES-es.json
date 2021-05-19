@@ -81,19 +81,29 @@
 	},
 	"commands": {
 		"usage": "Prueba ES",
-		"description": "es"
+		"description": "es",
+		"title": "> Lista de Comandos",
+		"commandsNum": "Número de Comandos: `{{ num }}`",
+		"footer": "¿El numero de comandos no cuadra con la lista? ¡Hay Comandos Ocultos!"
 	},
 	"language": {
 		"usage": "Prueba ES",
-		"description": "es"
+		"description": "es",
+		"notFound": "Idioma no disponible",
+		"selected": "El lenguaje seleccionado es `{{ lang }}`",
+		"chosenOne": "Idioma actualizado a `{{ lang }}`"
 	},
 	"prefix": {
 		"usage": "Prueba ES",
-		"description": "es"
+		"description": "es",
+		"message": "Cambiando el Prefix a `{{ prefix }}`"
 	},
 	"split": {
 		"usage": "Prueba ES",
-		"description": "es"
+		"description": "es",
+		"message": "Cambiando el Separador de Argumentos a `{{ split }}`",
+		"activated": "El Separador de Argumentos Esta Activo.",
+		"disabled": "Se ha desactivado el Separador de Argumentos"
 	},
 	"status": {
 		"usage": "Prueba ES",

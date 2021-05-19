@@ -81,19 +81,29 @@
 	},
 	"commands": {
 		"usage": "Prueba EN",
-		"description": "en"
+		"description": "en",
+		"title": "> Command List",
+		"commandsNum": "Number of Commands: `{{ num }}`",
+		"footer": "The number of commands does not match the list? There are Hidden Commands!"
 	},
 	"language": {
 		"usage": "Prueba EN",
-		"description": "en"
+		"description": "en",
+		"notFound": "Language not available",
+		"selected": "The selected language is `{{ lang }}`",
+		"chosenOne": "Language updated to `{{ lang }}`"
 	},
 	"prefix": {
 		"usage": "Prueba EN",
-		"description": "en"
+		"description": "en",
+		"message": "Changing the prefix to `{{ prefix }}`"
 	},
 	"split": {
 		"usage": "Prueba EN",
-		"description": "en"
+		"description": "en",
+		"message": "Change the argument separator to `{{ split }}`",
+		"activated": "The Argument Separator is Active.",
+		"disabled": "Argument Separator has been disabled"
 	},
 	"status": {
 		"usage": "Prueba EN",

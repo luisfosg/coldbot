@@ -1,6 +1,6 @@
 import { sendMsg } from '../../util';
 import { setLanguage, getLanguage } from '../../../db/language';
-import { setLanguageUtil } from '../../functions/language';
+import { setLanguageUtil, languageChannel } from '../../functions/language';
 
 export default {
 	name: 'setlanguage',
@@ -17,15 +17,17 @@ export default {
 		permissions: ['ADMINISTRATOR'],
 	},
 	run: async ( client, msg, args ) => {
+		const lang = languageChannel( client, msg.guild );
+
 		if ( !args[0] ) {
-			return sendMsg( msg, `El lenguaje seleccionado es \`${ await getLanguage( msg.guild.id ) }\`` );
+			return sendMsg( msg, lang.language.selected.replace( '{{ lang }}', await getLanguage( msg.guild.id ) ) );
 		}
 
 		args[0] = args[0].toUpperCase();
-		if ( !client.languages.has( args[0] ) ) return sendMsg( msg, 'Lenguaje no Disponible' );
+		if ( !client.languages.has( args[0] ) ) return sendMsg( msg, lang.language.notFound );
 
 		setLanguage( msg, args[0] );
 		setLanguageUtil( msg.guild, args[0] );
-		sendMsg( msg, `Lenguaje Actualizado a \`${ args[0] }\`` );
+		sendMsg( msg, lang.language.chosenOne.replace( '{{ lang }}', args[0] ) );
 	},
 };

@@ -2,6 +2,10 @@ import { MessageEmbed } from 'discord.js';
 
 import { sendMsg } from '../../util';
 
+import language from '../../functions/language';
+
+let lang;
+
 const printCategory = ( client, msg, embed, category ) => {
 	const isdm = msg.channel.type;
 	const commands = client.commands.filter( ( cmd ) => {
@@ -30,10 +34,10 @@ const commandMessage = async ( client, msg ) => {
 	embed.setThumbnail( client.user.avatarURL() );
 	embed.setAuthor( msg.author.username, msg.author.avatarURL() );
 	embed.setTimestamp( Date.now() );
-	embed.setTitle( '> Lista de Comandos' );
+	embed.setTitle( lang.commands.title );
 
-	embed.setDescription( `Comandos: \`${ client.commands.size }\`` );
-	embed.setFooter( '¿El numero de comandos no cuadra con la lista? ¡Hay Comandos Ocultos!' );
+	embed.setDescription( lang.commands.commandsNum.replace( '{{ num }}', client.commands.size ) );
+	embed.setFooter( lang.commands.footer );
 
 	client.categories.forEach( ( category ) => {
 		printCategory( client, msg, embed, category );
@@ -57,6 +61,8 @@ export default {
 		permissions: [],
 	},
 	run: async ( client, msg, _args ) => {
+		lang = language( client, msg.guild );
+
 		await commandMessage( client, msg );
 		msg.delete().catch( () => {} );
 	},

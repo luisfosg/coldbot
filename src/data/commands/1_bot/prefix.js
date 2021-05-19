@@ -2,6 +2,8 @@ import { sendMsg } from '../../util';
 
 import { setPrefix } from '../../../db/prefix';
 
+import language from '../../functions/language';
+
 export default {
 	name: 'setprefix',
 	alias: ['prefix', 'pref'],
@@ -16,10 +18,11 @@ export default {
 		visible: true,
 		permissions: ['ADMINISTRATOR'],
 	},
-	run: async ( _client, msg, args ) => {
+	run: async ( client, msg, args ) => {
+		const lang = language( client, msg.guild );
 		setPrefix( msg, args[0] );
 
-		sendMsg( msg, `Cambiando el Prefix a \`${ args[0] }\`` );
+		sendMsg( msg, lang.prefix.message.replace( '{{ prefix }}', args[0] ) );
 		msg.delete();
 	},
 };

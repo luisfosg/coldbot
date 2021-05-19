@@ -2,6 +2,8 @@ import { sendMsg } from '../../util';
 
 import { getSplit, setSplit } from '../../../db/splitString';
 
+import language from '../../functions/language';
+
 export default {
 	name: 'setsplit',
 	alias: ['split', 'string'],
@@ -16,7 +18,9 @@ export default {
 		visible: true,
 		permissions: ['ADMINISTRATOR'],
 	},
-	run: async ( _client, msg, args ) => {
+	run: async ( client, msg, args ) => {
+		const lang = language( client, msg.guild );
+
 		let estado = false;
 		args[0] = args[0].toLowerCase();
 
@@ -33,11 +37,11 @@ export default {
 			setSplit( msg, false, args[1] );
 		}
 
-		sendMsg( msg, `Cambiando el Separador de Argumentos a \`${ args[1] }\`` );
-		if ( !estado ) {
-			sendMsg( msg, 'Se ha desactivado el Separador de Argumentos' );
+		sendMsg( msg, lang.split.message.replace( '{{ split }}', args[1] ) );
+		if ( estado ) {
+			sendMsg( msg, lang.split.activated );
 		} else {
-			sendMsg( msg, 'El Separador de Argumentos Esta Activo.' );
+			sendMsg( msg, lang.split.disabled );
 		}
 	},
 };
