@@ -1,5 +1,8 @@
 {
 	"languageName": "Español",
+	"general": {
+		"userNotFound": "Usuario No Encontrado"
+	},
 	"init": {
 		"events": {
 			"title": "Eventos",
@@ -111,22 +114,35 @@
 	},
 	"ticket": {
 		"usage": "Prueba ES",
-		"description": "es"
+		"description": "es",
+		"titleSupport": "SOPORTE | Cold Bot",
+		"titleTicket": "TICKET | Cold Bot",
+		"descripDisabled": "`Por el momento las ayudas estan deshabilitadas.`",
+		"descripEnable": "@everyone `Reacciona con un `📩` para abrir un Ticket.`\n\nRecuerda que solo puede haber maximo un ticket abierto por persona.",
+		"descripTicket": "<@{{ id }}> tu ticket ha sido solicitado. Reacciona a '❌' para cerrar el Ticket.\n\nLos Administradores tambien podran eliminar tu Ticket"
 	},
 	"avatar": {
 		"usage": "Prueba ES",
-		"description": "es"
+		"description": "es",
+		"title": "Avatar de {{ user }}"
 	},
 	"profile": {
 		"usage": "Prueba ES",
-		"description": "es"
+		"description": "es",
+		"bot": "Bot",
+		"human": "Humano",
+		"tag": "Tag: #{{ tag }}"
 	},
 	"clear": {
 		"usage": "Prueba ES",
-		"description": "es"
+		"description": "es",
+		"errorAdmin": "No puede Colocar numeros negativos o Eliminar mas de 99 mensajes",
+		"error": "No puede Borrar mas de 3 mensajes o colocar numeros negativos",
+		"message": "<@{{ user }}> Elimino `{{ number }}` mensajes de <#{{ channel }}>`"
 	},
 	"meme": {
 		"usage": "Prueba ES",
-		"description": "es"
+		"description": "es",
+		"imgNotWork": "La Imagen Enviada No Sirve..."
 	}
 }

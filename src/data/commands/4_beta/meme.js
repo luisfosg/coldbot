@@ -3,12 +3,16 @@ import { createCanvas, loadImage } from 'canvas';
 
 import { sendMsg } from '../../util';
 
+import language from '../../functions/language';
+
+let lang;
+
 const loadMeme = async ( msg, image, txt, color ) => {
 	const canvasMeme = createCanvas( 600, 400 );
 	const ctx = canvasMeme.getContext( '2d' );
 
 	const photo = await loadImage( image ).catch( () => {} );
-	if ( !photo ) return sendMsg( msg, 'La Imagen Enviada No Sirve...' );
+	if ( !photo ) return sendMsg( msg, lang.meme.imgNotWork );
 
 	ctx.drawImage( photo, 0, 0, 600, 400 );
 	ctx.fillStyle = color;
@@ -34,7 +38,9 @@ export default {
 		visible: true,
 		permissions: [],
 	},
-	run: async ( _client, msg, args ) => {
+	run: async ( client, msg, args ) => {
+		lang = language( client, msg.guild );
+
 		const image = args[0];
 		const txt = args[1];
 		let color = args[2];

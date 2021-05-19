@@ -1,17 +1,18 @@
 import { MessageEmbed } from 'discord.js';
-import { async } from 'regenerator-runtime';
 
 import { getMsgTicket, setMsgTicket } from '../../../db/ticket';
+
+import language from '../../functions/language';
+
+let lang;
 
 const descriptionTicket = async ( channel, user ) => {
 	const embed = new MessageEmbed();
 
 	embed.setColor( '#126554' );
 	embed.setTimestamp();
-	embed.setTitle( 'TICKET | ColdBot' );
-	embed.setDescription(
-		`<@${user.id}> tu ticket ha sido solicitado. Reacciona a "❌" para cerrar el Ticket.\n\nLos Administradores tambien podran eliminar tu Ticket`
-	);
+	embed.setTitle( lang.ticket.titleTicket );
+	embed.setDescription( lang.ticket.descripTicket.replace( '{{ id }}', user.id ) );
 
 	channel.send( embed ).then( ( msg ) => {
 		msg.react( '❌' );
@@ -69,9 +70,8 @@ const description = async ( msg ) => {
 
 	embed.setColor( '#126554' );
 	embed.setTimestamp();
-	embed.setTitle( 'SOPORTE | ColdBot' );
-
-	embed.setDescription( '@everyone `Reacciona con un `📩`, para abrir un Ticket.`\n\nRecuerden que solo Puede Haber un Maximo de 1 Ticket abierto por persona.' );
+	embed.setTitle( lang.ticket.titleSupport );
+	embed.setDescription( lang.ticket.descripEnable );
 
 	return embed;
 };
@@ -86,8 +86,8 @@ const deleteDescription = async ( msg ) => {
 
 	embed.setColor( '#126554' );
 	embed.setTimestamp();
-	embed.setTitle( 'SOPORTE | ColdBot' );
-	embed.setDescription( '`Por el momento las ayudas estan deshabilitadas.`' );
+	embed.setTitle( lang.ticket.titleSupport );
+	embed.setDescription( lang.ticket.descripDisabled );
 
 	msg.channel.send( embed ).then( async ( msgEmbed ) => {
 		await setMsgTicket( msg, msgEmbed.id );
@@ -110,7 +110,9 @@ export default {
 		visible: true,
 		permissions: ['ADMINISTRATOR'],
 	},
-	run: async ( _client, msg, args ) => {
+	run: async ( client, msg, args ) => {
+		lang = language( client, msg.guild );
+
 		if ( args[0] === 'close' ) return deleteDescription( msg );
 
 		const embed = await description( msg );

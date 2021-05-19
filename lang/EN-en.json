@@ -1,5 +1,8 @@
 {
 	"languageName": "English",
+	"general": {
+		"userNotFound": "User Not Found"
+	},
 	"init": {
 		"events": {
 			"title": "Events",
@@ -111,22 +114,35 @@
 	},
 	"ticket": {
 		"usage": "Prueba EN",
-		"description": "en"
+		"description": "en",
+		"titleSupport": "SUPPORT | Cold Bot",
+		"titleTicket": "TICKET | Cold Bot",
+		"descripDisabled": "`At the moment the aids are disabled.`",
+		"descripEnable": "@everyone `React with a `📩` to open a ticket.`\n\nRemember that there can only be a maximum of one open ticket per person.",
+		"descripTicket": "<@{{ id }}> your ticket has been requested. React with a '❌' to close the Ticket.\n\nAdministrators can also delete their Ticket"
 	},
 	"avatar": {
 		"usage": "Prueba EN",
-		"description": "en"
+		"description": "en",
+		"title": "{{ user }}'s Avatar"
 	},
 	"profile": {
 		"usage": "Prueba EN",
-		"description": "en"
+		"description": "en",
+		"bot": "Bot",
+		"human": "Human",
+		"tag": "Tag: #{{ tag }}"
 	},
 	"clear": {
 		"usage": "Prueba EN",
-		"description": "en"
+		"description": "en",
+		"errorAdmin": "You cannot put negative numbers or delete more than 99 messages",
+		"error": "You cannot Delete more than 3 messages or put negative numbers",
+		"message": "<@{{ user }}> delete `{{ number }}` messages of <#{{ channel }}>`"
 	},
 	"meme": {
 		"usage": "Prueba EN",
-		"description": "en"
+		"description": "en",
+		"imgNotWork": "The Sent Image Doesn't Work ..."
 	}
 }
