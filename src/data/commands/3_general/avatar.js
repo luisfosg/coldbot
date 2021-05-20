@@ -13,8 +13,8 @@ const avatar = async ( msg, user ) => {
 	embed.setColor( '#86E7E7' );
 	embed.setAuthor( msg.author.username, msg.author.displayAvatarURL() );
 	embed.setTitle( lang.avatar.title.replace( '{{ user }}', user.username ) );
-	embed.setURL( user.avatarURL( { format: 'png', size: 512 } ) );
-	embed.setImage( user.displayAvatarURL( { format: 'png', size: 512 } ) );
+	embed.setURL( user.avatarURL( { dynamic: true, size: 1024 } ) );
+	embed.setImage( user.displayAvatarURL( { dynamic: true, size: 512 } ) );
 
 	sendMsg( msg, embed );
 };
