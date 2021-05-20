@@ -31,7 +31,7 @@ export default {
 	usage: ( langs ) => langs.meme.usage,
 	description: ( langs ) => langs.meme.description,
 	req: {
-		args: 2,
+		minArgs: 2,
 		cooldown: 0,
 		dm: true,
 		enable: true,

@@ -53,7 +53,7 @@ export default {
 	usage: ( langs ) => langs.commands.usage,
 	description: ( langs ) => langs.commands.description,
 	req: {
-		args: 0,
+		minArgs: 0,
 		cooldown: 0,
 		dm: true,
 		enable: true,

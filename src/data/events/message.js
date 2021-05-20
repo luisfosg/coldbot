@@ -20,7 +20,7 @@ const checkCommand = async ( client, msg, CMD, args ) => {
 	const isPermitValid = await checkPermissions( msg, commandFind.req.permissions );
 	if ( !isPermitValid ) return msg.reply( lang.message.invalidPermissions );
 
-	const isArgsValid = await checkArgs( commandFind.req.args, args.length );
+	const isArgsValid = await checkArgs( commandFind.req.minArgs, args.length );
 	if ( !isArgsValid ) return msg.reply( lang.message.invalidArgs.replace( '{{ usage }}', commandFind.usage( lang ) ) );
 
 	try {

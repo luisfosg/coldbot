@@ -30,11 +30,11 @@ const parseTxtNumber = ( num ) => {
 export default {
 	name: 'clear',
 	alias: ['cls'],
-	category: 'beta',
+	category: 'admin',
 	usage: ( langs ) => langs.clear.usage,
 	description: ( langs ) => langs.clear.description,
 	req: {
-		args: 1,
+		minArgs: 1,
 		cooldown: 0,
 		dm: false,
 		enable: true,

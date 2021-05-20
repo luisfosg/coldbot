@@ -7,11 +7,11 @@ import { setLanguageUtil, languageChannel } from '../../functions/language';
 export default {
 	name: 'setlanguage',
 	alias: ['setlang', 'lang'],
-	category: 'beta',
+	category: 'bot',
 	usage: ( langs ) => langs.language.usage,
 	description: ( langs ) => langs.language.description,
 	req: {
-		args: 0,
+		minArgs: 0,
 		cooldown: 0,
 		dm: false,
 		enable: true,

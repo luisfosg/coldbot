@@ -11,7 +11,7 @@ export default {
 	usage: ( langs ) => langs.split.usage,
 	description: ( langs ) => langs.split.description,
 	req: {
-		args: 2,
+		minArgs: 2,
 		dm: false,
 		cooldown: 0,
 		enable: true,

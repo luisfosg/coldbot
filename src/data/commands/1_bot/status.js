@@ -5,7 +5,7 @@ export default {
 	usage: ( langs ) => langs.status.usage,
 	description: ( langs ) => langs.status.description,
 	req: {
-		args: 4,
+		minArgs: 4,
 		cooldown: 0,
 		dm: true,
 		enable: true,

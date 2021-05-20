@@ -103,7 +103,7 @@ export default {
 	usage: ( langs ) => langs.ticket.usage,
 	description: ( langs ) => langs.ticket.description,
 	req: {
-		args: 0,
+		minArgs: 0,
 		cooldown: 0,
 		dm: false,
 		enable: true,

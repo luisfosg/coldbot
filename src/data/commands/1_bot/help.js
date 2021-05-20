@@ -49,7 +49,7 @@ const helpCommand = async ( client, msg, commandArg ) => {
 
 	embed.setDescription(
 		lang.help.settingsCommand.replace(
-			'{{ args }}', command.req.args
+			'{{ args }}', command.req.minArgs
 		).replace(
 			'{{ md }}', command.req.dm ? lang.help.complements.complement4 : lang.help.complements.complement5
 		).replace(
@@ -67,7 +67,7 @@ export default {
 	usage: ( langs ) => langs.help.usage,
 	description: ( langs ) => langs.help.description,
 	req: {
-		args: 0,
+		minArgs: 0,
 		cooldown: 0,
 		dm: true,
 		enable: true,

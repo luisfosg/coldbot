@@ -11,7 +11,7 @@ export default {
 	usage: ( langs ) => langs.prefix.usage,
 	description: ( langs ) => langs.prefix.description,
 	req: {
-		args: 1,
+		minArgs: 1,
 		cooldown: 0,
 		dm: false,
 		enable: true,

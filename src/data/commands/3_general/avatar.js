@@ -26,7 +26,7 @@ export default {
 	usage: ( langs ) => langs.avatar.usage,
 	description: ( langs ) => langs.avatar.description,
 	req: {
-		args: 0,
+		minArgs: 0,
 		cooldown: 0,
 		dm: true,
 		enable: true,

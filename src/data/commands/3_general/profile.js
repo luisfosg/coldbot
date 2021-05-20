@@ -54,7 +54,7 @@ export default {
 	usage: ( langs ) => langs.profile.usage,
 	description: ( langs ) => langs.profile.description,
 	req: {
-		args: 0,
+		minArgs: 0,
 		cooldown: 0,
 		dm: false,
 		enable: true,
