@@ -5,6 +5,7 @@ import { getSplit } from '../../db/splitString';
 
 import { checkArgs, checkMd, divideArgs } from '../functions/checkArgs';
 import { checkPermissions } from '../functions/checkPermissions';
+import { cooldown } from '../functions/cooldown';
 
 import language from '../functions/language';
 
@@ -22,6 +23,9 @@ const checkCommand = async ( client, msg, CMD, args ) => {
 
 	const isArgsValid = await checkArgs( commandFind.req.minArgs, args.length );
 	if ( !isArgsValid ) return msg.reply( lang.message.invalidArgs.replace( '{{ usage }}', commandFind.usage( lang ) ) );
+
+	const notCooldown = cooldown( msg.author, commandFind.name, commandFind.req.cooldown );
+	if ( !notCooldown ) return msg.reply( lang.message.cooldown.replace( '{{ seg }}', commandFind.req.cooldown ) );
 
 	try {
 		commandFind.run( client, msg, args );

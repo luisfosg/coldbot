@@ -35,6 +35,7 @@
 		"notMd": "Command cannot be used in DM",
 		"invalidPermissions": "It does not have the necessary permits.",
 		"invalidArgs": "Arguments missing, command usage: {{ usage }}",
+		"cooldown": "You have to wait {{ seg }}s every time you use this command.",
 		"error": "An error occurred Contact your administrator: {{ dev }}"
 	},
 	"channelUpdate": {

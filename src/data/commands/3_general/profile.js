@@ -55,7 +55,7 @@ export default {
 	description: ( langs ) => langs.profile.description,
 	req: {
 		minArgs: 0,
-		cooldown: 0,
+		cooldown: 10,
 		dm: false,
 		enable: true,
 		visible: true,

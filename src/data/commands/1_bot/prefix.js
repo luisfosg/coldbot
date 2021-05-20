@@ -12,7 +12,7 @@ export default {
 	description: ( langs ) => langs.prefix.description,
 	req: {
 		minArgs: 1,
-		cooldown: 0,
+		cooldown: 20,
 		dm: false,
 		enable: true,
 		visible: true,

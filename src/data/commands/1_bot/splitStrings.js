@@ -13,7 +13,7 @@ export default {
 	req: {
 		minArgs: 2,
 		dm: false,
-		cooldown: 0,
+		cooldown: 20,
 		enable: true,
 		visible: true,
 		permissions: ['ADMINISTRATOR'],

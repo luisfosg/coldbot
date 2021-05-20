@@ -35,7 +35,7 @@ export default {
 	description: ( langs ) => langs.clear.description,
 	req: {
 		minArgs: 1,
-		cooldown: 0,
+		cooldown: 60,
 		dm: false,
 		enable: true,
 		visible: true,

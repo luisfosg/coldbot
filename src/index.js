@@ -13,7 +13,10 @@ import language from './data/functions/language';
 const start = async () => {
 	const login = await getLogin();
 
-	const client = new Client( { disableEveryone: false } );
+	const client = new Client( {
+		disableEveryone: false,
+		partials: ['MESSAGE', 'CHANNEL', 'REACTION']
+	} );
 
 	await importLanguages( client );
 	const lang = language( client );

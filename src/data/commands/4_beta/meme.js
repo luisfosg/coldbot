@@ -32,7 +32,7 @@ export default {
 	description: ( langs ) => langs.meme.description,
 	req: {
 		minArgs: 2,
-		cooldown: 0,
+		cooldown: 20,
 		dm: true,
 		enable: true,
 		visible: true,

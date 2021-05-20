@@ -6,7 +6,7 @@ export default {
 	description: ( langs ) => langs.status.description,
 	req: {
 		minArgs: 4,
-		cooldown: 0,
+		cooldown: 20,
 		dm: true,
 		enable: true,
 		visible: false,

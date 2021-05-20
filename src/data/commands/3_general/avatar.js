@@ -27,7 +27,7 @@ export default {
 	description: ( langs ) => langs.avatar.description,
 	req: {
 		minArgs: 0,
-		cooldown: 0,
+		cooldown: 5,
 		dm: true,
 		enable: true,
 		visible: true,

@@ -35,6 +35,7 @@
 		"notMd": "El Comando no se puede usar en  MD (dm).",
 		"invalidPermissions": "No Posee los Permisos Necesarios.",
 		"invalidArgs": "Faltan Argumentos, Uso del Comando: {{ usage }}",
+		"cooldown": "Tienes que esperar {{ seg }}s cada que uses este comando.",
 		"error": "A Ocurrido un Error Contacta al Administrador: {{ dev }}"
 	},
 	"channelUpdate": {

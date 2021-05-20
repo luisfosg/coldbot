@@ -14,6 +14,7 @@ export const divideArgs = async ( client, string, prefix ) => {
 
 	const command = string.trim().split( / +/ ).shift().toLowerCase();
 	string = string.trim().slice( command.length ).trim();
+	if ( string === '' ) return [command, []];
 
 	if ( client.splitStrings.status ) {
 		args = string.trim().split( client.splitStrings.value );
