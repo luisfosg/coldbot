@@ -32,8 +32,9 @@ const checkCommand = async ( client, msg, CMD, args ) => {
 
 const mentionPrefix = async ( client, msg ) => {
 	if ( msg.content.startsWith( client.prefix ) ) {
-		const args = await divideArgs( client, msg.content, client.prefix );
-		let CMD = args.shift().toLowerCase();
+		const stringArgs = await divideArgs( client, msg.content, client.prefix );
+		let CMD = stringArgs[0];
+		const args = stringArgs[1];
 
 		if ( client.commands.find( ( c ) => c.alias.includes( CMD ) ) ) {
 			const com = client.commands.find( ( c ) => c.alias.includes( CMD ) );

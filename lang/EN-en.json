@@ -71,7 +71,7 @@
 			"complement4": "🪐 This command can be used in dm",
 			"complement5": "🪐 This command cannot be used in dm"
 		},
-		"text": "Hello, The prefix is `{{ prefix }}` {{ text1 }} \n:small_blue_diamond:To see the commands use the command `cmds` \n :small_blue_diamond:For a more detailed description of using Command, use: `{{ prefix }}h {{ text2 }} <command>`",
+		"text": "Hello, The prefix is `{{ prefix }}` {{ text1 }} \n:small_blue_diamond:To see the commands use the command `cmds` \n :small_blue_diamond:For a more detailed description of using Command, use: `{{ prefix }}h <command>`",
 		"titleLink": "Links",
 		"links": ":snowflake: [Support Server](https://discord.gg/y6jrugZUxe)\n:snowflake: [Invite me to your server]({{ link }})",
 		"notFound": "Command not found.",

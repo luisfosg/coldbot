@@ -10,15 +10,17 @@ export const checkMd = ( reqMd, type ) => {
 
 export const divideArgs = async ( client, string, prefix ) => {
 	let args;
-
 	string = string.slice( prefix.length );
 
+	const command = string.trim().split( / +/ ).shift().toLowerCase();
+	string = string.trim().slice( command.length ).trim();
+
 	if ( client.splitStrings.status ) {
-		args = string.split( client.splitStrings.value );
+		args = string.trim().split( client.splitStrings.value );
 		args = args.map( ( arg ) => arg.trim() );
 	} else {
 		args = string.trim().split( / +/ );
 	}
 
-	return args;
+	return [command, args];
 };

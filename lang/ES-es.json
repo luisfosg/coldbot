@@ -71,7 +71,7 @@
 			"complement4": "🪐 Este comando se puede usar en MD [dm]",
 			"complement5": "🪐 Este comando no se puede usar en MD [dm]"
 		},
-		"text": "Hola, El prefix es `{{ prefix }}` {{ text1 }} \n:small_blue_diamond:Para ver los comandos usa el comando `cmds` \n :small_blue_diamond:Para ver una descripción mas detallada del Comando use: `{{ prefix }}h {{ text2 }} <comando>`",
+		"text": "Hola, El prefix es `{{ prefix }}` {{ text1 }} \n:small_blue_diamond:Para ver los comandos usa el comando `cmds` \n :small_blue_diamond:Para ver una descripción mas detallada del Comando use: `{{ prefix }}h <comando>`",
 		"titleLink": "Enlaces",
 		"links": ":snowflake: [Servidor de Soporte](https://discord.gg/y6jrugZUxe)\n:snowflake: [Invitame a tu servidor]({{ link }})",
 		"notFound": "Comando No Encontrado.",

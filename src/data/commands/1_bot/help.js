@@ -16,8 +16,6 @@ const helpMessage = async ( client, msg ) => {
 			/{{ prefix }}/g, client.prefix
 		).replace(
 			'{{ text1 }}', client.splitStrings.status ? lang.help.complements.complement1.replace( '{{ value }}', client.splitStrings.value ) : ''
-		).replace(
-			'{{ text2 }}', client.splitStrings.status ? `${ client.splitStrings.value }` : ''
 		)
 	);
 
