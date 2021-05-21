@@ -42,10 +42,10 @@ export default {
 		}
 		if ( user === 'notFound' ) return sendMsg( msg, lang.general.userNotFound );
 
-		let dataUser = user || msg.member;
-		!dataUser ? dataUser = msg.author : dataUser = dataUser.user;
+		const dataUser = user || msg.author;
 
 		await avatar( msg, dataUser );
+
 		msg.delete().catch( () => {} );
 	}
 };

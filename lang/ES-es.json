@@ -1,7 +1,10 @@
 {
 	"languageName": "ES",
 	"general": {
-		"userNotFound": "Usuario No Encontrado"
+		"userNotFound": "Usuario No Encontrado",
+		"id": "Id",
+		"yes": "Si",
+		"not": "No"
 	},
 	"init": {
 		"events": {
@@ -133,7 +136,13 @@
 		"description": "es",
 		"bot": "Bot",
 		"human": "Humano",
-		"tag": "Tag: #{{ tag }}"
+		"tagImg": "Tag: #{{ tag }}",
+		"register": "Fecha de Registro",
+		"nickname": "Apodo",
+		"tag": "Tag",
+		"entry": "Fecha de Ingreso",
+		"status": "Estado",
+		"roles": "Roles"
 	},
 	"clear": {
 		"usage": "Prueba ES",

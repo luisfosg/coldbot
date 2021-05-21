@@ -14,7 +14,6 @@ const start = async () => {
 	const login = await getLogin();
 
 	const client = new Client( {
-		disableEveryone: false,
 		partials: ['MESSAGE', 'CHANNEL', 'REACTION']
 	} );
 

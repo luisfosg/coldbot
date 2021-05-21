@@ -1,7 +1,10 @@
 {
 	"languageName": "EN",
 	"general": {
-		"userNotFound": "User Not Found"
+		"userNotFound": "User Not Found",
+		"id": "Id",
+		"yes": "Yes",
+		"not": "Not"
 	},
 	"init": {
 		"events": {
@@ -133,7 +136,13 @@
 		"description": "en",
 		"bot": "Bot",
 		"human": "Human",
-		"tag": "Tag: #{{ tag }}"
+		"tagImg": "Tag: #{{ tag }}",
+		"register": "Creation Date",
+		"nickname": "Nickname",
+		"tag": "Tag",
+		"entry": "Entry Date",
+		"status": "Status",
+		"roles": "Roles"
 	},
 	"clear": {
 		"usage": "Prueba EN",

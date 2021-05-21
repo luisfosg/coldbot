@@ -17,7 +17,7 @@ export async function getUserWithId( client, msg, mention ) {
 		user = client;
 	}
 
-	return user;
+	return user.user;
 }
 
 export function sendMsg( msgInfoClient, messageSend ) {

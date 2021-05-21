@@ -1,4 +1,4 @@
-import { MessageAttachment } from 'discord.js';
+import { MessageAttachment, MessageEmbed } from 'discord.js';
 import { createCanvas, loadImage, registerFont } from 'canvas';
 import { join } from 'path';
 
@@ -11,7 +11,7 @@ let lang;
 const publicFolder = join( __dirname, '../../../../public' );
 const wallpaper = 'https://i.imgur.com/H80vUGI.png';
 
-const profile = async ( msg, user ) => {
+const profileImage = async ( msg, user ) => {
 	const photo = await roundImage( user.displayAvatarURL( { format: 'png' } ), 200, 200 );
 
 	registerFont( `${ publicFolder }/fonts/itim.ttf`, {
@@ -40,11 +40,31 @@ const profile = async ( msg, user ) => {
 	ctx.fillStyle = '#95A0A0';
 	ctx.fillRect( 0, 80, 330, 220 );
 	ctx.fillStyle = '#000';
-	ctx.fillText( lang.profile.tag.replace( '{{ tag }}', user.discriminator ), 5, 105 );
+	ctx.fillText( lang.profile.tagImg.replace( '{{ tag }}', user.discriminator ), 5, 105 );
 
 	const att = new MessageAttachment( canvasProfile.toBuffer(), 'avatar.png' );
 
 	sendMsg( msg, att );
+};
+
+const profile = async ( msg, user ) => {
+	const member = msg.guild.members.cache.get( user.id );
+	const embed = new MessageEmbed();
+
+	embed.setTitle( `🔵 ${ user.username }` );
+	embed.setThumbnail( user.avatarURL() );
+	embed.addField( lang.profile.register, user.createdAt.toLocaleDateString(), true );
+	embed.addField( lang.profile.nickname, member.nickname ? member.nickname : '----------', true );
+	embed.addField( lang.profile.tag, `#${ user.discriminator }`, true );
+	embed.addField( lang.profile.entry, member.joinedAt.toLocaleDateString(), true );
+	embed.addField( lang.profile.status, user.presence.status, true );
+	embed.addField( lang.profile.bot, user.bot ? lang.general.yes : lang.general.not, true );
+	embed.addField(
+		lang.profile.roles, member.roles.cache.map( ( rol ) => `\`${ rol.name }\`` ).join( ', ' )
+	);
+	embed.setFooter( `${ lang.general.id } ${ user.id }` );
+
+	sendMsg( msg, embed );
 };
 
 export default {
@@ -70,9 +90,13 @@ export default {
 		}
 		if ( user === 'notFound' ) return sendMsg( msg, lang.general.userNotFound );
 
-		const dataUser = user || msg.member;
+		const dataUser = user || msg.author;
 
-		await profile( msg, dataUser.user );
+		if ( args[0] === '-img' || args[1] === '-img' ) {
+			await profileImage( msg, dataUser );
+		} else {
+			await profile( msg, dataUser );
+		}
 
 		msg.delete();
 	},
