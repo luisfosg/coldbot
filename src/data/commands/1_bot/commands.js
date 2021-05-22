@@ -32,9 +32,8 @@ const commandMessage = async ( client, msg ) => {
 
 	embed.setColor( '#E58249' );
 	embed.setThumbnail( client.user.avatarURL() );
-	embed.setAuthor( msg.author.username, msg.author.avatarURL() );
+	embed.setAuthor( lang.commands.title, msg.author.avatarURL() );
 	embed.setTimestamp( Date.now() );
-	embed.setTitle( lang.commands.title );
 
 	embed.setDescription( lang.commands.commandsNum.replace( '{{ num }}', client.commands.size ) );
 	embed.setFooter( lang.commands.footer );

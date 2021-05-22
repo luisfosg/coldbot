@@ -65,6 +65,13 @@
 		"title": "**[Mensaje Anclado]**",
 		"description": "Se actualizo un mensaje anclado en el canal <#{{ id }}>"
 	},
+	"botinfo": {
+		"title": "Información - Cold Bot",
+		"description": "Hola, Soy un Bot multiproposito de **codigo abierto**, espero que te diviertas utilizando mis funciones. y me ayudes a mejorar mis falencias.",
+		"titleGeneral": "🔘 General",
+		"fieldGeneral": "============\n⚙ **Desarrollador**: `{{ dev }}`\n📡 **Servidores**: `{{ servers }}`\n👥 **Usuarios**: `{{ users }}`\n📣 **Canales**: `{{ channels }}`",
+		"titleBot": "🤖 Bot"
+	},
 	"help": {
 		"usage": "Prueba ES",
 		"description": "es",
@@ -73,23 +80,24 @@
 			"complement2": "🪐 Este comando requiere algunos permisos para su uso",
 			"complement3": "🪐 Este comando es libre de permisos",
 			"complement4": "🪐 Este comando se puede usar en MD [dm]",
-			"complement5": "🪐 Este comando no se puede usar en MD [dm]"
+			"complement5": "🪐 Este comando no se puede usar en MD [dm]",
+			"complement6": "🪐 Este comando tiene un cooldown de {{ seg }}s"
 		},
 		"text": "Hola, El prefix es `{{ prefix }}` {{ text1 }} \n:small_blue_diamond:Para ver los comandos usa el comando `cmds` \n :small_blue_diamond:Para ver una descripción mas detallada del Comando use: `{{ prefix }}h <comando>`",
 		"titleLink": "Enlaces",
-		"links": ":snowflake: [Servidor de Soporte](https://discord.gg/y6jrugZUxe)\n:snowflake: [Invitame a tu servidor]({{ link }})",
+		"links": ":snowflake: [Servidor de Soporte](https://discord.gg/y6jrugZUxe)\n:snowflake: [Invitame a tu servidor]({{ link }})\n:snowflake: [Código Fuente](https://github.com/LuisFOsG/Cold-Bot)",
 		"notFound": "Comando No Encontrado.",
 		"category": "Categoria: {{ category }}",
 		"name": "`Comando: {{ command }}`",
 		"alias": "Alias",
 		"descripCommand": "Descripción",
 		"usageCommand": "Uso",
-		"settingsCommand": "```Argumentos Minimos Solicitados: {{ args }}\n\n{{ md }}\n{{ permissions }}```"
+		"settingsCommand": "```Argumentos Minimos Solicitados: {{ args }}\n\n{{ md }}\n{{ permissions }}\n{{ cooldown }}```"
 	},
 	"commands": {
 		"usage": "Prueba ES",
 		"description": "es",
-		"title": "> Lista de Comandos",
+		"title": "Lista de Comandos",
 		"commandsNum": "Número de Comandos: `{{ num }}`",
 		"footer": "¿El numero de comandos no cuadra con la lista? ¡Hay Comandos Ocultos!"
 	},

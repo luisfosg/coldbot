@@ -73,23 +73,24 @@
 			"complement2": "🪐 This command requires some permissions for its use",
 			"complement3": "🪐 This command does not require permissions",
 			"complement4": "🪐 This command can be used in dm",
-			"complement5": "🪐 This command cannot be used in dm"
+			"complement5": "🪐 This command cannot be used in dm",
+			"complement6": "🪐 This command has a {{ seg }}s cooldown."
 		},
 		"text": "Hello, The prefix is `{{ prefix }}` {{ text1 }} \n:small_blue_diamond:To see the commands use the command `cmds` \n :small_blue_diamond:For a more detailed description of using Command, use: `{{ prefix }}h <command>`",
 		"titleLink": "Links",
-		"links": ":snowflake: [Support Server](https://discord.gg/y6jrugZUxe)\n:snowflake: [Invite me to your server]({{ link }})",
+		"links": ":snowflake: [Support Server](https://discord.gg/y6jrugZUxe)\n:snowflake: [Invite me to your server]({{ link }})\n:snowflake: [Source Code](https://github.com/LuisFOsG/Cold-Bot)",
 		"notFound": "Command not found.",
 		"category": "Category: {{ category }}",
 		"name": "`Command: {{ command }}`",
 		"alias": "Alias",
 		"descripCommand": "Description",
 		"usageCommand": "Usage",
-		"settingsCommand": "```Minimum arguments requested: {{ args }}\n\n{{ md }}\n{{ permissions }}```"
+		"settingsCommand": "```Minimum arguments requested: {{ args }}\n\n{{ md }}\n{{ permissions }}\n{{ cooldown }}```"
 	},
 	"commands": {
 		"usage": "Prueba EN",
 		"description": "en",
-		"title": "> Command List",
+		"title": "Command List",
 		"commandsNum": "Number of Commands: `{{ num }}`",
 		"footer": "The number of commands does not match the list? There are Hidden Commands!"
 	},

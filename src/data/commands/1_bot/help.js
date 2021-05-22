@@ -52,6 +52,8 @@ const helpCommand = async ( client, msg, commandArg ) => {
 			'{{ md }}', command.req.dm ? lang.help.complements.complement4 : lang.help.complements.complement5
 		).replace(
 			'{{ permissions }}', command.req.permissions.length > 0 ? lang.help.complements.complement2 : lang.help.complements.complement3
+		).replace(
+			'{{ cooldown }}', lang.help.complements.complement6.replace( '{{ seg }}', command.req.cooldown )
 		)
 	);
 
