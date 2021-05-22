@@ -70,7 +70,8 @@
 		"description": "Hola, Soy un Bot multiproposito de **codigo abierto**, espero que te diviertas utilizando mis funciones. y me ayudes a mejorar mis falencias.",
 		"titleGeneral": "🔘 General",
 		"fieldGeneral": "============\n⚙ **Desarrollador**: `{{ dev }}`\n📡 **Servidores**: `{{ servers }}`\n👥 **Usuarios**: `{{ users }}`\n📣 **Canales**: `{{ channels }}`",
-		"titleBot": "🤖 Bot"
+		"titleBot": "🤖 Bot",
+		"fieldBot": "============\n🏓 **Ping**: `{{ ping }}ms`\n⌨ **Comandos**: `{{ commands }}`\n🎉 **Eventos**: `{{ events }}`\n🕹 **Discord.js**: `{{ discordV }}`\n🇳 **NodeJS**: `{{ nodeV }}`"
 	},
 	"help": {
 		"usage": "Prueba ES",

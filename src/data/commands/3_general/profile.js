@@ -52,7 +52,7 @@ const profile = async ( msg, user ) => {
 	const embed = new MessageEmbed();
 
 	embed.setTitle( `🔵 ${ user.username }` );
-	embed.setThumbnail( user.avatarURL() );
+	embed.setThumbnail( user.avatarURL( { dynamic: true } ) );
 	embed.addField( lang.profile.register, user.createdAt.toLocaleDateString(), true );
 	embed.addField( lang.profile.nickname, member.nickname ? member.nickname : '----------', true );
 	embed.addField( lang.profile.tag, `#${ user.discriminator }`, true );

@@ -1,3 +1,4 @@
+/* eslint-disable newline-per-chained-call */
 import { MessageEmbed } from 'discord.js';
 
 import { sendMsg, getConfig } from '../../util';
@@ -39,14 +40,17 @@ export default {
 			), true
 		);
 		embed.addField(
-			lang.botinfo.titleBot, `
-			============
-			🏓 **Ping**: \`${Math.round( client.ws.ping )}ms\`
-			⌨ **Comandos**: \`${ client.commands.size }\`
-			🎉 **Eventos**: \`${ client.eventCount }\`
-			🕹 **Discord.js**: \`${ config.discordV }\`
-			🇳 **NodeJS**: \`${ config.nodeV }\`
-			`, true
+			lang.botinfo.titleBot, lang.botinfo.fieldBot.replace(
+				'{{ ping }}', Math.round( client.ws.ping )
+			).replace(
+				'{{ commands }}', client.commands.size
+			).replace(
+				'{{ events }}', client.eventCount
+			).replace(
+				'{{ discordV }}', config.discordV
+			).replace(
+				'{{ nodeV }}', config.nodeV
+			), true
 		);
 		embed.setFooter( `👾 ${ config.botV }` );
 
