@@ -11,12 +11,11 @@ Aún asi no vendria mal un respectivo credito <3
 Aqui Puedes Encontrar:
 
 - Bot Multilenguaje
+- Cooldown
 - Mensajes de Bienvenida/Despedida
 - Tickets para dar soportes.
 - Logs de acciones
 - Command Handler y Event Handler
-
-Estamos Implementando Cooldown, pero por el momento aun no es funcional. poco a poco iremos activando esta funcionalidad.
 
 En busca de tener un estado mas rapido de todos los comandos y eventos, por consola nos creara una tabla con el estado de los comandos, eventos y lenguajes. siguiendo una estructura base.
 
