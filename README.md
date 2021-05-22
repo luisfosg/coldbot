@@ -71,3 +71,7 @@ npm run build && npm start
 > Si Tienes Token de [Zeew][enlacezeew] y quieres usar sus mensajes de Bienvenida, Usa esta Variable ;)
 
 [enlacezeew]: https://www.npmjs.com/package/zeew
+
+## ✨ 𝔻𝕠𝕟𝕒𝕔𝕚𝕠́𝕟
+
+Si quieres apoyarme te regalo este enlace :D [ko-fi](https://ko-fi.com/luisfosg)
