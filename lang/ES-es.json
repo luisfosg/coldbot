@@ -66,8 +66,10 @@
 		"description": "Se actualizo un mensaje anclado en el canal <#{{ id }}>"
 	},
 	"botinfo": {
+		"usage": "Prueba ES",
+		"description": "es",
 		"title": "Información - Cold Bot",
-		"description": "Hola, Soy un Bot multiproposito de **codigo abierto**, espero que te diviertas utilizando mis funciones. y me ayudes a mejorar mis falencias.",
+		"descriptionBot": "Hola, Soy un Bot multiproposito de **codigo abierto**, espero que te diviertas utilizando mis funciones. y me ayudes a mejorar mis falencias.",
 		"titleGeneral": "🔘 General",
 		"fieldGeneral": "============\n⚙ **Desarrollador**: `{{ dev }}`\n📡 **Servidores**: `{{ servers }}`\n👥 **Usuarios**: `{{ users }}`\n📣 **Canales**: `{{ channels }}`",
 		"titleBot": "🤖 Bot",
@@ -125,6 +127,9 @@
 	"status": {
 		"usage": "Prueba ES",
 		"description": "es"
+	},
+	"server": {
+
 	},
 	"ticket": {
 		"usage": "Prueba ES",

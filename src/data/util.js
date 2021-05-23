@@ -17,7 +17,9 @@ export async function getUserWithId( client, msg, mention ) {
 		user = client;
 	}
 
-	return user.user;
+	// eslint-disable-next-line no-unused-expressions
+	user === 'notFound' ? user : user = user.user;
+	return user;
 }
 
 export function sendMsg( msgInfoClient, messageSend ) {

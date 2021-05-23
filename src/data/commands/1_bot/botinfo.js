@@ -9,8 +9,8 @@ export default {
 	name: 'botinfo',
 	alias: ['bot'],
 	category: 'bot',
-	usage: ( langs ) => langs.commands.usage,
-	description: ( langs ) => langs.commands.description,
+	usage: ( langs ) => langs.botinfo.usage,
+	description: ( langs ) => langs.botinfo.description,
 	req: {
 		minArgs: 0,
 		cooldown: 0,
@@ -27,7 +27,7 @@ export default {
 
 		embed.setTitle( lang.botinfo.title );
 		embed.setThumbnail( client.user.avatarURL() );
-		embed.setDescription( lang.botinfo.description );
+		embed.setDescription( lang.botinfo.descriptionBot );
 		embed.addField(
 			lang.botinfo.titleGeneral, lang.botinfo.fieldGeneral.replace(
 				'{{ dev }}', config.devs[0][0]

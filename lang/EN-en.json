@@ -66,8 +66,10 @@
 		"description": "Updated a message pinned to channel <#{{ id }}>"
 	},
 	"botinfo": {
+		"usage": "Prueba EN",
+		"description": "en",
 		"title": "Information - Cold Bot",
-		"description": "Hi, I'm an ** open source ** multipurpose Bot, I hope you have fun using my features. and help me improve my shortcomings.",
+		"descriptionBot": "Hi, I'm an ** open source ** multipurpose Bot, I hope you have fun using my features. and help me improve my shortcomings.",
 		"titleGeneral": "🔘 General",
 		"fieldGeneral": "============\n⚙ **Developer**: `{{ dev }}`\n📡 **Servers**: `{{ servers }}`\n👥 **Users**: `{{ users }}`\n📣 **Channels**: `{{ channels }}`",
 		"titleBot": "🤖 Bot",
@@ -125,6 +127,9 @@
 	"status": {
 		"usage": "Prueba EN",
 		"description": "en"
+	},
+	"server": {
+
 	},
 	"ticket": {
 		"usage": "Prueba EN",
