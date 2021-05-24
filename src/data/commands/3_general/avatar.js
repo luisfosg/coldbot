@@ -7,6 +7,18 @@ import language from '../../functions/language';
 
 let lang;
 
+const avatarGenerator = async ( msg, message ) => {
+	const embed = new MessageEmbed();
+
+	message = message.replace( / |[<]|!|@|[>]/g, '' );
+
+	embed.setColor( '#86E7E7' );
+	embed.setAuthor( msg.author.username, msg.author.displayAvatarURL() );
+	embed.setImage( `https://api.multiavatar.com/${ message }.png` );
+
+	sendMsg( msg, embed );
+};
+
 const avatar = async ( msg, user ) => {
 	const embed = new MessageEmbed();
 
@@ -37,14 +49,18 @@ export default {
 		lang = language( client, msg.guild );
 		let user;
 
-		if ( args[0] ) {
+		if ( args[0] && args[1] !== '-gen' ) {
 			user = await getUserWithId( client, msg, args[0] );
 		}
 		if ( user === 'notFound' ) return sendMsg( msg, lang.general.userNotFound );
 
 		const dataUser = user || msg.author;
 
-		await avatar( msg, dataUser );
+		if ( args[1] === '-gen' ) {
+			await avatarGenerator( msg, args[0] );
+		} else {
+			await avatar( msg, dataUser );
+		}
 
 		msg.delete().catch( () => {} );
 	}

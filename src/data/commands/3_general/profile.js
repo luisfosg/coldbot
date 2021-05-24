@@ -85,7 +85,7 @@ export default {
 		lang = language( client, msg.guild );
 		let user;
 
-		if ( args[0] ) {
+		if ( args[0] && args[0] !== '-img' ) {
 			user = await getUserWithId( client, msg, args[0] );
 		}
 		if ( user === 'notFound' ) return sendMsg( msg, lang.general.userNotFound );
