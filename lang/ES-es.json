@@ -169,5 +169,9 @@
 		"usage": "Prueba ES",
 		"description": "es",
 		"imgNotWork": "La Imagen Enviada No Sirve..."
+	},
+	"dice": {
+		"titleGif": "Lanzando dado...",
+		"titleDice": "{{ user }}, El dado saco un: "
 	}
 }

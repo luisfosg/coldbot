@@ -1,5 +1,7 @@
 import { MessageEmbed } from 'discord.js';
 
+import language from '../../functions/language';
+
 const animate = [
 	'https://media.giphy.com/media/l4hLAf6Eo8DEcO5ZS/giphy.gif',
 	'https://media.giphy.com/media/kEhxvWwGBqBOHrMFyS/giphy.gif',
@@ -13,12 +15,12 @@ const animate = [
 	'https://media.giphy.com/media/hqTZTTIT4l1ogOWihJ/giphy.gif'
 ];
 const faceDice = [
-	'https://i.imgur.com/oOQ90uW.png',
-	'https://i.imgur.com/nX06zbG.png',
-	'https://i.imgur.com/hIQMjSc.png',
-	'https://i.imgur.com/AREchPy.png',
-	'https://i.imgur.com/BgNSKq8.png',
-	'https://i.imgur.com/BsQvqjT.png'
+	'https://i.imgur.com/G7Xs4B6.png?1',
+	'https://i.imgur.com/POHCZVV.png?1',
+	'https://i.imgur.com/wpZXcCz.png?1',
+	'https://i.imgur.com/VS10kg8.png?1',
+	'https://i.imgur.com/KeCBEGo.png?1',
+	'https://i.imgur.com/VJaOIPK.png?2'
 ];
 
 export default {
@@ -35,17 +37,18 @@ export default {
 		visible: true,
 		permissions: [],
 	},
-	run: async ( _client, msg, _args ) => {
+	run: async ( client, msg, _args ) => {
+		const lang = language( client, msg.guild );
 		const embedAnimate = new MessageEmbed();
 
-		embedAnimate.setTitle( 'Lanzando dado..' );
+		embedAnimate.setTitle( lang.dice.titleGif );
 		embedAnimate.setImage( animate[Math.floor( Math.random() * animate.length )] );
 
 		msg.channel.send( embedAnimate ).then( ( msgDice ) => {
 			setTimeout( () => {
 				const embed = new MessageEmbed();
 
-				embed.setTitle( 'El dado saco: ' );
+				embed.setTitle( lang.dice.titleDice.replace( '{{ user }}', msg.author.username ) );
 				embed.setImage( faceDice[Math.floor( Math.random() * faceDice.length )] );
 
 				msgDice.edit( embed );
