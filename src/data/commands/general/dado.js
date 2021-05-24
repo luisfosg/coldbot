@@ -17,12 +17,12 @@ const animate = [
 	'https://media.giphy.com/media/hqTZTTIT4l1ogOWihJ/giphy.gif'
 ];
 const faceDice = [
-	'https://i.imgur.com/G7Xs4B6.png?1',
-	'https://i.imgur.com/POHCZVV.png?1',
-	'https://i.imgur.com/wpZXcCz.png?1',
-	'https://i.imgur.com/VS10kg8.png?1',
-	'https://i.imgur.com/KeCBEGo.png?1',
-	'https://i.imgur.com/VJaOIPK.png?2'
+	'https://i.imgur.com/AGGuWWm.png?1',
+	'https://i.imgur.com/ZmKeVRg.png?1',
+	'https://i.imgur.com/90UtNHV.png?1',
+	'https://i.imgur.com/ti5KR6y.png?1',
+	'https://i.imgur.com/6Fmty3T.png?1',
+	'https://i.imgur.com/FcHT7XH.png?1'
 ];
 
 export default {

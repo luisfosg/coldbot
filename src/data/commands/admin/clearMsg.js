@@ -1,18 +1,7 @@
 import { sendLog } from '../../web/hooks';
 
 import { sendMsg } from '../../util';
-
 import language from '../../functions/language';
-
-const sendMsgClear = ( lang, msg, number ) => {
-	sendLog( lang.clear.message.replace(
-		'{{ user }}', msg.member.user.id
-	).replace(
-		'{{ number }}', number
-	).replace(
-		'{{ channel }}', msg.channel.id
-	) );
-};
 
 const parseTxtNumber = ( num ) => {
 	let number;
@@ -25,6 +14,22 @@ const parseTxtNumber = ( num ) => {
 		number = 1;
 	}
 	return number;
+};
+
+const sendMsgClear = ( lang, msg, number ) => {
+	sendLog( lang.clear.message.replace(
+		'{{ user }}', msg.member.user.id
+	).replace(
+		'{{ number }}', number
+	).replace(
+		'{{ channel }}', msg.channel.id
+	) );
+};
+
+const clearMsg = async ( lang, msg, number ) => {
+	await msg.channel.bulkDelete( number + 1 ).then( ( msgDeleted ) => {
+		sendMsgClear( lang, msg, msgDeleted.size );
+	} );
 };
 
 export default {
@@ -51,15 +56,11 @@ export default {
 				msg.delete().catch( () => {} );
 				return sendMsg( msg, lang.clear.errorAdmin );
 			}
-			msg.channel.bulkDelete( number + 1 );
-			sendMsgClear( lang, msg, number );
-		} else {
-			if ( number > 3 || number < 0 ) {
-				msg.delete().catch( () => {} );
-				return sendMsg( msg, lang.clear.error );
-			}
-			msg.channel.bulkDelete( number + 1 );
-			sendMsgClear( lang, msg, number );
+		} else if ( number > 3 || number < 0 ) {
+			msg.delete().catch( () => {} );
+			return sendMsg( msg, lang.clear.error );
 		}
+
+		await clearMsg( lang, msg, number );
 	},
 };
