@@ -1,12 +1,12 @@
 import { MessageEmbed } from 'discord.js';
 
-import { sendMsg } from '../../util';
+import { sendMsg, color } from '../../util';
 import { setLanguage, getLanguage } from '../../../db/language';
 import { setLanguageUtil, languageChannel } from '../../functions/language';
 
 export default {
 	name: 'setlanguage',
-	alias: ['setlang', 'lang'],
+	alias: ['setlang', 'lang', 'language'],
 	category: 'bot',
 	usage: ( langs ) => langs.language.usage,
 	description: ( langs ) => langs.language.description,
@@ -26,6 +26,7 @@ export default {
 			const embed = new MessageEmbed();
 
 			embed.setTitle( lang.language.title );
+			embed.setColor( color() );
 			embed.setDescription(
 				client.languages.map( ( l ) => `\`${ l.languageName }\`` )
 			);

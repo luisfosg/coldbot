@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import { MessageEmbed } from 'discord.js';
 
-import { sendMsg, getUserWithId } from '../../util';
+import { sendMsg, getUserWithId, color } from '../../util';
 
 import language from '../../functions/language';
 
@@ -12,7 +12,7 @@ const avatarGenerator = async ( msg, message ) => {
 
 	message = message.replace( / |[<]|!|@|[>]/g, '' );
 
-	embed.setColor( '#86E7E7' );
+	embed.setColor( color() );
 	embed.setAuthor( msg.author.username, msg.author.displayAvatarURL() );
 	embed.setImage( `https://api.multiavatar.com/${ message }.png` );
 
@@ -22,7 +22,7 @@ const avatarGenerator = async ( msg, message ) => {
 const avatar = async ( msg, user ) => {
 	const embed = new MessageEmbed();
 
-	embed.setColor( '#86E7E7' );
+	embed.setColor( color() );
 	embed.setAuthor( msg.author.username, msg.author.displayAvatarURL() );
 	embed.setTitle( lang.avatar.title.replace( '{{ user }}', user.username ) );
 	embed.setURL( user.avatarURL( { dynamic: true, size: 1024 } ) );

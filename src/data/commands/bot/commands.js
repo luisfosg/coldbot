@@ -1,6 +1,6 @@
 import { MessageEmbed } from 'discord.js';
 
-import { sendMsg } from '../../util';
+import { sendMsg, color } from '../../util';
 
 import language from '../../functions/language';
 
@@ -22,7 +22,7 @@ const printCategory = ( client, msg, embed, category ) => {
 
 	if ( commands.size > 0 ) {
 		embed.addField(
-			`:snowflake: ${ nameCategory } [${commands.size}]:`, commands.map( ( cmd ) => `\`${ cmd.name }\`` ).join( ' | ' )
+			`🔹 ${ nameCategory } [${commands.size}]:`, commands.map( ( cmd ) => `\`${ cmd.name }\`` ).join( ' | ' )
 		);
 	}
 };
@@ -30,7 +30,7 @@ const printCategory = ( client, msg, embed, category ) => {
 const commandMessage = async ( client, msg ) => {
 	const embed = new MessageEmbed();
 
-	embed.setColor( '#E58249' );
+	embed.setColor( color() );
 	embed.setThumbnail( client.user.avatarURL() );
 	embed.setAuthor( lang.commands.title, msg.author.avatarURL() );
 	embed.setTimestamp( Date.now() );

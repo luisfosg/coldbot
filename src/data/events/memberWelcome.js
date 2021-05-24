@@ -2,7 +2,7 @@ import { MessageEmbed } from 'discord.js';
 
 import { zeewWelcome } from '../functions/zeewImages';
 import { sendLog, sendWelcome } from '../web/hooks';
-import { getLogin } from '../util';
+import { getLogin, color } from '../util';
 
 import language from '../functions/language';
 
@@ -30,7 +30,7 @@ export default {
 			const embed = new MessageEmbed();
 
 			embed.setTitle( lang.memberWelcome.title );
-			embed.setColor( 'RED' );
+			embed.setColor( color() );
 			embed.setDescription( lang.memberWelcome.description.replace(
 				'{{ member }}', member
 			).replace(

@@ -1,6 +1,7 @@
 export const prefix = 'cb!';
 export const splitStrings = [true, ';']; // true para activar, false para desactivar
 export const language = 'es';
+export const color = '#3BD7DD';
 
 export const devs = [['Cold --init#9999', '364056638895685633']];
 export const discordV = 'v12.5.3';

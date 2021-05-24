@@ -2,6 +2,7 @@ import { MessageEmbed } from 'discord.js';
 
 import { sendLog } from '../web/hooks';
 
+import { color } from '../util';
 import language from '../functions/language';
 
 export default {
@@ -16,7 +17,7 @@ export default {
 
 		const embed = new MessageEmbed();
 		embed.setTitle( lang.pinsUpdate.title );
-		embed.setColor( 'RED' );
+		embed.setColor( color() );
 		embed.setDescription( lang.pinsUpdate.description.replace(
 			'{{ id }}', id
 		) );

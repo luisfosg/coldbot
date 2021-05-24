@@ -2,6 +2,7 @@ import { MessageEmbed } from 'discord.js';
 
 import { sendLog } from '../web/hooks';
 
+import { color } from '../util';
 import language from '../functions/language';
 
 export default {
@@ -18,7 +19,7 @@ export default {
 		const embed = new MessageEmbed();
 
 		embed.setTitle( lang.channelUpdate.title );
-		embed.setColor( 'RED' );
+		embed.setColor( color() );
 		if ( oldChannel.name === newChannel.name ) {
 			embed.setDescription( lang.channelUpdate.settings.replace(
 				'{{ channel }}', newChannel.name

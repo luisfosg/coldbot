@@ -1,5 +1,7 @@
 import { MessageEmbed } from 'discord.js';
 
+import { color } from '../../util';
+
 import language from '../../functions/language';
 
 const animate = [
@@ -41,6 +43,7 @@ export default {
 		const lang = language( client, msg.guild );
 		const embedAnimate = new MessageEmbed();
 
+		embedAnimate.setColor( color() );
 		embedAnimate.setTitle( lang.dice.titleGif );
 		embedAnimate.setImage( animate[Math.floor( Math.random() * animate.length )] );
 
@@ -48,6 +51,7 @@ export default {
 			setTimeout( () => {
 				const embed = new MessageEmbed();
 
+				embed.setColor( color() );
 				embed.setTitle( lang.dice.titleDice.replace( '{{ user }}', msg.author.username ) );
 				embed.setImage( faceDice[Math.floor( Math.random() * faceDice.length )] );
 

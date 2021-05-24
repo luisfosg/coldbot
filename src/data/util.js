@@ -1,10 +1,12 @@
+let config;
+
 export async function getLogin() {
 	const login = await import( '../private/login' );
 	return login;
 }
 
 export async function getConfig() {
-	const config = await import( './configDiscord' );
+	config = await import( './configDiscord' );
 	return config;
 }
 
@@ -29,3 +31,5 @@ export function sendMsg( msgInfoClient, messageSend ) {
 export function getLink( client ) {
 	return `https://discord.com/api/oauth2/authorize?client_id=${ client.user.id }&permissions=8&scope=bot`;
 }
+
+export const color = () => config.color;

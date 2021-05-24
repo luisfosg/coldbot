@@ -1,6 +1,6 @@
 import { MessageEmbed } from 'discord.js';
 
-import { sendMsg, getLink } from '../../util';
+import { sendMsg, getLink, color } from '../../util';
 
 import language from '../../functions/language';
 
@@ -9,7 +9,7 @@ let lang;
 const helpMessage = async ( client, msg ) => {
 	const embed = new MessageEmbed();
 
-	embed.setColor( '#E58249' );
+	embed.setColor( color() );
 	embed.setAuthor( client.user.username, client.user.avatarURL() );
 	embed.setDescription(
 		lang.help.text.replace(
@@ -29,7 +29,7 @@ const helpMessage = async ( client, msg ) => {
 const helpCommand = async ( client, msg, commandArg ) => {
 	const embed = new MessageEmbed();
 
-	embed.setColor( '#40C6CB' );
+	embed.setColor( color() );
 	embed.setTimestamp( Date.now() );
 
 	// eslint-disable-next-line max-len

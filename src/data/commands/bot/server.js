@@ -1,5 +1,7 @@
 import { MessageEmbed } from 'discord.js';
 
+import { color } from '../../util';
+
 export default {
 	name: 'serverinfo',
 	alias: ['server'],
@@ -25,7 +27,7 @@ export default {
 		embed.addField( 'Creado el', server.joinedAt.toLocaleDateString(), true );
 		embed.addField( 'Dueño del Servidor', `${ server.owner.user.username }#${ server.owner.user.discriminator }`, true );
 		embed.addField( 'Miembros', server.memberCount, true );
-		embed.setColor( '#66b3ff' );
+		embed.setColor( color() );
 
 		msg.channel.send( embed );
 	},

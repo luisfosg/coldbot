@@ -2,6 +2,7 @@ import { MessageEmbed } from 'discord.js';
 
 import { sendLog } from '../web/hooks';
 
+import { color } from '../util';
 import language from '../functions/language';
 
 export default {
@@ -16,7 +17,7 @@ export default {
 		const embed = new MessageEmbed();
 
 		embed.setTitle( lang.emojiUpdate.title );
-		embed.setColor( 'RED' );
+		embed.setColor( color() );
 		embed.setTimestamp();
 		embed.setDescription( lang.emojiUpdate.description.replace(
 			'{{ oldName }}', oldEmoji.name

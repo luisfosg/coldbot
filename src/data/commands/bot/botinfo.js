@@ -1,7 +1,7 @@
 /* eslint-disable newline-per-chained-call */
 import { MessageEmbed } from 'discord.js';
 
-import { sendMsg, getConfig } from '../../util';
+import { sendMsg, getConfig, color } from '../../util';
 
 import language from '../../functions/language';
 
@@ -25,6 +25,7 @@ export default {
 
 		const embed = new MessageEmbed();
 
+		embed.setColor( color() );
 		embed.setTitle( lang.botinfo.title );
 		embed.setThumbnail( client.user.avatarURL() );
 		embed.setDescription( lang.botinfo.descriptionBot );
