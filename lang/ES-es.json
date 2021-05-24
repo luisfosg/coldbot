@@ -67,7 +67,7 @@
 	},
 	"botinfo": {
 		"usage": "Prueba ES",
-		"description": "es",
+		"description": "Da la Información de Cold Bot, numero de servidores, canales, desarrollador, esas cosas.",
 		"title": "Información - Cold Bot",
 		"descriptionBot": "Hola, Soy un Bot multiproposito de **codigo abierto**, espero que te diviertas utilizando mis funciones. y me ayudes a mejorar mis falencias.",
 		"titleGeneral": "🔘 General",
@@ -77,7 +77,7 @@
 	},
 	"help": {
 		"usage": "Prueba ES",
-		"description": "es",
+		"description": "Brinda Una ayuda Basica de Cold Bot y tambien puede darte informacion adicional de cada comando.",
 		"complements": {
 			"complement1": ", y el separador de argumentos es `{{ value }}`",
 			"complement2": "🪐 Este comando requiere algunos permisos para su uso",
@@ -86,7 +86,7 @@
 			"complement5": "🪐 Este comando no se puede usar en MD [dm]",
 			"complement6": "🪐 Este comando tiene un cooldown de {{ seg }}s"
 		},
-		"text": "Hola, El prefix es `{{ prefix }}` {{ text1 }} \n:small_blue_diamond:Para ver los comandos usa el comando `cmds` \n :small_blue_diamond:Para ver una descripción mas detallada del Comando use: `{{ prefix }}h <comando>`",
+		"text": "Hola, El prefix es `{{ prefix }}` {{ text1 }} \n:small_blue_diamond:Para ver los comandos usa el comando `cmds` \n:small_blue_diamond:Para ver una descripción mas detallada del Comando use: `{{ prefix }}h <comando>`\n:small_blue_diamond:Para cambiar el lenguaje el administrador debe usar: `{{ prefix }}lang`",
 		"titleLink": "Enlaces",
 		"links": ":snowflake: [Servidor de Soporte](https://discord.gg/y6jrugZUxe)\n:snowflake: [Invitame a tu servidor]({{ link }})\n:snowflake: [Código Fuente](https://github.com/LuisFOsG/Cold-Bot)",
 		"notFound": "Comando No Encontrado.",
@@ -99,14 +99,14 @@
 	},
 	"commands": {
 		"usage": "Prueba ES",
-		"description": "es",
+		"description": "Muestro una lista de todos los comandos que se pueden usar ∩︿∩",
 		"title": "Lista de Comandos",
 		"commandsNum": "Número de Comandos: `{{ num }}`",
 		"footer": "¿El numero de comandos no cuadra con la lista? ¡Hay Comandos Ocultos!"
 	},
 	"language": {
 		"usage": "Prueba ES",
-		"description": "es",
+		"description": "Cambia el Lenguaje general del bot a otro para todo tu servidor",
 		"title": "Lenguajes",
 		"notFound": "Idioma no disponible",
 		"selected": "El lenguaje seleccionado es `{{ lang }}`",
@@ -114,26 +114,27 @@
 	},
 	"prefix": {
 		"usage": "Prueba ES",
-		"description": "es",
+		"description": "Cambia el prefix del bot en tu Servidor",
 		"message": "Cambiando el Prefix a `{{ prefix }}`"
 	},
 	"split": {
 		"usage": "Prueba ES",
-		"description": "es",
+		"description": "No te gusta el separador de argumentos?, aqui puedes desactivarlo o cambiarlo por otro.",
 		"message": "Cambiando el Separador de Argumentos a `{{ split }}`",
 		"activated": "El Separador de Argumentos Esta Activo.",
 		"disabled": "Se ha desactivado el Separador de Argumentos"
 	},
 	"status": {
 		"usage": "Prueba ES",
-		"description": "es"
+		"description": "Esto solo es del uso del administrador del bot, y se usa para cambiar el estado del bot."
 	},
 	"server": {
-
+		"usage": "Prueba ES",
+		"description": "Muestra la Información del servidor en el que te encuentras."
 	},
 	"ticket": {
 		"usage": "Prueba ES",
-		"description": "es",
+		"description": "Esta herramienta es Util para dar soportes individuales en tu servidor, donde los usuarios podran reaccionar y obtener un canal especial para ellos y sus dudas.",
 		"titleSupport": "SOPORTE | Cold Bot",
 		"titleTicket": "TICKET | Cold Bot",
 		"descripDisabled": "`Por el momento las ayudas estan deshabilitadas.`",
@@ -142,12 +143,12 @@
 	},
 	"avatar": {
 		"usage": "Prueba ES",
-		"description": "es",
+		"description": "Muestra tu avatar de discord, con un enlace para descargarlo. o tambien puedes generar un avatar ya sea con un usuario, o generarlo atravez de una frase/texto.",
 		"title": "Avatar de {{ user }}"
 	},
 	"profile": {
 		"usage": "Prueba ES",
-		"description": "es",
+		"description": "Muestra la Información de tu perfil en el servidor en el que te encuentras. tambien puedes hacer que se muestre atraves de una imagen.",
 		"bot": "Bot",
 		"human": "Humano",
 		"tagImg": "Tag: #{{ tag }}",
@@ -160,17 +161,19 @@
 	},
 	"clear": {
 		"usage": "Prueba ES",
-		"description": "es",
+		"description": "Borra el Numero de mensajes que escribas en el primer argumento, un maximo de 99 para los admins, 3 para los demás ewe.",
 		"errorAdmin": "No puede Colocar numeros negativos o Eliminar mas de 99 mensajes",
 		"error": "No puede Borrar mas de 3 mensajes o colocar numeros negativos",
 		"message": "<@{{ user }}> Elimino `{{ number }}` mensajes de <#{{ channel }}>`"
 	},
 	"meme": {
 		"usage": "Prueba ES",
-		"description": "es",
+		"description": "Genera un meme atraves de una imagen y texto que le envies, tambien opcionalmente puedes enviar el color del texto.",
 		"imgNotWork": "La Imagen Enviada No Sirve..."
 	},
 	"dice": {
+		"usage": "Prueba ES",
+		"description": "Lanza el dado y de forma aleatoria te da la cara de un dado.",
 		"titleGif": "Lanzando dado...",
 		"titleDice": "{{ user }}, El dado saco un: "
 	}

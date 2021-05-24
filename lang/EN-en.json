@@ -86,7 +86,7 @@
 			"complement5": "🪐 This command cannot be used in dm",
 			"complement6": "🪐 This command has a {{ seg }}s cooldown."
 		},
-		"text": "Hello, The prefix is `{{ prefix }}` {{ text1 }} \n:small_blue_diamond:To see the commands use the command `cmds` \n :small_blue_diamond:For a more detailed description of using Command, use: `{{ prefix }}h <command>`",
+		"text": "Hello, The prefix is `{{ prefix }}` {{ text1 }} \n:small_blue_diamond:To see the commands use the command `cmds` \n :small_blue_diamond:For a more detailed description of using Command, use: `{{ prefix }}h <command>`\n:small_blue_diamond:For the administrator to change the language to use: `{{ prefix }}lang`",
 		"titleLink": "Links",
 		"links": ":snowflake: [Support Server](https://discord.gg/y6jrugZUxe)\n:snowflake: [Invite me to your server]({{ link }})\n:snowflake: [Source Code](https://github.com/LuisFOsG/Cold-Bot)",
 		"notFound": "Command not found.",
@@ -129,7 +129,8 @@
 		"description": "en"
 	},
 	"server": {
-
+		"usage": "Prueba EN",
+		"description": "en"
 	},
 	"ticket": {
 		"usage": "Prueba EN",
@@ -171,6 +172,8 @@
 		"imgNotWork": "The Sent Image Doesn't Work ..."
 	},
 	"dice": {
+		"usage": "Prueba EN",
+		"description": "en",
 		"titleGif": "throwing dice...",
 		"titleDice": "{{ user }}, in the dice came a: "
 	}

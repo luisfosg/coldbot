@@ -6,8 +6,8 @@ export default {
 	name: 'serverinfo',
 	alias: ['server'],
 	category: 'general',
-	usage: ( langs ) => langs.help.usage,
-	description: ( langs ) => langs.help.description,
+	usage: ( langs ) => langs.server.usage,
+	description: ( langs ) => langs.server.description,
 	req: {
 		minArgs: 0,
 		cooldown: 0,

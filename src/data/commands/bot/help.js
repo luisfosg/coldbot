@@ -42,7 +42,7 @@ const helpCommand = async ( client, msg, commandArg ) => {
 	embed.setFooter( lang.help.category.replace( '{{ category }}', command.category ), msg.author.avatarURL() );
 	embed.setTitle( lang.help.name.replace( '{{ command }}', command.name ) );
 	embed.addField( lang.help.alias, `${command.alias.map( ( a ) => ` \`${ a }\`` )}` );
-	embed.addField( lang.help.descripCommand, `\`${ command.description( lang ) }\`` );
+	embed.addField( lang.help.descripCommand, `\`\`\`${ command.description( lang ) }\`\`\`` );
 	embed.addField( lang.help.usageCommand, `\`${ command.usage( lang ) }\`` );
 
 	embed.setDescription(

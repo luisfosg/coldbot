@@ -29,8 +29,8 @@ export default {
 	name: 'dice',
 	alias: ['dado'],
 	category: 'general',
-	usage: ( langs ) => langs.help.usage,
-	description: ( langs ) => langs.help.description,
+	usage: ( langs ) => langs.dice.usage,
+	description: ( langs ) => langs.dice.description,
 	req: {
 		minArgs: 0,
 		cooldown: 0,
