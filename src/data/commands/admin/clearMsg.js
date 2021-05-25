@@ -36,7 +36,7 @@ export default {
 	name: 'clear',
 	alias: ['cls'],
 	category: 'admin',
-	usage: ( langs ) => langs.clear.usage,
+	usage: ( langs, p ) => langs.clear.usage.replace( /{{ p }}/g, p ),
 	description: ( langs ) => langs.clear.description,
 	req: {
 		minArgs: 1,

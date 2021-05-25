@@ -37,7 +37,7 @@
 		"mentionBot": "Hola, El Prefix es: `{{ prefix }}` \nusa `{{ prefix }}h` para saber mas",
 		"notMd": "El Comando no se puede usar en  MD (dm).",
 		"invalidPermissions": "No Posee los Permisos Necesarios.",
-		"invalidArgs": "Faltan Argumentos, Uso del Comando: {{ usage }}",
+		"invalidArgs": "Faltan Argumentos, Uso del Comando | Ejemplos: {{ usage }}",
 		"cooldown": "Tienes que esperar {{ seg }}s cada que uses este comando.",
 		"error": "A Ocurrido un Error Contacta al Administrador: {{ dev }}"
 	},
@@ -94,7 +94,7 @@
 		"name": "`Comando: {{ command }}`",
 		"alias": "Alias",
 		"descripCommand": "Descripción",
-		"usageCommand": "Uso",
+		"usageCommand": "Uso | Ejemplos",
 		"settingsCommand": "```Argumentos Minimos Solicitados: {{ args }}\n\n{{ md }}\n{{ permissions }}\n{{ cooldown }}```"
 	},
 	"commands": {

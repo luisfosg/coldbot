@@ -8,7 +8,7 @@ export default {
 	name: 'serverinfo',
 	alias: ['server'],
 	category: 'general',
-	usage: ( langs ) => langs.server.usage,
+	usage: ( langs, p ) => langs.server.usage.replace( /{{ p }}/g, p ),
 	description: ( langs ) => langs.server.description,
 	req: {
 		minArgs: 0,

@@ -43,7 +43,7 @@ const helpCommand = async ( client, msg, commandArg ) => {
 	embed.setTitle( lang.help.name.replace( '{{ command }}', command.name ) );
 	embed.addField( lang.help.alias, `${command.alias.map( ( a ) => ` \`${ a }\`` )}` );
 	embed.addField( lang.help.descripCommand, `\`\`\`${ command.description( lang ) }\`\`\`` );
-	embed.addField( lang.help.usageCommand, `\`${ command.usage( lang ) }\`` );
+	embed.addField( lang.help.usageCommand, command.usage( lang, client.prefix ) );
 
 	embed.setDescription(
 		lang.help.settingsCommand.replace(
@@ -64,7 +64,7 @@ export default {
 	name: 'help',
 	alias: ['h'],
 	category: 'bot',
-	usage: ( langs ) => langs.help.usage,
+	usage: ( langs, p ) => langs.help.usage.replace( /{{ p }}/g, p ),
 	description: ( langs ) => langs.help.description,
 	req: {
 		minArgs: 0,

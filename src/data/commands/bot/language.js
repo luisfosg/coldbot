@@ -8,7 +8,7 @@ export default {
 	name: 'setlanguage',
 	alias: ['setlang', 'lang', 'language'],
 	category: 'bot',
-	usage: ( langs ) => langs.language.usage,
+	usage: ( langs, p ) => langs.language.usage.replace( /{{ p }}/g, p ),
 	description: ( langs ) => langs.language.description,
 	req: {
 		minArgs: 0,

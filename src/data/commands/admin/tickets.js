@@ -101,7 +101,7 @@ export default {
 	name: 'ticket',
 	alias: ['ticket-setup'],
 	category: 'admin',
-	usage: ( langs ) => langs.ticket.usage,
+	usage: ( langs, p ) => langs.ticket.usage.replace( /{{ p }}/g, p ),
 	description: ( langs ) => langs.ticket.description,
 	req: {
 		minArgs: 0,

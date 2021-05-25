@@ -1,4 +1,5 @@
-import { sendMsg, getConfig } from '../util';
+import { MessageEmbed } from 'discord.js';
+import { sendMsg, getConfig, color } from '../util';
 
 import { getPrefix } from '../../db/prefix';
 import { getSplit } from '../../db/splitString';
@@ -22,7 +23,13 @@ const checkCommand = async ( client, msg, CMD, args ) => {
 	if ( !isPermitValid ) return msg.reply( lang.message.invalidPermissions );
 
 	const isArgsValid = await checkArgs( commandFind.req.minArgs, args.length );
-	if ( !isArgsValid ) return msg.reply( lang.message.invalidArgs.replace( '{{ usage }}', commandFind.usage( lang ) ) );
+	if ( !isArgsValid ) {
+		const embed = new MessageEmbed();
+		embed.setColor( color() );
+		embed.setDescription( lang.message.invalidArgs.replace( '{{ usage }}', commandFind.usage( lang, client.prefix ) ) );
+
+		return sendMsg( msg, embed );
+	}
 
 	const notCooldown = cooldown( msg.author, commandFind.name, commandFind.req.cooldown );
 	if ( !notCooldown ) return msg.reply( lang.message.cooldown.replace( '{{ seg }}', commandFind.req.cooldown ) );

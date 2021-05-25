@@ -8,7 +8,7 @@ export default {
 	name: 'setprefix',
 	alias: ['prefix', 'pref'],
 	category: 'bot',
-	usage: ( langs ) => langs.prefix.usage,
+	usage: ( langs, p ) => langs.prefix.usage.replace( /{{ p }}/g, p ),
 	description: ( langs ) => langs.prefix.description,
 	req: {
 		minArgs: 1,

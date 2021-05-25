@@ -9,7 +9,7 @@ export default {
 	name: 'botinfo',
 	alias: ['bot'],
 	category: 'bot',
-	usage: ( langs ) => langs.botinfo.usage,
+	usage: ( langs, p ) => langs.botinfo.usage.replace( /{{ p }}/g, p ),
 	description: ( langs ) => langs.botinfo.description,
 	req: {
 		minArgs: 0,

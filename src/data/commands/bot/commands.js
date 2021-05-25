@@ -49,7 +49,7 @@ export default {
 	name: 'commands',
 	alias: ['cmd', 'cmds'],
 	category: 'bot',
-	usage: ( langs ) => langs.commands.usage,
+	usage: ( langs, p ) => langs.commands.usage.replace( /{{ p }}/g, p ),
 	description: ( langs ) => langs.commands.description,
 	req: {
 		minArgs: 0,
