@@ -177,7 +177,7 @@
 		"imgNotWork": "The Sent Image Doesn't Work ..."
 	},
 	"dice": {
-		"usage": "Prueba EN",
+		"usage": "```{{ p }} dice```",
 		"description": "Roll the dice and it randomly gives you the face of a dice.",
 		"titleGif": "throwing dice...",
 		"titleDice": "{{ user }}, in the dice came a: "

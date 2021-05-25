@@ -1,3 +1,5 @@
+import { getConfig } from '../../util';
+
 export default {
 	name: 'status',
 	alias: ['st'],
@@ -5,21 +7,29 @@ export default {
 	usage: ( langs, p, s ) => langs.status.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.status.description,
 	req: {
-		minArgs: 4,
-		cooldown: 20,
+		minArgs: 3,
+		cooldown: 0,
 		dm: true,
 		enable: true,
 		visible: false,
 		permissions: ['ADMINISTRATOR'],
 	},
-	run: async ( client, _msg, args ) => {
-		client.user.setPresence( {
-			activity: {
-				name: args[0],
-				url: args[1],
-				type: args[2]
-			},
-			status: args[3]
-		} );
+	run: async ( client, msg, args ) => {
+		const config = await getConfig();
+
+		if ( config.devs[0][1] === msg.author.id ) {
+			client.user.setPresence( {
+				status: args[0],
+				activity: {
+					type: args[1],
+					name: args[2],
+					url: args[3] ? args[3] : 'https://www.youtube.com/watch?v=XlgqZeeoOtI',
+				},
+			} );
+		} else {
+			msg.reply( 'Ud no puede usar este comando nmms' );
+		}
+
+		msg.delete().catch( () => {} );
 	},
 };

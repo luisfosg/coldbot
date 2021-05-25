@@ -24,7 +24,7 @@ export default {
 
 		const embed = new MessageEmbed();
 		embed.setThumbnail( server.iconURL() );
-		embed.setAuthor( server.name, server.iconURL );
+		embed.setAuthor( server.name, server.iconURL() );
 		embed.addField( lang.server.id, server.id, true );
 		embed.addField( lang.server.region, server.region, true );
 		embed.addField( lang.server.date, server.joinedAt.toLocaleDateString(), true );

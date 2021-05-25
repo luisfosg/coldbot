@@ -66,7 +66,7 @@
 		"description": "Se actualizo un mensaje anclado en el canal <#{{ id }}>"
 	},
 	"botinfo": {
-		"usage": "Prueba ES",
+		"usage": "```{{ p }} botinfo```",
 		"description": "Da la Información de Cold Bot, numero de servidores, canales, desarrollador, esas cosas.",
 		"title": "Información - Cold Bot",
 		"descriptionBot": "Hola, Soy un Bot multiproposito de **codigo abierto**, espero que te diviertas utilizando mis funciones. y me ayudes a mejorar mis falencias.",
@@ -76,7 +76,7 @@
 		"fieldBot": "============\n🏓 **Ping**: `{{ ping }}ms`\n⌨ **Comandos**: `{{ commands }}`\n🎉 **Eventos**: `{{ events }}`\n🕹 **Discord.js**: `{{ discordV }}`\n🇳 **NodeJS**: `{{ nodeV }}`"
 	},
 	"help": {
-		"usage": "Prueba ES",
+		"usage": "```{{ p }} help``````{{ p }} h <comando>```",
 		"description": "Brinda Una ayuda Basica de Cold Bot y tambien puede darte informacion adicional de cada comando.",
 		"complements": {
 			"complement1": ", y el separador de argumentos es `{{ value }}`",
@@ -98,38 +98,38 @@
 		"settingsCommand": "```Argumentos Minimos Solicitados: {{ args }}\n\n{{ md }}\n{{ permissions }}\n{{ cooldown }}```"
 	},
 	"commands": {
-		"usage": "Prueba ES",
+		"usage": "```{{ p }} commands```",
 		"description": "Muestro una lista de todos los comandos que se pueden usar ∩︿∩",
 		"title": "Lista de Comandos",
 		"commandsNum": "Número de Comandos: `{{ num }}`",
 		"footer": "¿El numero de comandos no cuadra con la lista? ¡Hay Comandos Ocultos!"
 	},
 	"language": {
-		"usage": "Prueba ES",
+		"usage": "```{{ p }} lang``````{{ p }} lang <Nuevo Lenguaje>```",
 		"description": "Cambia el Lenguaje general del bot a otro para todo tu servidor",
 		"title": "Lenguajes",
-		"notFound": "Idioma no disponible",
+		"notFound": "Idioma no disponible, use el comando `lang`, para ver la lista de lenguajes.",
 		"selected": "El lenguaje seleccionado es `{{ lang }}`",
 		"chosenOne": "Idioma actualizado a `{{ lang }}`"
 	},
 	"prefix": {
-		"usage": "Prueba ES",
+		"usage": "```{{ p }} prefix <Nuevo Prefix>```",
 		"description": "Cambia el prefix del bot en tu Servidor",
 		"message": "Cambiando el Prefix a `{{ prefix }}`"
 	},
 	"split": {
-		"usage": "Prueba ES",
+		"usage": "```{{ p }} split <true/false> {{ s }} <Separador de Argumentos>```",
 		"description": "No te gusta el separador de argumentos?, aqui puedes desactivarlo o cambiarlo por otro.",
 		"message": "Cambiando el Separador de Argumentos a `{{ split }}`",
 		"activated": "El Separador de Argumentos Esta Activo.",
 		"disabled": "Se ha desactivado el Separador de Argumentos"
 	},
 	"status": {
-		"usage": "Prueba ES",
-		"description": "Esto solo es del uso del administrador del bot, y se usa para cambiar el estado del bot."
+		"usage": "```{{ p }} status <status> {{ s }} <type> {{ s }} <name> {{ s }} [url]```",
+		"description": "Esto solo es del uso exclusivo del administrador del bot, y se usa para cambiar el estado del bot."
 	},
 	"server": {
-		"usage": "Prueba ES",
+		"usage": "```{{ p }} serverinfo```",
 		"description": "Muestra la Información del servidor en el que te encuentras.",
 		"id": "ID",
 		"region": "Región",
@@ -138,7 +138,7 @@
 		"members": "Miembros"
 	},
 	"ticket": {
-		"usage": "Prueba ES",
+		"usage": "```{{ p }} ticket``````{{ p }} ticket close```",
 		"description": "Esta herramienta es Util para dar soportes individuales en tu servidor, donde los usuarios podran reaccionar y obtener un canal especial para ellos y sus dudas.",
 		"titleSupport": "SOPORTE | Cold Bot",
 		"titleTicket": "TICKET | Cold Bot",
@@ -147,12 +147,12 @@
 		"descripTicket": "<@{{ id }}> tu ticket ha sido solicitado. Reacciona a '❌' para cerrar el Ticket.\n\nLos Administradores tambien podran eliminar tu Ticket"
 	},
 	"avatar": {
-		"usage": "Prueba ES",
-		"description": "Muestra tu avatar de discord, con un enlace para descargarlo. o tambien puedes generar un avatar ya sea con un usuario, o generarlo atravez de una frase/texto.",
+		"usage": "```{{ p }} avatar``````{{ p }} avatar [Usuario]``````{{ p }} avatar [Usuario/Texto] {{ s }} -gen```",
+		"description": "Muestra tu avatar de discord, con un enlace para descargarlo. o tambien puedes generar un avatar ya sea con un usuario, o atráves de una frase/texto.",
 		"title": "Avatar de {{ user }}"
 	},
 	"profile": {
-		"usage": "Prueba ES",
+		"usage": "```{{ p }} profile``````{{ p }} profile [Usuario]``````{{ p }} profile [Usuario] {{ s }} -img``````{{ p }} profile -img```",
 		"description": "Muestra la Información de tu perfil en el servidor en el que te encuentras. tambien puedes hacer que se muestre atraves de una imagen.",
 		"bot": "Bot",
 		"human": "Humano",
@@ -165,19 +165,19 @@
 		"roles": "Roles"
 	},
 	"clear": {
-		"usage": "Prueba ES",
+		"usage": "```{{ p }} cls <Mensajes a Borrar>``````{{ p }} clear <Numero>```",
 		"description": "Borra el Numero de mensajes que escribas en el primer argumento, un maximo de 99 para los admins, 3 para los demás ewe.",
 		"errorAdmin": "No puede Colocar numeros negativos o Eliminar mas de 99 mensajes",
 		"error": "No puede Borrar mas de 3 mensajes o colocar numeros negativos",
 		"message": "<@{{ user }}> Elimino `{{ number }}` mensajes de <#{{ channel }}>`"
 	},
 	"meme": {
-		"usage": "Prueba ES",
+		"usage": "```{{ p }} meme <link de imagen> {{ s }} <texto> {{ s }} [Color Hexadecimal]``````{{ p }} meme <link> {{ s }} <texto>```",
 		"description": "Genera un meme atraves de una imagen y texto que le envies, tambien opcionalmente puedes enviar el color del texto.",
 		"imgNotWork": "La Imagen Enviada No Sirve..."
 	},
 	"dice": {
-		"usage": "Prueba ES",
+		"usage": "```{{ p }} dado```",
 		"description": "Lanza el dado y de forma aleatoria te da la cara de un dado.",
 		"titleGif": "Lanzando dado...",
 		"titleDice": "{{ user }}, El dado saco un: "
