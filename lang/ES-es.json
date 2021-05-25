@@ -130,7 +130,12 @@
 	},
 	"server": {
 		"usage": "Prueba ES",
-		"description": "Muestra la Información del servidor en el que te encuentras."
+		"description": "Muestra la Información del servidor en el que te encuentras.",
+		"id": "ID",
+		"region": "Región",
+		"date": "Fecha de Creación",
+		"owner": "Dueño del Servidor",
+		"members": "Miembros"
 	},
 	"ticket": {
 		"usage": "Prueba ES",

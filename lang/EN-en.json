@@ -67,7 +67,7 @@
 	},
 	"botinfo": {
 		"usage": "Prueba EN",
-		"description": "en",
+		"description": "It shows the Cold Bot Information, number of servers, channels, developer, those things.",
 		"title": "Information - Cold Bot",
 		"descriptionBot": "Hi, I'm an ** open source ** multipurpose Bot, I hope you have fun using my features. and help me improve my shortcomings.",
 		"titleGeneral": "🔘 General",
@@ -77,7 +77,7 @@
 	},
 	"help": {
 		"usage": "Prueba EN",
-		"description": "en",
+		"description": "Provides Basic Help for Cold Bot and can also give you additional information on each command.",
 		"complements": {
 			"complement1": ", and the argument separator is `{{ value }}`",
 			"complement2": "🪐 This command requires some permissions for its use",
@@ -99,14 +99,14 @@
 	},
 	"commands": {
 		"usage": "Prueba EN",
-		"description": "en",
+		"description": "I show a list of all the commands that can be used",
 		"title": "Command List",
 		"commandsNum": "Number of Commands: `{{ num }}`",
 		"footer": "The number of commands does not match the list? There are Hidden Commands!"
 	},
 	"language": {
 		"usage": "Prueba EN",
-		"description": "en",
+		"description": "Change the General Language of the bot to another for your entire server",
 		"title": "Languages",
 		"notFound": "Language not available",
 		"selected": "The selected language is `{{ lang }}`",
@@ -114,27 +114,32 @@
 	},
 	"prefix": {
 		"usage": "Prueba EN",
-		"description": "en",
+		"description": "Change the prefix of the bot on your Server",
 		"message": "Changing the prefix to `{{ prefix }}`"
 	},
 	"split": {
 		"usage": "Prueba EN",
-		"description": "en",
+		"description": "You don't like the argument separator ?, here you can deactivate it or change it to another.",
 		"message": "Change the argument separator to `{{ split }}`",
 		"activated": "The Argument Separator is Active.",
 		"disabled": "Argument Separator has been disabled"
 	},
 	"status": {
 		"usage": "Prueba EN",
-		"description": "en"
+		"description": "This is only for the bot admin use, and is used to change the bot's state."
 	},
 	"server": {
 		"usage": "Prueba EN",
-		"description": "en"
+		"description": "It shows the information of the server where you are.",
+		"id": "ID",
+		"region": "Region",
+		"date": "Creation Date",
+		"owner": "Server Owner",
+		"members": "Members"
 	},
 	"ticket": {
 		"usage": "Prueba EN",
-		"description": "en",
+		"description": "This tool is useful to give individual supports to your server, where users can react and get a special channel for them and their questions.",
 		"titleSupport": "SUPPORT | Cold Bot",
 		"titleTicket": "TICKET | Cold Bot",
 		"descripDisabled": "`At the moment the aids are disabled.`",
@@ -143,12 +148,12 @@
 	},
 	"avatar": {
 		"usage": "Prueba EN",
-		"description": "en",
+		"description": "Show your Discord avatar, with a link to download it. or you can also generate an avatar either with a user, or generate it through a phrase / text.",
 		"title": "{{ user }}'s Avatar"
 	},
 	"profile": {
 		"usage": "Prueba EN",
-		"description": "en",
+		"description": "Show your profile information on the server where you are. you can also make it show through an image.",
 		"bot": "Bot",
 		"human": "Human",
 		"tagImg": "Tag: #{{ tag }}",
@@ -161,19 +166,19 @@
 	},
 	"clear": {
 		"usage": "Prueba EN",
-		"description": "en",
+		"description": "Delete the number of messages you write in the first argument, a maximum of 99 for the admins, 3 for the others",
 		"errorAdmin": "You cannot put negative numbers or delete more than 99 messages",
 		"error": "You cannot Delete more than 3 messages or put negative numbers",
 		"message": "<@{{ user }}> delete `{{ number }}` messages of <#{{ channel }}>`"
 	},
 	"meme": {
 		"usage": "Prueba EN",
-		"description": "en",
+		"description": "Generate a meme through an image and text that you send, you can also optionally send the color of the text.",
 		"imgNotWork": "The Sent Image Doesn't Work ..."
 	},
 	"dice": {
 		"usage": "Prueba EN",
-		"description": "en",
+		"description": "Roll the dice and it randomly gives you the face of a dice.",
 		"titleGif": "throwing dice...",
 		"titleDice": "{{ user }}, in the dice came a: "
 	}
