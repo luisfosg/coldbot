@@ -1,8 +1,8 @@
 import { MessageEmbed } from 'discord.js';
-import { sendMsg, getConfig, color } from '../util';
 
+import { sendMsg, getConfig, color } from '../util';
 import { getPrefix } from '../../db/prefix';
-import { getSplit } from '../../db/splitString';
+import { getSplit, splDes } from '../../db/splitString';
 
 import { checkArgs, checkMd, divideArgs } from '../functions/checkArgs';
 import { checkPermissions } from '../functions/checkPermissions';
@@ -25,9 +25,13 @@ const checkCommand = async ( client, msg, CMD, args ) => {
 	const isArgsValid = await checkArgs( commandFind.req.minArgs, args.length );
 	if ( !isArgsValid ) {
 		const embed = new MessageEmbed();
-		embed.setColor( color() );
-		embed.setDescription( lang.message.invalidArgs.replace( '{{ usage }}', commandFind.usage( lang, client.prefix ) ) );
 
+		embed.setColor( color() );
+		embed.setDescription(
+			lang.message.invalidArgs.replace(
+				'{{ usage }}', commandFind.usage( lang, client.prefix, splDes( msg.guild ) )
+			)
+		);
 		return sendMsg( msg, embed );
 	}
 

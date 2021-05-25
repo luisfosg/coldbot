@@ -71,7 +71,7 @@ export default {
 	name: 'profile',
 	alias: ['prf'],
 	category: 'general',
-	usage: ( langs, p ) => langs.profile.usage.replace( /{{ p }}/g, p ),
+	usage: ( langs, p, s ) => langs.profile.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.profile.description,
 	req: {
 		minArgs: 0,

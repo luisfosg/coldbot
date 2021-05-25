@@ -2,7 +2,7 @@ export default {
 	name: 'status',
 	alias: ['st'],
 	category: 'bot',
-	usage: ( langs, p ) => langs.status.usage.replace( /{{ p }}/g, p ),
+	usage: ( langs, p, s ) => langs.status.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.status.description,
 	req: {
 		minArgs: 4,

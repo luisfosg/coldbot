@@ -7,8 +7,3 @@ export const devs = [['Cold --init#9999', '364056638895685633']];
 export const discordV = 'v12.5.3';
 export const nodeV = 'v14.16.0';
 export const botV = 'v1.0.0';
-
-export const splDes = () => {
-	if ( splitStrings[0] ) return splitStrings[1];
-	return '';
-};

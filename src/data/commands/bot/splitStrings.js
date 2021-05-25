@@ -8,7 +8,7 @@ export default {
 	name: 'setsplit',
 	alias: ['split', 'string'],
 	category: 'bot',
-	usage: ( langs, p ) => langs.split.usage.replace( /{{ p }}/g, p ),
+	usage: ( langs, p, s ) => langs.split.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.split.description,
 	req: {
 		minArgs: 2,

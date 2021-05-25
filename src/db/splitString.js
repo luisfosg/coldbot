@@ -20,3 +20,10 @@ export const getSplit = async ( msg ) => {
 export const setSplit = async ( msg, status, value ) => {
 	dbSplitString.set( `${ msg.guild.id }`, { status, value } );
 };
+
+export const splDes = ( guild ) => {
+	const splitStrings = dbSplitString.get( `${ guild.id }` );
+
+	if ( splitStrings.status ) return splitStrings.value;
+	return '';
+};

@@ -1,6 +1,8 @@
+/* eslint-disable max-len */
 import { MessageEmbed } from 'discord.js';
 
 import { sendMsg, getLink, color } from '../../util';
+import { splDes } from '../../../db/splitString';
 
 import language from '../../functions/language';
 
@@ -43,7 +45,7 @@ const helpCommand = async ( client, msg, commandArg ) => {
 	embed.setTitle( lang.help.name.replace( '{{ command }}', command.name ) );
 	embed.addField( lang.help.alias, `${command.alias.map( ( a ) => ` \`${ a }\`` )}` );
 	embed.addField( lang.help.descripCommand, `\`\`\`${ command.description( lang ) }\`\`\`` );
-	embed.addField( lang.help.usageCommand, command.usage( lang, client.prefix ) );
+	embed.addField( lang.help.usageCommand, command.usage( lang, client.prefix, splDes( msg.guild ) ) );
 
 	embed.setDescription(
 		lang.help.settingsCommand.replace(
@@ -64,7 +66,7 @@ export default {
 	name: 'help',
 	alias: ['h'],
 	category: 'bot',
-	usage: ( langs, p ) => langs.help.usage.replace( /{{ p }}/g, p ),
+	usage: ( langs, p, s ) => langs.help.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.help.description,
 	req: {
 		minArgs: 0,

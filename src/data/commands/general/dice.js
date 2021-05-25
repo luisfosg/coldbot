@@ -29,7 +29,7 @@ export default {
 	name: 'dice',
 	alias: ['dado'],
 	category: 'general',
-	usage: ( langs, p ) => langs.dice.usage.replace( /{{ p }}/g, p ),
+	usage: ( langs, p, s ) => langs.dice.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.dice.description,
 	req: {
 		minArgs: 0,

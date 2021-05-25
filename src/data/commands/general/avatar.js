@@ -35,7 +35,7 @@ export default {
 	name: 'getavatar',
 	alias: ['avatar'],
 	category: 'general',
-	usage: ( langs, p ) => langs.avatar.usage.replace( /{{ p }}/g, p ),
+	usage: ( langs, p, s ) => langs.avatar.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.avatar.description,
 	req: {
 		minArgs: 0,
