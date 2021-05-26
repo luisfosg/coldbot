@@ -57,7 +57,12 @@ const mentionPrefix = async ( client, msg ) => {
 		}
 
 		if ( !client.commands.has( CMD ) ) {
-			return;
+			const embed = new MessageEmbed();
+
+			embed.setColor( color() );
+			embed.setDescription( lang.general.commandNotFound );
+
+			return sendMsg( msg, embed );
 		}
 
 		checkCommand( client, msg, CMD, args );

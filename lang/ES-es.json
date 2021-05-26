@@ -2,6 +2,7 @@
 	"languageName": "ES",
 	"general": {
 		"userNotFound": "Usuario No Encontrado",
+		"commandNotFound": "El comando ingresado no existe.",
 		"id": "Id",
 		"yes": "Si",
 		"not": "No"
