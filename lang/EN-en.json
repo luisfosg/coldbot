@@ -66,7 +66,7 @@
 		"description": "Updated a message pinned to channel <#{{ id }}>"
 	},
 	"botinfo": {
-		"usage": "Prueba EN",
+		"usage": "```{{ p }} botinfo```",
 		"description": "It shows the Cold Bot Information, number of servers, channels, developer, those things.",
 		"title": "Information - Cold Bot",
 		"descriptionBot": "Hi, I'm an ** open source ** multipurpose Bot, I hope you have fun using my features. and help me improve my shortcomings.",
@@ -76,7 +76,7 @@
 		"fieldBot": "============\n🏓 **Ping**: `{{ ping }}ms`\n⌨ **Commands**: `{{ commands }}`\n🎉 **Events**: `{{ events }}`\n🕹 **Discord.js**: `{{ discordV }}`\n🇳 **NodeJS**: `{{ nodeV }}`"
 	},
 	"help": {
-		"usage": "Prueba EN",
+		"usage": "```{{ p }} help``````{{ p }} h <command>```",
 		"description": "Provides Basic Help for Cold Bot and can also give you additional information on each command.",
 		"complements": {
 			"complement1": ", and the argument separator is `{{ value }}`",
@@ -98,14 +98,14 @@
 		"settingsCommand": "```Minimum arguments requested: {{ args }}\n\n{{ md }}\n{{ permissions }}\n{{ cooldown }}```"
 	},
 	"commands": {
-		"usage": "Prueba EN",
+		"usage": "```{{ p }} commands```",
 		"description": "I show a list of all the commands that can be used",
 		"title": "Command List",
 		"commandsNum": "Number of Commands: `{{ num }}`",
 		"footer": "The number of commands does not match the list? There are Hidden Commands!"
 	},
 	"language": {
-		"usage": "Prueba EN",
+		"usage": "```{{ p }} lang``````{{ p }} lang <New Lenguaje>```",
 		"description": "Change the General Language of the bot to another for your entire server",
 		"title": "Languages",
 		"notFound": "Language not available",
@@ -113,23 +113,23 @@
 		"chosenOne": "Language updated to `{{ lang }}`"
 	},
 	"prefix": {
-		"usage": "Prueba EN",
+		"usage": "```{{ p }} prefix <New Prefix>```",
 		"description": "Change the prefix of the bot on your Server",
 		"message": "Changing the prefix to `{{ prefix }}`"
 	},
 	"split": {
-		"usage": "Prueba EN",
+		"usage": "```{{ p }} split <true/false> {{ s }} <Argument Separator>```",
 		"description": "You don't like the argument separator ?, here you can deactivate it or change it to another.",
 		"message": "Change the argument separator to `{{ split }}`",
 		"activated": "The Argument Separator is Active.",
 		"disabled": "Argument Separator has been disabled"
 	},
 	"status": {
-		"usage": "Prueba EN",
+		"usage": "```{{ p }} status <status> {{ s }} <type> {{ s }} <name> {{ s }} [url]```",
 		"description": "This is only for the bot admin use, and is used to change the bot's state."
 	},
 	"server": {
-		"usage": "Prueba EN",
+		"usage": "```{{ p }} serverinfo```",
 		"description": "It shows the information of the server where you are.",
 		"id": "ID",
 		"region": "Region",
@@ -138,7 +138,7 @@
 		"members": "Members"
 	},
 	"ticket": {
-		"usage": "Prueba EN",
+		"usage": "```{{ p }} ticket``````{{ p }} ticket close```",
 		"description": "This tool is useful to give individual supports to your server, where users can react and get a special channel for them and their questions.",
 		"titleSupport": "SUPPORT | Cold Bot",
 		"titleTicket": "TICKET | Cold Bot",
@@ -147,12 +147,12 @@
 		"descripTicket": "<@{{ id }}> your ticket has been requested. React with a '❌' to close the Ticket.\n\nAdministrators can also delete their Ticket"
 	},
 	"avatar": {
-		"usage": "Prueba EN",
+		"usage": "```{{ p }} avatar``````{{ p }} avatar [User]``````{{ p }} avatar [User/Text] {{ s }} -gen```",
 		"description": "Show your Discord avatar, with a link to download it. or you can also generate an avatar either with a user, or generate it through a phrase / text.",
 		"title": "{{ user }}'s Avatar"
 	},
 	"profile": {
-		"usage": "Prueba EN",
+		"usage": "```{{ p }} profile``````{{ p }} profile [User]``````{{ p }} profile [User] {{ s }} -img``````{{ p }} profile -img```",
 		"description": "Show your profile information on the server where you are. you can also make it show through an image.",
 		"bot": "Bot",
 		"human": "Human",
@@ -165,14 +165,14 @@
 		"roles": "Roles"
 	},
 	"clear": {
-		"usage": "Prueba EN",
+		"usage": "```{{ p }} cls <Number of Messages>```",
 		"description": "Delete the number of messages you write in the first argument, a maximum of 99 for the admins, 3 for the others",
 		"errorAdmin": "You cannot put negative numbers or delete more than 99 messages",
 		"error": "You cannot Delete more than 3 messages or put negative numbers",
 		"message": "<@{{ user }}> delete `{{ number }}` messages of <#{{ channel }}>`"
 	},
 	"meme": {
-		"usage": "Prueba EN",
+		"usage": "```{{ p }} meme <image link> {{ s }} <text> {{ s }} [Hexadecimal Color]``````{{ p }} meme <link> {{ s }} <text>```",
 		"description": "Generate a meme through an image and text that you send, you can also optionally send the color of the text.",
 		"imgNotWork": "The Sent Image Doesn't Work ..."
 	},
