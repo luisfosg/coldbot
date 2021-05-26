@@ -51,7 +51,7 @@ export default {
 
 		const number = parseTxtNumber( args[0] );
 
-		if ( msg.member.hasPermission( 'ADMINISTRATOR' ) ) {
+		if ( msg.member.hasPermission( 'MANAGE_MESSAGES' ) ) {
 			if ( number < 0 || number > 99 ) {
 				msg.delete().catch( () => {} );
 				return sendMsg( msg, lang.clear.errorAdmin );

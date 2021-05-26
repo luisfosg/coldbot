@@ -20,7 +20,15 @@ const checkCommand = async ( client, msg, CMD, args ) => {
 	if ( !isMd ) return msg.reply( lang.message.notMd );
 
 	const isPermitValid = await checkPermissions( msg, commandFind.req.permissions );
-	if ( !isPermitValid ) return msg.reply( lang.message.invalidPermissions );
+	if ( !isPermitValid ) {
+		const embed = new MessageEmbed();
+
+		embed.setColor( color() );
+		embed.setTitle( lang.message.invalidPermissions );
+		embed.setDescription( commandFind.req.permissions );
+
+		return sendMsg( msg, embed );
+	}
 
 	const isArgsValid = await checkArgs( commandFind.req.minArgs, args.length );
 	if ( !isArgsValid ) {
@@ -32,6 +40,7 @@ const checkCommand = async ( client, msg, CMD, args ) => {
 				'{{ usage }}', commandFind.usage( lang, client.prefix, splDes( msg.guild ) )
 			)
 		);
+
 		return sendMsg( msg, embed );
 	}
 
