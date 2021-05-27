@@ -40,7 +40,8 @@
 		"invalidPermissions": "It does not have the necessary permits. You need the following permissions:",
 		"invalidArgs": "Arguments missing, Usage example: {{ usage }}",
 		"cooldown": "You have to wait {{ seg }}s every time you use this command.",
-		"error": "An error occurred Contact your administrator: {{ dev }}"
+		"error": "An error occurred Contact your administrator: {{ dev }}",
+		"notSendMsg": "I cannot send messages to this server."
 	},
 	"channelUpdate": {
 		"title": "**[Edited Channel]**",

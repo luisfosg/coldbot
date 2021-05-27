@@ -79,7 +79,6 @@ const mentionPrefix = async ( client, msg ) => {
 };
 
 const mentionBot = async ( client, msg ) => {
-	lang = language( client, msg.guild );
 	if ( msg.content.startsWith( `<@!${client.user.id}>` ) || msg.content.startsWith( `<@${client.user.id}>` ) ) {
 		if ( msg.content === `<@!${client.user.id}>` || msg.content === `<@${client.user.id}>` ) {
 			sendMsg( msg, lang.message.mentionBot.replace( /{{ prefix }}/g, client.prefix ) );
@@ -96,6 +95,19 @@ const mentionBot = async ( client, msg ) => {
 	}
 };
 
+const verifySendMsg = async ( msg ) => {
+	if ( !msg.guild.me.hasPermission( 'SEND_MESSAGES' ) ) {
+		const embed = new MessageEmbed();
+
+		embed.setColor( color() );
+		embed.setDescription( lang.message.notSendMsg );
+
+		msg.author.send( embed ).catch( () => {} );
+		return false;
+	}
+	return true;
+};
+
 export default {
 	name: 'message',
 	req: {
@@ -105,8 +117,14 @@ export default {
 	run: async ( client, msg ) => {
 		if ( msg.author.bot ) return;
 
+		lang = language( client, msg.guild );
 		client.prefix = await getPrefix( msg );
 		client.splitStrings = await getSplit( msg );
+
+		if ( msg.guild ) {
+			const sendMsgChannel = await verifySendMsg( msg );
+			if ( !sendMsgChannel ) return;
+		}
 
 		mentionBot( client, msg );
 		mentionPrefix( client, msg );

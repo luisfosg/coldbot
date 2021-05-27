@@ -40,7 +40,8 @@
 		"invalidPermissions": "No Posee los Permisos Necesarios. Necesita los siguientes permisos:",
 		"invalidArgs": "Faltan Argumentos, Uso del Comando | Ejemplos: {{ usage }}",
 		"cooldown": "Tienes que esperar {{ seg }}s cada que uses este comando.",
-		"error": "A Ocurrido un Error Contacta al Administrador: {{ dev }}"
+		"error": "A Ocurrido un Error Contacta al Administrador: {{ dev }}",
+		"notSendMsg": "No puedo enviar Mensajes a este servidor."
 	},
 	"channelUpdate": {
 		"title": "**[Canal Editado]**",
