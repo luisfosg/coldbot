@@ -54,8 +54,26 @@ const checkCommand = async ( client, msg, CMD, args ) => {
 	}
 };
 
+const verifySendMsg = async ( msg ) => {
+	if ( !msg.guild.me.hasPermission( 'SEND_MESSAGES' ) ) {
+		const embed = new MessageEmbed();
+
+		embed.setColor( color() );
+		embed.setDescription( lang.message.notSendMsg );
+
+		msg.author.send( embed ).catch( () => {} );
+		return true;
+	}
+	return false;
+};
+
 const mentionPrefix = async ( client, msg ) => {
 	if ( msg.content.startsWith( client.prefix ) ) {
+		if ( msg.guild ) {
+			const sendMsgChannel = await verifySendMsg( msg );
+			if ( sendMsgChannel ) return;
+		}
+
 		const stringArgs = await divideArgs( client, msg.content, client.prefix );
 		let CMD = stringArgs[0];
 		const args = stringArgs[1];
@@ -80,6 +98,11 @@ const mentionPrefix = async ( client, msg ) => {
 
 const mentionBot = async ( client, msg ) => {
 	if ( msg.content.startsWith( `<@!${client.user.id}>` ) || msg.content.startsWith( `<@${client.user.id}>` ) ) {
+		if ( msg.guild ) {
+			const sendMsgChannel = await verifySendMsg( msg );
+			if ( sendMsgChannel ) return;
+		}
+
 		if ( msg.content === `<@!${client.user.id}>` || msg.content === `<@${client.user.id}>` ) {
 			sendMsg( msg, lang.message.mentionBot.replace( /{{ prefix }}/g, client.prefix ) );
 			return;
@@ -95,19 +118,6 @@ const mentionBot = async ( client, msg ) => {
 	}
 };
 
-const verifySendMsg = async ( msg ) => {
-	if ( !msg.guild.me.hasPermission( 'SEND_MESSAGES' ) ) {
-		const embed = new MessageEmbed();
-
-		embed.setColor( color() );
-		embed.setDescription( lang.message.notSendMsg );
-
-		msg.author.send( embed ).catch( () => {} );
-		return false;
-	}
-	return true;
-};
-
 export default {
 	name: 'message',
 	req: {
@@ -121,12 +131,7 @@ export default {
 		client.prefix = await getPrefix( msg );
 		client.splitStrings = await getSplit( msg );
 
-		if ( msg.guild ) {
-			const sendMsgChannel = await verifySendMsg( msg );
-			if ( !sendMsgChannel ) return;
-		}
-
-		mentionBot( client, msg );
-		mentionPrefix( client, msg );
+		const isFalse = await mentionBot( client, msg );
+		if ( !isFalse ) mentionPrefix( client, msg );
 	},
 };
