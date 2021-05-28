@@ -17,7 +17,15 @@ const checkCommand = async ( client, msg, CMD, args ) => {
 	const commandFind = client.commands.get( CMD );
 
 	const havePermissions = await checkPermissions( msg.guild.me, commandFind.req.necessary );
-	if ( !havePermissions ) return msg.reply( 'No Tengo Permisos...' );
+	if ( !havePermissions ) {
+		const embed = new MessageEmbed();
+
+		embed.setColor( color() );
+		embed.setTitle( lang.message.notHavePermissions );
+		embed.setDescription( `\`\`\`${ commandFind.req.necessary.map( ( cmd ) => `${ cmd }` ).join( ', ' ) }\`\`\`` );
+
+		return sendMsg( msg, embed );
+	}
 
 	const isMd = checkMd( commandFind.req.dm, msg.channel.type );
 	if ( !isMd ) return msg.reply( lang.message.notMd );
@@ -28,7 +36,7 @@ const checkCommand = async ( client, msg, CMD, args ) => {
 
 		embed.setColor( color() );
 		embed.setTitle( lang.message.invalidPermissions );
-		embed.setDescription( commandFind.req.permissions );
+		embed.setDescription( `\`\`\`${ commandFind.req.permissions.map( ( cmd ) => `${ cmd }` ).join( ', ' ) }\`\`\`` );
 
 		return sendMsg( msg, embed );
 	}
@@ -68,7 +76,7 @@ const verifySendMsg = async ( msg ) => {
 		return true;
 	}
 	if ( !msg.guild.me.hasPermission( 'EMBED_LINKS' ) ) {
-		sendMsg( msg, 'No puedo adjutar Embeds, Habilitame la opción de Insertar Enlaces D:' );
+		sendMsg( msg, lang.message.notSendEmbeds );
 		return true;
 	}
 	return false;
@@ -111,8 +119,11 @@ const mentionBot = async ( client, msg ) => {
 		}
 
 		if ( msg.content === `<@!${client.user.id}>` || msg.content === `<@${client.user.id}>` ) {
-			sendMsg( msg, lang.message.mentionBot.replace( /{{ prefix }}/g, client.prefix ) );
-			return;
+			const embed = new MessageEmbed();
+			embed.setColor( color() );
+			embed.setDescription( lang.message.mentionBot.replace( /{{ prefix }}/g, client.prefix ) );
+
+			return sendMsg( msg, embed );
 		}
 		let data;
 

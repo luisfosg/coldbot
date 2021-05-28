@@ -38,10 +38,12 @@
 		"mentionBot": "Hola, El Prefix es: `{{ prefix }}` \nusa `{{ prefix }}h` para saber mas",
 		"notMd": "El Comando no se puede usar en  MD (dm).",
 		"invalidPermissions": "No Posee los Permisos Necesarios. Necesita los siguientes permisos:",
+		"notHavePermissions": "No Puedo Usar este comando 😵, Necesito los siguientes permisos:",
 		"invalidArgs": "Faltan Argumentos, Uso del Comando | Ejemplos: {{ usage }}",
 		"cooldown": "Tienes que esperar {{ seg }}s cada que uses este comando.",
 		"error": "A Ocurrido un Error Contacta al Administrador: {{ dev }}",
-		"notSendMsg": "No puedo enviar Mensajes a este servidor."
+		"notSendMsg": "No puedo enviar Mensajes a este servidor.",
+		"notSendEmbeds": "No puedo adjutar Embeds, Habilitame la opción de Insertar Enlaces D:"
 	},
 	"channelUpdate": {
 		"title": "**[Canal Editado]**",

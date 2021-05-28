@@ -38,10 +38,12 @@
 		"mentionBot": "Hello, The prefix is: `{{ prefix }}` \nuse `{{ prefix }}h` to know more.",
 		"notMd": "Command cannot be used in DM",
 		"invalidPermissions": "It does not have the necessary permits. You need the following permissions:",
+		"notHavePermissions": "I can't use this command 😵, I need the following permissions:",
 		"invalidArgs": "Arguments missing, Usage example: {{ usage }}",
 		"cooldown": "You have to wait {{ seg }}s every time you use this command.",
 		"error": "An error occurred Contact your administrator: {{ dev }}",
-		"notSendMsg": "I cannot send messages to this server."
+		"notSendMsg": "I cannot send messages to this server.",
+		"notSendEmbeds": "I can't attach Embeds, Enable me the option to Insert Links D:"
 	},
 	"channelUpdate": {
 		"title": "**[Edited Channel]**",

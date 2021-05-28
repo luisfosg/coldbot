@@ -40,12 +40,12 @@ export default {
 	description: ( langs ) => langs.clear.description,
 	req: {
 		minArgs: 1,
-		cooldown: 60,
+		cooldown: 2,
 		dm: false,
 		enable: true,
 		visible: true,
 		permissions: ['MANAGE_MESSAGES'],
-		necessary: ['MANAGE_MESSAGES']
+		necessary: ['MANAGE_MESSAGES', 'READ_MESSAGE_HISTORY']
 	},
 	run: async ( client, msg, args ) => {
 		const lang = language( client, msg.guild );
