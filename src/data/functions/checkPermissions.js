@@ -1,8 +1,6 @@
-export const checkPermissions = async ( msg, permissions ) => {
-	const user = msg.member;
-
+export const checkPermissions = async ( member, permissions ) => {
 	const data = permissions.map( ( permit ) => {
-		if ( user.hasPermission( permit ) ) {
+		if ( member.hasPermission( permit ) ) {
 			return true;
 		}
 		return false;

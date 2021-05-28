@@ -169,8 +169,7 @@
 	"clear": {
 		"usage": "```{{ p }} cls <Number of Messages>```",
 		"description": "Delete the number of messages you write in the first argument, a maximum of 99 for the admins, 3 for the others",
-		"errorAdmin": "You cannot put negative numbers or delete more than 99 messages",
-		"error": "You cannot Delete more than 3 messages or put negative numbers",
+		"error": "You cannot put negative numbers or delete more than 99 messages",
 		"message": "<@{{ user }}> delete `{{ number }}` messages of <#{{ channel }}>`"
 	},
 	"meme": {

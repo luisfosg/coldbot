@@ -16,10 +16,13 @@ const checkCommand = async ( client, msg, CMD, args ) => {
 	const config = await getConfig();
 	const commandFind = client.commands.get( CMD );
 
+	const havePermissions = await checkPermissions( msg.guild.me, commandFind.req.necessary );
+	if ( !havePermissions ) return msg.reply( 'No Tengo Permisos...' );
+
 	const isMd = checkMd( commandFind.req.dm, msg.channel.type );
 	if ( !isMd ) return msg.reply( lang.message.notMd );
 
-	const isPermitValid = await checkPermissions( msg, commandFind.req.permissions );
+	const isPermitValid = await checkPermissions( msg.member, commandFind.req.permissions );
 	if ( !isPermitValid ) {
 		const embed = new MessageEmbed();
 

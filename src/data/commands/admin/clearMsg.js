@@ -8,10 +8,10 @@ const parseTxtNumber = ( num ) => {
 	try {
 		number = parseInt( num, 10 );
 		if ( !number ) {
-			number = 1;
+			number = 0;
 		}
 	} catch ( e ) {
-		number = 1;
+		number = 0;
 	}
 	return number;
 };
@@ -28,7 +28,7 @@ const sendMsgClear = ( lang, msg, number ) => {
 
 const clearMsg = async ( lang, msg, number ) => {
 	await msg.channel.bulkDelete( number + 1 ).then( ( msgDeleted ) => {
-		sendMsgClear( lang, msg, msgDeleted.size );
+		sendMsgClear( lang, msg, msgDeleted.size - 1 );
 	} );
 };
 
@@ -44,19 +44,14 @@ export default {
 		dm: false,
 		enable: true,
 		visible: true,
-		permissions: [],
+		permissions: ['MANAGE_MESSAGES'],
+		necessary: ['MANAGE_MESSAGES']
 	},
 	run: async ( client, msg, args ) => {
 		const lang = language( client, msg.guild );
 
 		const number = parseTxtNumber( args[0] );
-
-		if ( msg.member.hasPermission( 'MANAGE_MESSAGES' ) ) {
-			if ( number < 0 || number > 99 ) {
-				msg.delete().catch( () => {} );
-				return sendMsg( msg, lang.clear.errorAdmin );
-			}
-		} else if ( number > 3 || number < 0 ) {
+		if ( number < 0 || number > 99 ) {
 			msg.delete().catch( () => {} );
 			return sendMsg( msg, lang.clear.error );
 		}

@@ -13,6 +13,7 @@ export default {
 		enable: true,
 		visible: false,
 		permissions: ['ADMINISTRATOR'],
+		necessary: []
 	},
 	run: async ( client, msg, args ) => {
 		const config = await getConfig();

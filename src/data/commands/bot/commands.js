@@ -58,6 +58,7 @@ export default {
 		enable: true,
 		visible: true,
 		permissions: [],
+		necessary: []
 	},
 	run: async ( client, msg, _args ) => {
 		lang = language( client, msg.guild );

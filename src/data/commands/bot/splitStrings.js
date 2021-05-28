@@ -17,6 +17,7 @@ export default {
 		enable: true,
 		visible: true,
 		permissions: ['ADMINISTRATOR'],
+		necessary: []
 	},
 	run: async ( client, msg, args ) => {
 		const lang = language( client, msg.guild );

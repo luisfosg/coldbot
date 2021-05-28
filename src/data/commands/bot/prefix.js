@@ -17,12 +17,13 @@ export default {
 		enable: true,
 		visible: true,
 		permissions: ['ADMINISTRATOR'],
+		necessary: []
 	},
 	run: async ( client, msg, args ) => {
 		const lang = language( client, msg.guild );
 		setPrefix( msg, args[0] );
 
 		sendMsg( msg, lang.prefix.message.replace( '{{ prefix }}', args[0] ) );
-		msg.delete();
+		msg.delete().catch( () => {} );
 	},
 };
