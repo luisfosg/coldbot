@@ -46,31 +46,18 @@ npm run build && npm start
 
 ## 𝕍𝕒𝕣𝕚𝕒𝕓𝕝𝕖𝕤 𝕕𝕖 𝔼𝕟𝕥𝕠𝕣𝕟𝕠
 
-- PASSWORD
+```js
+PASSWORD = // Token del Bot
+WEBHOOKWELCOME = // Webhook de discord para enviar Mensajes de Bienvenida/Despedida
+WEBHOOKLOGS = // Webhook de discord para enviar los logs
+IDSERVER = // Id del servidor (Por Ahora funciona asi para enviar los mensajes de Bienvenida/Despedida).
+DBNAME = // Nombre de la base de datos, Opcional
+ZEEW = // Si Tienes Token de Zeew y quieres usar sus mensajes de Bienvenida, Usa esta Variable ;)
+```
+## Links de Interes
 
-> Token del Bot
-
-- WEBHOOKWELCOME
-
-> Webhook de discord para enviar Mensajes de Bienvenida/Despedida
-
-- WEBHOOKLOGS
-
-> Webhook de discord para enviar los logs
-
-- IDSERVER
-
-> Id del servidor (Por Ahora funciona asi para enviar los mensajes de Bienvenida/Despedida).
-
-- DBNAME
-
-> Nombre de la base de datos, Opcional
-
-- ZEEW
-
-> Si Tienes Token de [Zeew][enlacezeew] y quieres usar sus mensajes de Bienvenida, Usa esta Variable ;)
-
-[enlacezeew]: https://www.npmjs.com/package/zeew
+- [discord.js](https://discord.js.org/#/)
+- [zeew](https://www.npmjs.com/package/zeew)
 
 ## ✨ 𝔻𝕠𝕟𝕒𝕔𝕚𝕠́𝕟
 
