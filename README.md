@@ -1,6 +1,6 @@
-<h1 align="center">
-	🤖ℂ𝕠𝕝𝕕 𝔹𝕠𝕥🔵
-</h1>
+<div>
+	<img src="./public/images/banner.png" width="100%" >
+</div>
 
 ## 𝔻𝕖𝕤𝕔𝕣𝕚𝕡𝕔𝕚𝕠́𝕟
 

@@ -64,6 +64,10 @@ const verifySendMsg = async ( msg ) => {
 		msg.author.send( embed ).catch( () => {} );
 		return true;
 	}
+	if ( !msg.guild.me.hasPermission( 'EMBED_LINKS' ) ) {
+		sendMsg( msg, 'No puedo adjutar Embeds, Habilitame la opción de Insertar Enlaces D:' );
+		return true;
+	}
 	return false;
 };
 
