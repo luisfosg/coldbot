@@ -5,9 +5,11 @@
 ----------
 
 <details>
-  <summary>🇪🇸 Español</summary>
+  <summary>🇪🇸 𝐸𝑠𝑝𝑎𝑛̃𝑜𝑙</summary>
 
-## 𝔻𝕖𝕤𝕔𝕣𝕚𝕡𝕔𝕚𝕠́𝕟
+----------
+
+## 𝐷𝑒𝑠𝑐𝑟𝑖𝑝𝑐𝑖𝑜́𝑛
 
 Cold Bot ha sido creado por mero autoaprendizaje y por esta misma razón Cold Bot es de codigo abierto(Open Source).
 
@@ -22,7 +24,7 @@ Aqui Puedes Encontrar:
 - Logs de acciones
 - Command Handler y Event Handler
 
-## 𝕀𝕟𝕤𝕥𝕒𝕝𝕒𝕔𝕚𝕠́𝕟
+## 𝐼𝑛𝑠𝑡𝑎𝑙𝑎𝑐𝑖𝑜́𝑛
 
 1. Al clonar el proyecto, es recomendable usar npm.
 
@@ -43,7 +45,7 @@ npm run dev
 npm run build && npm start
 ```
 
-## 𝕍𝕒𝕣𝕚𝕒𝕓𝕝𝕖𝕤 𝕕𝕖 𝔼𝕟𝕥𝕠𝕣𝕟𝕠
+## 𝑉𝑎𝑟𝑖𝑎𝑏𝑙𝑒𝑠 𝑑𝑒 𝐸𝑛𝑡𝑜𝑟𝑛𝑜
 
 ```js
 PASSWORD = // Token del Bot
@@ -53,15 +55,29 @@ IDSERVER = // Id del servidor (Por Ahora funciona asi para enviar los mensajes d
 DBNAME = // Nombre de la base de datos, Opcional
 ZEEW = // Si Tienes Token de Zeew y quieres usar sus mensajes de Bienvenida, Usa esta Variable ;)
 ```
-## Links de Interes
-
-- [discord.js](https://discord.js.org/#/)
-- [zeew](https://www.npmjs.com/package/zeew)
 
 </details>
 
 ----------
 
-## ✨ 𝔻𝕠𝕟𝕒𝕔𝕚𝕠́𝕟
+----------
 
-Si quieres apoyarme te regalo este enlace :D [ko-fi](https://ko-fi.com/luisfosg)
+<details>
+  <summary>🇺🇸 English</summary>
+
+----------
+soon
+
+</details>
+
+----------
+
+## 🔗 𝐿𝑖𝑛𝑘𝑠 𝑜𝑓 𝑖𝑛𝑡𝑒𝑟𝑒𝑠𝑡
+
+- [discord.js](https://discord.js.org/#/)
+- [zeew](https://www.npmjs.com/package/zeew)
+
+
+## ✨ 𝐷𝑜𝑛𝑎𝑡𝑖𝑜𝑛
+
+- [ko-fi](https://ko-fi.com/luisfosg)
