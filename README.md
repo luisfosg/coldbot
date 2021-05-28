@@ -2,6 +2,11 @@
 	<img src="./public/images/banner.png" width="100%" >
 </div>
 
+----------
+
+<details>
+  <summary>🇪🇸 Español</summary>
+
 ## 𝔻𝕖𝕤𝕔𝕣𝕚𝕡𝕔𝕚𝕠́𝕟
 
 Cold Bot ha sido creado por mero autoaprendizaje y por esta misma razón Cold Bot es de codigo abierto(Open Source).
@@ -16,12 +21,6 @@ Aqui Puedes Encontrar:
 - Tickets para dar soportes.
 - Logs de acciones
 - Command Handler y Event Handler
-
-En busca de tener un estado mas rapido de todos los comandos y eventos, por consola nos creara una tabla con el estado de los comandos, eventos y lenguajes. siguiendo una estructura base.
-
-<p align="center">
-	<img src="public/images/consola.png">
-</p>
 
 ## 𝕀𝕟𝕤𝕥𝕒𝕝𝕒𝕔𝕚𝕠́𝕟
 
@@ -58,6 +57,10 @@ ZEEW = // Si Tienes Token de Zeew y quieres usar sus mensajes de Bienvenida, Usa
 
 - [discord.js](https://discord.js.org/#/)
 - [zeew](https://www.npmjs.com/package/zeew)
+
+</details>
+
+----------
 
 ## ✨ 𝔻𝕠𝕟𝕒𝕔𝕚𝕠́𝕟
 
