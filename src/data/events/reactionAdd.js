@@ -16,7 +16,7 @@ export default {
 
 		/* Verifica La Existencia de Tickets */
 		if ( reaction.message.id === msgId && reaction.emoji.name === '📩' ) {
-			createTicket( reaction.message, user );
+			createTicket( client, reaction.message, user );
 			reaction.users.remove( user );
 		}
 		/* Elimina los Tickets */

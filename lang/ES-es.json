@@ -170,7 +170,7 @@
 	},
 	"clear": {
 		"usage": "```{{ p }} cls <Mensajes a Borrar>``````{{ p }} clear <Numero>```",
-		"description": "Borra el Numero de mensajes que escribas en el primer argumento, un maximo de 99 para los admins, 3 para los demás ewe.",
+		"description": "Borra el Numero de mensajes que escribas en el primer argumento, un maximo de 99.",
 		"error": "No puede Colocar numeros negativos o Eliminar mas de 99 mensajes",
 		"message": "<@{{ user }}> Elimino `{{ number }}` mensajes de <#{{ channel }}>`"
 	},

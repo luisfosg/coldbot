@@ -29,7 +29,7 @@ const createCategory = async ( msg, name ) => {
 	return channel;
 };
 
-export const createTicket = async ( msg, user ) => {
+export const createTicket = async ( client, msg, user ) => {
 	let nameUser = user.username.trim().toLowerCase().replace( /\s+/g, '' );
 	nameUser += `⚪${user.discriminator}`;
 
@@ -52,6 +52,10 @@ export const createTicket = async ( msg, user ) => {
 				{
 					id: msg.guild.roles.everyone,
 					deny: ['VIEW_CHANNEL']
+				},
+				{
+					id: client.user.id,
+					allow: ['SEND_MESSAGES', 'VIEW_CHANNEL']
 				}
 			],
 			type: 'text',
@@ -110,7 +114,7 @@ export default {
 		enable: true,
 		visible: true,
 		permissions: ['ADMINISTRATOR'],
-		necessary: []
+		necessary: ['ADD_REACTIONS', 'MANAGE_CHANNELS', 'MANAGE_MESSAGES']
 	},
 	run: async ( client, msg, args ) => {
 		lang = language( client, msg.guild );

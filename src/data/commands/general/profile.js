@@ -80,7 +80,7 @@ export default {
 		enable: true,
 		visible: true,
 		permissions: [],
-		necessary: []
+		necessary: ['ATTACH_FILES']
 	},
 	run: async ( client, msg, args ) => {
 		lang = language( client, msg.guild );
