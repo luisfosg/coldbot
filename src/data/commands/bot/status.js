@@ -1,5 +1,3 @@
-import { getConfig } from '../../util';
-
 export default {
 	name: 'status',
 	alias: ['st'],
@@ -12,24 +10,18 @@ export default {
 		dm: true,
 		enable: true,
 		visible: false,
-		permissions: ['ADMINISTRATOR'],
+		permissions: ['OWNER_PROGRAMMER-MEMBER'],
 		necessary: []
 	},
 	run: async ( client, msg, args ) => {
-		const config = await getConfig();
-
-		if ( config.devs[0][1] === msg.author.id ) {
-			client.user.setPresence( {
-				status: args[0],
-				activity: {
-					type: args[1],
-					name: args[2],
-					url: args[3] ? args[3] : 'https://www.youtube.com/watch?v=XlgqZeeoOtI',
-				},
-			} );
-		} else {
-			msg.reply( 'Ud no puede usar este comando nmms' );
-		}
+		client.user.setPresence( {
+			status: args[0],
+			activity: {
+				type: args[1],
+				name: args[2],
+				url: args[3] ? args[3] : 'https://www.youtube.com/watch?v=XlgqZeeoOtI',
+			},
+		} );
 
 		msg.delete().catch( () => {} );
 	},
