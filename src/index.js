@@ -2,7 +2,7 @@ import { Client } from 'discord.js';
 
 import './configServer';
 
-import { getLogin } from './data/util';
+import { getLogin, importFonts } from './data/util';
 
 import { importEvents } from './handlers/events';
 import { importCommands } from './handlers/commands';
@@ -22,6 +22,8 @@ const start = async () => {
 
 	await importEvents( client, lang );
 	await importCommands( client, lang );
+
+	await importFonts();
 
 	client.login( login.password ).catch( () => {
 		// eslint-disable-next-line no-console

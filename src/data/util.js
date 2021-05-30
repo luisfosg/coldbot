@@ -1,3 +1,6 @@
+import { registerFont } from 'canvas';
+import { join } from 'path';
+
 let config;
 
 export async function getLogin() {
@@ -31,5 +34,16 @@ export function sendMsg( msgInfoClient, messageSend ) {
 export function getLink( client ) {
 	return `https://discord.com/api/oauth2/authorize?client_id=${ client.user.id }&permissions=8&scope=bot`;
 }
+
+export const importFonts = async () => {
+	const publicFolder = join( __dirname, '../../public' );
+
+	registerFont( `${ publicFolder }/fonts/itim.ttf`, {
+		family: 'Itim'
+	} );
+	registerFont( `${ publicFolder }/fonts/comicsans.ttf`, {
+		family: 'Comic Sans MS'
+	} );
+};
 
 export const color = () => config.color;

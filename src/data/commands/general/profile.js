@@ -1,6 +1,5 @@
 import { MessageAttachment, MessageEmbed } from 'discord.js';
-import { createCanvas, loadImage, registerFont } from 'canvas';
-import { join } from 'path';
+import { createCanvas, loadImage } from 'canvas';
 
 import { roundImage } from '../../functions/imageRound';
 import { sendMsg, getUserWithId } from '../../util';
@@ -8,15 +7,10 @@ import { sendMsg, getUserWithId } from '../../util';
 import language from '../../functions/language';
 
 let lang;
-const publicFolder = join( __dirname, '../../../../public' );
 const wallpaper = 'https://i.imgur.com/H80vUGI.png';
 
 const profileImage = async ( msg, user ) => {
 	const photo = await roundImage( user.displayAvatarURL( { format: 'png' } ), 200, 200 );
-
-	registerFont( `${ publicFolder }/fonts/itim.ttf`, {
-		family: 'Itim'
-	} );
 
 	const canvasProfile = createCanvas( 600, 300 );
 	const ctx = canvasProfile.getContext( '2d' );

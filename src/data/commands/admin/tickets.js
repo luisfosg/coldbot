@@ -114,7 +114,7 @@ export default {
 		enable: true,
 		visible: true,
 		permissions: ['ADMINISTRATOR'],
-		necessary: ['ADD_REACTIONS', 'MANAGE_CHANNELS', 'MANAGE_MESSAGES']
+		necessary: ['ADD_REACTIONS', 'MANAGE_CHANNELS', 'MANAGE_MESSAGES', 'READ_MESSAGE_HISTORY']
 	},
 	run: async ( client, msg, args ) => {
 		lang = language( client, msg.guild );
