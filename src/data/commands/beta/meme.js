@@ -1,7 +1,7 @@
 import { MessageAttachment } from 'discord.js';
 import { createCanvas, loadImage } from 'canvas';
 
-import { sendEmbed, sendMsgNew } from '../../util';
+import { sendEmbed, sendMsg } from '../../util';
 
 import language from '../../functions/language';
 
@@ -25,7 +25,7 @@ const loadMeme = async ( msg, image, txt, color ) => {
 	ctx.fillText( txt, 50, 50 );
 
 	const att = new MessageAttachment( canvasMeme.toBuffer(), 'meme.png' );
-	sendMsgNew( {
+	sendMsg( {
 		place: msg.channel,
 		text: att
 	} );

@@ -1,7 +1,5 @@
-import { sendMsg } from '../../util';
-
+import { sendEmbed } from '../../util';
 import { getSplit, setSplit } from '../../../db/splitString';
-
 import language from '../../functions/language';
 
 export default {
@@ -13,7 +11,7 @@ export default {
 	req: {
 		minArgs: 2,
 		dm: false,
-		cooldown: 20,
+		cooldown: 10,
 		enable: true,
 		visible: true,
 		permissions: ['ADMINISTRATOR'],
@@ -38,11 +36,11 @@ export default {
 			setSplit( msg, false, args[1] );
 		}
 
-		sendMsg( msg, lang.split.message.replace( '{{ split }}', args[1] ) );
+		sendEmbed( { place: msg.channel, text: lang.split.message.replace( '{{ split }}', args[1] ) } );
 		if ( estado ) {
-			sendMsg( msg, lang.split.activated );
+			sendEmbed( { place: msg.channel, text: lang.split.activated } );
 		} else {
-			sendMsg( msg, lang.split.disabled );
+			sendEmbed( { place: msg.channel, text: lang.split.disabled } );
 		}
 	},
 };

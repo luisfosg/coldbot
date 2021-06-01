@@ -1,13 +1,13 @@
-import { MessageAttachment, MessageEmbed } from 'discord.js';
+import { MessageAttachment } from 'discord.js';
 import { createCanvas, loadImage } from 'canvas';
 
 import { roundImage } from '../../functions/imageRound';
-import { sendMsg, getUserWithId } from '../../util';
+import { sendEmbed, sendMsg, getUserWithId } from '../../util';
 
 import language from '../../functions/language';
 
 let lang;
-const wallpaper = 'https://i.imgur.com/H80vUGI.png';
+const wallpaper = 'https://fondosmil.com/fondo/67343.jpg';
 
 const profileImage = async ( msg, user ) => {
 	const photo = await roundImage( user.displayAvatarURL( { format: 'png' } ), 200, 200 );
@@ -37,28 +37,32 @@ const profileImage = async ( msg, user ) => {
 	ctx.fillText( lang.profile.tagImg.replace( '{{ tag }}', user.discriminator ), 5, 105 );
 
 	const att = new MessageAttachment( canvasProfile.toBuffer(), 'avatar.png' );
-
-	sendMsg( msg, att );
+	sendMsg( {
+		place: msg.channel,
+		text: att
+	} );
 };
 
 const profile = async ( msg, user ) => {
 	const member = msg.guild.members.cache.get( user.id );
-	const embed = new MessageEmbed();
 
-	embed.setTitle( `🔵 ${ user.username }` );
-	embed.setThumbnail( user.avatarURL( { dynamic: true } ) );
-	embed.addField( lang.profile.register, user.createdAt.toLocaleDateString(), true );
-	embed.addField( lang.profile.nickname, member.nickname ? member.nickname : '----------', true );
-	embed.addField( lang.profile.tag, `#${ user.discriminator }`, true );
-	embed.addField( lang.profile.entry, member.joinedAt.toLocaleDateString(), true );
-	embed.addField( lang.profile.status, user.presence.status, true );
-	embed.addField( lang.profile.bot, user.bot ? lang.general.yes : lang.general.not, true );
-	embed.addField(
-		lang.profile.roles, member.roles.cache.map( ( rol ) => `\`${ rol.name }\`` ).join( ', ' )
-	);
-	embed.setFooter( `${ lang.general.id } ${ user.id }` );
+	const fields = [
+		[lang.profile.register, user.createdAt.toLocaleDateString(), true],
+		[lang.profile.nickname, member.nickname ? member.nickname : '----------', true],
+		[lang.profile.tag, `#${ user.discriminator }`, true],
+		[lang.profile.entry, member.joinedAt.toLocaleDateString(), true],
+		[lang.profile.status, user.presence.status, true],
+		[lang.profile.bot, user.bot ? lang.general.yes : lang.general.not, true],
+		[lang.profile.roles, member.roles.cache.map( ( rol ) => `\`${ rol.name }\`` ).join( ', ' )]
+	];
 
-	sendMsg( msg, embed );
+	sendEmbed( {
+		place: msg.channel,
+		title: `🔵 ${ user.username }`,
+		fields,
+		thumbnail: user.avatarURL( { dynamic: true } ),
+		footer: [`${ lang.general.id } ${ user.id }`],
+	} );
 };
 
 export default {
@@ -83,7 +87,12 @@ export default {
 		if ( args[0] && args[0] !== '-img' ) {
 			user = await getUserWithId( client, msg, args[0] );
 		}
-		if ( user === 'notFound' ) return sendMsg( msg, lang.general.userNotFound );
+		if ( user === 'notFound' ) {
+			return sendEmbed( {
+				place: msg.channel,
+				text: lang.general.userNotFound
+			} );
+		}
 
 		const dataUser = user || msg.author;
 

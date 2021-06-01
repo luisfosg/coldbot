@@ -1,4 +1,4 @@
-import { sendEmbed, sendMsgNew, getConfig } from '../util';
+import { sendEmbed, sendMsg, getConfig } from '../util';
 import { getPrefix } from '../../db/prefix';
 import { getSplit, splDes } from '../../db/splitString';
 
@@ -14,17 +14,19 @@ const checkCommand = async ( client, msg, CMD, args ) => {
 	const config = await getConfig();
 	const commandFind = client.commands.get( CMD );
 
-	const havePermissions = await checkPermissions( msg.guild.me, commandFind.req.necessary );
-	if ( !havePermissions ) {
-		return sendEmbed( {
-			place: msg.channel,
-			text: `\`\`\`${ commandFind.req.necessary.map( ( cmd ) => `${ cmd }` ).join( ', ' ) }\`\`\``,
-			title: lang.message.notHavePermissions
-		} );
+	if ( msg.guild ) {
+		const havePermissions = await checkPermissions( msg.guild.me, commandFind.req.necessary );
+		if ( !havePermissions ) {
+			return sendEmbed( {
+				place: msg.channel,
+				text: `\`\`\`${ commandFind.req.necessary.map( ( cmd ) => `${ cmd }` ).join( ', ' ) }\`\`\``,
+				title: lang.message.notHavePermissions
+			} );
+		}
 	}
 
 	const isMd = checkMd( commandFind.req.dm, msg.channel.type );
-	if ( !isMd ) return msg.reply( lang.message.notMd );
+	if ( !isMd ) return sendMsg( { place: msg, text: lang.message.notMd, reply: true } );
 
 	const isPermitValid = await checkPermissions( msg.member, commandFind.req.permissions );
 	if ( !isPermitValid ) {
@@ -46,12 +48,22 @@ const checkCommand = async ( client, msg, CMD, args ) => {
 	}
 
 	const notCooldown = cooldown( msg.author, commandFind.name, commandFind.req.cooldown );
-	if ( !notCooldown ) return msg.reply( lang.message.cooldown.replace( '{{ seg }}', commandFind.req.cooldown ) );
+	if ( !notCooldown ) {
+		return sendMsg( {
+			place: msg,
+			text: lang.message.cooldown.replace( '{{ seg }}', commandFind.req.cooldown ),
+			reply: true,
+		} );
+	}
 
 	try {
 		commandFind.run( client, msg, args );
 	} catch ( e ) {
-		msg.reply( lang.message.error.replace( '{{ dev }}', config.devs[0][0] ) );
+		sendMsg( {
+			place: msg,
+			text: lang.message.error.replace( '{{ dev }}', config.devs[0][0] ),
+			reply: true
+		} );
 	}
 };
 
@@ -64,7 +76,7 @@ const verifySendMsg = async ( msg ) => {
 	}
 
 	if ( !msg.guild.me.hasPermission( 'EMBED_LINKS' ) ) {
-		sendMsgNew( {
+		sendMsg( {
 			place: msg.channel,
 			text: lang.message.notSendEmbeds
 		} );

@@ -1,3 +1,6 @@
+import { sendEmbed } from '../../util';
+import language from '../../functions/language';
+
 export default {
 	name: 'status',
 	alias: ['st'],
@@ -14,6 +17,8 @@ export default {
 		necessary: []
 	},
 	run: async ( client, msg, args ) => {
+		const lang = language( client, msg.guild );
+
 		client.user.setPresence( {
 			status: args[0],
 			activity: {
@@ -23,6 +28,7 @@ export default {
 			},
 		} );
 
+		sendEmbed( { place: msg.channel, text: lang.status.text } );
 		msg.delete().catch( () => {} );
 	},
 };

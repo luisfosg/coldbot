@@ -130,7 +130,8 @@
 	},
 	"status": {
 		"usage": "```{{ p }} status <status> {{ s }} <type> {{ s }} <name> {{ s }} [url]```",
-		"description": "Esto solo es del uso exclusivo del administrador del bot, y se usa para cambiar el estado del bot."
+		"description": "Esto solo es del uso exclusivo del administrador del bot, y se usa para cambiar el estado del bot.",
+		"text": "Mi estado se ha actualizado Correctamente (งツ)ว"
 	},
 	"server": {
 		"usage": "```{{ p }} serverinfo```",
@@ -172,7 +173,7 @@
 		"usage": "```{{ p }} cls <Mensajes a Borrar>``````{{ p }} clear <Numero>```",
 		"description": "Borra el Numero de mensajes que escribas en el primer argumento, un maximo de 99.",
 		"error": "No puede Colocar numeros negativos o Eliminar mas de 99 mensajes",
-		"message": "<@{{ user }}> Elimino `{{ number }}` mensajes de <#{{ channel }}>`"
+		"message": "<@{{ user }}> Elimino `{{ number }}` mensajes de <#{{ channel }}>"
 	},
 	"meme": {
 		"usage": "```{{ p }} meme <link de imagen> {{ s }} <texto> {{ s }} [Color Hexadecimal]``````{{ p }} meme <link> {{ s }} <texto>```",

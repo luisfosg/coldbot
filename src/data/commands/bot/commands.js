@@ -41,7 +41,7 @@ const commandMessage = async ( client, msg ) => {
 		fields,
 		author: [lang.commands.title, msg.author.avatarURL()],
 		thumbnail: client.user.avatarURL(),
-		footer: lang.commands.footer,
+		footer: [lang.commands.footer],
 		timestamp: true
 	} );
 };

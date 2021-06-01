@@ -1,34 +1,28 @@
 /* eslint-disable no-unused-expressions */
-import { MessageEmbed } from 'discord.js';
-
-import { sendMsg, getUserWithId, color } from '../../util';
+import { sendEmbed, getUserWithId } from '../../util';
 
 import language from '../../functions/language';
 
 let lang;
 
 const avatarGenerator = async ( msg, message ) => {
-	const embed = new MessageEmbed();
-
 	message = message.replace( / |[<]|!|@|[>]/g, '' );
 
-	embed.setColor( color() );
-	embed.setAuthor( msg.author.username, msg.author.displayAvatarURL() );
-	embed.setImage( `https://api.multiavatar.com/${ message }.png` );
-
-	sendMsg( msg, embed );
+	sendEmbed( {
+		place: msg.channel,
+		author: [msg.author.username, msg.author.displayAvatarURL()],
+		image: `https://api.multiavatar.com/${ message }.png`
+	} );
 };
 
 const avatar = async ( msg, user ) => {
-	const embed = new MessageEmbed();
-
-	embed.setColor( color() );
-	embed.setAuthor( msg.author.username, msg.author.displayAvatarURL() );
-	embed.setTitle( lang.avatar.title.replace( '{{ user }}', user.username ) );
-	embed.setURL( user.avatarURL( { dynamic: true, size: 1024 } ) );
-	embed.setImage( user.displayAvatarURL( { dynamic: true, size: 512 } ) );
-
-	sendMsg( msg, embed );
+	sendEmbed( {
+		place: msg.channel,
+		author: [msg.author.username, msg.author.displayAvatarURL()],
+		title: lang.avatar.title.replace( '{{ user }}', user.username ),
+		url: user.avatarURL( { dynamic: true, size: 512 } ),
+		image: user.displayAvatarURL( { dynamic: true, size: 512 } )
+	} );
 };
 
 export default {
@@ -53,7 +47,7 @@ export default {
 		if ( args[0] && args[1] !== '-gen' ) {
 			user = await getUserWithId( client, msg, args[0] );
 		}
-		if ( user === 'notFound' ) return sendMsg( msg, lang.general.userNotFound );
+		if ( user === 'notFound' ) return sendEmbed( { place: msg.channel, text: lang.general.userNotFound } );
 
 		const dataUser = user || msg.author;
 

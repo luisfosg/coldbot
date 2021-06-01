@@ -1,6 +1,4 @@
-import { MessageEmbed } from 'discord.js';
-
-import { sendMsg, color } from '../../util';
+import { sendEmbed } from '../../util';
 import { setLanguage, getLanguage } from '../../../db/language';
 import { setLanguageUtil, languageChannel } from '../../functions/language';
 
@@ -12,7 +10,7 @@ export default {
 	description: ( langs ) => langs.language.description,
 	req: {
 		minArgs: 0,
-		cooldown: 0,
+		cooldown: 5,
 		dm: false,
 		enable: true,
 		visible: true,
@@ -23,24 +21,28 @@ export default {
 		const lang = languageChannel( client, msg.guild );
 
 		if ( !args[0] ) {
-			sendMsg( msg, lang.language.selected.replace( '{{ lang }}', await getLanguage( msg.guild.id ) ) );
-			const embed = new MessageEmbed();
+			sendEmbed( {
+				place: msg.channel,
+				text: lang.language.selected.replace( '{{ lang }}', await getLanguage( msg.guild.id ) )
+			} );
 
-			embed.setTitle( lang.language.title );
-			embed.setColor( color() );
-			embed.setDescription(
-				client.languages.map( ( l ) => `\`${ l.languageName }\`` )
-			);
-
-			sendMsg( msg, embed );
-			return;
+			return sendEmbed( {
+				place: msg.channel,
+				title: lang.language.title,
+				text: client.languages.map( ( l ) => `\`${ l.languageName }\`` )
+			} );
 		}
 
 		args[0] = args[0].toUpperCase();
-		if ( !client.languages.has( args[0] ) ) return sendMsg( msg, lang.language.notFound );
+		if ( !client.languages.has( args[0] ) ) {
+			return sendEmbed( { place: msg.channel, text: lang.language.notFound } );
+		}
 
 		setLanguage( msg, args[0] );
 		setLanguageUtil( msg.guild, args[0] );
-		sendMsg( msg, lang.language.chosenOne.replace( '{{ lang }}', args[0] ) );
+		sendEmbed( {
+			place: msg.channel,
+			text: lang.language.chosenOne.replace( '{{ lang }}', args[0] )
+		} );
 	},
 };

@@ -1,6 +1,4 @@
-import { MessageEmbed } from 'discord.js';
-
-import { color } from '../../util';
+import { sendEmbed } from '../../util';
 
 import language from '../../functions/language';
 
@@ -23,16 +21,19 @@ export default {
 		const lang = language( client, msg.guild );
 		const server = msg.guild;
 
-		const embed = new MessageEmbed();
-		embed.setThumbnail( server.iconURL() );
-		embed.setAuthor( server.name, server.iconURL() );
-		embed.addField( lang.server.id, server.id, true );
-		embed.addField( lang.server.region, server.region, true );
-		embed.addField( lang.server.date, server.joinedAt.toLocaleDateString(), true );
-		embed.addField( lang.server.owner, `${ server.owner.user.username }#${ server.owner.user.discriminator }`, true );
-		embed.addField( lang.server.members, server.memberCount, true );
-		embed.setColor( color() );
+		const fields = [
+			[lang.server.id, server.id, true],
+			[lang.server.region, server.region, true],
+			[lang.server.date, server.joinedAt.toLocaleDateString(), true],
+			[lang.server.owner, `${ server.owner.user.username }#${ server.owner.user.discriminator }`, true],
+			[lang.server.members, server.memberCount, true]
+		];
 
-		msg.channel.send( embed );
+		sendEmbed( {
+			place: msg.channel,
+			thumbnail: server.iconURL(),
+			fields,
+			author: [server.name, server.iconURL()]
+		} );
 	},
 };

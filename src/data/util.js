@@ -43,10 +43,12 @@ export function getLink( client ) {
 	return `https://discord.com/api/oauth2/authorize?client_id=${ client.user.id }&permissions=8&scope=bot`;
 }
 
-export const sendMsgNew = ( {
+export const sendMsg = ( {
 	place,
 	text,
+	reply = false
 } ) => {
+	if ( reply ) return place.reply( text ).catch( () => {} );
 	place.send( text ).catch( () => {} );
 };
 
@@ -55,9 +57,11 @@ export const sendEmbed = ( {
 	title = '',
 	text = '',
 	fields = false,
+	image = false,
 	author = false,
 	timestamp = false,
 	thumbnail = false,
+	url = false,
 	footer = false,
 	returnEmbed = false
 } ) => {
@@ -70,11 +74,18 @@ export const sendEmbed = ( {
 	if ( thumbnail ) embed.setThumbnail( thumbnail );
 	if ( timestamp ) embed.setTimestamp( Date.now() );
 	if ( author ) embed.setAuthor( author[0], author[1] );
+	if ( url ) embed.setURL( url );
 	if ( footer ) {
-		if ( footer[1] ) embed.setFooter( footer[0], footer[1] );
-		embed.setFooter( footer );
+		if ( footer.length > 1 ) {
+			embed.setFooter( footer[0], footer[1] );
+		} else {
+			embed.setFooter( footer );
+		}
 	}
 
+	if ( image ) {
+		embed.setImage( image );
+	}
 	if ( fields ) {
 		fields.forEach( ( field ) => {
 			if ( field[2] ) {
