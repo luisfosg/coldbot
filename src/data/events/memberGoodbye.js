@@ -1,8 +1,6 @@
-import { MessageEmbed } from 'discord.js';
-
 import { zeewGoodbye } from '../functions/zeewImages';
 import { sendLog, sendWelcome } from '../web/hooks';
-import { getLogin, color } from '../util';
+import { getLogin, sendEmbed } from '../util';
 
 import language from '../functions/language';
 
@@ -25,19 +23,17 @@ export default {
 		const login = await getLogin();
 
 		if ( member.guild.id !== login.idServer ) {
-			const embed = new MessageEmbed();
-
-			embed.setTitle( lang.memberGoodbye.title );
-			embed.setColor( color() );
-			embed.setDescription( lang.memberGoodbye.description.replace(
-				'{{ member }}', member
-			).replace(
-				'{{ server }}', member.guild.name
-			) );
-			embed.setTimestamp();
-			embed.setFooter( member.guild.name, member.guild.iconURL() );
-
-			return sendLog( embed );
+			return sendLog( sendEmbed( {
+				title: lang.memberGoodbye.title,
+				text: lang.memberGoodbye.description.replace(
+					'{{ member }}', member
+				).replace(
+					'{{ server }}', member.guild.name
+				),
+				timestamp: true,
+				footer: [member.guild.name, member.guild.iconURL()],
+				returnEmbed: true
+			} ) );
 		}
 
 		if ( login.zeewToken ) {

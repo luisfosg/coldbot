@@ -1,6 +1,4 @@
-import { MessageEmbed } from 'discord.js';
-
-import { sendMsg, getConfig, color } from '../util';
+import { sendEmbed, sendMsgNew, getConfig } from '../util';
 import { getPrefix } from '../../db/prefix';
 import { getSplit, splDes } from '../../db/splitString';
 
@@ -18,13 +16,11 @@ const checkCommand = async ( client, msg, CMD, args ) => {
 
 	const havePermissions = await checkPermissions( msg.guild.me, commandFind.req.necessary );
 	if ( !havePermissions ) {
-		const embed = new MessageEmbed();
-
-		embed.setColor( color() );
-		embed.setTitle( lang.message.notHavePermissions );
-		embed.setDescription( `\`\`\`${ commandFind.req.necessary.map( ( cmd ) => `${ cmd }` ).join( ', ' ) }\`\`\`` );
-
-		return sendMsg( msg, embed );
+		return sendEmbed( {
+			place: msg.channel,
+			text: `\`\`\`${ commandFind.req.necessary.map( ( cmd ) => `${ cmd }` ).join( ', ' ) }\`\`\``,
+			title: lang.message.notHavePermissions
+		} );
 	}
 
 	const isMd = checkMd( commandFind.req.dm, msg.channel.type );
@@ -32,27 +28,21 @@ const checkCommand = async ( client, msg, CMD, args ) => {
 
 	const isPermitValid = await checkPermissions( msg.member, commandFind.req.permissions );
 	if ( !isPermitValid ) {
-		const embed = new MessageEmbed();
-
-		embed.setColor( color() );
-		embed.setTitle( lang.message.invalidPermissions );
-		embed.setDescription( `\`\`\`${ commandFind.req.permissions.map( ( cmd ) => `${ cmd }` ).join( ', ' ) }\`\`\`` );
-
-		return sendMsg( msg, embed );
+		return sendEmbed( {
+			place: msg.channel,
+			title: lang.message.invalidPermissions,
+			text: `\`\`\`${ commandFind.req.permissions.map( ( cmd ) => `${ cmd }` ).join( ', ' ) }\`\`\``
+		} );
 	}
 
 	const isArgsValid = await checkArgs( commandFind.req.minArgs, args.length );
 	if ( !isArgsValid ) {
-		const embed = new MessageEmbed();
-
-		embed.setColor( color() );
-		embed.setDescription(
-			lang.message.invalidArgs.replace(
+		return sendEmbed( {
+			place: msg.channel,
+			text: lang.message.invalidArgs.replace(
 				'{{ usage }}', commandFind.usage( lang, client.prefix, splDes( msg.guild ) )
 			)
-		);
-
-		return sendMsg( msg, embed );
+		} );
 	}
 
 	const notCooldown = cooldown( msg.author, commandFind.name, commandFind.req.cooldown );
@@ -67,16 +57,17 @@ const checkCommand = async ( client, msg, CMD, args ) => {
 
 const verifySendMsg = async ( msg ) => {
 	if ( !msg.guild.me.hasPermission( 'SEND_MESSAGES' ) ) {
-		const embed = new MessageEmbed();
-
-		embed.setColor( color() );
-		embed.setDescription( lang.message.notSendMsg );
-
-		msg.author.send( embed ).catch( () => {} );
-		return true;
+		return sendEmbed( {
+			place: msg.author,
+			text: lang.message.notSendMsg
+		} );
 	}
+
 	if ( !msg.guild.me.hasPermission( 'EMBED_LINKS' ) ) {
-		sendMsg( msg, lang.message.notSendEmbeds );
+		sendMsgNew( {
+			place: msg.channel,
+			text: lang.message.notSendEmbeds
+		} );
 		return true;
 	}
 	return false;
@@ -86,7 +77,7 @@ const mentionPrefix = async ( client, msg ) => {
 	if ( msg.content.startsWith( client.prefix ) ) {
 		if ( msg.guild ) {
 			const sendMsgChannel = await verifySendMsg( msg );
-			if ( sendMsgChannel ) return;
+			if ( sendMsgChannel ) return false;
 		}
 
 		const stringArgs = await divideArgs( client, msg.content, client.prefix );
@@ -99,12 +90,10 @@ const mentionPrefix = async ( client, msg ) => {
 		}
 
 		if ( !client.commands.has( CMD ) ) {
-			const embed = new MessageEmbed();
-
-			embed.setColor( color() );
-			embed.setDescription( lang.general.commandNotFound );
-
-			return sendMsg( msg, embed );
+			return sendEmbed( {
+				place: msg.channel,
+				text: lang.general.commandNotFound
+			} );
 		}
 
 		checkCommand( client, msg, CMD, args );
@@ -115,16 +104,16 @@ const mentionBot = async ( client, msg ) => {
 	if ( msg.content.startsWith( `<@!${client.user.id}>` ) || msg.content.startsWith( `<@${client.user.id}>` ) ) {
 		if ( msg.guild ) {
 			const sendMsgChannel = await verifySendMsg( msg );
-			if ( sendMsgChannel ) return;
+			if ( sendMsgChannel ) return false;
 		}
 
 		if ( msg.content === `<@!${client.user.id}>` || msg.content === `<@${client.user.id}>` ) {
-			const embed = new MessageEmbed();
-			embed.setColor( color() );
-			embed.setDescription( lang.message.mentionBot.replace( /{{ prefix }}/g, client.prefix ) );
-
-			return sendMsg( msg, embed );
+			return sendEmbed( {
+				place: msg.channel,
+				text: lang.message.mentionBot.replace( /{{ prefix }}/g, client.prefix )
+			} );
 		}
+
 		let data;
 
 		// eslint-disable-next-line no-unused-expressions

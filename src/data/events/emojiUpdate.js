@@ -1,8 +1,6 @@
-import { MessageEmbed } from 'discord.js';
-
 import { sendLog } from '../web/hooks';
 
-import { color } from '../util';
+import { sendEmbed } from '../util';
 import language from '../functions/language';
 
 export default {
@@ -14,18 +12,16 @@ export default {
 	run: async ( client, oldEmoji, newEmoji ) => {
 		const lang = language( client, oldEmoji.guild );
 
-		const embed = new MessageEmbed();
-
-		embed.setTitle( lang.emojiUpdate.title );
-		embed.setColor( color() );
-		embed.setTimestamp();
-		embed.setDescription( lang.emojiUpdate.description.replace(
-			'{{ oldName }}', oldEmoji.name
-		).replace(
-			'{{ newName }}', newEmoji.name
-		) );
-		embed.setFooter( oldEmoji.guild.name, oldEmoji.guild.iconURL() );
-
-		sendLog( embed );
+		sendLog( sendEmbed( {
+			title: lang.emojiUpdate.title,
+			text: lang.emojiUpdate.description.replace(
+				'{{ oldName }}', oldEmoji.name
+			).replace(
+				'{{ newName }}', newEmoji.name
+			),
+			timestamp: true,
+			footer: [oldEmoji.guild.name, oldEmoji.guild.iconURL()],
+			returnEmbed: true
+		} ) );
 	},
 };

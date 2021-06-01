@@ -1,8 +1,6 @@
-import { MessageEmbed } from 'discord.js';
-
 import { zeewWelcome } from '../functions/zeewImages';
 import { sendLog, sendWelcome } from '../web/hooks';
-import { getLogin, color } from '../util';
+import { getLogin, sendEmbed } from '../util';
 
 import language from '../functions/language';
 
@@ -23,31 +21,30 @@ export default {
 	},
 	run: async ( client, member ) => {
 		const lang = language( client, member.guild );
-
 		const login = await getLogin();
 
 		if ( member.guild.id !== login.idServer ) {
-			const embed = new MessageEmbed();
-
-			embed.setTitle( lang.memberWelcome.title );
-			embed.setColor( color() );
-			embed.setDescription( lang.memberWelcome.description.replace(
-				'{{ member }}', member
-			).replace(
-				'{{ server }}', member.guild.name
-			) );
-			embed.setTimestamp();
-			embed.setFooter( member.guild.name, member.guild.iconURL() );
-
-			return sendLog( embed );
+			return sendLog( sendEmbed( {
+				title: lang.memberWelcome.title,
+				text: lang.memberWelcome.description.replace(
+					'{{ member }}', member
+				).replace(
+					'{{ server }}', member.guild.name
+				),
+				timestamp: true,
+				footer: [member.guild.name, member.guild.iconURL()]
+			} ) );
 		}
 
 		if ( login.zeewToken ) {
-			member.send( lang.memberWelcome.messageMd.replace(
-				'{{ member }}', member
-			).replace(
-				'{{ server }}', member.guild.name
-			) );
+			sendEmbed( {
+				place: member,
+				text: lang.memberWelcome.messageMd.replace(
+					'{{ member }}', member
+				).replace(
+					'{{ server }}', member.guild.name
+				)
+			} );
 			zeewWelcome( member, login.zeewToken );
 		} else {
 			welcomeNormal( lang, member );
