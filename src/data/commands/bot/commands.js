@@ -1,6 +1,4 @@
-import { MessageEmbed } from 'discord.js';
-
-import { sendMsg, color } from '../../util';
+import { sendEmbed } from '../../util';
 
 import language from '../../functions/language';
 
@@ -21,28 +19,31 @@ const printCategory = ( client, msg, embed, category ) => {
 	const nameCategory = category.charAt( 0 ).toUpperCase() + category.slice( 1 );
 
 	if ( commands.size > 0 ) {
-		embed.addField(
-			`🔹 ${ nameCategory } [${commands.size}]:`, commands.map( ( cmd ) => `\`${ cmd.name }\`` ).join( ' | ' )
+		embed.push(
+			[
+				`🔹 ${ nameCategory } [${commands.size}]:`,
+				commands.map( ( cmd ) => `\`${ cmd.name }\`` ).join( ' | ' )
+			]
 		);
 	}
 };
 
 const commandMessage = async ( client, msg ) => {
-	const embed = new MessageEmbed();
+	const fields = [];
 
-	embed.setColor( color() );
-	embed.setThumbnail( client.user.avatarURL() );
-	embed.setAuthor( lang.commands.title, msg.author.avatarURL() );
-	embed.setTimestamp( Date.now() );
-
-	embed.setDescription( lang.commands.commandsNum.replace( '{{ num }}', client.commands.size ) );
-	embed.setFooter( lang.commands.footer );
-
-	client.categories.forEach( ( category ) => {
-		printCategory( client, msg, embed, category );
+	await client.categories.forEach( ( category ) => {
+		printCategory( client, msg, fields, category );
 	} );
 
-	sendMsg( msg, embed );
+	sendEmbed( {
+		place: msg.channel,
+		text: lang.commands.commandsNum.replace( '{{ num }}', client.commands.size ),
+		fields,
+		author: [lang.commands.title, msg.author.avatarURL()],
+		thumbnail: client.user.avatarURL(),
+		footer: lang.commands.footer,
+		timestamp: true
+	} );
 };
 
 export default {

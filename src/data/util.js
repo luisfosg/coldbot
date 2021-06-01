@@ -39,18 +39,25 @@ export async function getUserWithId( client, msg, mention ) {
 	return user;
 }
 
+export function getLink( client ) {
+	return `https://discord.com/api/oauth2/authorize?client_id=${ client.user.id }&permissions=8&scope=bot`;
+}
+
 export const sendMsgNew = ( {
 	place,
 	text,
 } ) => {
-	place.send( text );
+	place.send( text ).catch( () => {} );
 };
 
 export const sendEmbed = ( {
 	place,
 	title = '',
 	text = '',
+	fields = false,
+	author = false,
 	timestamp = false,
+	thumbnail = false,
 	footer = false,
 	returnEmbed = false
 } ) => {
@@ -60,13 +67,24 @@ export const sendEmbed = ( {
 	embed.setTitle( title );
 	embed.setDescription( text );
 
-	if ( timestamp ) embed.setTimestamp();
-	if ( footer ) embed.setFooter( footer[0], footer[1] );
+	if ( thumbnail ) embed.setThumbnail( thumbnail );
+	if ( timestamp ) embed.setTimestamp( Date.now() );
+	if ( author ) embed.setAuthor( author[0], author[1] );
+	if ( footer ) {
+		if ( footer[1] ) embed.setFooter( footer[0], footer[1] );
+		embed.setFooter( footer );
+	}
+
+	if ( fields ) {
+		fields.forEach( ( field ) => {
+			if ( field[2] ) {
+				embed.addField( field[0], field[1], field[2] );
+			} else {
+				embed.addField( field[0], field[1] );
+			}
+		} );
+	}
 
 	if ( returnEmbed ) return embed;
-	place.send( embed ).catch( () => {} );
+	place.send( embed );
 };
-
-export function getLink( client ) {
-	return `https://discord.com/api/oauth2/authorize?client_id=${ client.user.id }&permissions=8&scope=bot`;
-}

@@ -1,19 +1,17 @@
-import { MessageEmbed } from 'discord.js';
-
 import { getMsgTicket, setMsgTicket } from '../../../db/ticket';
 
-import { color } from '../../util';
+import { sendEmbed } from '../../util';
 import language from '../../functions/language';
 
 let lang;
 
 const descriptionTicket = async ( channel, user ) => {
-	const embed = new MessageEmbed();
-
-	embed.setColor( color() );
-	embed.setTimestamp();
-	embed.setTitle( lang.ticket.titleTicket );
-	embed.setDescription( lang.ticket.descripTicket.replace( '{{ id }}', user.id ) );
+	const embed = sendEmbed( {
+		title: lang.ticket.titleTicket,
+		text: lang.ticket.descripTicket.replace( '{{ id }}', user.id ),
+		timestamp: true,
+		returnEmbed: true,
+	} );
 
 	channel.send( embed ).then( ( msg ) => {
 		msg.react( '❌' );
@@ -71,14 +69,12 @@ const description = async ( msg ) => {
 		msgTicket.delete();
 	} ).catch( () => {} );
 
-	const embed = new MessageEmbed();
-
-	embed.setColor( color() );
-	embed.setTimestamp();
-	embed.setTitle( lang.ticket.titleSupport );
-	embed.setDescription( lang.ticket.descripEnable );
-
-	return embed;
+	return sendEmbed( {
+		title: lang.ticket.titleSupport,
+		text: lang.ticket.descripEnable,
+		timestamp: true,
+		returnEmbed: true
+	} );
 };
 
 const deleteDescription = async ( msg ) => {
@@ -87,12 +83,12 @@ const deleteDescription = async ( msg ) => {
 		msgTicket.delete();
 	} ).catch( () => {} );
 
-	const embed = new MessageEmbed();
-
-	embed.setColor( color() );
-	embed.setTimestamp();
-	embed.setTitle( lang.ticket.titleSupport );
-	embed.setDescription( lang.ticket.descripDisabled );
+	const embed = sendEmbed( {
+		title: lang.ticket.titleSupport,
+		text: lang.ticket.descripDisabled,
+		timestamp: true,
+		returnEmbed: true
+	} );
 
 	msg.channel.send( embed ).then( async ( msgEmbed ) => {
 		await setMsgTicket( msg, msgEmbed.id );

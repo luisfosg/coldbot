@@ -1,7 +1,7 @@
 import { MessageAttachment } from 'discord.js';
 import { createCanvas, loadImage } from 'canvas';
 
-import { sendMsg } from '../../util';
+import { sendEmbed, sendMsgNew } from '../../util';
 
 import language from '../../functions/language';
 
@@ -12,7 +12,12 @@ const loadMeme = async ( msg, image, txt, color ) => {
 	const ctx = canvasMeme.getContext( '2d' );
 
 	const photo = await loadImage( image ).catch( () => {} );
-	if ( !photo ) return sendMsg( msg, lang.meme.imgNotWork );
+	if ( !photo ) {
+		return sendEmbed( {
+			place: msg.channel,
+			text: lang.meme.imgNotWork
+		} );
+	}
 
 	ctx.drawImage( photo, 0, 0, 600, 400 );
 	ctx.fillStyle = color;
@@ -20,7 +25,11 @@ const loadMeme = async ( msg, image, txt, color ) => {
 	ctx.fillText( txt, 50, 50 );
 
 	const att = new MessageAttachment( canvasMeme.toBuffer(), 'meme.png' );
-	sendMsg( msg, att );
+	sendMsgNew( {
+		place: msg.channel,
+		text: att
+	} );
+
 	msg.delete().catch( () => {} );
 };
 

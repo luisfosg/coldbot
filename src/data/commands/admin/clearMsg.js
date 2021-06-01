@@ -1,6 +1,6 @@
 import { sendLog } from '../../web/hooks';
 
-import { sendMsg } from '../../util';
+import { sendEmbed } from '../../util';
 import language from '../../functions/language';
 
 const parseTxtNumber = ( num ) => {
@@ -17,13 +17,16 @@ const parseTxtNumber = ( num ) => {
 };
 
 const sendMsgClear = ( lang, msg, number ) => {
-	sendLog( lang.clear.message.replace(
-		'{{ user }}', msg.member.user.id
-	).replace(
-		'{{ number }}', number
-	).replace(
-		'{{ channel }}', msg.channel.id
-	) );
+	sendLog( sendEmbed( {
+		text: lang.clear.message.replace(
+			'{{ user }}', msg.member.user.id
+		).replace(
+			'{{ number }}', number
+		).replace(
+			'{{ channel }}', msg.channel.id
+		),
+		returnEmbed: true
+	} ) );
 };
 
 const clearMsg = async ( lang, msg, number ) => {
@@ -53,7 +56,10 @@ export default {
 		const number = parseTxtNumber( args[0] );
 		if ( number < 0 || number > 99 ) {
 			msg.delete().catch( () => {} );
-			return sendMsg( msg, lang.clear.error );
+			return sendEmbed( {
+				place: msg.channel,
+				text: lang.clear.error
+			} );
 		}
 
 		await clearMsg( lang, msg, number );
