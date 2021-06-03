@@ -27,10 +27,10 @@ const createCategory = async ( msg, name ) => {
 	return channel;
 };
 
-export const createTicket = async ( client, msg, user ) => {
-	let nameUser = user.nickname || user.username;
-	nameUser = nameUser.trim().toLowerCase().replace( /[^a-zA-Z]/g, '' );
-	nameUser += `⚪${user.discriminator}`;
+export const createTicket = async ( client, msg, member ) => {
+	let nameUser = member.nickname || member.user.username;
+	nameUser = nameUser.trim().toLowerCase().replace( /[^a-zA-Z1-9]/g, '' );
+	nameUser += `⚪${member.user.discriminator}`;
 
 	const canal = await msg.guild.channels.cache.find(
 		( c ) => c.name === `ticket-${ nameUser }`
@@ -45,7 +45,7 @@ export const createTicket = async ( client, msg, user ) => {
 			reason: 'Ticket',
 			permissionOverwrites: [
 				{
-					id: user.id,
+					id: member.id,
 					allow: ['SEND_MESSAGES', 'VIEW_CHANNEL']
 				},
 				{
@@ -60,7 +60,7 @@ export const createTicket = async ( client, msg, user ) => {
 			type: 'text',
 			parent: categoryTicket
 		} ).then( ( channel ) => {
-		descriptionTicket( channel, user );
+		descriptionTicket( channel, member );
 	} );
 };
 
