@@ -27,6 +27,11 @@ const sendMsgClear = ( lang, msg, number ) => {
 		),
 		returnEmbed: true
 	} ) );
+	sendEmbed( {
+		place: msg.channel,
+		text: lang.clear.success.replace( '{{ number }}', number ),
+		deleteTime: 5
+	} );
 };
 
 const clearMsg = async ( lang, msg, number ) => {

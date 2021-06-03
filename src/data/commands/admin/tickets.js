@@ -28,7 +28,8 @@ const createCategory = async ( msg, name ) => {
 };
 
 export const createTicket = async ( client, msg, user ) => {
-	let nameUser = user.username.trim().toLowerCase().replace( /\s+/g, '' );
+	let nameUser = user.nickname || user.username;
+	nameUser = nameUser.trim().toLowerCase().replace( /[^a-zA-Z]/g, '' );
 	nameUser += `⚪${user.discriminator}`;
 
 	const canal = await msg.guild.channels.cache.find(

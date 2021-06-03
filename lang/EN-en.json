@@ -173,7 +173,8 @@
 		"usage": "```{{ p }} cls <Number of Messages>```",
 		"description": "Delete the number of messages you write in the first argument, a maximum of 99.",
 		"error": "You cannot put negative numbers or delete more than 99 messages",
-		"message": "<@{{ user }}> delete `{{ number }}` messages of <#{{ channel }}>"
+		"message": "<@{{ user }}> delete `{{ number }}` messages of <#{{ channel }}>",
+		"success": "{{ number }} messages have been removed (งツ)ว"
 	},
 	"meme": {
 		"usage": "```{{ p }} meme <image link> {{ s }} <text> {{ s }} [Hexadecimal Color]``````{{ p }} meme <link> {{ s }} <text>```",

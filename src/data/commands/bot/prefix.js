@@ -23,7 +23,8 @@ export default {
 
 		sendEmbed( {
 			place: msg.channel,
-			text: lang.prefix.message.replace( '{{ prefix }}', args[0] )
+			text: lang.prefix.message.replace( '{{ prefix }}', args[0] ),
+			deleteTime: 20
 		} );
 
 		msg.delete().catch( () => {} );

@@ -20,7 +20,8 @@ const checkCommand = async ( client, msg, CMD, args ) => {
 			return sendEmbed( {
 				place: msg.channel,
 				text: `\`\`\`${ commandFind.req.necessary.map( ( cmd ) => `${ cmd }` ).join( ', ' ) }\`\`\``,
-				title: lang.message.notHavePermissions
+				title: lang.message.notHavePermissions,
+				deleteTime: 5
 			} );
 		}
 	}
@@ -33,7 +34,8 @@ const checkCommand = async ( client, msg, CMD, args ) => {
 		return sendEmbed( {
 			place: msg.channel,
 			title: lang.message.invalidPermissions,
-			text: `\`\`\`${ commandFind.req.permissions.map( ( cmd ) => `${ cmd }` ).join( ', ' ) }\`\`\``
+			text: `\`\`\`${ commandFind.req.permissions.map( ( cmd ) => `${ cmd }` ).join( ', ' ) }\`\`\``,
+			deleteTime: 5
 		} );
 	}
 
@@ -43,7 +45,8 @@ const checkCommand = async ( client, msg, CMD, args ) => {
 			place: msg.channel,
 			text: lang.message.invalidArgs.replace(
 				'{{ usage }}', commandFind.usage( lang, client.prefix, splDes( msg.guild ) )
-			)
+			),
+			deleteTime: 5
 		} );
 	}
 
@@ -53,6 +56,7 @@ const checkCommand = async ( client, msg, CMD, args ) => {
 			place: msg,
 			text: lang.message.cooldown.replace( '{{ seg }}', commandFind.req.cooldown ),
 			reply: true,
+			deleteTime: 5
 		} );
 	}
 
@@ -62,7 +66,8 @@ const checkCommand = async ( client, msg, CMD, args ) => {
 		sendMsg( {
 			place: msg,
 			text: lang.message.error.replace( '{{ dev }}', config.devs[0][0] ),
-			reply: true
+			reply: true,
+			deleteTime: 5
 		} );
 	}
 };
@@ -71,14 +76,16 @@ const verifySendMsg = async ( msg ) => {
 	if ( !msg.guild.me.hasPermission( 'SEND_MESSAGES' ) ) {
 		return sendEmbed( {
 			place: msg.author,
-			text: lang.message.notSendMsg
+			text: lang.message.notSendMsg,
+			deleteTime: 30
 		} );
 	}
 
 	if ( !msg.guild.me.hasPermission( 'EMBED_LINKS' ) ) {
 		sendMsg( {
 			place: msg.channel,
-			text: lang.message.notSendEmbeds
+			text: lang.message.notSendEmbeds,
+			deleteTime: 10
 		} );
 		return true;
 	}
@@ -104,7 +111,8 @@ const mentionPrefix = async ( client, msg ) => {
 		if ( !client.commands.has( CMD ) ) {
 			return sendEmbed( {
 				place: msg.channel,
-				text: lang.general.commandNotFound
+				text: lang.general.commandNotFound,
+				deleteTime: 5
 			} );
 		}
 
@@ -122,7 +130,8 @@ const mentionBot = async ( client, msg ) => {
 		if ( msg.content === `<@!${client.user.id}>` || msg.content === `<@${client.user.id}>` ) {
 			return sendEmbed( {
 				place: msg.channel,
-				text: lang.message.mentionBot.replace( /{{ prefix }}/g, client.prefix )
+				text: lang.message.mentionBot.replace( /{{ prefix }}/g, client.prefix ),
+				deleteTime: 10
 			} );
 		}
 

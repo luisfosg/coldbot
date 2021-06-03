@@ -54,7 +54,7 @@ export default {
 				url: 'https://www.youtube.com/watch?v=XlgqZeeoOtI',
 				type: 'STREAMING'
 			},
-			status: 'dnd'
+			status: 'online'
 		} );
 	},
 };

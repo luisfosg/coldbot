@@ -46,9 +46,23 @@ export function getLink( client ) {
 export const sendMsg = ( {
 	place,
 	text,
-	reply = false
+	reply = false,
+	deleteTime = false
 } ) => {
-	if ( reply ) return place.reply( text ).catch( () => {} );
+	if ( reply ) {
+		if ( deleteTime ) {
+			return place.reply( text ).then( ( msg ) => {
+				msg.delete( { timeout: deleteTime * 1000 } ).catch( () => {} );
+			} ).catch( () => {} );
+		}
+		return place.reply( text ).catch( () => {} );
+	}
+
+	if ( deleteTime ) {
+		return place.send( text ).then( ( msg ) => {
+			msg.delete( { timeout: deleteTime * 1000 } ).catch( () => {} );
+		} ).catch( () => {} );
+	}
 	place.send( text ).catch( () => {} );
 };
 
@@ -63,6 +77,7 @@ export const sendEmbed = ( {
 	thumbnail = false,
 	url = false,
 	footer = false,
+	deleteTime = false,
 	returnEmbed = false
 } ) => {
 	const embed = new MessageEmbed();
@@ -97,5 +112,11 @@ export const sendEmbed = ( {
 	}
 
 	if ( returnEmbed ) return embed;
-	place.send( embed );
+
+	if ( deleteTime ) {
+		return place.send( embed ).then( ( msg ) => {
+			msg.delete( { timeout: deleteTime * 1000 } ).catch( () => {} );
+		} ).catch( () => {} );
+	}
+	place.send( embed ).catch( () => {} );
 };

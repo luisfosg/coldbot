@@ -36,11 +36,11 @@ export default {
 			setSplit( msg, false, args[1] );
 		}
 
-		sendEmbed( { place: msg.channel, text: lang.split.message.replace( '{{ split }}', args[1] ) } );
+		sendEmbed( { place: msg.channel, text: lang.split.message.replace( '{{ split }}', args[1] ), deleteTime: 20 } );
 		if ( estado ) {
-			sendEmbed( { place: msg.channel, text: lang.split.activated } );
+			sendEmbed( { place: msg.channel, text: lang.split.activated, deleteTime: 20 } );
 		} else {
-			sendEmbed( { place: msg.channel, text: lang.split.disabled } );
+			sendEmbed( { place: msg.channel, text: lang.split.disabled, deleteTime: 20 } );
 		}
 	},
 };
