@@ -1,11 +1,17 @@
 import { getMsgTicket, setMsgTicket } from '../../../db/ticket';
 
-import { sendEmbed } from '../../util';
+import { sendEmbed, sendMsg } from '../../util';
 import language from '../../functions/language';
 
 let lang;
 
 const descriptionTicket = async ( channel, user ) => {
+	sendMsg( {
+		place: channel,
+		text: `<@${ user.id }>`,
+		deleteTime: 1
+	} );
+
 	const embed = sendEmbed( {
 		title: lang.ticket.titleTicket,
 		text: lang.ticket.descripTicket.replace( '{{ id }}', user.id ),
