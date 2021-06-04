@@ -81,7 +81,7 @@ export default {
 		necessary: ['ATTACH_FILES']
 	},
 	run: async ( client, msg, args ) => {
-		lang = language( client, msg.guild );
+		lang = language( { guild: msg.guild } );
 		let user;
 
 		if ( args[0] && args[0] !== '-img' ) {
@@ -90,7 +90,8 @@ export default {
 		if ( user === 'notFound' ) {
 			return sendEmbed( {
 				place: msg.channel,
-				text: lang.general.userNotFound
+				text: lang.general.userNotFound,
+				deleteTime: 5
 			} );
 		}
 

@@ -2,8 +2,11 @@ import { language } from '../configDiscord';
 import { getLanguage } from '../../db/language';
 
 const guildLanguages = [];
+let languagesClient;
 
 export async function loadLanguages( client ) {
+	languagesClient = client.languages;
+
 	for ( const guild of client.guilds.cache ) {
 		const guildId = guild[0];
 
@@ -17,12 +20,14 @@ export async function setLanguageUtil( guild, language ) {
 	guildLanguages[guild.id] = language.toUpperCase();
 }
 
-export const languageChannel = ( client, guild ) => {
+export const languageChannel = ( { guild, client } ) => {
+	const langs = languagesClient || client.languages;
+
 	if ( !guild ) guild = '';
 	let selectedLanguage = guildLanguages[guild.id];
 
 	if ( !selectedLanguage ) selectedLanguage = language.toUpperCase();
-	const lang = client.languages.get( selectedLanguage ) || client.languages.get( 'EN' );
+	const lang = langs.get( selectedLanguage ) || langs.get( 'EN' );
 
 	return lang;
 };

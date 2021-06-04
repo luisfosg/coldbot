@@ -5,7 +5,8 @@ import language from '../../functions/language';
 
 let lang;
 
-const descriptionTicket = async ( channel, user ) => {
+const descriptionTicket = async ( channel, user, msg ) => {
+	if ( !lang ) lang = language( { guild: msg.guild } );
 	sendMsg( {
 		place: channel,
 		text: `<@${ user.id }>`,
@@ -66,7 +67,7 @@ export const createTicket = async ( client, msg, member ) => {
 			type: 'text',
 			parent: categoryTicket
 		} ).then( ( channel ) => {
-		descriptionTicket( channel, member );
+		descriptionTicket( channel, member, msg );
 	} );
 };
 
@@ -119,8 +120,8 @@ export default {
 		permissions: ['ADMINISTRATOR'],
 		necessary: ['ADD_REACTIONS', 'MANAGE_CHANNELS', 'MANAGE_MESSAGES', 'READ_MESSAGE_HISTORY']
 	},
-	run: async ( client, msg, args ) => {
-		lang = language( client, msg.guild );
+	run: async ( _client, msg, args ) => {
+		lang = language( { guild: msg.guild } );
 
 		if ( args[0] === 'close' ) return deleteDescription( msg );
 

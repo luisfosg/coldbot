@@ -17,8 +17,8 @@ export default {
 		once: false,
 		enable: true,
 	},
-	run: async ( client, member ) => {
-		const lang = language( client, member.guild );
+	run: async ( _client, member ) => {
+		const lang = language( { guild: member.guild } );
 
 		const login = await getLogin();
 

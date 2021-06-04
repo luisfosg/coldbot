@@ -8,8 +8,8 @@ export default {
 		once: false,
 		enable: true,
 	},
-	run: async ( client, oldChannel, newChannel ) => {
-		const lang = language( client, oldChannel.guild );
+	run: async ( _client, oldChannel, newChannel ) => {
+		const lang = language( { guild: oldChannel.guild } );
 		let text;
 
 		if ( !oldChannel.guild ) return;

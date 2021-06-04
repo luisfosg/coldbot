@@ -9,8 +9,8 @@ export default {
 		once: false,
 		enable: true,
 	},
-	run: async ( client, oldEmoji, newEmoji ) => {
-		const lang = language( client, oldEmoji.guild );
+	run: async ( _client, oldEmoji, newEmoji ) => {
+		const lang = language( { guild: oldEmoji.guild } );
 
 		sendLog( sendEmbed( {
 			title: lang.emojiUpdate.title,

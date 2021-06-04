@@ -9,7 +9,7 @@ export default {
 	},
 	run: async ( client ) => {
 		loadLanguages( client );
-		const lang = languageChannel( client );
+		const lang = languageChannel( {} );
 
 		console.log(
 			`\n ${ lang.ready.bot.replace(

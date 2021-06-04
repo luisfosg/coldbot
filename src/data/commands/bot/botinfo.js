@@ -19,7 +19,7 @@ export default {
 		necessary: []
 	},
 	run: async ( client, msg, _args ) => {
-		const lang = language( client, msg.guild );
+		const lang = language( { guild: msg.guild } );
 		const config = await getConfig();
 
 		const fields = [

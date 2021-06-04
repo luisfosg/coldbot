@@ -42,7 +42,8 @@ const commandMessage = async ( client, msg ) => {
 		author: [lang.commands.title, msg.author.avatarURL()],
 		thumbnail: client.user.avatarURL(),
 		footer: [lang.commands.footer],
-		timestamp: true
+		timestamp: true,
+		deleteTime: 60
 	} );
 };
 
@@ -62,7 +63,7 @@ export default {
 		necessary: []
 	},
 	run: async ( client, msg, _args ) => {
-		lang = language( client, msg.guild );
+		lang = language( { guild: msg.guild } );
 
 		await commandMessage( client, msg );
 		msg.delete().catch( () => {} );

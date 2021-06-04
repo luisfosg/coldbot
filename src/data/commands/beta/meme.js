@@ -15,7 +15,8 @@ const loadMeme = async ( msg, image, txt, color ) => {
 	if ( !photo ) {
 		return sendEmbed( {
 			place: msg.channel,
-			text: lang.meme.imgNotWork
+			text: lang.meme.imgNotWork,
+			deleteTime: 5
 		} );
 	}
 
@@ -48,8 +49,8 @@ export default {
 		permissions: [],
 		necessary: ['ATTACH_FILES']
 	},
-	run: async ( client, msg, args ) => {
-		lang = language( client, msg.guild );
+	run: async ( _client, msg, args ) => {
+		lang = language( { guild: msg.guild } );
 
 		const image = args[0];
 		const txt = args[1];

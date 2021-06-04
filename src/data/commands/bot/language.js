@@ -18,7 +18,7 @@ export default {
 		necessary: []
 	},
 	run: async ( client, msg, args ) => {
-		const lang = languageChannel( client, msg.guild );
+		const lang = languageChannel( { guild: msg.guild } );
 
 		if ( !args[0] ) {
 			sendEmbed( {

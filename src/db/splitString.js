@@ -21,9 +21,14 @@ export const setSplit = async ( msg, status, value ) => {
 	dbSplitString.set( `${ msg.guild.id }`, { status, value } );
 };
 
-export const splDes = ( guild ) => {
-	const splitStrings = dbSplitString.get( `${ guild.id }` );
+export const splDes = async ( guild ) => {
+	if ( guild ) {
+		const splitStrings = dbSplitString.get( `${ guild.id }` );
 
-	if ( splitStrings.status ) return splitStrings.value;
-	return '';
+		if ( splitStrings.status ) return splitStrings.value;
+		return '';
+	}
+
+	const config = await getConfig();
+	return config.splitStrings[1];
 };

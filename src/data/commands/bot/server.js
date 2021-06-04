@@ -17,8 +17,8 @@ export default {
 		permissions: [],
 		necessary: []
 	},
-	run: async ( client, msg, _args ) => {
-		const lang = language( client, msg.guild );
+	run: async ( _client, msg, _args ) => {
+		const lang = language( { guild: msg.guild } );
 		const server = msg.guild;
 
 		const fields = [

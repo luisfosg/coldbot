@@ -9,8 +9,8 @@ export default {
 		once: false,
 		enable: true,
 	},
-	run: async ( client, channel, _time ) => {
-		const lang = language( client, channel.guild );
+	run: async ( _client, channel, _time ) => {
+		const lang = language( { guild: channel.guild } );
 		const { id, name } = channel;
 
 		sendLog( sendEmbed( {

@@ -18,7 +18,7 @@ const start = async () => {
 	} );
 
 	await importLanguages( client );
-	const lang = language( client );
+	const lang = language( { client } );
 
 	await importEvents( client, lang );
 	await importCommands( client, lang );

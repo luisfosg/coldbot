@@ -17,7 +17,7 @@ export default {
 		necessary: []
 	},
 	run: async ( client, msg, args ) => {
-		const lang = language( client, msg.guild );
+		const lang = language( { guild: msg.guild } );
 
 		client.user.setPresence( {
 			status: args[0],

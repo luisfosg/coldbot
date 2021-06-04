@@ -55,8 +55,8 @@ export default {
 		permissions: ['MANAGE_MESSAGES'],
 		necessary: ['MANAGE_MESSAGES', 'READ_MESSAGE_HISTORY']
 	},
-	run: async ( client, msg, args ) => {
-		const lang = language( client, msg.guild );
+	run: async ( _client, msg, args ) => {
+		const lang = language( { guild: msg.guild } );
 
 		const number = parseTxtNumber( args[0] );
 		if ( number < 0 || number > 99 ) {

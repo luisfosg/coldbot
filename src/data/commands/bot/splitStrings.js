@@ -17,8 +17,8 @@ export default {
 		permissions: ['ADMINISTRATOR'],
 		necessary: []
 	},
-	run: async ( client, msg, args ) => {
-		const lang = language( client, msg.guild );
+	run: async ( _client, msg, args ) => {
+		const lang = language( { guild: msg.guild } );
 
 		let estado = false;
 		args[0] = args[0].toLowerCase();

@@ -21,13 +21,20 @@ const checkCommand = async ( client, msg, CMD, args ) => {
 				place: msg.channel,
 				text: `\`\`\`${ commandFind.req.necessary.map( ( cmd ) => `${ cmd }` ).join( ', ' ) }\`\`\``,
 				title: lang.message.notHavePermissions,
-				deleteTime: 5
+				deleteTime: 15
 			} );
 		}
 	}
 
 	const isMd = checkMd( commandFind.req.dm, msg.channel.type );
-	if ( !isMd ) return sendMsg( { place: msg, text: lang.message.notMd, reply: true } );
+	if ( !isMd ) {
+		return sendMsg( {
+			place: msg,
+			text: lang.message.notMd,
+			reply: true,
+			deleteTime: 5
+		} );
+	}
 
 	const isPermitValid = await checkPermissions( msg.member, commandFind.req.permissions );
 	if ( !isPermitValid ) {
@@ -35,7 +42,7 @@ const checkCommand = async ( client, msg, CMD, args ) => {
 			place: msg.channel,
 			title: lang.message.invalidPermissions,
 			text: `\`\`\`${ commandFind.req.permissions.map( ( cmd ) => `${ cmd }` ).join( ', ' ) }\`\`\``,
-			deleteTime: 5
+			deleteTime: 15
 		} );
 	}
 
@@ -44,9 +51,9 @@ const checkCommand = async ( client, msg, CMD, args ) => {
 		return sendEmbed( {
 			place: msg.channel,
 			text: lang.message.invalidArgs.replace(
-				'{{ usage }}', commandFind.usage( lang, client.prefix, splDes( msg.guild ) )
+				'{{ usage }}', commandFind.usage( lang, client.prefix, await splDes( msg.guild ) )
 			),
-			deleteTime: 5
+			deleteTime: 120
 		} );
 	}
 
@@ -155,7 +162,7 @@ export default {
 	run: async ( client, msg ) => {
 		if ( msg.author.bot ) return;
 
-		lang = language( client, msg.guild );
+		lang = language( { guild: msg.guild } );
 		client.prefix = await getPrefix( msg );
 		client.splitStrings = await getSplit( msg );
 

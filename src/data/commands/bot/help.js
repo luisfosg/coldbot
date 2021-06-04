@@ -27,8 +27,8 @@ const helpCommand = async ( client, msg, commandArg ) => {
 	if ( !command || !command.req.visible ) {
 		return sendEmbed( {
 			place: msg.channel,
-			title: lang.help.notFound,
-			timestamp: true,
+			text: lang.help.notFound,
+			deleteTime: 5
 		} );
 	}
 
@@ -45,7 +45,7 @@ const helpCommand = async ( client, msg, commandArg ) => {
 	const fields = [
 		[lang.help.alias, `${command.alias.map( ( a ) => ` \`${ a }\`` )}`],
 		[lang.help.descripCommand, `\`\`\`${ command.description( lang ) }\`\`\``],
-		[lang.help.usageCommand, command.usage( lang, client.prefix, splDes( msg.guild ) )]
+		[lang.help.usageCommand, command.usage( lang, client.prefix, await splDes( msg.guild ) )]
 	];
 
 	sendEmbed( {
@@ -54,7 +54,8 @@ const helpCommand = async ( client, msg, commandArg ) => {
 		text,
 		fields,
 		timestamp: true,
-		footer: [lang.help.category.replace( '{{ category }}', command.category ), msg.author.avatarURL()]
+		footer: [lang.help.category.replace( '{{ category }}', command.category ), msg.author.avatarURL()],
+		deleteTime: 60
 	} );
 };
 
@@ -74,7 +75,7 @@ export default {
 		necessary: []
 	},
 	run: async ( client, msg, args ) => {
-		lang = language( client, msg.guild );
+		lang = language( { guild: msg.guild } );
 
 		if ( args[0] ) {
 			helpCommand( client, msg, args[0] );

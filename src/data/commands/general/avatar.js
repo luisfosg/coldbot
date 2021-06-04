@@ -41,13 +41,13 @@ export default {
 		necessary: []
 	},
 	run: async ( client, msg, args ) => {
-		lang = language( client, msg.guild );
+		lang = language( { guild: msg.guild } );
 		let user;
 
 		if ( args[0] && args[1] !== '-gen' ) {
 			user = await getUserWithId( client, msg, args[0] );
 		}
-		if ( user === 'notFound' ) return sendEmbed( { place: msg.channel, text: lang.general.userNotFound } );
+		if ( user === 'notFound' ) return sendEmbed( { place: msg.channel, text: lang.general.userNotFound, deleteTime: 5 } );
 
 		const dataUser = user || msg.author;
 

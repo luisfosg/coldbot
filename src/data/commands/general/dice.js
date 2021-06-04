@@ -37,8 +37,8 @@ export default {
 		permissions: [],
 		necessary: []
 	},
-	run: async ( client, msg, _args ) => {
-		const lang = language( client, msg.guild );
+	run: async ( _client, msg, _args ) => {
+		const lang = language( { guild: msg.guild } );
 		const embedAnimate = sendEmbed( {
 			title: lang.dice.titleGif,
 			image: animate[Math.floor( Math.random() * animate.length )],
