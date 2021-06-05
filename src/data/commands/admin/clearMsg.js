@@ -60,7 +60,6 @@ export default {
 
 		const number = parseTxtNumber( args[0] );
 		if ( number < 0 || number > 99 ) {
-			msg.delete().catch( () => {} );
 			return sendEmbed( {
 				place: msg.channel,
 				text: lang.clear.error

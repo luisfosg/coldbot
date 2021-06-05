@@ -30,8 +30,6 @@ const loadMeme = async ( msg, image, txt, color ) => {
 		place: msg.channel,
 		text: att
 	} );
-
-	msg.delete().catch( () => {} );
 };
 
 export default {

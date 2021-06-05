@@ -66,6 +66,5 @@ export default {
 		lang = language( { guild: msg.guild } );
 
 		await commandMessage( client, msg );
-		msg.delete().catch( () => {} );
 	},
 };

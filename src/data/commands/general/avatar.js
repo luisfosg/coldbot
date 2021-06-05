@@ -56,7 +56,5 @@ export default {
 		} else {
 			await avatar( msg, dataUser );
 		}
-
-		msg.delete().catch( () => {} );
 	}
 };

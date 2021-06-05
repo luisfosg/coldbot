@@ -29,6 +29,5 @@ export default {
 		} );
 
 		sendEmbed( { place: msg.channel, text: lang.status.text, deleteTime: 10 } );
-		msg.delete().catch( () => {} );
 	},
 };

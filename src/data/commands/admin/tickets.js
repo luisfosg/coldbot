@@ -101,8 +101,6 @@ const deleteDescription = async ( msg ) => {
 	msg.channel.send( embed ).then( async ( msgEmbed ) => {
 		await setMsgTicket( msg, msgEmbed.id );
 	} );
-
-	msg.delete();
 };
 
 export default {
@@ -131,7 +129,5 @@ export default {
 			await setMsgTicket( msg, msgEmbed.id );
 			msgEmbed.react( '📩' );
 		} );
-
-		msg.delete();
 	},
 };

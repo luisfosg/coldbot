@@ -82,7 +82,5 @@ export default {
 		} else {
 			await helpMessage( client, msg );
 		}
-
-		msg.delete().catch( () => {} );
 	},
 };

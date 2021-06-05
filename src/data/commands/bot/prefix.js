@@ -26,7 +26,5 @@ export default {
 			text: lang.prefix.message.replace( '{{ prefix }}', args[0] ),
 			deleteTime: 20
 		} );
-
-		msg.delete().catch( () => {} );
 	},
 };

@@ -102,7 +102,5 @@ export default {
 		} else {
 			await profile( msg, dataUser );
 		}
-
-		msg.delete();
 	},
 };

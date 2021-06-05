@@ -9,6 +9,7 @@ import { cooldown } from '../functions/cooldown';
 import language from '../functions/language';
 
 let lang;
+let deleteMessage;
 
 const checkCommand = async ( client, msg, CMD, args ) => {
 	const config = await getConfig();
@@ -101,6 +102,7 @@ const verifySendMsg = async ( msg ) => {
 
 const mentionPrefix = async ( client, msg ) => {
 	if ( msg.content.startsWith( client.prefix ) ) {
+		deleteMessage = true;
 		if ( msg.guild ) {
 			const sendMsgChannel = await verifySendMsg( msg );
 			if ( sendMsgChannel ) return false;
@@ -129,6 +131,7 @@ const mentionPrefix = async ( client, msg ) => {
 
 const mentionBot = async ( client, msg ) => {
 	if ( msg.content.startsWith( `<@!${client.user.id}>` ) || msg.content.startsWith( `<@${client.user.id}>` ) ) {
+		deleteMessage = true;
 		if ( msg.guild ) {
 			const sendMsgChannel = await verifySendMsg( msg );
 			if ( sendMsgChannel ) return false;
@@ -162,11 +165,15 @@ export default {
 	run: async ( client, msg ) => {
 		if ( msg.author.bot ) return;
 
+		deleteMessage = false;
 		lang = language( { guild: msg.guild } );
+
 		client.prefix = await getPrefix( msg );
 		client.splitStrings = await getSplit( msg );
 
 		const isFalse = await mentionBot( client, msg );
-		if ( !isFalse ) mentionPrefix( client, msg );
+		if ( !isFalse ) await mentionPrefix( client, msg );
+
+		if ( deleteMessage ) msg.delete().catch( () => {} );
 	},
 };
