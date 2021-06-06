@@ -29,9 +29,18 @@ const checkCommand = async ( client, msg, CMD, args ) => {
 
 	const isMd = checkMd( commandFind.req.dm, msg.channel.type );
 	if ( !isMd ) {
+		if ( msg.channel.type === 'dm' ) {
+			return sendMsg( {
+				place: msg,
+				text: lang.message.notMd,
+				reply: true,
+				deleteTime: 5
+			} );
+		}
+
 		return sendMsg( {
 			place: msg,
-			text: lang.message.notMd,
+			text: lang.message.notServer,
 			reply: true,
 			deleteTime: 5
 		} );

@@ -37,6 +37,7 @@
 	"message": {
 		"mentionBot": "Hello, The prefix is: `{{ prefix }}` \nuse `{{ prefix }}h` to know more.",
 		"notMd": "Command cannot be used in DM",
+		"notServer": "You need to be in DM to use this command.",
 		"invalidPermissions": "It does not have the necessary permits. You need the following permissions:",
 		"notHavePermissions": "I can't use this command 😵, I need the following permissions:",
 		"invalidArgs": "Arguments missing, Usage example: {{ usage }}",

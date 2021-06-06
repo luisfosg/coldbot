@@ -67,14 +67,14 @@ const profile = async ( msg, user ) => {
 
 export default {
 	name: 'profile',
-	alias: ['prf'],
+	alias: ['userinfo'],
 	category: 'general',
 	usage: ( langs, p, s ) => langs.profile.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.profile.description,
 	req: {
 		minArgs: 0,
 		cooldown: 10,
-		dm: false,
+		dm: 'not',
 		enable: true,
 		visible: true,
 		permissions: [],

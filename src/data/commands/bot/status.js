@@ -10,7 +10,7 @@ export default {
 	req: {
 		minArgs: 3,
 		cooldown: 0,
-		dm: true,
+		dm: 'yes',
 		enable: true,
 		visible: false,
 		permissions: ['OWNER_PROGRAMMER-MEMBER'],

@@ -10,7 +10,7 @@ export default {
 	description: ( langs ) => langs.split.description,
 	req: {
 		minArgs: 2,
-		dm: false,
+		dm: 'not',
 		cooldown: 10,
 		enable: true,
 		visible: true,

@@ -11,7 +11,7 @@ export default {
 	req: {
 		minArgs: 0,
 		cooldown: 5,
-		dm: false,
+		dm: 'not',
 		enable: true,
 		visible: true,
 		permissions: ['ADMINISTRATOR'],
@@ -33,6 +33,8 @@ export default {
 				text: client.languages.map( ( l ) => `\`${ l.languageName }\`` ),
 				deleteTime: 20
 			} );
+
+			return;
 		}
 
 		args[0] = args[0].toUpperCase();

@@ -41,7 +41,7 @@ export default {
 	req: {
 		minArgs: 2,
 		cooldown: 20,
-		dm: true,
+		dm: 'yes',
 		enable: true,
 		visible: true,
 		permissions: [],

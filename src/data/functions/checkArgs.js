@@ -1,6 +1,10 @@
 export const checkArgs = async ( argsDefault, args ) => args >= argsDefault;
 
-export const checkMd = ( reqMd, type ) => !( ( !reqMd ) && ( type === 'dm' ) );
+export const checkMd = ( reqMd, type ) => {
+	if ( reqMd === 'only' && type !== 'dm' ) return false;
+	if ( reqMd === 'not' && type === 'dm' ) return false;
+	return true;
+};
 
 export const divideArgs = async ( client, string, prefix ) => {
 	let args;

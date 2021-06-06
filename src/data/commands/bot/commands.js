@@ -8,7 +8,7 @@ const printCategory = ( client, msg, embed, category ) => {
 	const isdm = msg.channel.type;
 	const commands = client.commands.filter( ( cmd ) => {
 		if ( cmd.category === category ) {
-			if ( ( isdm === 'dm' ) && !cmd.req.dm ) return false;
+			if ( ( isdm === 'dm' ) && cmd.req.dm === 'not' ) return false;
 			if ( cmd.req.visible ) {
 				return true;
 			}
@@ -56,7 +56,7 @@ export default {
 	req: {
 		minArgs: 0,
 		cooldown: 0,
-		dm: true,
+		dm: 'yes',
 		enable: true,
 		visible: true,
 		permissions: [],
