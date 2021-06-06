@@ -9,9 +9,9 @@
 
 ----------
 
-## 𝐷𝑒𝑠𝑐𝑟𝑖𝑝𝑐𝑖𝑜́𝑛
+## 📄 𝐷𝑒𝑠𝑐𝑟𝑖𝑝𝑐𝑖𝑜́𝑛
 
-Cold Bot ha sido creado por mero autoaprendizaje y por esta misma razón Cold Bot es de codigo abierto(Open Source).
+Cold Bot ha sido creado por mero autoaprendizaje y por esta misma razón es de codigo abierto(Open Source).
 
 Aún asi no vendria mal un respectivo credito <3
 
@@ -23,8 +23,9 @@ Aqui Puedes Encontrar:
 - Tickets para dar soportes.
 - Logs de acciones
 - Command Handler y Event Handler
+- y mucho mas...
 
-## 𝐼𝑛𝑠𝑡𝑎𝑙𝑎𝑐𝑖𝑜́𝑛
+## 👉 𝐼𝑛𝑠𝑡𝑎𝑙𝑎𝑐𝑖𝑜́𝑛
 
 1. Al clonar el proyecto, es recomendable usar npm.
 
@@ -66,7 +67,54 @@ ZEEW = // Si Tienes Token de Zeew y quieres usar sus mensajes de Bienvenida, Usa
   <summary>🇺🇸 English</summary>
 
 ----------
-soon
+
+## 📄 𝐷𝑒𝑠𝑐𝑟𝑖𝑝𝑡𝑖𝑜𝑛
+
+Cold Bot has been created for mere self-learning and for this very reason it is open source.
+
+Still, it wouldn't hurt a respective credit <3
+
+Here You Can Find:
+
+- Multilingual bot
+- Cool down
+- Welcome / Farewell Messages
+- Tickets to support.
+- Logs
+- Command handler and event handler
+- and much more ...
+
+## 👉 𝐼𝑛𝑠𝑡𝑎𝑙𝑙𝑎𝑡𝑖𝑜𝑛
+
+1. When cloning the project, it is recommended to use npm.
+
+Installation of Dependencies.
+```sh
+npm install
+```
+
+2. Create file **.env** with the environment variables mentioned.
+
+3. To use it on localhost
+```sh
+npm run dev
+```
+
+1. To bring the bot to production, you need to use the build since the bot uses ESM
+```sh
+npm run build && npm start
+```
+
+## 𝐸𝑛𝑣𝑖𝑟𝑜𝑛𝑚𝑒𝑛𝑡 𝑉𝑎𝑟𝑖𝑎𝑏𝑙𝑒𝑠
+
+```js
+PASSWORD = // Bot Token
+WEBHOOKWELCOME = // Discord Webhook to send Welcome / Farewell Messages
+WEBHOOKLOGS = // Discord webhook to send the logs
+IDSERVER = // Server id (For Now it works like this to send the Welcome / Farewell messages).
+DBNAME = // Database name, Optional
+ZEEW = // If you have Zeew Token and want to use their Welcome messages, Use this Variable ;)
+```
 
 </details>
 
