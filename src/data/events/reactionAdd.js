@@ -9,6 +9,8 @@ export default {
 	},
 	run: async ( client, reaction, user ) => {
 		if ( user.bot ) return;
+		if ( !reaction.message.guild ) return;
+
 		const cmdTicket = client.commands.get( 'ticket' ) || client.commands.find( ( c ) => c.alias.includes( 'ticket' ) );
 		if ( !cmdTicket ) return;
 
