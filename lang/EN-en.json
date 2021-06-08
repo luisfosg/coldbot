@@ -187,5 +187,14 @@
 		"description": "Roll the dice and it randomly gives you the face of a dice.",
 		"titleGif": "throwing dice...",
 		"titleDice": "{{ user }}, in the dice came a: "
+	},
+	"question": {
+		"usage": "```{{ p }} q <question>```",
+		"description": "Command to create a quick question and get an answer by votes",
+		"title": "Survey",
+		"one": "Option 1",
+		"two": "Option 2",
+		"desOne": "👍 Agree",
+		"desTwo": "👎 In disagreement"
 	}
 }

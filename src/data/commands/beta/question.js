@@ -8,8 +8,8 @@ export default {
 	name: 'question',
 	alias: ['q'],
 	category: 'beta',
-	usage: ( langs, p, s ) => langs.meme.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
-	description: ( langs ) => langs.meme.description,
+	usage: ( langs, p, s ) => langs.question.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
+	description: ( langs ) => langs.question.description,
 	req: {
 		minArgs: 1,
 		cooldown: 5,
@@ -22,9 +22,16 @@ export default {
 	run: async ( _client, msg, args ) => {
 		lang = language( { guild: msg.guild } );
 
+		const fields = [
+			[lang.question.one, lang.question.desOne, true],
+			[lang.question.two, lang.question.desTwo, true]
+		];
+
 		const embed = sendEmbed( {
-			title: 'Encuesta',
+			title: lang.question.title,
 			text: args[0],
+			fields,
+			timestamp: true,
 			returnEmbed: true
 		} );
 

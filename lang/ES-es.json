@@ -187,5 +187,14 @@
 		"description": "Lanza el dado y de forma aleatoria te da la cara de un dado.",
 		"titleGif": "Lanzando dado...",
 		"titleDice": "{{ user }}, El dado saco un: "
+	},
+	"question": {
+		"usage": "```{{ p }} q <pregunta/duda/sugerencia>```",
+		"description": "Comando Empleado para crear una pregunta rapida, y que esta sea respondida por medio de votos",
+		"title": "Encuesta",
+		"one": "Opción 1",
+		"two": "Opción 2",
+		"desOne": "👍 De Acuerdo",
+		"desTwo": "👎 En Desacuerdo"
 	}
 }
