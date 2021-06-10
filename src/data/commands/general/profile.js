@@ -7,34 +7,41 @@ import { sendEmbed, sendMsg, getUserWithId } from '../../util';
 import language from '../../functions/language';
 
 let lang;
-const wallpaper = 'https://fondosmil.com/fondo/67343.jpg';
+const wallpaper = 'https://wow.zamimg.com/uploads/blog/images/20516-afterlives-ardenweald-4k-desktop-wallpapers.jpg';
 
 const profileImage = async ( msg, user ) => {
-	const photo = await roundImage( user.displayAvatarURL( { format: 'png' } ), 200, 200 );
+	const member = msg.guild.members.cache.get( user.id );
+	const photo = await roundImage( user.displayAvatarURL( { format: 'png' } ), 200 );
 
 	const canvasProfile = createCanvas( 600, 300 );
 	const ctx = canvasProfile.getContext( '2d' );
 
 	const image = await loadImage( wallpaper ).catch( () => {} );
+	const circle = await loadImage( 'https://i.imgur.com/KKgVrcU.png' ).catch( () => {} );
 	ctx.drawImage( image, 0, 0, 600, 300 );
-	ctx.drawImage( photo, 350, 50 );
+	ctx.drawImage( photo, 370, 50 );
+	ctx.drawImage( circle, 340, 25, 250, 250 );
 
 	ctx.fillStyle = '#FFF';
 	ctx.font = '40px Itim';
 	ctx.fillText( user.username, 50, 50 );
 
 	ctx.font = '25px Itim';
-	ctx.fillStyle = '#86E7E7';
-	if ( user.bot ) {
-		ctx.fillText( lang.profile.bot, 430, 280 );
-	} else {
-		ctx.fillText( lang.profile.human, 408, 280 );
-	}
 
-	ctx.fillStyle = '#95A0A0';
+	ctx.fillStyle = '#95A0A090';
 	ctx.fillRect( 0, 80, 330, 220 );
+
 	ctx.fillStyle = '#000';
+	if ( user.bot ) {
+		ctx.fillText( lang.profile.bot, 5, 265 );
+	} else {
+		ctx.fillText( lang.profile.human, 5, 265 );
+	}
 	ctx.fillText( lang.profile.tagImg.replace( '{{ tag }}', user.discriminator ), 5, 105 );
+	ctx.fillText( `${lang.profile.nickname}: ${ member.nickname ? member.nickname : '----------' }`, 5, 140 );
+	ctx.fillText( `${lang.profile.status}: ${ user.presence.status }`, 5, 175 );
+	ctx.font = '15px Itim';
+	ctx.fillText( `${lang.general.id}: ${ user.id }`, 5, 285 );
 
 	const att = new MessageAttachment( canvasProfile.toBuffer(), 'avatar.png' );
 	sendMsg( {
