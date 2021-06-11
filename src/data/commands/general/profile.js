@@ -41,7 +41,7 @@ const profileImage = async ( msg, user ) => {
 	ctx.fillText( `${lang.profile.nickname}: ${ member.nickname ? member.nickname : '----------' }`, 5, 140 );
 	ctx.fillText( `${lang.profile.status}: ${ user.presence.status }`, 5, 175 );
 	ctx.font = '15px Itim';
-	ctx.fillText( `${lang.general.id}: ${ user.id }`, 5, 285 );
+	ctx.fillText( `${lang.general.id}${ user.id }`, 5, 285 );
 
 	const att = new MessageAttachment( canvasProfile.toBuffer(), 'avatar.png' );
 	sendMsg( {

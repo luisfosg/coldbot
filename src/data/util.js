@@ -13,6 +13,9 @@ export const importFonts = async () => {
 	registerFont( `${ publicFolder }/fonts/comicsans.ttf`, {
 		family: 'Comic Sans MS'
 	} );
+	registerFont( `${ publicFolder }/fonts/fredoka.ttf`, {
+		family: 'Fredoka'
+	} );
 };
 
 export async function getLogin() {
