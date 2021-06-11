@@ -22,7 +22,7 @@ const loadMeme = async ( msg, image, txt, color ) => {
 
 	ctx.drawImage( photo, 0, 0, 600, 400 );
 	ctx.fillStyle = color;
-	ctx.font = '40px Comic Sans MS';
+	ctx.font = '40px Comicsans';
 	ctx.fillText( txt, 50, 50 );
 
 	const att = new MessageAttachment( canvasMeme.toBuffer(), 'meme.png' );

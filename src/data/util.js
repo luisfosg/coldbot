@@ -1,22 +1,6 @@
 import { MessageEmbed } from 'discord.js';
-import { registerFont } from 'canvas';
-import { join } from 'path';
 
 let config;
-
-export const importFonts = async () => {
-	const publicFolder = join( __dirname, '../../public' );
-
-	registerFont( `${ publicFolder }/fonts/itim.ttf`, {
-		family: 'Itim'
-	} );
-	registerFont( `${ publicFolder }/fonts/comicsans.ttf`, {
-		family: 'Comic Sans MS'
-	} );
-	registerFont( `${ publicFolder }/fonts/fredoka.ttf`, {
-		family: 'Fredoka'
-	} );
-};
 
 export async function getLogin() {
 	const login = await import( '../private/login' );
@@ -28,7 +12,7 @@ export async function getConfig() {
 	return config;
 }
 
-export async function getUserWithId( client, msg, mention ) {
+export async function getUserWithId( client, msg, mention, member = false ) {
 	const id = mention.replace( /[<]|!|@|[>]/g, '' );
 	let user;
 	if ( msg.guild ) {
@@ -37,6 +21,7 @@ export async function getUserWithId( client, msg, mention ) {
 		user = client;
 	}
 
+	if ( member ) return user;
 	// eslint-disable-next-line no-unused-expressions
 	user === 'notFound' ? user : user = user.user;
 	return user;

@@ -2,11 +2,12 @@ import { Client } from 'discord.js';
 
 import './configServer';
 
-import { getLogin, importFonts } from './data/util';
+import { getLogin } from './data/util';
 
 import { importEvents } from './handlers/events';
 import { importCommands } from './handlers/commands';
 import { importLanguages } from './handlers/languages';
+import { importFonts } from './handlers/fonts';
 
 import language from './data/functions/language';
 

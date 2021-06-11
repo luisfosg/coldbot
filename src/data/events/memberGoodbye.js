@@ -7,7 +7,7 @@ import { getLogin, sendEmbed } from '../util';
 
 import language from '../functions/language';
 
-const wallpaper = 'https://i.imgur.com/LN6Tsu8.png';
+const wallpaper = 'https://i.imgur.com/f9RlPuM.jpg';
 
 const goodbye = async ( member, lang ) => {
 	const canvasGoodBye = createCanvas( 1080, 480 );
@@ -15,11 +15,17 @@ const goodbye = async ( member, lang ) => {
 
 	const image = await loadImage( wallpaper ).catch( () => {} );
 	const photo = await roundImage( member.user.displayAvatarURL( { format: 'png' } ), 250 );
+	const mark = await loadImage( 'https://i.imgur.com/IdQsRoV.png' ).catch( () => {} );
 	ctx.drawImage( image, 0, 0, 1080, 480 );
 	ctx.drawImage( photo, 415, 30 );
-	ctx.font = '70px Fredoka';
+	ctx.drawImage( mark, 405, 20, 275, 275 );
+
+	ctx.font = '80px Baloo';
 	ctx.fillStyle = '#FFF';
-	ctx.fillText( 'Hola Mundo', 50, 350 );
+	ctx.textAlign = 'center';
+
+	ctx.fillText( `${ member.user.username } Bienvenid@`, canvasGoodBye.width / 2, 375 );
+	ctx.fillText( `Al Servidor ${ member.guild.name }`, canvasGoodBye.width / 2, 435 );
 
 	const att = new MessageAttachment( canvasGoodBye.toBuffer(), 'goodbye.png' );
 	sendWelcome( att );
