@@ -70,6 +70,14 @@
 		"title": "**[Pinned Message]**",
 		"description": "Updated a message pinned to channel <#{{ id }}>"
 	},
+	"guildMemberAdd": {
+		"title": "{{ member }} Welcome",
+		"description": "To the {{ server }} server"
+	},
+	"guildMemberRemove": {
+		"title": "{{ member }} came out.",
+		"description": "Bye!"
+	},
 	"botinfo": {
 		"usage": "```{{ p }} botinfo```",
 		"description": "It shows the Cold Bot Information, number of servers, channels, developer, those things.",
@@ -78,7 +86,7 @@
 		"titleGeneral": "🔘 General",
 		"fieldGeneral": "============\n⚙ **Developer**: `{{ dev }}`\n📡 **Servers**: `{{ servers }}`\n👥 **Users**: `{{ users }}`\n📣 **Channels**: `{{ channels }}`",
 		"titleBot": "🤖 Bot",
-		"fieldBot": "============\n🏓 **Ping**: `{{ ping }}ms`\n⌨ **Commands**: `{{ commands }}`\n🎉 **Events**: `{{ events }}`\n🕹 **Discord.js**: `{{ discordV }}`\n🇳 **NodeJS**: `{{ nodeV }}`"
+		"fieldBot": "============\n🏓 **Ping**: `{{ ping }}ms`\n⌨ **Commands**: `{{ commands }}`\n🕹 **Discord.js**: `{{ discordV }}`\n🇳 **NodeJS**: `{{ nodeV }}`"
 	},
 	"help": {
 		"usage": "```{{ p }} help``````{{ p }} h <command>```",

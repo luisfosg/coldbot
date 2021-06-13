@@ -43,8 +43,6 @@ export default {
 				).replace(
 					'{{ commands }}', client.commands.size
 				).replace(
-					'{{ events }}', client.eventCount
-				).replace(
 					'{{ discordV }}', config.discordV
 				).replace(
 					'{{ nodeV }}', config.nodeV

@@ -24,8 +24,12 @@ const welcome = async ( member, lang ) => {
 	ctx.fillStyle = '#FFF';
 	ctx.textAlign = 'center';
 
-	ctx.fillText( `${ member.user.username } Bienvenid@`, canvasGoodBye.width / 2, 375 );
-	ctx.fillText( `Al Servidor ${ member.guild.name }`, canvasGoodBye.width / 2, 435 );
+	ctx.fillText( lang.guildMemberAdd.title.replace(
+		'{{ member }}', member.user.username
+	), canvasGoodBye.width / 2, 375 );
+	ctx.fillText( lang.guildMemberAdd.description.replace(
+		'{{ server }}', member.guild.name
+	), canvasGoodBye.width / 2, 435 );
 
 	const att = new MessageAttachment( canvasGoodBye.toBuffer(), 'goodbye.png' );
 	sendWelcome( att );

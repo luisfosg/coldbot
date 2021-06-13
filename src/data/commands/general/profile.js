@@ -7,7 +7,7 @@ import { sendEmbed, sendMsg, getUserWithId } from '../../util';
 import language from '../../functions/language';
 
 let lang;
-const wallpaper = 'https://wow.zamimg.com/uploads/blog/images/20516-afterlives-ardenweald-4k-desktop-wallpapers.jpg';
+const wallpaper = 'https://i.imgur.com/VSQ9W1i.jpg';
 
 const profileImage = async ( msg, user ) => {
 	const member = msg.guild.members.cache.get( user.id );

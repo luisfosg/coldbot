@@ -13,6 +13,7 @@ const animate = [
 	'https://media.giphy.com/media/J47aDyxakxYlt53KKW/giphy.gif',
 	'https://media.giphy.com/media/hqTZTTIT4l1ogOWihJ/giphy.gif'
 ];
+
 const faceDice = [
 	'https://i.imgur.com/AGGuWWm.png?1',
 	'https://i.imgur.com/ZmKeVRg.png?1',
@@ -39,6 +40,7 @@ export default {
 	},
 	run: async ( _client, msg, _args ) => {
 		const lang = language( { guild: msg.guild } );
+
 		const embedAnimate = sendEmbed( {
 			title: lang.dice.titleGif,
 			image: animate[Math.floor( Math.random() * animate.length )],

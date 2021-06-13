@@ -7,7 +7,7 @@ import { getLogin, sendEmbed } from '../util';
 
 import language from '../functions/language';
 
-const wallpaper = 'https://wallpaperaccess.com/full/3097725.jpg';
+const wallpaper = 'https://i.imgur.com/ic1syrS.jpg';
 
 const goodbye = async ( member, lang ) => {
 	const canvasGoodBye = createCanvas( 1080, 480 );
@@ -24,8 +24,10 @@ const goodbye = async ( member, lang ) => {
 	ctx.fillStyle = '#FFF';
 	ctx.textAlign = 'center';
 
-	ctx.fillText( `${ member.user.username } Salió.`, canvasGoodBye.width / 2, 375 );
-	ctx.fillText( '¡Hasta Luego!', canvasGoodBye.width / 2, 435 );
+	ctx.fillText( lang.guildMemberRemove.title.replace(
+		'{{ member }}', member.user.username
+	), canvasGoodBye.width / 2, 375 );
+	ctx.fillText( lang.guildMemberRemove.description, canvasGoodBye.width / 2, 435 );
 
 	const att = new MessageAttachment( canvasGoodBye.toBuffer(), 'goodbye.png' );
 	sendWelcome( att );

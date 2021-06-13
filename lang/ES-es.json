@@ -70,6 +70,14 @@
 		"title": "**[Mensaje Anclado]**",
 		"description": "Se actualizo un mensaje anclado en el canal <#{{ id }}>"
 	},
+	"guildMemberAdd": {
+		"title": "{{ member }} Bienvenid@",
+		"description": "Al Servidor {{ server }}"
+	},
+	"guildMemberRemove": {
+		"title": "{{ member }} Salió.",
+		"description": "¡Hasta Luego!"
+	},
 	"botinfo": {
 		"usage": "```{{ p }} botinfo```",
 		"description": "Da la Información de Cold Bot, numero de servidores, canales, desarrollador, esas cosas.",
@@ -78,7 +86,7 @@
 		"titleGeneral": "🔘 General",
 		"fieldGeneral": "============\n⚙ **Desarrollador**: `{{ dev }}`\n📡 **Servidores**: `{{ servers }}`\n👥 **Usuarios**: `{{ users }}`\n📣 **Canales**: `{{ channels }}`",
 		"titleBot": "🤖 Bot",
-		"fieldBot": "============\n🏓 **Ping**: `{{ ping }}ms`\n⌨ **Comandos**: `{{ commands }}`\n🎉 **Eventos**: `{{ events }}`\n🕹 **Discord.js**: `{{ discordV }}`\n🇳 **NodeJS**: `{{ nodeV }}`"
+		"fieldBot": "============\n🏓 **Ping**: `{{ ping }}ms`\n⌨ **Comandos**: `{{ commands }}`\n🕹 **Discord.js**: `{{ discordV }}`\n🇳 **NodeJS**: `{{ nodeV }}`"
 	},
 	"help": {
 		"usage": "```{{ p }} help``````{{ p }} h <comando>```",
