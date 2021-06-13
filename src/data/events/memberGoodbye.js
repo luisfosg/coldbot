@@ -7,7 +7,7 @@ import { getLogin, sendEmbed } from '../util';
 
 import language from '../functions/language';
 
-const wallpaper = 'https://i.imgur.com/f9RlPuM.jpg';
+const wallpaper = 'https://wallpaperaccess.com/full/3097725.jpg';
 
 const goodbye = async ( member, lang ) => {
 	const canvasGoodBye = createCanvas( 1080, 480 );
@@ -20,12 +20,12 @@ const goodbye = async ( member, lang ) => {
 	ctx.drawImage( photo, 415, 30 );
 	ctx.drawImage( mark, 405, 20, 275, 275 );
 
-	ctx.font = '80px Baloo';
+	ctx.font = '60px Fredoka';
 	ctx.fillStyle = '#FFF';
 	ctx.textAlign = 'center';
 
-	ctx.fillText( `${ member.user.username } Bienvenid@`, canvasGoodBye.width / 2, 375 );
-	ctx.fillText( `Al Servidor ${ member.guild.name }`, canvasGoodBye.width / 2, 435 );
+	ctx.fillText( `${ member.user.username } Salió.`, canvasGoodBye.width / 2, 375 );
+	ctx.fillText( '¡Hasta Luego!', canvasGoodBye.width / 2, 435 );
 
 	const att = new MessageAttachment( canvasGoodBye.toBuffer(), 'goodbye.png' );
 	sendWelcome( att );
@@ -42,7 +42,7 @@ export default {
 
 		const login = await getLogin();
 
-		/* if ( member.guild.id !== login.idServer ) {
+		if ( member.guild.id !== login.idServer ) {
 			return sendLog( sendEmbed( {
 				title: lang.memberGoodbye.title,
 				text: lang.memberGoodbye.description.replace(
@@ -54,7 +54,7 @@ export default {
 				footer: [member.guild.name, member.guild.iconURL()],
 				returnEmbed: true
 			} ) );
-		} */
+		}
 
 		goodbye( member, lang );
 	},

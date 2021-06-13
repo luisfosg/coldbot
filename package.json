@@ -21,22 +21,21 @@
   "dependencies": {
     "ascii-table": "0.0.9",
     "canvas": "2.8.0",
-    "core-js": "3.12.1",
+    "core-js": "3.14.0",
     "cross-env": "7.0.3",
     "discord.js": "12.5.3",
     "dotenv": "10.0.0",
     "quick.db": "github:lorencerri/quick.db",
-    "regenerator-runtime": "0.13.7",
-    "zeew": "0.1.11"
+    "regenerator-runtime": "0.13.7"
   },
   "devDependencies": {
-    "@babel/cli": "7.14.3",
-    "@babel/core": "7.14.3",
-    "@babel/node": "7.14.2",
-    "@babel/preset-env": "7.14.2",
-    "eslint": "7.26.0",
+    "@babel/cli": "7.14.5",
+    "@babel/core": "7.14.5",
+    "@babel/node": "7.14.5",
+    "@babel/preset-env": "7.14.5",
+    "eslint": "7.28.0",
     "eslint-config-airbnb-base": "14.2.1",
-    "eslint-plugin-import": "2.23.3",
+    "eslint-plugin-import": "2.23.4",
     "nodemon": "2.0.7"
   }
 }

@@ -1,16 +1,34 @@
-import { zeewWelcome } from '../functions/zeewImages';
+import { MessageAttachment } from 'discord.js';
+import { createCanvas, loadImage } from 'canvas';
+
+import { roundImage } from '../functions/imageRound';
 import { sendLog, sendWelcome } from '../web/hooks';
 import { getLogin, sendEmbed } from '../util';
 
 import language from '../functions/language';
 
-const welcomeNormal = ( lang, member ) => {
-	const message = lang.memberWelcome.message.replace(
-		'{{ member }}', member
-	).replace(
-		'{{ server }}', member.guild.name
-	);
-	sendWelcome( message );
+const wallpaper = 'https://i.imgur.com/f9RlPuM.jpg';
+
+const welcome = async ( member, lang ) => {
+	const canvasGoodBye = createCanvas( 1080, 480 );
+	const ctx = canvasGoodBye.getContext( '2d' );
+
+	const image = await loadImage( wallpaper ).catch( () => {} );
+	const photo = await roundImage( member.user.displayAvatarURL( { format: 'png' } ), 250 );
+	const mark = await loadImage( 'https://i.imgur.com/IdQsRoV.png' ).catch( () => {} );
+	ctx.drawImage( image, 0, 0, 1080, 480 );
+	ctx.drawImage( photo, 415, 30 );
+	ctx.drawImage( mark, 405, 20, 275, 275 );
+
+	ctx.font = '60px Fredoka';
+	ctx.fillStyle = '#FFF';
+	ctx.textAlign = 'center';
+
+	ctx.fillText( `${ member.user.username } Bienvenid@`, canvasGoodBye.width / 2, 375 );
+	ctx.fillText( `Al Servidor ${ member.guild.name }`, canvasGoodBye.width / 2, 435 );
+
+	const att = new MessageAttachment( canvasGoodBye.toBuffer(), 'goodbye.png' );
+	sendWelcome( att );
 };
 
 export default {
@@ -36,18 +54,15 @@ export default {
 			} ) );
 		}
 
-		if ( login.zeewToken ) {
-			sendEmbed( {
-				place: member,
-				text: lang.memberWelcome.messageMd.replace(
-					'{{ member }}', member
-				).replace(
-					'{{ server }}', member.guild.name
-				)
-			} );
-			zeewWelcome( member, login.zeewToken );
-		} else {
-			welcomeNormal( lang, member );
-		}
+		sendEmbed( {
+			place: member,
+			text: lang.memberWelcome.messageMd.replace(
+				'{{ member }}', member
+			).replace(
+				'{{ server }}', member.guild.name
+			)
+		} );
+
+		welcome( member, lang );
 	},
 };

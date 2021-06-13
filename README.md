@@ -54,7 +54,6 @@ WEBHOOKWELCOME = // Webhook de discord para enviar Mensajes de Bienvenida/Desped
 WEBHOOKLOGS = // Webhook de discord para enviar los logs
 IDSERVER = // Id del servidor (Por Ahora funciona asi para enviar los mensajes de Bienvenida/Despedida).
 DBNAME = // Nombre de la base de datos, Opcional
-ZEEW = // Si Tienes Token de Zeew y quieres usar sus mensajes de Bienvenida, Usa esta Variable ;)
 ```
 
 </details>
@@ -113,7 +112,6 @@ WEBHOOKWELCOME = // Discord Webhook to send Welcome / Farewell Messages
 WEBHOOKLOGS = // Discord webhook to send the logs
 IDSERVER = // Server id (For Now it works like this to send the Welcome / Farewell messages).
 DBNAME = // Database name, Optional
-ZEEW = // If you have Zeew Token and want to use their Welcome messages, Use this Variable ;)
 ```
 
 </details>
@@ -123,8 +121,6 @@ ZEEW = // If you have Zeew Token and want to use their Welcome messages, Use thi
 ## 🔗 𝐿𝑖𝑛𝑘𝑠 𝑜𝑓 𝑖𝑛𝑡𝑒𝑟𝑒𝑠𝑡
 
 - [discord.js](https://discord.js.org/#/)
-- [zeew](https://www.npmjs.com/package/zeew)
-
 
 ## ✨ 𝐷𝑜𝑛𝑎𝑡𝑖𝑜𝑛
 
