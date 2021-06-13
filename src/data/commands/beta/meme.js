@@ -8,7 +8,7 @@ import language from '../../functions/language';
 let lang;
 
 const loadMeme = async ( msg, image, txt, color ) => {
-	const canvasMeme = createCanvas( 600, 400 );
+	const canvasMeme = createCanvas( 700, 500 );
 	const ctx = canvasMeme.getContext( '2d' );
 
 	const photo = await loadImage( image ).catch( () => {} );
@@ -20,10 +20,15 @@ const loadMeme = async ( msg, image, txt, color ) => {
 		} );
 	}
 
-	ctx.drawImage( photo, 0, 0, 600, 400 );
+	ctx.fillStyle = '#FFF';
+	ctx.fillRect( 0, 0, 700, 100 );
+
 	ctx.fillStyle = color;
 	ctx.font = '40px Comicsans';
-	ctx.fillText( txt, 50, 50 );
+	ctx.textAlign = 'center';
+
+	ctx.drawImage( photo, 0, 100, 700, 400 );
+	ctx.fillText( txt, canvasMeme.width / 2, 50 );
 
 	const att = new MessageAttachment( canvasMeme.toBuffer(), 'meme.png' );
 	sendMsg( {
@@ -40,7 +45,7 @@ export default {
 	description: ( langs ) => langs.meme.description,
 	req: {
 		minArgs: 2,
-		cooldown: 20,
+		cooldown: 0,
 		dm: 'yes',
 		enable: true,
 		visible: true,
@@ -49,17 +54,13 @@ export default {
 	},
 	run: async ( _client, msg, args ) => {
 		lang = language( { guild: msg.guild } );
-
-		const image = args[0];
-		const txt = args[1];
 		let color = args[2];
 
 		const test1 = /^#([0-9A-F]{3}){1,2}$/i.test( color );
-		const test2 = /^#[0-9A-F]{6}$/i.test( color );
 		const test3 = /^#[0-9A-F]{8}$/i.test( color );
 
-		if ( !color || ( test1 && test2 && test3 ) ) color = '#000';
+		if ( !color || ( test1 && test3 ) ) color = '#000';
 
-		await loadMeme( msg, image, txt, color );
+		await loadMeme( msg, args[0], args[1], color );
 	},
 };

@@ -1,7 +1,7 @@
 import { MessageAttachment } from 'discord.js';
 import { createCanvas, loadImage } from 'canvas';
 
-import { roundImage } from '../../functions/imageRound';
+import { roundImage } from '../../functions/canvasFunctions';
 import { sendEmbed, sendMsg, getUserWithId } from '../../util';
 
 import language from '../../functions/language';
