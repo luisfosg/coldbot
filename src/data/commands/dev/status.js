@@ -4,7 +4,7 @@ import language from '../../functions/language';
 export default {
 	name: 'status',
 	alias: ['st'],
-	category: 'bot',
+	category: 'dev',
 	usage: ( langs, p, s ) => langs.status.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.status.description,
 	req: {

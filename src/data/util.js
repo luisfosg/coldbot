@@ -12,9 +12,33 @@ export async function getConfig() {
 	return config;
 }
 
-export async function getUserWithId( client, msg, mention, member = false ) {
+export function getLink( client ) {
+	return `https://discord.com/api/oauth2/authorize?client_id=${ client.user.id }&permissions=8&scope=bot`;
+}
+
+export const parseTxtNumber = ( numString ) => {
+	let number;
+	try {
+		number = parseInt( numString, 10 );
+		if ( !number ) {
+			number = 0;
+		}
+	} catch ( e ) {
+		number = 0;
+	}
+	return number;
+};
+
+export async function getUserWithId( {
+	client,
+	msg,
+	mention,
+	member = false
+} ) {
 	const id = mention.replace( /[<]|!|@|[>]/g, '' );
+
 	let user;
+
 	if ( msg.guild ) {
 		user = await msg.guild.members.fetch( id ).catch( () => 'notFound' );
 	} else {
@@ -25,10 +49,6 @@ export async function getUserWithId( client, msg, mention, member = false ) {
 	// eslint-disable-next-line no-unused-expressions
 	user === 'notFound' ? user : user = user.user;
 	return user;
-}
-
-export function getLink( client ) {
-	return `https://discord.com/api/oauth2/authorize?client_id=${ client.user.id }&permissions=8&scope=bot`;
 }
 
 export const sendMsg = ( {

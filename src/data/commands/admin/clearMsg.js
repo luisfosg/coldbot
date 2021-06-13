@@ -1,20 +1,7 @@
 import { sendLog } from '../../web/hooks';
 
-import { sendEmbed } from '../../util';
+import { sendEmbed, parseTxtNumber } from '../../util';
 import language from '../../functions/language';
-
-const parseTxtNumber = ( num ) => {
-	let number;
-	try {
-		number = parseInt( num, 10 );
-		if ( !number ) {
-			number = 0;
-		}
-	} catch ( e ) {
-		number = 0;
-	}
-	return number;
-};
 
 const sendMsgClear = ( lang, msg, number ) => {
 	sendLog( sendEmbed( {
@@ -35,8 +22,8 @@ const sendMsgClear = ( lang, msg, number ) => {
 };
 
 const clearMsg = async ( lang, msg, number ) => {
-	await msg.channel.bulkDelete( number + 1 ).then( ( msgDeleted ) => {
-		sendMsgClear( lang, msg, msgDeleted.size - 1 );
+	await msg.channel.bulkDelete( number + 1, true ).then( ( msgDeleted ) => {
+		sendMsgClear( lang, msg, msgDeleted.size === 0 ? msgDeleted.size : msgDeleted.size - 1 );
 	} );
 };
 

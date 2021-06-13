@@ -45,7 +45,7 @@ export default {
 		let user;
 
 		if ( args[0] && args[1] !== '-gen' ) {
-			user = await getUserWithId( client, msg, args[0] );
+			user = await getUserWithId( { client, msg, mention: args[0] } );
 		}
 		if ( user === 'notFound' ) return sendEmbed( { place: msg.channel, text: lang.general.userNotFound, deleteTime: 5 } );
 

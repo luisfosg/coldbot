@@ -93,7 +93,7 @@ export default {
 		let user;
 
 		if ( args[0] && args[0] !== '-img' ) {
-			user = await getUserWithId( client, msg, args[0] );
+			user = await getUserWithId( { client, msg, mention: args[0] } );
 		}
 		if ( user === 'notFound' ) {
 			return sendEmbed( {

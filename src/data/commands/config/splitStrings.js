@@ -5,7 +5,7 @@ import language from '../../functions/language';
 export default {
 	name: 'setsplit',
 	alias: ['split', 'string'],
-	category: 'bot',
+	category: 'config',
 	usage: ( langs, p, s ) => langs.split.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.split.description,
 	req: {

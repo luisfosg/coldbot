@@ -1,13 +1,17 @@
 import { sendEmbed } from '../../util';
+import { isDev } from '../../functions/checkPermissions';
 
 import language from '../../functions/language';
 
 let lang;
 
-const printCategory = ( client, msg, embed, category ) => {
+const printCategory = async ( client, msg, embed, category, isDevUser ) => {
 	const isdm = msg.channel.type;
+
 	const commands = client.commands.filter( ( cmd ) => {
 		if ( cmd.category === category ) {
+			if ( isDevUser ) return true;
+
 			if ( ( isdm === 'dm' ) && cmd.req.dm === 'not' ) return false;
 			if ( cmd.req.visible ) {
 				return true;
@@ -28,11 +32,11 @@ const printCategory = ( client, msg, embed, category ) => {
 	}
 };
 
-const commandMessage = async ( client, msg ) => {
+const commandMessage = async ( client, msg, isDevUser ) => {
 	const fields = [];
 
-	await client.categories.forEach( ( category ) => {
-		printCategory( client, msg, fields, category );
+	await client.categories.forEach( async ( category ) => {
+		await printCategory( client, msg, fields, category, isDevUser );
 	} );
 
 	sendEmbed( {
@@ -62,9 +66,14 @@ export default {
 		permissions: [],
 		necessary: []
 	},
-	run: async ( client, msg, _args ) => {
+	run: async ( client, msg, args ) => {
 		lang = language( { guild: msg.guild } );
 
-		await commandMessage( client, msg );
+		if ( args[0] === '-dev' ) {
+			const isDevUser = await isDev( msg.author.id );
+			if ( isDevUser ) return commandMessage( client, msg, true );
+		}
+
+		await commandMessage( client, msg, false );
 	},
 };

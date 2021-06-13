@@ -21,3 +21,16 @@ export const checkPermissions = async ( member, permissions ) => {
 	if ( data.includes( false ) ) return false;
 	return true;
 };
+
+export const isDev = async ( id ) => {
+	const config = await getConfig();
+
+	const isDev = config.devs.map( ( dev ) => {
+		if ( dev[1] === id ) {
+			return true;
+		}
+		return false;
+	} );
+
+	if ( isDev.includes( true ) ) return true;
+};

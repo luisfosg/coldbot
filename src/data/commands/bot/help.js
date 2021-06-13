@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable max-len */
 import { sendEmbed, getLink } from '../../util';
+import { isDev } from '../../functions/checkPermissions';
 import { splDes } from '../../../db/splitString';
 
 import language from '../../functions/language';
@@ -22,9 +24,12 @@ const helpMessage = async ( client, msg ) => {
 };
 
 const helpCommand = async ( client, msg, commandArg ) => {
-	// eslint-disable-next-line max-len
+	const isDevUser = await isDev( msg.author.id );
 	const command = client.commands.get( commandArg ) || client.commands.find( ( c ) => c.alias.includes( commandArg ) );
-	if ( !command || !command.req.visible ) {
+
+	let visible;
+	isDevUser ? visible = true : visible = command.req.visible;
+	if ( !command || !visible ) {
 		return sendEmbed( {
 			place: msg.channel,
 			text: lang.help.notFound,

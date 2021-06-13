@@ -7,7 +7,7 @@ let lang;
 export default {
 	name: 'question',
 	alias: ['q'],
-	category: 'beta',
+	category: 'general',
 	usage: ( langs, p, s ) => langs.question.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.question.description,
 	req: {
