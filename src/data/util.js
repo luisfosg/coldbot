@@ -12,8 +12,13 @@ export async function getConfig() {
 	return config;
 }
 
-export function getLink( client ) {
-	return `https://discord.com/api/oauth2/authorize?client_id=${ client.user.id }&permissions=8&scope=bot`;
+export function getLink( id, num ) {
+	const urls = {
+		1: `https://discord.com/api/oauth2/authorize?client_id=${ id }&permissions=8&scope=bot`,
+		2: `https://discord.com/users/${id}`
+	};
+
+	return urls[num] ? urls[num] : 'NotFound';
 }
 
 export const parseTxtNumber = ( numString ) => {

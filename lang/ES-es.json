@@ -84,7 +84,7 @@
 		"title": "Información - Cold Bot",
 		"descriptionBot": "Hola, Soy un Bot multiproposito de **codigo abierto**, espero que te diviertas utilizando mis funciones. y me ayudes a mejorar mis falencias.",
 		"titleGeneral": "🔘 General",
-		"fieldGeneral": "============\n⚙ **Desarrollador**: `{{ dev }}`\n📡 **Servidores**: `{{ servers }}`\n👥 **Usuarios**: `{{ users }}`\n📣 **Canales**: `{{ channels }}`",
+		"fieldGeneral": "============\n⚙ **Desarrollador**: {{ dev }}\n📡 **Servidores**: `{{ servers }}`\n👥 **Usuarios**: `{{ users }}`\n📣 **Canales**: `{{ channels }}`",
 		"titleBot": "🤖 Bot",
 		"fieldBot": "============\n🏓 **Ping**: `{{ ping }}ms`\n⌨ **Comandos**: `{{ commands }}`\n🕹 **Discord.js**: `{{ discordV }}`\n🇳 **NodeJS**: `{{ nodeV }}`"
 	},
@@ -114,7 +114,7 @@
 		"usage": "```{{ p }} commands```",
 		"description": "Muestro una lista de todos los comandos que se pueden usar ∩︿∩",
 		"title": "Lista de Comandos",
-		"commandsNum": "Número de Comandos: `{{ num }}`",
+		"commandsNum": "Prefix: `{{ prefix }}`\nNúmero de Comandos: `{{ num }}`",
 		"footer": "¿El numero de comandos no cuadra con la lista? ¡Hay Comandos Ocultos!"
 	},
 	"language": {
@@ -204,5 +204,10 @@
 		"two": "Opción 2",
 		"desOne": "👍 De Acuerdo",
 		"desTwo": "👎 En Desacuerdo"
+	},
+	"ascii": {
+		"usage": "```{{ p }} ascii <frase/palabra>``````{{ p }} art <frase/palabra>```",
+		"description": "Convierte Palabras y Frases a un efecto Ascii",
+		"error": "El Texto Ingresado No Es Valido"
 	}
 }

@@ -19,7 +19,7 @@ const helpMessage = async ( client, msg ) => {
 		place: msg.channel,
 		text,
 		author: [client.user.username, client.user.avatarURL()],
-		fields: [[lang.help.titleLink, lang.help.links.replace( '{{ link }}', getLink( client ) )]]
+		fields: [[lang.help.titleLink, lang.help.links.replace( '{{ link }}', getLink( client.user.id, 1 ) )]]
 	} );
 };
 

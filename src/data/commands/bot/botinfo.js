@@ -1,5 +1,5 @@
 /* eslint-disable newline-per-chained-call */
-import { sendEmbed, getConfig } from '../../util';
+import { sendEmbed, getConfig, getLink } from '../../util';
 
 import language from '../../functions/language';
 
@@ -26,7 +26,7 @@ export default {
 			[
 				lang.botinfo.titleGeneral,
 				lang.botinfo.fieldGeneral.replace(
-					'{{ dev }}', config.devs[0][0]
+					'{{ dev }}', `[\`${config.devs[0][0]}\`](${ getLink( config.devs[0][1], 2 ) })`
 				).replace(
 					'{{ servers }}', client.guilds.cache.size
 				).replace(

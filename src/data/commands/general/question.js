@@ -12,7 +12,7 @@ export default {
 	description: ( langs ) => langs.question.description,
 	req: {
 		minArgs: 1,
-		cooldown: 5,
+		cooldown: 10,
 		dm: 'yes',
 		enable: true,
 		visible: true,

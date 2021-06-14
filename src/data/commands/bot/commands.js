@@ -41,7 +41,11 @@ const commandMessage = async ( client, msg, isDevUser ) => {
 
 	sendEmbed( {
 		place: msg.channel,
-		text: lang.commands.commandsNum.replace( '{{ num }}', client.commands.size ),
+		text: lang.commands.commandsNum.replace(
+			'{{ num }}', client.commands.size
+		).replace(
+			'{{ prefix }}', client.prefix
+		),
 		fields,
 		author: [lang.commands.title, msg.author.avatarURL()],
 		thumbnail: client.user.avatarURL(),

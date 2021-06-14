@@ -10,7 +10,7 @@ export default {
 	description: ( langs ) => langs.language.description,
 	req: {
 		minArgs: 0,
-		cooldown: 5,
+		cooldown: 20,
 		dm: 'not',
 		enable: true,
 		visible: true,
