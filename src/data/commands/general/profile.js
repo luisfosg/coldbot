@@ -61,7 +61,10 @@ const profile = async ( msg, user ) => {
 		[lang.profile.status, user.presence.status, true],
 		[lang.profile.bot, user.bot ? lang.general.yes : lang.general.not, true],
 
-		[`${lang.profile.roles} [${member._roles.length}]`, member._roles.map( ( rol ) => `<@&${rol}>` ).join( ', ' )]
+		[
+			`${lang.profile.roles} [${member._roles.length}]`,
+			member._roles.length > 0 ? member._roles.map( ( rol ) => `<@&${rol}>` ).join( ', ' ) : lang.profile.notRoles
+		]
 	];
 
 	sendEmbed( {

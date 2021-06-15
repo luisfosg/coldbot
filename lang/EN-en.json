@@ -176,7 +176,8 @@
 		"tag": "Tag",
 		"entry": "Entry Date",
 		"status": "Status",
-		"roles": "Roles"
+		"roles": "Roles",
+		"notRoles": "Has no role"
 	},
 	"clear": {
 		"usage": "```{{ p }} cls <Number of Messages>```",

@@ -176,7 +176,8 @@
 		"tag": "Tag",
 		"entry": "Fecha de Ingreso",
 		"status": "Estado",
-		"roles": "Roles"
+		"roles": "Roles",
+		"notRoles": "No tiene Ningun Rol"
 	},
 	"clear": {
 		"usage": "```{{ p }} cls <Mensajes a Borrar>``````{{ p }} clear <Numero>```",
