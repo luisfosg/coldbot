@@ -25,8 +25,15 @@ export default {
 			width: 60,
 			whitespaceBreak: false
 		}, ( err, txt ) => {
+			if ( txt.length > 2048 ) {
+				return sendEmbed( {
+					place: msg.channel,
+					text: lang.ascii.long
+				} );
+			}
+
 			if ( err ) {
-				sendEmbed( {
+				return sendEmbed( {
 					place: msg.channel,
 					text: lang.ascii.error
 				} );

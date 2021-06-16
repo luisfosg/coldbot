@@ -209,6 +209,7 @@
 	"ascii": {
 		"usage": "```{{ p }} ascii <phrase / word>``````{{ p }} art <phrase / word>```",
 		"description": "Convert Words and Phrases to an Ascii effect",
-		"error": "The entered text is invalid"
+		"error": "The entered text is invalid",
+		"long": "The text passes the allowed limits"
 	}
 }

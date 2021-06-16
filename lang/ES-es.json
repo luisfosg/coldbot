@@ -209,6 +209,7 @@
 	"ascii": {
 		"usage": "```{{ p }} ascii <frase/palabra>``````{{ p }} art <frase/palabra>```",
 		"description": "Convierte Palabras y Frases a un efecto Ascii",
-		"error": "El Texto Ingresado No Es Valido"
+		"error": "El Texto Ingresado No Es Valido",
+		"long": "El texto pasa los limites Permitidos"
 	}
 }
