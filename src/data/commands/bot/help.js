@@ -40,7 +40,7 @@ const helpCommand = async ( client, msg, commandArg ) => {
 	const text = lang.help.settingsCommand.replace(
 		'{{ args }}', command.req.minArgs
 	).replace(
-		'{{ md }}', command.req.dm ? lang.help.complements.complement4 : lang.help.complements.complement5
+		'{{ md }}', command.req.dm !== 'not' ? lang.help.complements.complement4 : lang.help.complements.complement5
 	).replace(
 		'{{ permissions }}', command.req.permissions.length > 0 ? lang.help.complements.complement2 : lang.help.complements.complement3
 	).replace(

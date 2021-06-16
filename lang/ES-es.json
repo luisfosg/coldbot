@@ -93,11 +93,11 @@
 		"description": "Brinda Una ayuda Basica de Cold Bot y tambien puede darte informacion adicional de cada comando.",
 		"complements": {
 			"complement1": ", y el separador de argumentos es `{{ value }}`",
-			"complement2": "🪐 Este comando requiere algunos permisos para su uso",
-			"complement3": "🪐 Este comando es libre de permisos",
-			"complement4": "🪐 Este comando se puede usar en MD [dm]",
-			"complement5": "🪐 Este comando no se puede usar en MD [dm]",
-			"complement6": "🪐 Este comando tiene un cooldown de {{ seg }}s"
+			"complement2": "🪐 Requiere algunos permisos para su uso",
+			"complement3": "🪐 Es libre de permisos",
+			"complement4": "🪐 Se puede usar en MD [dm]",
+			"complement5": "🪐 No se puede usar en MD [dm]",
+			"complement6": "🪐 Tiene un cooldown de {{ seg }}s"
 		},
 		"text": "Hola, El prefix es `{{ prefix }}` {{ text1 }} \n:small_blue_diamond:Para ver los comandos usa el comando `cmds` \n:small_blue_diamond:Para ver una descripción mas detallada del Comando use: `{{ prefix }}h <comando>`\n:small_blue_diamond:Para cambiar el lenguaje el administrador debe usar: `{{ prefix }}lang`",
 		"titleLink": "Enlaces",
@@ -211,5 +211,9 @@
 		"description": "Convierte Palabras y Frases a un efecto Ascii",
 		"error": "El Texto Ingresado No Es Valido",
 		"long": "El texto pasa los limites Permitidos"
+	},
+	"nickname": {
+		"usage": "```{{ p }} nick <Usuario> {{ s }} <Nuevo Apodo>``````{{ p }} apodo <Usuario> {{ s }} <Nuevo Apodo>```",
+		"description": "Cambia el apodo del Usuario mencionado."
 	}
 }

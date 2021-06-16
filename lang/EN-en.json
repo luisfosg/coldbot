@@ -93,11 +93,11 @@
 		"description": "Provides Basic Help for Cold Bot and can also give you additional information on each command.",
 		"complements": {
 			"complement1": ", and the argument separator is `{{ value }}`",
-			"complement2": "🪐 This command requires some permissions for its use",
-			"complement3": "🪐 This command does not require permissions",
-			"complement4": "🪐 This command can be used in dm",
-			"complement5": "🪐 This command cannot be used in dm",
-			"complement6": "🪐 This command has a {{ seg }}s cooldown."
+			"complement2": "🪐 Requires some permissions for its use",
+			"complement3": "🪐 Does not require permissions",
+			"complement4": "🪐 Can be used in dm",
+			"complement5": "🪐 Cannot be used in dm",
+			"complement6": "🪐 Has a {{ seg }}s cooldown."
 		},
 		"text": "Hello, The prefix is `{{ prefix }}` {{ text1 }} \n:small_blue_diamond:To see the commands use the command `cmds` \n :small_blue_diamond:For a more detailed description of using Command, use: `{{ prefix }}h <command>`\n:small_blue_diamond:For the administrator to change the language to use: `{{ prefix }}lang`",
 		"titleLink": "Links",
@@ -211,5 +211,9 @@
 		"description": "Convert Words and Phrases to an Ascii effect",
 		"error": "The entered text is invalid",
 		"long": "The text passes the allowed limits"
+	},
+	"nickname": {
+		"usage": "```{{ p }} nick <User> {{ s }} <New Nickname>```",
+		"description": "Change the nickname of the mentioned User."
 	}
 }
