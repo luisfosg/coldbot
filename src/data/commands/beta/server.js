@@ -5,7 +5,7 @@ import language from '../../functions/language';
 export default {
 	name: 'serverinfo',
 	alias: ['server'],
-	category: 'general',
+	category: 'beta',
 	usage: ( langs, p, s ) => langs.server.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.server.description,
 	req: {

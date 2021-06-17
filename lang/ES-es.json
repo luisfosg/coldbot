@@ -137,6 +137,10 @@
 		"activated": "El Separador de Argumentos Esta Activo.",
 		"disabled": "Se ha desactivado el Separador de Argumentos"
 	},
+	"ping": {
+		"usage": "```{{ p }} ping``````{{ p }} pong```",
+		"description": "Muestra el Ping del bot."
+	},
 	"status": {
 		"usage": "```{{ p }} status <status> {{ s }} <type> {{ s }} <name> {{ s }} [url]```",
 		"description": "Esto solo es del uso exclusivo del administrador del bot, y se usa para cambiar el estado del bot.",

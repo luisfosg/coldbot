@@ -137,6 +137,10 @@
 		"activated": "The Argument Separator is Active.",
 		"disabled": "Argument Separator has been disabled"
 	},
+	"ping": {
+		"usage": "```{{ p }} ping``````{{ p }} pong```",
+		"description": "Shows the Ping of the bot."
+	},
 	"status": {
 		"usage": "```{{ p }} status <status> {{ s }} <type> {{ s }} <name> {{ s }} [url]```",
 		"description": "This is only for the bot admin use, and is used to change the bot's state.",
