@@ -21,7 +21,7 @@ export default {
 		const lang = language( { guild: msg.guild } );
 
 		const embed = sendEmbed( {
-			text: 'Preparando terreno',
+			text: 'Preparando terreno....',
 			returnEmbed: true
 		} );
 

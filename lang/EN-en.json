@@ -58,25 +58,21 @@
 	"memberGoodbye": {
 		"title": "**[Member Left]**",
 		"description": "{{ member }} left the {{ server }} server.",
-		"message": "Goodbye {{ member }} B)"
+		"message": "Goodbye {{ member }} B)",
+		"titleCard": "{{ member }} came out.",
+		"descriptionCard": "Bye!"
 	},
 	"memberWelcome": {
 		"title": "**[New Member]**",
 		"description": "{{ member }} has joined the {{ server }} server.",
 		"messageMd": "{{ member }} Hellooooo, Welcome to {{ server }}.",
-		"message": "Welcome {{ member }} to the {{ server }} server!!"
+		"message": "Welcome {{ member }}",
+		"titleCard": "{{ member }} Welcome",
+		"descriptionCard": "To the {{ server }} server"
 	},
 	"pinsUpdate": {
 		"title": "**[Pinned Message]**",
 		"description": "Updated a message pinned to channel <#{{ id }}>"
-	},
-	"guildMemberAdd": {
-		"title": "{{ member }} Welcome",
-		"description": "To the {{ server }} server"
-	},
-	"guildMemberRemove": {
-		"title": "{{ member }} came out.",
-		"description": "Bye!"
 	},
 	"botinfo": {
 		"usage": "```{{ p }} botinfo```",
@@ -99,7 +95,7 @@
 			"complement5": "🪐 Cannot be used in dm",
 			"complement6": "🪐 Has a {{ seg }}s cooldown."
 		},
-		"text": "Hello, The prefix is `{{ prefix }}` {{ text1 }} \n:small_blue_diamond:To see the commands use the command `cmds` \n :small_blue_diamond:For a more detailed description of using Command, use: `{{ prefix }}h <command>`\n:small_blue_diamond:For the administrator to change the language to use: `{{ prefix }}lang`",
+		"text": "Hello, The prefix is `{{ prefix }}` {{ text1 }} \n:small_blue_diamond:To see the full list of commands use `{{ prefix }}cmds` \n :small_blue_diamond:For a more detailed description of using Command, use: `{{ prefix }}h <command>`\n:small_blue_diamond:For the administrator to change the language to use: `{{ prefix }}lang`",
 		"titleLink": "Links",
 		"links": ":snowflake: [Support Server](https://discord.gg/y6jrugZUxe)\n:snowflake: [Invite me to your server]({{ link }})\n:snowflake: [Source Code](https://github.com/LuisFOsG/Cold-Bot)",
 		"notFound": "Command not found.",
@@ -218,6 +214,7 @@
 	},
 	"nickname": {
 		"usage": "```{{ p }} nick <User> {{ s }} <New Nickname>```",
-		"description": "Change the nickname of the mentioned User."
+		"description": "Change the nickname of the mentioned User.",
+		"success": "{{ user }} nickname, has been successfully updated to `{{ nick }}`"
 	}
 }

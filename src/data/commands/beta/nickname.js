@@ -1,4 +1,7 @@
 import { sendEmbed, getUserWithId } from '../../util';
+import { isManageable } from '../../functions/checkPermissions';
+
+import language from '../../functions/language';
 
 export default {
 	name: 'nickname',
@@ -16,6 +19,8 @@ export default {
 		necessary: ['MANAGE_NICKNAMES', 'CHANGE_NICKNAME']
 	},
 	run: async ( client, msg, args ) => {
+		const lang = language( { guild: msg.guild } );
+
 		const user = await getUserWithId( {
 			client,
 			msg,
@@ -23,20 +28,20 @@ export default {
 			member: true
 		} );
 
-		if ( !user || user === 'notFound' ) return sendEmbed( { place: msg.channel, text: 'Usuario No Encontrado', deleteTime: 2 } );
-		if ( !user.manageable ) {
-			return sendEmbed( {
-				place: msg.channel,
-				text: 'No Tengo Permitido Acceder a Este Usuario',
-				deleteTime: 2
-			} );
-		}
+		if ( !user || user === 'notFound' ) return sendEmbed( { place: msg.channel, text: lang.general.userNotFound, deleteTime: 3 } );
+
+		const isManageableMember = isManageable( lang, msg, user, client.user.id );
+		if ( !isManageableMember ) return;
 
 		await user.setNickname( args[1] );
 		sendEmbed( {
 			place: msg.channel,
-			text: 'Apodo Cambiado Correctamente.',
-			deleteTime: 3
+			text: lang.nickname.success.replace(
+				'{{ user }}', user
+			).replace(
+				'{{ nick }}', args[1]
+			),
+			deleteTime: 10
 		} );
 	},
 };

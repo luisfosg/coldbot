@@ -58,21 +58,21 @@
 	"memberGoodbye": {
 		"title": "**[Salio un Miembro]**",
 		"description": "{{ member }} salió del Servidor {{ server }}.",
-		"message": "Hasta Luego {{ member }} B)"
+		"message": "Hasta Luego {{ member }} B)",
+		"titleCard": "{{ member }} Salió.",
+		"descriptionCard": "¡Hasta Luego!"
 	},
 	"memberWelcome": {
 		"title": "**[Nuevo Miembro]**",
 		"description": "{{ member }} ha entrado al Servidor {{ server }}.",
 		"messageMd": "{{ member }} Holaaa, Bienvenid@ a {{ server }}.",
-		"message": "Bienvenido {{ member }} al Servidor {{ server }}!!"
+		"message": "Bienvenid@ {{ member }}",
+		"titleCard": "{{ member }} Bienvenid@",
+		"descriptionCard": "Al Servidor {{ server }}"
 	},
 	"pinsUpdate": {
 		"title": "**[Mensaje Anclado]**",
 		"description": "Se actualizo un mensaje anclado en el canal <#{{ id }}>"
-	},
-	"guildMemberAdd": {
-		"title": "{{ member }} Bienvenid@",
-		"description": "Al Servidor {{ server }}"
 	},
 	"guildMemberRemove": {
 		"title": "{{ member }} Salió.",
@@ -99,7 +99,7 @@
 			"complement5": "🪐 No se puede usar en MD [dm]",
 			"complement6": "🪐 Tiene un cooldown de {{ seg }}s"
 		},
-		"text": "Hola, El prefix es `{{ prefix }}` {{ text1 }} \n:small_blue_diamond:Para ver los comandos usa el comando `cmds` \n:small_blue_diamond:Para ver una descripción mas detallada del Comando use: `{{ prefix }}h <comando>`\n:small_blue_diamond:Para cambiar el lenguaje el administrador debe usar: `{{ prefix }}lang`",
+		"text": "Hola, El prefix es `{{ prefix }}` {{ text1 }} \n:small_blue_diamond:Para ver la lista completa de comandos, use: `{{ prefix }}cmds` \n:small_blue_diamond:Para ver una descripción mas detallada del Comando, use: `{{ prefix }}h <comando>`\n:small_blue_diamond:Para cambiar el lenguaje el administrador debe usar: `{{ prefix }}lang`",
 		"titleLink": "Enlaces",
 		"links": ":snowflake: [Servidor de Soporte](https://discord.gg/y6jrugZUxe)\n:snowflake: [Invitame a tu servidor]({{ link }})\n:snowflake: [Código Fuente](https://github.com/LuisFOsG/Cold-Bot)",
 		"notFound": "Comando No Encontrado.",
@@ -218,6 +218,7 @@
 	},
 	"nickname": {
 		"usage": "```{{ p }} nick <Usuario> {{ s }} <Nuevo Apodo>``````{{ p }} apodo <Usuario> {{ s }} <Nuevo Apodo>```",
-		"description": "Cambia el apodo del Usuario mencionado."
+		"description": "Cambia el apodo del Usuario mencionado.",
+		"success": "El apodo de {{ user }}, se ha actualizado correctamente a `{{ nick }}`"
 	}
 }

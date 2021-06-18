@@ -24,10 +24,10 @@ const goodbye = async ( member, lang ) => {
 	ctx.fillStyle = '#FFF';
 	ctx.textAlign = 'center';
 
-	ctx.fillText( lang.guildMemberRemove.title.replace(
+	ctx.fillText( lang.memberGoodbye.titleCard.replace(
 		'{{ member }}', member.user.username
 	), canvasGoodBye.width / 2, 375 );
-	ctx.fillText( lang.guildMemberRemove.description, canvasGoodBye.width / 2, 435 );
+	ctx.fillText( lang.memberGoodbye.descriptionCard, canvasGoodBye.width / 2, 435 );
 
 	const att = new MessageAttachment( canvasGoodBye.toBuffer(), 'goodbye.png' );
 	sendWelcome( att );

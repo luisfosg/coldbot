@@ -127,6 +127,7 @@ const mentionPrefix = async ( client, msg ) => {
 		}
 
 		if ( !client.commands.has( CMD ) ) {
+			deleteMessage = false;
 			return sendEmbed( {
 				place: msg.channel,
 				text: lang.general.commandNotFound,

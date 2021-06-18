@@ -19,11 +19,11 @@ export default {
 	},
 	run: async ( _client, msg, args ) => {
 		const lang = language( { guild: msg.guild } );
-		setPrefix( msg, args[0] );
+		setPrefix( msg, args.join( ' ' ) );
 
 		sendEmbed( {
 			place: msg.channel,
-			text: lang.prefix.message.replace( '{{ prefix }}', args[0] ),
+			text: lang.prefix.message.replace( '{{ prefix }}', args.join( ' ' ) ),
 			deleteTime: 20
 		} );
 	},

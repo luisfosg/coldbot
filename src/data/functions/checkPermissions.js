@@ -1,4 +1,4 @@
-import { getConfig } from '../util';
+import { getConfig, sendEmbed } from '../util';
 
 export const checkPermissions = async ( member, permissions ) => {
 	const config = await getConfig();
@@ -33,4 +33,18 @@ export const isDev = async ( id ) => {
 	} );
 
 	if ( isDev.includes( true ) ) return true;
+};
+
+export const isManageable = ( lang, msg, member, id ) => {
+	if ( id === member.id ) return true;
+	if ( !member.manageable ) {
+		sendEmbed( {
+			place: msg.channel,
+			text: 'No Tengo Permitido Acceder a Este Usuario',
+			deleteTime: 2
+		} );
+		return false;
+	}
+
+	return true;
 };

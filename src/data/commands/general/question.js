@@ -29,7 +29,7 @@ export default {
 
 		const embed = sendEmbed( {
 			title: lang.question.title,
-			text: args[0],
+			text: args.join( ' ' ),
 			fields,
 			timestamp: true,
 			returnEmbed: true

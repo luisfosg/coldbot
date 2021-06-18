@@ -24,10 +24,10 @@ const welcome = async ( member, lang ) => {
 	ctx.fillStyle = '#FFF';
 	ctx.textAlign = 'center';
 
-	ctx.fillText( lang.guildMemberAdd.title.replace(
+	ctx.fillText( lang.memberWelcome.titleCard.replace(
 		'{{ member }}', member.user.username
 	), canvasGoodBye.width / 2, 375 );
-	ctx.fillText( lang.guildMemberAdd.description.replace(
+	ctx.fillText( lang.memberWelcome.descriptionCard.replace(
 		'{{ server }}', member.guild.name
 	), canvasGoodBye.width / 2, 435 );
 
@@ -67,6 +67,11 @@ export default {
 			)
 		} );
 
+		sendWelcome( lang.memberWelcome.message.replace(
+			'{{ member }}', member
+		).replace(
+			'{{ server }}', member.guild.name
+		) );
 		welcome( member, lang );
 	},
 };
