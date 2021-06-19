@@ -11,7 +11,8 @@ const avatarGenerator = async ( msg, message ) => {
 	sendEmbed( {
 		place: msg.channel,
 		author: [msg.author.username, msg.author.displayAvatarURL()],
-		image: `https://api.multiavatar.com/${ message }.png`
+		image: `https://api.multiavatar.com/${ message }.png`,
+		footer: [message]
 	} );
 };
 

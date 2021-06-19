@@ -3,6 +3,7 @@
 	"general": {
 		"userNotFound": "User Not Found",
 		"commandNotFound": "The command entered does not exist",
+		"notManageable": "I am not allowed to access this user",
 		"id": "Id",
 		"yes": "Yes",
 		"not": "Not"
@@ -135,7 +136,10 @@
 	},
 	"ping": {
 		"usage": "```{{ p }} ping``````{{ p }} pong```",
-		"description": "Shows the Ping of the bot."
+		"description": "Shows the Ping of the bot.",
+		"title": "Pong!! 🏓",
+		"loading": "Preparing ground...",
+		"text": "🔹 Latency is `{{ pingMsg }} ms`.\n🔹 API Latency is `{{ pingApi }} ms`."
 	},
 	"status": {
 		"usage": "```{{ p }} status <status> {{ s }} <type> {{ s }} <name> {{ s }} [url]```",
@@ -156,7 +160,7 @@
 		"description": "This tool is useful to give individual supports to your server, where users can react and get a special channel for them and their questions.",
 		"titleSupport": "SUPPORT | Cold Bot",
 		"titleTicket": "TICKET | Cold Bot",
-		"descripDisabled": "`At the moment the aids are disabled.`",
+		"descripDisabled": "`At the moment the tickets are disabled.`",
 		"descripEnable": "@everyone `React with a `📩` to open a ticket.`\n\nRemember that there can only be a maximum of one open ticket per person.",
 		"descripTicket": "<@{{ id }}> your ticket has been requested. React with a '❌' to close the Ticket.\n\nAdministrators can also delete their Ticket"
 	},

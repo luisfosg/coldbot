@@ -6,7 +6,7 @@ import language from '../../functions/language';
 export default {
 	name: 'botinfo',
 	alias: ['bot'],
-	category: 'bot',
+	category: 'info',
 	usage: ( langs, p, s ) => langs.botinfo.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.botinfo.description,
 	req: {

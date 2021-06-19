@@ -67,7 +67,7 @@ const helpCommand = async ( client, msg, commandArg ) => {
 export default {
 	name: 'help',
 	alias: ['h'],
-	category: 'bot',
+	category: 'info',
 	usage: ( langs, p, s ) => langs.help.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.help.description,
 	req: {

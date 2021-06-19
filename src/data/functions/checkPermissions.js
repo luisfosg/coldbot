@@ -40,7 +40,7 @@ export const isManageable = ( lang, msg, member, id ) => {
 	if ( !member.manageable ) {
 		sendEmbed( {
 			place: msg.channel,
-			text: 'No Tengo Permitido Acceder a Este Usuario',
+			text: lang.general.notManageable,
 			deleteTime: 2
 		} );
 		return false;

@@ -58,7 +58,7 @@ const commandMessage = async ( client, msg, isDevUser ) => {
 export default {
 	name: 'commands',
 	alias: ['cmd', 'cmds', 'comandos'],
-	category: 'bot',
+	category: 'info',
 	usage: ( langs, p, s ) => langs.commands.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.commands.description,
 	req: {

@@ -3,6 +3,7 @@
 	"general": {
 		"userNotFound": "Usuario No Encontrado",
 		"commandNotFound": "El comando ingresado no existe.",
+		"notManageable": "No Tengo Permitido Acceder a Este Usuario",
 		"id": "Id: ",
 		"yes": "Si",
 		"not": "No"
@@ -139,7 +140,10 @@
 	},
 	"ping": {
 		"usage": "```{{ p }} ping``````{{ p }} pong```",
-		"description": "Muestra el Ping del bot."
+		"description": "Muestra el Ping del bot.",
+		"title": "Pong!! 🏓",
+		"loading": "Preparando terreno....",
+		"text": "🔹 Mensajes: `{{ pingMsg }} ms`.\n🔹 API: `{{ pingApi }} ms`."
 	},
 	"status": {
 		"usage": "```{{ p }} status <status> {{ s }} <type> {{ s }} <name> {{ s }} [url]```",

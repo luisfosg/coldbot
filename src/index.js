@@ -15,6 +15,7 @@ const start = async () => {
 	const login = await getLogin();
 
 	const client = new Client( {
+		ws: { intents: 32767 },
 		partials: ['MESSAGE', 'CHANNEL', 'REACTION']
 	} );
 

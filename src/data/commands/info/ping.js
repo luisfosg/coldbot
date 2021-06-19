@@ -5,7 +5,7 @@ import language from '../../functions/language';
 export default {
 	name: 'ping',
 	alias: ['pong'],
-	category: 'beta',
+	category: 'info',
 	usage: ( langs, p, s ) => langs.ping.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.ping.description,
 	req: {
@@ -21,14 +21,18 @@ export default {
 		const lang = language( { guild: msg.guild } );
 
 		const embed = sendEmbed( {
-			text: 'Preparando terreno....',
+			text: lang.ping.loading,
 			returnEmbed: true
 		} );
 
 		msg.channel.send( embed ).then( ( msgPing ) => {
 			const embedPing = sendEmbed( {
-				title: 'Pong!! 🏓',
-				text: `🔹 Latency is \`${msgPing.createdTimestamp - msg.createdTimestamp}\` ms.\n🔹 API Latency is \`${Math.round( client.ws.ping )}\` ms`,
+				title: lang.ping.title,
+				text: lang.ping.text.replace(
+					'{{ pingMsg }}', msgPing.createdTimestamp - msg.createdTimestamp
+				).replace(
+					'{{ pingApi }}', Math.round( client.ws.ping )
+				),
 				timestamp: true,
 				returnEmbed: true
 			} );

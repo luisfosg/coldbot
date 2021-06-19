@@ -6,7 +6,7 @@ import language from '../../functions/language';
 export default {
 	name: 'nickname',
 	alias: ['apodo', 'nick'],
-	category: 'beta',
+	category: 'admin',
 	usage: ( langs, p, s ) => langs.nickname.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.nickname.description,
 	req: {
