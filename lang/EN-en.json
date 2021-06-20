@@ -147,8 +147,12 @@
 		"text": "My status has been updated successfully (งツ)ว"
 	},
 	"suggestbot": {
-		"usage": "```{{ p }} suggestbot <Suggestion/Idea/Report for the bot>``````{{ p }} sb <Suggestion/Idea/Report>```",
-		"description": "Do you want to report something about the bot ?, Suggest us or give us ideas to improve the bot ?. Use this command!"
+		"usage": "```{{ p }} suggestbot <Suggestion/Idea for the bot>``````{{ p }} sb <Suggestion/Idea>```",
+		"description": "Do you have any suggestions / ideas to share with us? What are you waiting for? Use this command !!"
+	},
+	"report": {
+		"usage": "```{{ p }} report <Command> {{ s }} <Report>```",
+		"description": "A Command does not work as it should ?, Report it!"
 	},
 	"server": {
 		"usage": "```{{ p }} serverinfo```",

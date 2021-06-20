@@ -20,7 +20,9 @@ export default {
 
 		const guild = client.guilds.cache.get( config.serverDev[0] );
 		const channel = guild.channels.cache.get( config.serverDev[1] );
+
 		let text;
+
 		if ( msg.guild ) {
 			text = `**Server:**\`\`\`\nName: ${msg.guild.name}\nID: ${msg.guild.id}\`\`\`**Content:**\`\`\`${args.join( '' )}\`\`\``;
 		} else {

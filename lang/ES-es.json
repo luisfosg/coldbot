@@ -151,8 +151,12 @@
 		"text": "Mi estado se ha actualizado Correctamente (งツ)ว"
 	},
 	"suggestbot": {
-		"usage": "```{{ p }} suggestbot <Sugerencia/Idea/Reporte para el bot>``````{{ p }} sugerirbot <Sugerencia/Idea/Reporte>```",
-		"description": "Quieres reportar algo del bot?, Sugerirnos o darnos ideas para mejorar el bot?. Usa este comando!!"
+		"usage": "```{{ p }} suggestbot <Sugerencia/Idea para el bot>``````{{ p }} sugerirbot <Sugerencia/Idea>```",
+		"description": "Tienes alguna sugerencia/idea para compartirla con nosotros?, que estas esperando, Usa este comando!!"
+	},
+	"report": {
+		"usage": "```{{ p }} report <Comando> {{ s }} <Reporte>```",
+		"description": "Un Comando no funciona como deberia?, Reportalo!!"
 	},
 	"server": {
 		"usage": "```{{ p }} serverinfo```",
