@@ -150,6 +150,10 @@
 		"description": "Esto solo es del uso exclusivo del administrador del bot, y se usa para cambiar el estado del bot.",
 		"text": "Mi estado se ha actualizado Correctamente (งツ)ว"
 	},
+	"suggestbot": {
+		"usage": "```{{ p }} suggestbot <Sugerencia/Idea/Reporte para el bot>``````{{ p }} sugerirbot <Sugerencia/Idea/Reporte>```",
+		"description": "Quieres reportar algo del bot?, Sugerirnos o darnos ideas para mejorar el bot?. Usa este comando!!"
+	},
 	"server": {
 		"usage": "```{{ p }} serverinfo```",
 		"description": "Muestra la Información del servidor en el que te encuentras.",

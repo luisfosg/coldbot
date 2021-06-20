@@ -21,7 +21,7 @@ export default {
 	run: async ( _client, msg, args ) => {
 		const lang = language( { guild: msg.guild } );
 
-		figlet( args.join( '; ' ), {
+		figlet( args.join( ' ' ), {
 			width: 60,
 			whitespaceBreak: false
 		}, ( err, txt ) => {

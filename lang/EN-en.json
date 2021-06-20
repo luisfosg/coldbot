@@ -146,6 +146,10 @@
 		"description": "This is only for the bot admin use, and is used to change the bot's state.",
 		"text": "My status has been updated successfully (งツ)ว"
 	},
+	"suggestbot": {
+		"usage": "```{{ p }} suggestbot <Suggestion/Idea/Report for the bot>``````{{ p }} sb <Suggestion/Idea/Report>```",
+		"description": "Do you want to report something about the bot ?, Suggest us or give us ideas to improve the bot ?. Use this command!"
+	},
 	"server": {
 		"usage": "```{{ p }} serverinfo```",
 		"description": "It shows the information of the server where you are.",
