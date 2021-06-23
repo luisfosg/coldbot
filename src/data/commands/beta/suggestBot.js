@@ -18,8 +18,8 @@ export default {
 	run: async ( client, msg, args ) => {
 		const config = await getConfig();
 
-		const guild = client.guilds.cache.get( config.serverDev[0] );
-		const channel = guild.channels.cache.get( config.serverDev[1] );
+		const guild = client.guilds.cache.get( config.suggestionChannel[0] );
+		const channel = guild.channels.cache.get( config.suggestionChannel[1] );
 
 		let text;
 

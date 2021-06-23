@@ -8,9 +8,9 @@ export default {
 	description: ( langs ) => langs.report.description,
 	req: {
 		minArgs: 2,
-		cooldown: 60,
+		cooldown: 0,
 		dm: 'yes',
-		enable: false,
+		enable: true,
 		visible: true,
 		permissions: [],
 		necessary: []
@@ -18,7 +18,23 @@ export default {
 	run: async ( client, msg, args ) => {
 		const config = await getConfig();
 
-		const guild = client.guilds.cache.get( config.serverDev[0] );
-		const channel = guild.channels.cache.get( config.serverDev[1] );
+		const guild = client.guilds.cache.get( config.reportsChannel[0] );
+		const channel = guild.channels.cache.get( config.reportsChannel[1] );
+
+		let text;
+
+		if ( msg.guild ) {
+			text = `**Server:**\`\`\`\nName: ${msg.guild.name}\nID: ${msg.guild.id}\`\`\`**Comando:**\`\`\`${args[0]}\`\`\`**Problema:**\`\`\`${args[1]}\`\`\``;
+		} else {
+			text = `**Server:**\`\`\`\nMensaje Enviado Por DM\`\`\`**Comando:**\`\`\`${args[0]}\`\`\`**Problema:**\`\`\`${args[1]}\`\`\``;
+		}
+
+		sendEmbed( {
+			place: channel,
+			text,
+			author: [msg.author.username, msg.author.avatarURL()],
+			footer: [msg.author.id],
+			timestamp: true
+		} );
 	},
 };
