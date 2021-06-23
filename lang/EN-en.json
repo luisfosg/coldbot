@@ -148,11 +148,15 @@
 	},
 	"suggestbot": {
 		"usage": "```{{ p }} suggestbot <Suggestion/Idea for the bot>``````{{ p }} sb <Suggestion/Idea>```",
-		"description": "Do you have any suggestions / ideas to share with us? What are you waiting for? Use this command !!"
+		"description": "Do you have any suggestions / ideas to share with us? What are you waiting for? Use this command !!",
+		"inserver": "**Server:**```\nName: {{ server }}\nID: {{ serverId }}```**Content:**```{{ content }}```",
+		"inmd": "**Server:**```\nMensaje Enviado Por DM```**Content:**```{{ content }}```"
 	},
 	"report": {
 		"usage": "```{{ p }} report <Command> {{ s }} <Report>```",
-		"description": "A Command does not work as it should ?, Report it!"
+		"description": "A Command does not work as it should ?, Report it!",
+		"inserver": "**Server:**```\nName: {{ server }}\nID: {{ serverId }}```**Comando:**```{{ command }}```**Problema:**```{{ bug }}```",
+		"inmd": "**Server:**```\nMensaje Enviado Por DM```**Comando:**```{{ command }}```**Problema:**```{{ bug }}```"
 	},
 	"server": {
 		"usage": "```{{ p }} serverinfo```",

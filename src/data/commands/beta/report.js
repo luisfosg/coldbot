@@ -1,5 +1,7 @@
 import { getConfig, sendEmbed } from '../../util';
 
+import language from '../../functions/language';
+
 export default {
 	name: 'report',
 	alias: ['reportar'],
@@ -16,6 +18,7 @@ export default {
 		necessary: []
 	},
 	run: async ( client, msg, args ) => {
+		const lang = language( { guild: msg.guild } );
 		const config = await getConfig();
 
 		const guild = client.guilds.cache.get( config.reportsChannel[0] );
@@ -24,9 +27,21 @@ export default {
 		let text;
 
 		if ( msg.guild ) {
-			text = `**Server:**\`\`\`\nName: ${msg.guild.name}\nID: ${msg.guild.id}\`\`\`**Comando:**\`\`\`${args[0]}\`\`\`**Problema:**\`\`\`${args[1]}\`\`\``;
+			text = lang.report.inserver.replace(
+				'{{ server }}', msg.guild.name
+			).replace(
+				'{{ serverId }}', msg.guild.id
+			).replace(
+				'{{ command }}', args[0]
+			).replace(
+				'{{ bug }}', args[1]
+			);
 		} else {
-			text = `**Server:**\`\`\`\nMensaje Enviado Por DM\`\`\`**Comando:**\`\`\`${args[0]}\`\`\`**Problema:**\`\`\`${args[1]}\`\`\``;
+			text = lang.report.inmd.replace(
+				'{{ command }}', args[0]
+			).replace(
+				'{{ bug }}', args[1]
+			);
 		}
 
 		sendEmbed( {

@@ -1,5 +1,7 @@
 import { getConfig, sendEmbed } from '../../util';
 
+import language from '../../functions/language';
+
 export default {
 	name: 'suggestbot',
 	alias: ['sb', 'sugerirbot'],
@@ -16,6 +18,7 @@ export default {
 		necessary: []
 	},
 	run: async ( client, msg, args ) => {
+		const lang = language( { guild: msg.guild } );
 		const config = await getConfig();
 
 		const guild = client.guilds.cache.get( config.suggestionChannel[0] );
@@ -24,10 +27,19 @@ export default {
 		let text;
 
 		if ( msg.guild ) {
-			text = `**Server:**\`\`\`\nName: ${msg.guild.name}\nID: ${msg.guild.id}\`\`\`**Content:**\`\`\`${args.join( '' )}\`\`\``;
+			text = lang.suggestbot.inserver.replace(
+				'{{ server }}', msg.guild.name
+			).replace(
+				'{{ serverId }}', msg.guild.id
+			).replace(
+				'{{ content }}', args.join( '' )
+			);
 		} else {
-			text = `**Server:**\`\`\`\nMensaje Enviado Por DM\`\`\`**Content:**\`\`\`${args.join( '' )}\`\`\``;
+			text = lang.suggestbot.inmd.replace(
+				'{{ content }}', args.join( '' )
+			);
 		}
+
 		sendEmbed( {
 			place: channel,
 			text,
