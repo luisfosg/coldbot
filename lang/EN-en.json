@@ -150,13 +150,15 @@
 		"usage": "```{{ p }} suggestbot <Suggestion/Idea for the bot>``````{{ p }} sb <Suggestion/Idea>```",
 		"description": "Do you have any suggestions / ideas to share with us? What are you waiting for? Use this command !!",
 		"inserver": "**Server:**```\nName: {{ server }}\nID: {{ serverId }}```**Content:**```{{ content }}```",
-		"inmd": "**Server:**```\nMensaje Enviado Por DM```**Content:**```{{ content }}```"
+		"inmd": "**Server:**```\nMessage Sent By DM```**Content:**```{{ content }}```",
+		"message": "{{ user }}, Your suggestion has been sent, thanks to this the project improves day after day. :muscle:"
 	},
 	"report": {
 		"usage": "```{{ p }} report <Command> {{ s }} <Report>```",
 		"description": "A Command does not work as it should ?, Report it!",
-		"inserver": "**Server:**```\nName: {{ server }}\nID: {{ serverId }}```**Comando:**```{{ command }}```**Problema:**```{{ bug }}```",
-		"inmd": "**Server:**```\nMensaje Enviado Por DM```**Comando:**```{{ command }}```**Problema:**```{{ bug }}```"
+		"inserver": "**Server:**```\nName: {{ server }}\nID: {{ serverId }}```**Command:**```{{ command }}```**Bug:**```{{ bug }}```",
+		"inmd": "**Server:**```\nMessage Sent By DM```**Command:**```{{ command }}```**Bug:**```{{ bug }}```",
+		"message": "{{ user }}, Thank you for reporting the problem to us. We will solve it as quickly as possible. :100:"
 	},
 	"server": {
 		"usage": "```{{ p }} serverinfo```",

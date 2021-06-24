@@ -10,7 +10,7 @@ export default {
 	description: ( langs ) => langs.report.description,
 	req: {
 		minArgs: 2,
-		cooldown: 0,
+		cooldown: 60,
 		dm: 'yes',
 		enable: true,
 		visible: true,
@@ -47,8 +47,17 @@ export default {
 		sendEmbed( {
 			place: channel,
 			text,
-			author: [msg.author.username, msg.author.avatarURL()],
+			author: [msg.author.username, msg.author.avatarURL( { dynamic: true } )],
 			footer: [msg.author.id],
+			timestamp: true
+		} );
+
+		sendEmbed( {
+			place: msg.channel,
+			text: lang.report.message.replace(
+				'{{ user }}', msg.author
+			),
+			author: [client.user.username, client.user.avatarURL( { dynamic: true } )],
 			timestamp: true
 		} );
 	},

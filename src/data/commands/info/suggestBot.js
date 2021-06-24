@@ -5,7 +5,7 @@ import language from '../../functions/language';
 export default {
 	name: 'suggestbot',
 	alias: ['sb', 'sugerirbot'],
-	category: 'beta',
+	category: 'info',
 	usage: ( langs, p, s ) => langs.suggestbot.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.suggestbot.description,
 	req: {
@@ -45,6 +45,15 @@ export default {
 			text,
 			author: [msg.author.username, msg.author.avatarURL( { dynamic: true } )],
 			footer: [msg.author.id],
+			timestamp: true
+		} );
+
+		sendEmbed( {
+			place: msg.channel,
+			text: lang.suggestbot.message.replace(
+				'{{ user }}', msg.author
+			),
+			author: [client.user.username, client.user.avatarURL( { dynamic: true } )],
 			timestamp: true
 		} );
 	},
