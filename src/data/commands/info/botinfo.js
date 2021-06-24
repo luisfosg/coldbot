@@ -55,7 +55,7 @@ export default {
 			place: msg.channel,
 			title: lang.botinfo.title,
 			text: lang.botinfo.descriptionBot,
-			thumbnail: client.user.avatarURL(),
+			thumbnail: client.user.avatarURL( { dynamic: true } ),
 			footer: [`👾 ${ config.botV }`],
 			fields
 		} );

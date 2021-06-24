@@ -31,9 +31,9 @@ export default {
 
 		sendEmbed( {
 			place: msg.channel,
-			thumbnail: server.iconURL(),
+			thumbnail: server.iconURL( { dynamic: true } ),
 			fields,
-			author: [server.name, server.iconURL()]
+			author: [server.name, server.iconURL( { dynamic: true } )]
 		} );
 	},
 };

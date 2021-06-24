@@ -18,7 +18,7 @@ const helpMessage = async ( client, msg ) => {
 	sendEmbed( {
 		place: msg.channel,
 		text,
-		author: [client.user.username, client.user.avatarURL()],
+		author: [client.user.username, client.user.avatarURL( { dynamic: true } )],
 		fields: [[lang.help.titleLink, lang.help.links.replace( '{{ link }}', getLink( client.user.id, 1 ) )]]
 	} );
 };
@@ -59,7 +59,9 @@ const helpCommand = async ( client, msg, commandArg ) => {
 		text,
 		fields,
 		timestamp: true,
-		footer: [lang.help.category.replace( '{{ category }}', command.category ), msg.author.avatarURL()],
+		footer: [
+			lang.help.category.replace( '{{ category }}', command.category ), msg.author.avatarURL( { dynamic: true } )
+		],
 		deleteTime: 60
 	} );
 };

@@ -43,7 +43,7 @@ export default {
 		sendEmbed( {
 			place: channel,
 			text,
-			author: [msg.author.username, msg.author.avatarURL()],
+			author: [msg.author.username, msg.author.avatarURL( { dynamic: true } )],
 			footer: [msg.author.id],
 			timestamp: true
 		} );

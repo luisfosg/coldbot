@@ -47,8 +47,8 @@ const commandMessage = async ( client, msg, isDevUser ) => {
 			'{{ prefix }}', client.prefix
 		),
 		fields,
-		author: [lang.commands.title, msg.author.avatarURL()],
-		thumbnail: client.user.avatarURL(),
+		author: [lang.commands.title, msg.author.avatarURL( { dynamic: true } )],
+		thumbnail: client.user.avatarURL( { dynamic: true } ),
 		footer: [lang.commands.footer],
 		timestamp: true,
 		deleteTime: 60
