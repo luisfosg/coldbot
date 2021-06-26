@@ -63,8 +63,8 @@ const profile = async ( msg, user ) => {
 		[lang.profile.status, user.presence.status, true],
 		[lang.profile.tag, `#${ user.discriminator }`, true],
 		[lang.profile.nickname, member.nickname ? member.nickname : '--------', true],
-		[lang.profile.register, getDate( lang, user.createdAt )],
-		[lang.profile.entry, getDate( lang, member.joinedAt )],
+		[lang.profile.register, getDate( { lang, date: user.createdAt } )],
+		[lang.profile.entry, getDate( { lang, date: member.joinedAt } )],
 		[
 			`${lang.profile.roles} [${member._roles.length}]`,
 			member._roles.length > 0 ? member._roles.map( ( rol ) => `<@&${rol}>` ).join( ', ' ) : lang.profile.notRoles

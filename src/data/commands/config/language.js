@@ -10,7 +10,7 @@ export default {
 	description: ( langs ) => langs.language.description,
 	req: {
 		minArgs: 0,
-		cooldown: 20,
+		cooldown: 5,
 		dm: 'not',
 		enable: true,
 		visible: true,
@@ -19,6 +19,11 @@ export default {
 	},
 	run: async ( client, msg, args ) => {
 		const lang = languageChannel( { guild: msg.guild } );
+
+		const langs = [];
+		client.languages.forEach( ( _value, key ) => {
+			langs.push( `\`${ key }\`` );
+		} );
 
 		if ( !args[0] ) {
 			sendEmbed( {
@@ -30,7 +35,7 @@ export default {
 			sendEmbed( {
 				place: msg.channel,
 				title: lang.language.title,
-				text: client.languages.map( ( l ) => `\`${ l.languageName }\`` ),
+				text: langs,
 				deleteTime: 20
 			} );
 
@@ -39,7 +44,7 @@ export default {
 
 		args[0] = args[0].toUpperCase();
 		if ( !client.languages.has( args[0] ) ) {
-			sendEmbed( { place: msg.channel, text: lang.language.notFound } );
+			return sendEmbed( { place: msg.channel, text: lang.language.notFound } );
 		}
 
 		setLanguage( msg, args[0] );

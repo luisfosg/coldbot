@@ -24,7 +24,7 @@ export default {
 
 		const fields = [
 			[lang.server.region, server.region, true],
-			[lang.server.date, getDate( lang, server.createdTimestamp )],
+			[lang.server.date, getDate( { lang, date: server.createdTimestamp } )],
 			[lang.server.owner, `<@${server.owner.user.id}>`, true],
 			[lang.server.members, server.memberCount, true]
 		];

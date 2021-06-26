@@ -22,9 +22,10 @@ export function getLink( id, num ) {
 	return urls[num] ? urls[num] : 'NotFound';
 }
 
-export const getDate = ( lang, date ) => {
+export const getDate = ( { lang, date, short = false } ) => {
 	moment.locale( lang.languageName );
 
+	if ( short ) return moment( date ).format( 'L' );
 	return `${moment( date ).format( 'LT' )}, ${moment( date ).format( 'LL' )} - ${moment( date ).fromNow() }`;
 };
 
