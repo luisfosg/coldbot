@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { getConfig, sendEmbed } from '../../util';
 
 import language from '../../functions/language';
@@ -5,12 +6,12 @@ import language from '../../functions/language';
 export default {
 	name: 'report',
 	alias: ['reportar'],
-	category: 'beta',
+	category: 'info',
 	usage: ( langs, p, s ) => langs.report.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.report.description,
 	req: {
 		minArgs: 2,
-		cooldown: 60,
+		cooldown: 30,
 		dm: 'yes',
 		enable: true,
 		visible: true,
@@ -19,6 +20,16 @@ export default {
 	},
 	run: async ( client, msg, args ) => {
 		const lang = language( { guild: msg.guild } );
+
+		const command = client.commands.get( args[0] ) || client.commands.find( ( c ) => c.alias.includes( args[0] ) );
+		if ( !command ) {
+			return sendEmbed( {
+				place: msg.channel,
+				text: lang.general.commandNotFound,
+				deleteTime: 5
+			} );
+		}
+
 		const config = await getConfig();
 
 		const guild = client.guilds.cache.get( config.reportsChannel[0] );
