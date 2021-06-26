@@ -2,7 +2,13 @@ import { MessageAttachment } from 'discord.js';
 import { createCanvas, loadImage } from 'canvas';
 
 import { roundImage } from '../../functions/canvasFunctions';
-import { sendEmbed, sendMsg, getUserWithId } from '../../util';
+
+import {
+	sendEmbed,
+	sendMsg,
+	getUserWithId,
+	getDate
+} from '../../util';
 
 import language from '../../functions/language';
 
@@ -54,13 +60,11 @@ const profile = async ( msg, user ) => {
 	const member = msg.guild.members.cache.get( user.id );
 
 	const fields = [
-		[lang.profile.register, user.createdAt.toLocaleDateString(), true],
-		[lang.profile.nickname, member.nickname ? member.nickname : '----------', true],
-		[lang.profile.tag, `#${ user.discriminator }`, true],
-		[lang.profile.entry, member.joinedAt.toLocaleDateString(), true],
 		[lang.profile.status, user.presence.status, true],
-		[lang.profile.bot, user.bot ? lang.general.yes : lang.general.not, true],
-
+		[lang.profile.tag, `#${ user.discriminator }`, true],
+		[lang.profile.nickname, member.nickname ? member.nickname : '--------', true],
+		[lang.profile.register, getDate( lang, user.createdAt )],
+		[lang.profile.entry, getDate( lang, member.joinedAt )],
 		[
 			`${lang.profile.roles} [${member._roles.length}]`,
 			member._roles.length > 0 ? member._roles.map( ( rol ) => `<@&${rol}>` ).join( ', ' ) : lang.profile.notRoles
@@ -72,7 +76,7 @@ const profile = async ( msg, user ) => {
 		title: `🔵 ${ user.username }`,
 		fields,
 		thumbnail: user.avatarURL( { dynamic: true } ),
-		footer: [`${ lang.general.id } ${ user.id }`],
+		footer: [`${lang.general.id} ${user.id} - ${lang.profile.bot}: ${user.bot ? lang.general.yes : lang.general.not}`],
 	} );
 };
 

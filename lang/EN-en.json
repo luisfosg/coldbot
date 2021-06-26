@@ -1,5 +1,5 @@
 {
-	"languageName": "EN",
+	"languageName": "en-EN",
 	"general": {
 		"userNotFound": "User Not Found",
 		"commandNotFound": "The command entered does not exist",
@@ -189,10 +189,10 @@
 		"bot": "Bot",
 		"human": "Human",
 		"tagImg": "Tag: #{{ tag }}",
-		"register": "Creation Date",
+		"register": "On Discord since",
 		"nickname": "Nickname",
 		"tag": "Tag",
-		"entry": "Entry Date",
+		"entry": "On the server since",
 		"status": "Status",
 		"roles": "Roles",
 		"notRoles": "Has no role"

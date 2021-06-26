@@ -1,5 +1,5 @@
 {
-	"languageName": "ES",
+	"languageName": "es-ES",
 	"general": {
 		"userNotFound": "Usuario No Encontrado",
 		"commandNotFound": "El comando ingresado no existe.",
@@ -193,10 +193,10 @@
 		"bot": "Bot",
 		"human": "Humano",
 		"tagImg": "Tag: #{{ tag }}",
-		"register": "Fecha de Registro",
+		"register": "Esta en Discord Desde",
 		"nickname": "Apodo",
 		"tag": "Tag",
-		"entry": "Fecha de Ingreso",
+		"entry": "Esta en el Servidor Desde",
 		"status": "Estado",
 		"roles": "Roles",
 		"notRoles": "No tiene Ningun Rol"

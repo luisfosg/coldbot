@@ -1,4 +1,4 @@
-import { sendEmbed } from '../../util';
+import { sendEmbed, getDate } from '../../util';
 
 import language from '../../functions/language';
 
@@ -19,13 +19,13 @@ export default {
 	},
 	run: async ( _client, msg, _args ) => {
 		const lang = language( { guild: msg.guild } );
+
 		const server = msg.guild;
 
 		const fields = [
-			[lang.server.id, server.id, true],
 			[lang.server.region, server.region, true],
-			[lang.server.date, server.joinedAt.toLocaleDateString(), true],
-			[lang.server.owner, `${ server.owner.user.username }#${ server.owner.user.discriminator }`, true],
+			[lang.server.date, getDate( lang, server.createdTimestamp )],
+			[lang.server.owner, `<@${server.owner.user.id}>`, true],
 			[lang.server.members, server.memberCount, true]
 		];
 
@@ -33,7 +33,8 @@ export default {
 			place: msg.channel,
 			thumbnail: server.iconURL( { dynamic: true } ),
 			fields,
-			author: [server.name, server.iconURL( { dynamic: true } )]
+			author: [server.name, server.iconURL( { dynamic: true } )],
+			footer: [`${lang.server.id}: ${server.id}`]
 		} );
 	},
 };

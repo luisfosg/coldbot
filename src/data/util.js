@@ -1,4 +1,5 @@
 import { MessageEmbed } from 'discord.js';
+import moment from 'moment';
 
 let config;
 
@@ -20,6 +21,12 @@ export function getLink( id, num ) {
 
 	return urls[num] ? urls[num] : 'NotFound';
 }
+
+export const getDate = ( lang, date ) => {
+	moment.locale( lang.languageName );
+
+	return `${moment( date ).format( 'LT' )}, ${moment( date ).format( 'LL' )} - ${moment( date ).fromNow() }`;
+};
 
 export const parseTxtNumber = ( numString ) => {
 	let number;
