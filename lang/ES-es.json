@@ -192,14 +192,16 @@
 		"description": "Muestra la Información de tu perfil en el servidor en el que te encuentras. tambien puedes hacer que se muestre atraves de una imagen.",
 		"bot": "Bot",
 		"human": "Humano",
-		"tagImg": "Tag: #{{ tag }}",
-		"register": "Esta en Discord Desde",
 		"nickname": "Apodo",
 		"tag": "Tag",
-		"entry": "Esta en el Servidor Desde",
 		"status": "Estado",
 		"roles": "Roles",
-		"notRoles": "No tiene Ningun Rol"
+		"register": "Esta en Discord Desde",
+		"entry": "Esta en el Servidor Desde",
+		"notRoles": "No tiene Ningun Rol",
+		"tagImg": "Tag: #{{ tag }}",
+		"registerImg": "Entro a Discord: {{ date }}",
+		"entryImg": "Entro al Servidor: {{ date }}"
 	},
 	"clear": {
 		"usage": "```{{ p }} cls <Mensajes a Borrar>``````{{ p }} clear <Numero>```",

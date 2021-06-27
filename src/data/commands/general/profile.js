@@ -13,7 +13,7 @@ import {
 import language from '../../functions/language';
 
 let lang;
-const wallpaper = 'https://i.imgur.com/VSQ9W1i.jpg';
+const wallpaper = 'https://i.imgur.com/oIeALjr.jpg';
 
 const profileImage = async ( msg, user ) => {
 	const member = msg.guild.members.cache.get( user.id );
@@ -23,31 +23,37 @@ const profileImage = async ( msg, user ) => {
 	const ctx = canvasProfile.getContext( '2d' );
 
 	const image = await loadImage( wallpaper ).catch( () => {} );
-	const circle = await loadImage( 'https://i.imgur.com/KKgVrcU.png' ).catch( () => {} );
+	const circle = await loadImage( 'https://i.imgur.com/IdQsRoV.png' ).catch( () => {} );
 	ctx.drawImage( image, 0, 0, 600, 300 );
 	ctx.drawImage( photo, 370, 50 );
-	ctx.drawImage( circle, 340, 25, 250, 250 );
+	ctx.drawImage( circle, 360, 40, 220, 220 );
 
 	ctx.fillStyle = '#FFF';
 	ctx.font = '40px Itim';
 	ctx.fillText( user.username, 50, 50 );
 
-	ctx.font = '25px Itim';
-
 	ctx.fillStyle = '#95A0A090';
 	ctx.fillRect( 0, 80, 330, 220 );
 
+	ctx.font = '25px Itim';
 	ctx.fillStyle = '#000';
-	if ( user.bot ) {
-		ctx.fillText( lang.profile.bot, 5, 265 );
-	} else {
-		ctx.fillText( lang.profile.human, 5, 265 );
-	}
-	ctx.fillText( lang.profile.tagImg.replace( '{{ tag }}', user.discriminator ), 5, 105 );
-	ctx.fillText( `${lang.profile.nickname}: ${ member.nickname ? member.nickname : '----------' }`, 5, 140 );
-	ctx.fillText( `${lang.profile.status}: ${ user.presence.status }`, 5, 175 );
+	ctx.fillText( `${lang.profile.nickname}: ${ member.nickname ? member.nickname : '----------' }`, 5, 105 );
+	ctx.fillText( lang.profile.tagImg.replace( '{{ tag }}', user.discriminator ), 5, 145 );
+	ctx.fillText( `${lang.profile.status}: ${ user.presence.status }`, 5, 165 );
+	ctx.fillText( lang.profile.registerImg.replace(
+		'{{ date }}', getDate( { lang, date: user.createdAt, short: true } )
+	), 5, 205 );
+	ctx.fillText( lang.profile.entryImg.replace(
+		'{{ date }}', getDate( { lang, date: member.joinedAt, short: true } )
+	), 5, 225 );
+
 	ctx.font = '15px Itim';
 	ctx.fillText( `${lang.general.id}${ user.id }`, 5, 285 );
+	if ( user.bot ) {
+		ctx.fillText( lang.profile.bot, 250, 285 );
+	} else {
+		ctx.fillText( lang.profile.human, 250, 285 );
+	}
 
 	const att = new MessageAttachment( canvasProfile.toBuffer(), 'avatar.png' );
 	sendMsg( {

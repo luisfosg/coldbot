@@ -4,7 +4,7 @@
 		"userNotFound": "User Not Found",
 		"commandNotFound": "The command entered does not exist",
 		"notManageable": "I am not allowed to access this user",
-		"id": "Id",
+		"id": "Id: ",
 		"yes": "Yes",
 		"not": "Not"
 	},
@@ -188,14 +188,16 @@
 		"description": "Show your profile information on the server where you are. you can also make it show through an image.",
 		"bot": "Bot",
 		"human": "Human",
-		"tagImg": "Tag: #{{ tag }}",
-		"register": "On Discord since",
 		"nickname": "Nickname",
 		"tag": "Tag",
-		"entry": "On the server since",
 		"status": "Status",
 		"roles": "Roles",
-		"notRoles": "Has no role"
+		"register": "On Discord since",
+		"entry": "On the server since",
+		"notRoles": "Has no role",
+		"tagImg": "Tag: #{{ tag }}",
+		"registerImg": "Join To Discord: {{ date }}",
+		"entryImg": "Join To Server: {{ date }}"
 	},
 	"clear": {
 		"usage": "```{{ p }} cls <Number of Messages>```",
