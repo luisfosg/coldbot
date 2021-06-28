@@ -18,6 +18,8 @@ export default {
 		necessary: []
 	},
 	run: async ( _client, msg, _args ) => {
+		msg.channel.startTyping();
+
 		const lang = language( { guild: msg.guild } );
 
 		const server = msg.guild;
@@ -36,5 +38,7 @@ export default {
 			author: [server.name, server.iconURL( { dynamic: true } )],
 			footer: [`${lang.server.id}: ${server.id}`]
 		} );
+
+		msg.channel.stopTyping( true );
 	},
 };

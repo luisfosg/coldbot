@@ -102,6 +102,8 @@ export default {
 		necessary: ['ATTACH_FILES']
 	},
 	run: async ( client, msg, args ) => {
+		msg.channel.startTyping();
+
 		lang = language( { guild: msg.guild } );
 		let user;
 
@@ -123,5 +125,7 @@ export default {
 		} else {
 			await profile( msg, dataUser );
 		}
+
+		msg.channel.stopTyping( true );
 	},
 };

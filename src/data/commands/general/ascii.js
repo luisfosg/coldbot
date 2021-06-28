@@ -19,6 +19,8 @@ export default {
 		necessary: []
 	},
 	run: async ( _client, msg, args ) => {
+		msg.channel.startTyping();
+
 		const lang = language( { guild: msg.guild } );
 
 		figlet( args.join( ' ' ), {
@@ -43,6 +45,8 @@ export default {
 				place: msg.channel,
 				text: `\`\`\`${txt}\`\`\``
 			} );
+
+			msg.channel.stopTyping( true );
 		} );
 	},
 };
