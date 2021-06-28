@@ -21,7 +21,7 @@ const avatar = async ( msg, user ) => {
 		place: msg.channel,
 		author: [msg.author.username, msg.author.displayAvatarURL()],
 		title: lang.avatar.title.replace( '{{ user }}', user.username ),
-		url: user.avatarURL( { dynamic: true, size: 512 } ),
+		url: user.avatarURL( { dynamic: true, size: 512, format: 'png' } ),
 		image: user.displayAvatarURL( { dynamic: true, size: 512 } )
 	} );
 };

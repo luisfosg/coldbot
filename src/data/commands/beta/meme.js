@@ -8,9 +8,6 @@ import language from '../../functions/language';
 let lang;
 
 const loadMeme = async ( msg, image, txt, color ) => {
-	const canvasMeme = createCanvas( 700, 500 );
-	const ctx = canvasMeme.getContext( '2d' );
-
 	const photo = await loadImage( image ).catch( () => {} );
 	if ( !photo ) {
 		return sendEmbed( {
@@ -20,15 +17,28 @@ const loadMeme = async ( msg, image, txt, color ) => {
 		} );
 	}
 
+	let { width, height } = photo;
+	if ( width < 700 ) {
+		width *= 2;
+		height *= 2;
+	}
+
+	const spaceWhite = height / 4;
+	const fontWidth = spaceWhite / 3;
+	const spaceFont = ( spaceWhite / 4 ) + ( spaceWhite / 10 );
+
+	const canvasMeme = createCanvas( width, height + spaceWhite );
+	const ctx = canvasMeme.getContext( '2d' );
+
 	ctx.fillStyle = '#FFF';
-	ctx.fillRect( 0, 0, 700, 100 );
+	ctx.fillRect( 0, 0, width, spaceWhite );
 
 	ctx.fillStyle = color;
-	ctx.font = '40px Comicsans';
+	ctx.font = `${ fontWidth }px Comicsans`;
 	ctx.textAlign = 'center';
 
-	ctx.drawImage( photo, 0, 100, 700, 400 );
-	ctx.fillText( txt, canvasMeme.width / 2, 50 );
+	ctx.drawImage( photo, 0, spaceWhite, width, height );
+	ctx.fillText( txt, width / 2, spaceFont );
 
 	const att = new MessageAttachment( canvasMeme.toBuffer(), 'meme.png' );
 	sendMsg( {
