@@ -6,6 +6,7 @@ export default {
 	name: 'setprefix',
 	alias: ['prefix', 'pref'],
 	category: 'config',
+	version: '1.0.0',
 	usage: ( langs, p, s ) => langs.prefix.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.prefix.description,
 	req: {

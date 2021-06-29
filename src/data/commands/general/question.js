@@ -8,6 +8,7 @@ export default {
 	name: 'question',
 	alias: ['q'],
 	category: 'general',
+	version: '1.0.0',
 	usage: ( langs, p, s ) => langs.question.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.question.description,
 	req: {

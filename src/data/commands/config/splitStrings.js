@@ -6,6 +6,7 @@ export default {
 	name: 'setsplit',
 	alias: ['split', 'string'],
 	category: 'config',
+	version: '1.0.0',
 	usage: ( langs, p, s ) => langs.split.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.split.description,
 	req: {

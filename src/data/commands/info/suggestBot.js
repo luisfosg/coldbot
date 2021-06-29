@@ -6,6 +6,7 @@ export default {
 	name: 'suggestbot',
 	alias: ['sb', 'sugerirbot'],
 	category: 'info',
+	version: '1.0.0',
 	usage: ( langs, p, s ) => langs.suggestbot.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.suggestbot.description,
 	req: {

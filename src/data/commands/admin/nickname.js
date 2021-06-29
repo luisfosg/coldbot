@@ -7,6 +7,7 @@ export default {
 	name: 'nickname',
 	alias: ['apodo', 'nick'],
 	category: 'admin',
+	version: '1.0.0',
 	usage: ( langs, p, s ) => langs.nickname.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.nickname.description,
 	req: {

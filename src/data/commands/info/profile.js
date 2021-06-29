@@ -91,7 +91,8 @@ const profile = async ( msg, user ) => {
 export default {
 	name: 'profile',
 	alias: ['userinfo'],
-	category: 'general',
+	category: 'info',
+	version: '1.0.0',
 	usage: ( langs, p, s ) => langs.profile.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.profile.description,
 	req: {

@@ -51,6 +51,7 @@ export default {
 	name: 'meme',
 	alias: ['momo', 'mm'],
 	category: 'beta',
+	version: '1.0.0',
 	usage: ( langs, p, s ) => langs.meme.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.meme.description,
 	req: {

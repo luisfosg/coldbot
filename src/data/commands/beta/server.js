@@ -37,6 +37,7 @@ export default {
 	name: 'serverinfo',
 	alias: ['server'],
 	category: 'beta',
+	version: '0.9.0',
 	usage: ( langs, p, s ) => langs.server.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.server.description,
 	req: {

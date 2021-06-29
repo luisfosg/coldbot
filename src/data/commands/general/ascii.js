@@ -7,6 +7,7 @@ export default {
 	name: 'ascii',
 	alias: ['art'],
 	category: 'general',
+	version: '1.0.0',
 	usage: ( langs, p, s ) => langs.ascii.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.ascii.description,
 	req: {

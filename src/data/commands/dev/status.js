@@ -5,6 +5,7 @@ export default {
 	name: 'status',
 	alias: ['st'],
 	category: 'dev',
+	version: '1.0.0',
 	usage: ( langs, p, s ) => langs.status.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.status.description,
 	req: {

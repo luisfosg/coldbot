@@ -6,6 +6,7 @@ export default {
 	name: 'setlanguage',
 	alias: ['setlang', 'lang', 'language'],
 	category: 'config',
+	version: '1.0.0',
 	usage: ( langs, p, s ) => langs.language.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.language.description,
 	req: {

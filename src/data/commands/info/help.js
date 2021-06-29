@@ -55,12 +55,12 @@ const helpCommand = async ( client, msg, commandArg ) => {
 
 	sendEmbed( {
 		place: msg.channel,
-		title: lang.help.name.replace( '{{ command }}', command.name ),
+		title: `${lang.help.name.replace( '{{ command }}', command.name )} - \`${command.category}\``,
 		text,
 		fields,
 		timestamp: true,
 		footer: [
-			lang.help.category.replace( '{{ category }}', command.category ), msg.author.avatarURL( { dynamic: true } )
+			command.version, msg.author.avatarURL( { dynamic: true } )
 		],
 		deleteTime: 60
 	} );
@@ -70,6 +70,7 @@ export default {
 	name: 'help',
 	alias: ['h'],
 	category: 'info',
+	version: '1.0.0',
 	usage: ( langs, p, s ) => langs.help.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.help.description,
 	req: {

@@ -6,6 +6,7 @@ export default {
 	name: 'ping',
 	alias: ['pong'],
 	category: 'info',
+	version: '1.0.0',
 	usage: ( langs, p, s ) => langs.ping.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.ping.description,
 	req: {

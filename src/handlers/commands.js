@@ -7,7 +7,7 @@ import { readdirSync } from 'fs';
 
 let lang;
 
-const attributes = ['name', 'alias', 'category', 'usage', 'description', 'req', 'run'];
+const attributes = ['name', 'alias', 'category', 'version', 'usage', 'description', 'req', 'run'];
 const reqs = ['minArgs', 'cooldown', 'dm', 'enable', 'visible', 'permissions', 'necessary'];
 const areFunctions = ['usage', 'description', 'run'];
 

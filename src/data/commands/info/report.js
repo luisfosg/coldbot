@@ -7,6 +7,7 @@ export default {
 	name: 'report',
 	alias: ['reportar'],
 	category: 'info',
+	version: '1.0.0',
 	usage: ( langs, p, s ) => langs.report.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.report.description,
 	req: {
