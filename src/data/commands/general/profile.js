@@ -65,6 +65,8 @@ const profileImage = async ( msg, user ) => {
 const profile = async ( msg, user ) => {
 	const member = msg.guild.members.cache.get( user.id );
 
+	const userFlags = ( await user.fetchFlags() ).toArray();
+
 	const fields = [
 		[lang.profile.status, user.presence.status, true],
 		[lang.profile.tag, `#${ user.discriminator }`, true],
@@ -103,7 +105,6 @@ export default {
 	},
 	run: async ( client, msg, args ) => {
 		msg.channel.startTyping();
-
 		lang = language( { guild: msg.guild } );
 		let user;
 

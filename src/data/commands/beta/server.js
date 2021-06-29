@@ -59,6 +59,7 @@ export default {
 
 		const lang = language( { guild: msg.guild } );
 
+		roles.pop();
 		const fields = [
 			[lang.server.region, regions[server.region], true],
 			[lang.server.owner, `<@${server.owner.user.id}>`, true],
@@ -86,7 +87,7 @@ export default {
 			> **Voice Channels:** ${channels.filter( ( channel ) => channel.type === 'voice' ).size}
 			> **Boost Count:** ${server.premiumSubscriptionCount || '0'}
 			`],
-			[`Roles [${roles.length - 1}]`, roles.join( ', ' )]
+			[`Roles [${roles.length}]`, roles.join( ', ' )]
 		];
 
 		sendEmbed( {
