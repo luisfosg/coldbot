@@ -96,7 +96,7 @@
 			"complement5": "🪐 Cannot be used in dm",
 			"complement6": "🪐 Has a {{ seg }}s cooldown."
 		},
-		"text": "Hello, The prefix is `{{ prefix }}` {{ text1 }} \n:small_blue_diamond:To see the full list of commands use `{{ prefix }}cmds` \n :small_blue_diamond:For a more detailed description of using Command, use: `{{ prefix }}h <command>`\n:small_blue_diamond:For the administrator to change the language to use: `{{ prefix }}lang`",
+		"text": "Hello, The prefix is `{{ prefix }}` {{ text1 }} \n\n:small_blue_diamond:To see the full list of commands use `{{ prefix }}cmds` \n :small_blue_diamond:For a more detailed description of using Command, use: `{{ prefix }}h <command>`\n:small_blue_diamond:For the administrator to change the language to use: `{{ prefix }}lang`\n\n:small_blue_diamond:A command does not work as it should?, Use the command: `{{ prefix }}report`\n:small_blue_diamond:Feel free to use `{{ prefix }}suggestbot` to receive your suggestions!",
 		"titleLink": "Links",
 		"links": ":snowflake: [Support Server](https://discord.gg/y6jrugZUxe)\n:snowflake: [Invite me to your server]({{ link }})\n:snowflake: [Source Code](https://github.com/LuisFOsG/Cold-Bot)",
 		"notFound": "Command not found.",

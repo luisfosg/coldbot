@@ -100,7 +100,7 @@
 			"complement5": "🪐 No se puede usar en MD [dm]",
 			"complement6": "🪐 Tiene un cooldown de {{ seg }}s"
 		},
-		"text": "Hola, El prefix es `{{ prefix }}` {{ text1 }} \n:small_blue_diamond:Para ver la lista completa de comandos, use: `{{ prefix }}cmds` \n:small_blue_diamond:Para ver una descripción mas detallada del Comando, use: `{{ prefix }}h <comando>`\n:small_blue_diamond:Para cambiar el lenguaje el administrador debe usar: `{{ prefix }}lang`",
+		"text": "Hola, El prefix es `{{ prefix }}` {{ text1 }} \n\n:small_blue_diamond:Para ver la lista completa de comandos, use: `{{ prefix }}cmds` \n:small_blue_diamond:Para ver una descripción mas detallada del Comando, use: `{{ prefix }}h <comando>`\n:small_blue_diamond:Para cambiar el lenguaje el administrador debe usar: `{{ prefix }}lang`\n\n:small_blue_diamond:¿Un comando no funciona como deberia?, usa el comando: `{{ prefix }}report`\n:small_blue_diamond:No dudes en Utilizar `{{ prefix }}suggestbot` para recibir tus sugerencias!.",
 		"titleLink": "Enlaces",
 		"links": ":snowflake: [Servidor de Soporte](https://discord.gg/y6jrugZUxe)\n:snowflake: [Invitame a tu servidor]({{ link }})\n:snowflake: [Código Fuente](https://github.com/LuisFOsG/Cold-Bot)",
 		"notFound": "Comando No Encontrado.",

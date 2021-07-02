@@ -70,7 +70,7 @@ export default {
 	name: 'help',
 	alias: ['h'],
 	category: 'info',
-	version: '1.0.0',
+	version: '1.0.1',
 	usage: ( langs, p, s ) => langs.help.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
 	description: ( langs ) => langs.help.description,
 	req: {
