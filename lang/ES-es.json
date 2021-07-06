@@ -240,5 +240,9 @@
 		"usage": "```{{ p }} nick <Usuario> {{ s }} <Nuevo Apodo>``````{{ p }} apodo <Usuario> {{ s }} <Nuevo Apodo>```",
 		"description": "Cambia el apodo del Usuario mencionado.",
 		"success": "El apodo de {{ user }}, se ha actualizado correctamente a `{{ nick }}`"
+	},
+	"ball8": {
+		"usage": "```{{ p }} nick <Usuario> {{ s }} <Nuevo Apodo>``````{{ p }} apodo <Usuario> {{ s }} <Nuevo Apodo>```",
+		"description": "Cambia el apodo del Usuario mencionado."
 	}
 }

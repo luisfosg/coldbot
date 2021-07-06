@@ -7,8 +7,8 @@ export default {
 	alias: [],
 	category: 'beta',
 	version: '0.0.1',
-	usage: ( langs, p, s ) => langs.meme.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
-	description: ( langs ) => langs.meme.description,
+	usage: ( langs, p, s ) => langs.ball8.usage.replace( /{{ p }}/g, p ).replace( /{{ s }}/g, s ),
+	description: ( langs ) => langs.ball8.description,
 	req: {
 		minArgs: 1,
 		cooldown: 5,
