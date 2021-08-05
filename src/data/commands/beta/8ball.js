@@ -19,6 +19,8 @@ export default {
 		necessary: []
 	},
 	run: async ( _client, msg, args ) => {
+		const text = ``;
+
 		sendEmbed( {
 			place: msg.channel,
 			title: args[0],
