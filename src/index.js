@@ -1,36 +1,27 @@
-import { Client } from 'discord.js';
+/* eslint-disable no-console */
+import { Client, Collection } from 'discord.js';
 
 import './configServer';
+import './private/command';
 
-import { getLogin } from './data/util';
+import { password } from './private/login';
+import { intents } from './private/intents';
 
-import { importEvents } from './handlers/events';
-import { importCommands } from './handlers/commands';
-import { importLanguages } from './handlers/languages';
-import { importFonts } from './handlers/fonts';
+const client = new Client( {
+	intents
+} );
 
-import language from './data/functions/language';
+client.guildSettings = new Collection();
 
-const start = async () => {
-	const login = await getLogin();
+client.once( 'ready', () => {
+	console.log( `Logged in as ${client.user.tag}!` );
+} );
 
-	const client = new Client( {
-		ws: { intents: 32767 },
-		partials: ['MESSAGE', 'CHANNEL', 'REACTION']
-	} );
+client.on( 'interactionCreate', async ( interaction ) => {
+	if ( !interaction.isCommand() ) return;
+	if ( interaction.commandName === 'saludo' ) {
+		await interaction.reply( 'Hi' );
+	}
+} );
 
-	await importLanguages( client );
-	const lang = language( { client } );
-
-	await importEvents( client, lang );
-	await importCommands( client, lang );
-
-	await importFonts();
-
-	client.login( login.password ).catch( () => {
-		// eslint-disable-next-line no-console
-		console.log( lang.init.error );
-	} );
-};
-
-start();
+client.login( password );
