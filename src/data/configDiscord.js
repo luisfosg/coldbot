@@ -1,7 +1,7 @@
 export const prefix = 'cb!';
 export const splitStrings = [true, ';']; // true para activar, false para desactivar
 export const language = 'es';
-export const color = '#3BD7DD';
+export const color = '#303136';
 
 export const devs = [['Cold --init#6240', '364056638895685633']];
 export const suggestionChannel = ['670071956204290078', '855572804249976852']; // [0]:idServer [1]:idChannel

@@ -73,18 +73,18 @@ export const sendMsg = ( {
 	if ( reply ) {
 		if ( deleteTime ) {
 			return place.reply( text ).then( ( msg ) => {
-				msg.delete( { timeout: deleteTime * 1000 } ).catch( () => {} );
-			} ).catch( () => {} );
+				msg.delete( { timeout: deleteTime * 1000 } );
+			} );
 		}
-		return place.reply( text ).catch( () => {} );
+		return place.reply( text );
 	}
 
 	if ( deleteTime ) {
 		return place.send( text ).then( ( msg ) => {
-			msg.delete( { timeout: deleteTime * 1000 } ).catch( () => {} );
-		} ).catch( () => {} );
+			msg.delete( { timeout: deleteTime * 1000 } );
+		} );
 	}
-	place.send( text ).catch( () => {} );
+	place.send( text );
 };
 
 export const sendEmbed = ( {
@@ -115,7 +115,7 @@ export const sendEmbed = ( {
 		if ( footer.length > 1 ) {
 			embed.setFooter( footer[0], footer[1] );
 		} else {
-			embed.setFooter( footer );
+			embed.setFooter( footer.toString() );
 		}
 	}
 
@@ -135,9 +135,12 @@ export const sendEmbed = ( {
 	if ( returnEmbed ) return embed;
 
 	if ( deleteTime ) {
-		return place.send( embed ).then( ( msg ) => {
-			msg.delete( { timeout: deleteTime * 1000 } ).catch( () => {} );
-		} ).catch( () => {} );
+		return place.send( { embeds: [embed] } ).then( ( msg ) => {
+			setTimeout( () => {
+				msg.delete();
+			}, deleteTime * 1000 );
+		} );
 	}
-	place.send( embed ).catch( () => {} );
+
+	place.send( { embeds: [embed] } );
 };

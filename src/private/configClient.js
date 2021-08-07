@@ -17,3 +17,5 @@ export const intents = [
 	Intents.FLAGS.DIRECT_MESSAGE_REACTIONS,
 	Intents.FLAGS.DIRECT_MESSAGE_TYPING
 ];
+
+export const partials = ['MESSAGE', 'CHANNEL', 'REACTION'];

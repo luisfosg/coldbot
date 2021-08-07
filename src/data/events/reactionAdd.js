@@ -5,7 +5,7 @@ export default {
 	name: 'messageReactionAdd',
 	req: {
 		once: false,
-		enable: false,
+		enable: true,
 	},
 	run: async ( client, reaction, user ) => {
 		if ( user.bot ) return;
@@ -21,6 +21,7 @@ export default {
 			createTicket( client, reaction.message, reaction.message.guild.member( user ) );
 			reaction.users.remove( user );
 		}
+
 		/* Elimina los Tickets */
 		if ( reaction.message.channel.name.startsWith( 'ticket-' ) && reaction.emoji.name === '❌' ) {
 			reaction.message.channel.delete().catch( () => {} );

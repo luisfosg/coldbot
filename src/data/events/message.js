@@ -90,7 +90,7 @@ const checkCommand = async ( client, msg, CMD, args ) => {
 };
 
 const verifySendMsg = async ( msg ) => {
-	if ( !msg.guild.me.hasPermission( 'SEND_MESSAGES' ) ) {
+	if ( !msg.guild.me.permissions.has( 'SEND_MESSAGES' ) ) {
 		return sendEmbed( {
 			place: msg.author,
 			text: lang.message.notSendMsg,
@@ -98,7 +98,7 @@ const verifySendMsg = async ( msg ) => {
 		} );
 	}
 
-	if ( !msg.guild.me.hasPermission( 'EMBED_LINKS' ) ) {
+	if ( !msg.guild.me.permissions.has( 'EMBED_LINKS' ) ) {
 		sendMsg( {
 			place: msg.channel,
 			text: lang.message.notSendEmbeds,
@@ -106,6 +106,7 @@ const verifySendMsg = async ( msg ) => {
 		} );
 		return true;
 	}
+
 	return false;
 };
 
@@ -170,7 +171,7 @@ export default {
 	name: 'messageCreate',
 	req: {
 		once: false,
-		enable: false,
+		enable: true,
 	},
 	run: async ( client, msg ) => {
 		if ( msg.author.bot ) return;
