@@ -5,7 +5,7 @@ export default {
 	name: 'messageReactionAdd',
 	req: {
 		once: false,
-		enable: true,
+		enable: false,
 	},
 	run: async ( client, reaction, user ) => {
 		if ( user.bot ) return;

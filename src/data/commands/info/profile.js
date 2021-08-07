@@ -99,7 +99,7 @@ export default {
 		minArgs: 0,
 		cooldown: 10,
 		dm: 'not',
-		enable: true,
+		enable: false,
 		visible: true,
 		permissions: [],
 		necessary: ['ATTACH_FILES']

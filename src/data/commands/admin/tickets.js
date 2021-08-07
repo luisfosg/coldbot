@@ -114,7 +114,7 @@ export default {
 		minArgs: 0,
 		cooldown: 0,
 		dm: 'not',
-		enable: true,
+		enable: false,
 		visible: true,
 		permissions: ['ADMINISTRATOR'],
 		necessary: ['ADD_REACTIONS', 'MANAGE_CHANNELS', 'MANAGE_MESSAGES', 'READ_MESSAGE_HISTORY']

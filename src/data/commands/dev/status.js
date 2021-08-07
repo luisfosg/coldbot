@@ -12,7 +12,7 @@ export default {
 		minArgs: 3,
 		cooldown: 10,
 		dm: 'yes',
-		enable: true,
+		enable: false,
 		visible: false,
 		permissions: ['OWNER_PROGRAMMER-MEMBER'],
 		necessary: []

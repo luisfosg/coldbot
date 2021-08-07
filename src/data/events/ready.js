@@ -49,12 +49,12 @@ export default {
 		);
 
 		client.user.setPresence( {
-			activity: {
-				name,
-				url: 'https://www.youtube.com/watch?v=XlgqZeeoOtI',
-				type: 'STREAMING'
-			},
-			status: 'online'
+			activities: [
+				{
+					name
+				}
+			],
+			status: 'idle'
 		} );
 	},
 };

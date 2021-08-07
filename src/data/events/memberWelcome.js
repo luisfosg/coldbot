@@ -39,7 +39,7 @@ export default {
 	name: 'guildMemberAdd',
 	req: {
 		once: false,
-		enable: true,
+		enable: false,
 	},
 	run: async ( _client, member ) => {
 		const lang = language( { guild: member.guild } );

@@ -6,7 +6,7 @@ export default {
 	name: 'channelUpdate',
 	req: {
 		once: false,
-		enable: true,
+		enable: false,
 	},
 	run: async ( _client, oldChannel, newChannel ) => {
 		const lang = language( { guild: oldChannel.guild } );

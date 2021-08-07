@@ -7,7 +7,7 @@ export default {
 	name: 'emojiUpdate',
 	req: {
 		once: false,
-		enable: true,
+		enable: false,
 	},
 	run: async ( _client, oldEmoji, newEmoji ) => {
 		const lang = language( { guild: oldEmoji.guild } );

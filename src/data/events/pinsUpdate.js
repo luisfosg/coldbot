@@ -7,7 +7,7 @@ export default {
 	name: 'channelPinsUpdate',
 	req: {
 		once: false,
-		enable: true,
+		enable: false,
 	},
 	run: async ( _client, channel, _time ) => {
 		const lang = language( { guild: channel.guild } );

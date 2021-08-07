@@ -170,7 +170,7 @@ export default {
 	name: 'messageCreate',
 	req: {
 		once: false,
-		enable: true,
+		enable: false,
 	},
 	run: async ( client, msg ) => {
 		if ( msg.author.bot ) return;

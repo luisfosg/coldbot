@@ -38,7 +38,7 @@ export default {
 		minArgs: 1,
 		cooldown: 2,
 		dm: 'not',
-		enable: true,
+		enable: false,
 		visible: true,
 		permissions: ['MANAGE_MESSAGES'],
 		necessary: ['MANAGE_MESSAGES', 'READ_MESSAGE_HISTORY']

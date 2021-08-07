@@ -58,7 +58,7 @@ export default {
 		minArgs: 2,
 		cooldown: 10,
 		dm: 'yes',
-		enable: true,
+		enable: false,
 		visible: true,
 		permissions: [],
 		necessary: ['ATTACH_FILES']
