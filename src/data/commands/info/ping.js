@@ -13,7 +13,7 @@ export default {
 		minArgs: 0,
 		cooldown: 0,
 		dm: 'yes',
-		enable: false,
+		enable: true,
 		visible: true,
 		permissions: [],
 		necessary: []
@@ -26,7 +26,7 @@ export default {
 			returnEmbed: true
 		} );
 
-		msg.channel.send( embed ).then( ( msgPing ) => {
+		msg.channel.send( { embeds: [embed] } ).then( ( msgPing ) => {
 			const embedPing = sendEmbed( {
 				title: lang.ping.title,
 				text: lang.ping.text.replace(
@@ -37,7 +37,7 @@ export default {
 				timestamp: true,
 				returnEmbed: true
 			} );
-			msgPing.edit( embedPing );
+			msgPing.edit( { embeds: [embedPing] } );
 		} );
 	},
 };

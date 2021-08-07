@@ -14,14 +14,12 @@ export default {
 		minArgs: 1,
 		cooldown: 10,
 		dm: 'yes',
-		enable: false,
+		enable: true,
 		visible: true,
 		permissions: [],
 		necessary: []
 	},
 	run: async ( _client, msg, args ) => {
-		msg.channel.startTyping();
-
 		const lang = language( { guild: msg.guild } );
 
 		figlet( args.join( ' ' ), {
@@ -46,8 +44,6 @@ export default {
 				place: msg.channel,
 				text: `\`\`\`${txt}\`\`\``
 			} );
-
-			msg.channel.stopTyping( true );
 		} );
 	},
 };

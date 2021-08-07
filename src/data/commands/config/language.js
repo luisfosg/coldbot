@@ -13,7 +13,7 @@ export default {
 		minArgs: 0,
 		cooldown: 5,
 		dm: 'not',
-		enable: false,
+		enable: true,
 		visible: true,
 		permissions: ['ADMINISTRATOR'],
 		necessary: []
@@ -36,7 +36,7 @@ export default {
 			sendEmbed( {
 				place: msg.channel,
 				title: lang.language.title,
-				text: langs,
+				text: langs.toString(),
 				deleteTime: 20
 			} );
 

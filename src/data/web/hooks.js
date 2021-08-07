@@ -5,7 +5,7 @@ export const sendLog = async ( msg ) => {
 	const hook = login.connectLogs();
 
 	if ( hook === 'notWorking' ) return;
-	hook.send( msg );
+	hook.send( { embeds: [msg] } );
 };
 
 export const sendWelcome = async ( msg ) => {
@@ -13,5 +13,5 @@ export const sendWelcome = async ( msg ) => {
 	const hook = login.connectWelcome();
 
 	if ( hook === 'notWorking' ) return;
-	hook.send( msg );
+	hook.send( { embeds: [msg] } );
 };

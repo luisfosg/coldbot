@@ -1,19 +1,7 @@
-import { sendLog } from '../../web/hooks';
-
 import { sendEmbed, parseTxtNumber } from '../../util';
 import language from '../../functions/language';
 
 const sendMsgClear = ( lang, msg, number ) => {
-	sendLog( sendEmbed( {
-		text: lang.clear.message.replace(
-			'{{ user }}', msg.member.user.id
-		).replace(
-			'{{ number }}', number
-		).replace(
-			'{{ channel }}', msg.channel.id
-		),
-		returnEmbed: true
-	} ) );
 	sendEmbed( {
 		place: msg.channel,
 		text: lang.clear.success.replace( '{{ number }}', number ),
@@ -38,7 +26,7 @@ export default {
 		minArgs: 1,
 		cooldown: 2,
 		dm: 'not',
-		enable: false,
+		enable: true,
 		visible: true,
 		permissions: ['MANAGE_MESSAGES'],
 		necessary: ['MANAGE_MESSAGES', 'READ_MESSAGE_HISTORY']

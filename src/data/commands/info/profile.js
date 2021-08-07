@@ -64,7 +64,6 @@ const profileImage = async ( msg, user ) => {
 
 const profile = async ( msg, user ) => {
 	const member = msg.guild.members.cache.get( user.id );
-
 	const userFlags = ( await user.fetchFlags() ).toArray();
 
 	const fields = [
@@ -105,7 +104,6 @@ export default {
 		necessary: ['ATTACH_FILES']
 	},
 	run: async ( client, msg, args ) => {
-		msg.channel.startTyping();
 		lang = language( { guild: msg.guild } );
 		let user;
 
@@ -127,7 +125,5 @@ export default {
 		} else {
 			await profile( msg, dataUser );
 		}
-
-		msg.channel.stopTyping( true );
 	},
 };

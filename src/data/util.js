@@ -15,8 +15,8 @@ export async function getConfig() {
 
 export function getLink( id, num ) {
 	const urls = {
-		1: `https://discord.com/api/oauth2/authorize?client_id=${ id }&permissions=8&scope=bot`,
-		2: `https://discord.com/users/${id}`
+		1: `https://discord.com/api/oauth2/authorize?client_id=${ id }&permissions=8&scope=bot%20applications.commands`,
+		2: `https://discord.com/users/${ id }`
 	};
 
 	return urls[num] ? urls[num] : 'NotFound';
@@ -67,6 +67,7 @@ export async function getUserWithId( {
 export const sendMsg = ( {
 	place,
 	text,
+	att,
 	reply = false,
 	deleteTime = false
 } ) => {
@@ -84,7 +85,10 @@ export const sendMsg = ( {
 			msg.delete( { timeout: deleteTime * 1000 } );
 		} );
 	}
-	place.send( text );
+	place.send( {
+		content: text,
+		files: [att]
+	} );
 };
 
 export const sendEmbed = ( {

@@ -20,7 +20,7 @@ const descriptionTicket = async ( channel, user, msg ) => {
 		returnEmbed: true,
 	} );
 
-	channel.send( embed ).then( ( msg ) => {
+	channel.send( { embeds: [embed] } ).then( ( msg ) => {
 		msg.react( '❌' );
 	} );
 };
@@ -98,7 +98,7 @@ const deleteDescription = async ( msg ) => {
 		returnEmbed: true
 	} );
 
-	msg.channel.send( embed ).then( async ( msgEmbed ) => {
+	msg.channel.send( { embeds: [embed] } ).then( async ( msgEmbed ) => {
 		await setMsgTicket( msg, msgEmbed.id );
 	} );
 };
@@ -126,7 +126,7 @@ export default {
 
 		const embed = await description( msg );
 
-		msg.channel.send( embed ).then( async ( msgEmbed ) => {
+		msg.channel.send( { embeds: [embed] } ).then( async ( msgEmbed ) => {
 			await setMsgTicket( msg, msgEmbed.id );
 			msgEmbed.react( '📩' );
 		} );

@@ -14,7 +14,7 @@ export default {
 		minArgs: 2,
 		cooldown: 0,
 		dm: 'not',
-		enable: false,
+		enable: true,
 		visible: true,
 		permissions: ['MANAGE_NICKNAMES'],
 		necessary: ['MANAGE_NICKNAMES', 'CHANGE_NICKNAME']

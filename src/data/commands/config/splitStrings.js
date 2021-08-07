@@ -13,7 +13,7 @@ export default {
 		minArgs: 2,
 		dm: 'not',
 		cooldown: 20,
-		enable: false,
+		enable: true,
 		visible: true,
 		permissions: ['ADMINISTRATOR'],
 		necessary: []

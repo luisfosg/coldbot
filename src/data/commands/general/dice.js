@@ -48,7 +48,7 @@ export default {
 			returnEmbed: true,
 		} );
 
-		msg.channel.send( embedAnimate ).then( ( msgDice ) => {
+		msg.channel.send( { embeds: [embedAnimate] } ).then( ( msgDice ) => {
 			setTimeout( () => {
 				const embed = sendEmbed( {
 					title: lang.dice.titleDice.replace( '{{ user }}', msg.author.username ),
@@ -56,7 +56,7 @@ export default {
 					returnEmbed: true,
 				} );
 
-				msgDice.edit( embed );
+				msgDice.edit( { embeds: [embed] } );
 			}, 3000 );
 		} );
 	},

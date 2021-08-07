@@ -43,7 +43,7 @@ const loadMeme = async ( msg, image, txt, color ) => {
 	const att = new MessageAttachment( canvasMeme.toBuffer(), 'meme.png' );
 	sendMsg( {
 		place: msg.channel,
-		text: att
+		att
 	} );
 };
 
@@ -58,14 +58,12 @@ export default {
 		minArgs: 2,
 		cooldown: 10,
 		dm: 'yes',
-		enable: false,
+		enable: true,
 		visible: true,
 		permissions: [],
 		necessary: ['ATTACH_FILES']
 	},
 	run: async ( _client, msg, args ) => {
-		msg.channel.startTyping();
-
 		lang = language( { guild: msg.guild } );
 		let color = args[2];
 
@@ -75,7 +73,5 @@ export default {
 		if ( !color || ( test1 && test3 ) ) color = '#000';
 
 		await loadMeme( msg, args[0], args[1], color );
-
-		msg.channel.stopTyping( true );
 	},
 };

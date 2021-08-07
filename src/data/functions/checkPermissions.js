@@ -12,7 +12,7 @@ export const checkPermissions = async ( member, permissions ) => {
 				return false;
 			} );
 			if ( isDev.includes( true ) ) return true;
-		} else if ( member.hasPermission( permit ) ) {
+		} else if ( member.permissions.has( permit ) ) {
 			return true;
 		}
 		return false;

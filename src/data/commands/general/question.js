@@ -15,7 +15,7 @@ export default {
 		minArgs: 1,
 		cooldown: 10,
 		dm: 'yes',
-		enable: false,
+		enable: true,
 		visible: true,
 		permissions: [],
 		necessary: ['ADD_REACTIONS']
@@ -36,7 +36,7 @@ export default {
 			returnEmbed: true
 		} );
 
-		msg.channel.send( embed ).then( ( msgEmbed ) => {
+		msg.channel.send( { embeds: [embed] } ).then( ( msgEmbed ) => {
 			msgEmbed.react( '👍' );
 			msgEmbed.react( '👎' );
 		} );

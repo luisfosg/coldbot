@@ -50,8 +50,6 @@ export default {
 		necessary: []
 	},
 	run: async ( _client, msg, _args ) => {
-		msg.channel.startTyping();
-
 		const roles = msg.guild.roles.cache.sort( ( a, b ) => b.position - a.position ).map( ( role ) => role.toString() );
 		const members = msg.guild.members.cache;
 		const channels = msg.guild.channels.cache;
@@ -98,7 +96,5 @@ export default {
 			author: [server.name, server.iconURL( { dynamic: true } )],
 			footer: [`${lang.server.id}: ${server.id}`]
 		} );
-
-		msg.channel.stopTyping( true );
 	},
 };
