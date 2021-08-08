@@ -26,7 +26,7 @@ importLanguages( client ).then( () => {
 
 	importEvents( client, lang );
 	importCommands( client, lang );
-	importFonts( client );
+	importFonts( client, lang );
 } );
 
 client.login( password );

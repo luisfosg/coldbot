@@ -3,7 +3,8 @@ import { createCanvas, loadImage } from 'canvas';
 
 import { roundImage } from '../functions/canvasFunctions';
 import { sendLog, sendWelcome } from '../web/hooks';
-import { getLogin, sendEmbed } from '../util';
+import { sendEmbed } from '../util';
+import { idServer } from '../../private/login';
 
 import language from '../functions/language';
 
@@ -42,9 +43,7 @@ export default {
 	run: async ( _client, member ) => {
 		const lang = language( { guild: member.guild } );
 
-		const login = await getLogin();
-
-		if ( member.guild.id !== login.idServer ) {
+		if ( member.guild.id !== idServer ) {
 			return sendLog( sendEmbed( {
 				title: lang.memberGoodbye.title,
 				text: lang.memberGoodbye.description.replace(

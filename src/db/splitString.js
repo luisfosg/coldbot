@@ -1,13 +1,10 @@
 /* eslint-disable new-cap */
 import { db } from './configDb';
-
-import { getConfig } from '../data/util';
+import * as config from '../data/configDiscord';
 
 const dbSplitString = new db.table( 'splitString' );
 
 export const getSplit = async ( msg ) => {
-	const config = await getConfig();
-
 	if ( msg.channel.type === 'dm' ) return { status: config.splitStrings[0], value: config.splitStrings[1] };
 
 	if ( !dbSplitString.has( `${ msg.guild.id }` ) ) {
@@ -29,6 +26,5 @@ export const splDes = async ( guild ) => {
 		return '';
 	}
 
-	const config = await getConfig();
 	return config.splitStrings[1];
 };

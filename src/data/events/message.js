@@ -1,4 +1,5 @@
-import { sendEmbed, sendMsg, getConfig } from '../util';
+import { sendEmbed, sendMsg } from '../util';
+import * as config from '../configDiscord';
 import { getPrefix } from '../../db/prefix';
 import { getSplit, splDes } from '../../db/splitString';
 
@@ -12,7 +13,6 @@ let lang;
 let deleteMessage;
 
 const checkCommand = async ( client, msg, CMD, args ) => {
-	const config = await getConfig();
 	const commandFind = client.commands.get( CMD );
 
 	if ( msg.guild ) {

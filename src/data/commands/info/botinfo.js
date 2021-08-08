@@ -1,5 +1,6 @@
 /* eslint-disable newline-per-chained-call */
-import { sendEmbed, getConfig, getLink } from '../../util';
+import { sendEmbed, getLink } from '../../util';
+import * as config from '../../configDiscord';
 
 import language from '../../functions/language';
 
@@ -21,7 +22,6 @@ export default {
 	},
 	run: async ( client, msg, _args ) => {
 		const lang = language( { guild: msg.guild } );
-		const config = await getConfig();
 
 		const fields = [
 			[

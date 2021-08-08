@@ -1,17 +1,7 @@
 import { MessageEmbed } from 'discord.js';
 import moment from 'moment';
 
-let config;
-
-export async function getLogin() {
-	const login = await import( '../private/login' );
-	return login;
-}
-
-export async function getConfig() {
-	config = await import( './configDiscord' );
-	return config;
-}
+import * as config from './configDiscord';
 
 export function getLink( id, num ) {
 	const urls = {

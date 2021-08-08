@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
-import { getConfig, sendEmbed } from '../../util';
+import { sendEmbed } from '../../util';
+import * as config from '../../configDiscord';
 
 import language from '../../functions/language';
 
@@ -30,8 +31,6 @@ export default {
 				deleteTime: 5
 			} );
 		}
-
-		const config = await getConfig();
 
 		const guild = client.guilds.cache.get( config.reportsChannel[0] );
 		const channel = guild.channels.cache.get( config.reportsChannel[1] );

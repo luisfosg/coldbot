@@ -1,13 +1,10 @@
 /* eslint-disable new-cap */
 import { db } from './configDb';
-
-import { getConfig } from '../data/util';
+import * as config from '../data/configDiscord';
 
 const dbLanguage = new db.table( 'language' );
 
 export const getLanguage = async ( id ) => {
-	const config = await getConfig();
-
 	if ( !dbLanguage.has( `${ id }` ) ) {
 		dbLanguage.set( `${ id }`, config.language.toUpperCase() );
 	}

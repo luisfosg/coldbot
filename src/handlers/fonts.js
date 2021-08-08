@@ -6,9 +6,9 @@ import { join } from 'path';
 
 const publicFolder = join( __dirname, '../../public/fonts' );
 
-export const importFonts = async () => {
-	const table = new Table( 'Fuentes' );
-	table.setHeading( 'Nombre', 'Estado' );
+export const importFonts = async ( client, lang ) => {
+	const table = new Table( lang.init.fonts.title );
+	table.setHeading( lang.init.fonts.head1, lang.init.head );
 
 	for ( const fontsFile of readdirSync( publicFolder ) ) {
 		let name = fontsFile.substring( 0, fontsFile.length - 4 );
@@ -17,7 +17,7 @@ export const importFonts = async () => {
 		registerFont( `${ publicFolder }/${ fontsFile }`, {
 			family: name
 		} );
-		table.addRow( name, 'Ok' );
+		table.addRow( name, lang.init.good );
 	}
 
 	console.log( table.toString() );

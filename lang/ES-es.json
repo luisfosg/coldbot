@@ -9,6 +9,10 @@
 		"not": "No"
 	},
 	"init": {
+		"fonts": {
+			"title": "Fuentes",
+			"head1": "Nombre"
+		},
 		"events": {
 			"title": "Eventos",
 			"head1": "Evento"
