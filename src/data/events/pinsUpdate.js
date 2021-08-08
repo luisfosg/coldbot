@@ -1,6 +1,8 @@
 import { sendEmbed } from '../util';
 import language from '../functions/language';
 
+import { sendWelcome } from '../web/hooks';
+
 export default {
 	name: 'channelPinsUpdate',
 	req: {
@@ -11,14 +13,18 @@ export default {
 		const lang = language( { guild: channel.guild } );
 		const { id, name } = channel;
 
-		sendEmbed( {
-			returnEmbed: true,
-			title: lang.pinsUpdate.title,
-			text: lang.pinsUpdate.description.replace(
-				'{{ id }}', id
-			),
-			timestamp: true,
-			footer: [name, channel.guild.iconURL()]
+		sendWelcome( {
+			embeds: [
+				sendEmbed( {
+					returnEmbed: true,
+					title: lang.pinsUpdate.title,
+					text: lang.pinsUpdate.description.replace(
+						'{{ id }}', id
+					),
+					timestamp: true,
+					footer: [name, channel.guild.iconURL()]
+				} )
+			]
 		} );
 	},
 };

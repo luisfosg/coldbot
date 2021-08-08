@@ -7,21 +7,25 @@ export default {
 	name: 'emojiUpdate',
 	req: {
 		once: false,
-		enable: false,
+		enable: true,
 	},
 	run: async ( _client, oldEmoji, newEmoji ) => {
 		const lang = language( { guild: oldEmoji.guild } );
 
-		sendLog( sendEmbed( {
-			title: lang.emojiUpdate.title,
-			text: lang.emojiUpdate.description.replace(
-				'{{ oldName }}', oldEmoji.name
-			).replace(
-				'{{ newName }}', newEmoji.name
-			),
-			timestamp: true,
-			footer: [oldEmoji.guild.name, oldEmoji.guild.iconURL()],
-			returnEmbed: true
-		} ) );
+		sendLog( {
+			embeds: [
+				sendEmbed( {
+					title: lang.emojiUpdate.title,
+					text: lang.emojiUpdate.description.replace(
+						'{{ oldName }}', oldEmoji.name
+					).replace(
+						'{{ newName }}', newEmoji.name
+					),
+					timestamp: true,
+					footer: [oldEmoji.guild.name, oldEmoji.guild.iconURL()],
+					returnEmbed: true
+				} )
+			]
+		} );
 	},
 };

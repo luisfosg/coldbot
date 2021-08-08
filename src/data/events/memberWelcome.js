@@ -33,29 +33,37 @@ const welcome = async ( member, lang ) => {
 	), canvasGoodBye.width / 2, 435 );
 
 	const att = new MessageAttachment( canvasGoodBye.toBuffer(), 'goodbye.png' );
-	sendWelcome( att );
+
+	sendWelcome( {
+		files: [att]
+	} );
 };
 
 export default {
 	name: 'guildMemberAdd',
 	req: {
 		once: false,
-		enable: false,
+		enable: true,
 	},
 	run: async ( _client, member ) => {
 		const lang = language( { guild: member.guild } );
 
 		if ( member.guild.id !== idServer ) {
-			return sendLog( sendEmbed( {
-				title: lang.memberWelcome.title,
-				text: lang.memberWelcome.description.replace(
-					'{{ member }}', member
-				).replace(
-					'{{ server }}', member.guild.name
-				),
-				timestamp: true,
-				footer: [member.guild.name, member.guild.iconURL()]
-			} ) );
+			return sendLog( {
+				embeds: [
+					sendEmbed( {
+						returnEmbed: true,
+						title: lang.memberWelcome.title,
+						text: lang.memberWelcome.description.replace(
+							'{{ member }}', member
+						).replace(
+							'{{ server }}', member.guild.name
+						),
+						timestamp: true,
+						footer: [member.guild.name, member.guild.iconURL()]
+					} )
+				]
+			} );
 		}
 
 		sendEmbed( {
@@ -67,11 +75,14 @@ export default {
 			)
 		} );
 
-		sendWelcome( lang.memberWelcome.message.replace(
-			'{{ member }}', member
-		).replace(
-			'{{ server }}', member.guild.name
-		) );
+		sendWelcome( {
+			content: lang.memberWelcome.message.replace(
+				'{{ member }}', member
+			).replace(
+				'{{ server }}', member.guild.name
+			)
+		} );
+
 		welcome( member, lang );
 	},
 };

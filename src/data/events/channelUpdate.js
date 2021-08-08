@@ -6,7 +6,7 @@ export default {
 	name: 'channelUpdate',
 	req: {
 		once: false,
-		enable: false,
+		enable: true,
 	},
 	run: async ( _client, oldChannel, newChannel ) => {
 		const lang = language( { guild: oldChannel.guild } );
@@ -30,12 +30,16 @@ export default {
 			);
 		}
 
-		sendLog( sendEmbed( {
-			title: lang.channelUpdate.title,
-			text,
-			timestamp: true,
-			footer: [oldChannel.guild.name, oldChannel.guild.iconURL()],
-			returnEmbed: true
-		} ) );
+		sendLog( {
+			embeds: [
+				sendEmbed( {
+					title: lang.channelUpdate.title,
+					text,
+					timestamp: true,
+					footer: [oldChannel.guild.name, oldChannel.guild.iconURL()],
+					returnEmbed: true
+				} )
+			]
+		} );
 	},
 };

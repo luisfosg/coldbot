@@ -1,8 +1,7 @@
-import { getConfig, sendEmbed } from '../util';
+import { sendEmbed } from '../util';
+import * as config from '../configDiscord';
 
 export const checkPermissions = async ( member, permissions ) => {
-	const config = await getConfig();
-
 	const data = permissions.map( ( permit ) => {
 		if ( permit === 'OWNER_PROGRAMMER-MEMBER' ) {
 			const isDev = config.devs.map( ( dev ) => {
@@ -23,8 +22,6 @@ export const checkPermissions = async ( member, permissions ) => {
 };
 
 export const isDev = async ( id ) => {
-	const config = await getConfig();
-
 	const isDev = config.devs.map( ( dev ) => {
 		if ( dev[1] === id ) {
 			return true;

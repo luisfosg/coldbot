@@ -1,17 +1,32 @@
-import { getLogin } from '../util';
+import { WebhookClient } from 'discord.js';
+import { webhookLogs, webhookWelcome } from '../../private/login';
 
-export const sendLog = async ( msg ) => {
-	const login = await getLogin();
-	const hook = login.connectLogs();
+export const sendLog = async ( data = {
+	tts: '',
+	content: '',
+	embeds: [],
+	files: [],
+	stickers: [],
+} ) => {
+	if ( !webhookLogs ) return;
 
-	if ( hook === 'notWorking' ) return;
-	hook.send( { embeds: [msg] } );
+	const hook = new WebhookClient( {
+		url: webhookLogs,
+	} );
+	hook.send( { ...data } );
 };
 
-export const sendWelcome = async ( msg ) => {
-	const login = await getLogin();
-	const hook = login.connectWelcome();
+export const sendWelcome = async ( data = {
+	tts: '',
+	content: '',
+	embeds: [],
+	files: [],
+	stickers: [],
+} ) => {
+	if ( !webhookWelcome ) return;
 
-	if ( hook === 'notWorking' ) return;
-	hook.send( { embeds: [msg] } );
+	const hook = new WebhookClient( {
+		url: webhookWelcome
+	} );
+	hook.send( { ...data } );
 };
