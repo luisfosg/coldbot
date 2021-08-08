@@ -58,7 +58,7 @@ const profileImage = async ( msg, user ) => {
 	const att = new MessageAttachment( canvasProfile.toBuffer(), 'avatar.png' );
 	sendMsg( {
 		place: msg.channel,
-		text: att
+		att
 	} );
 };
 

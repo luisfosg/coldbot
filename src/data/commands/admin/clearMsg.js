@@ -1,7 +1,23 @@
 import { sendEmbed, parseTxtNumber } from '../../util';
+import { sendLog } from '../../web/hooks';
+
 import language from '../../functions/language';
 
 const sendMsgClear = ( lang, msg, number ) => {
+	sendLog( {
+		embeds: [
+			sendEmbed( {
+				text: lang.clear.message.replace(
+					'{{ user }}', msg.member.user.id
+				).replace(
+					'{{ number }}', number
+				).replace(
+					'{{ channel }}', msg.channel.id
+				),
+				returnEmbed: true
+			} )
+		]
+	} );
 	sendEmbed( {
 		place: msg.channel,
 		text: lang.clear.success.replace( '{{ number }}', number ),

@@ -12,7 +12,7 @@ export default {
 		minArgs: 3,
 		cooldown: 10,
 		dm: 'yes',
-		enable: false,
+		enable: true,
 		visible: false,
 		permissions: ['OWNER_PROGRAMMER-MEMBER'],
 		necessary: []
@@ -21,12 +21,14 @@ export default {
 		const lang = language( { guild: msg.guild } );
 
 		client.user.setPresence( {
-			status: args[0],
-			activity: {
-				type: args[1],
-				name: args[2],
-				url: args[3] ? args[3] : 'https://www.youtube.com/watch?v=XlgqZeeoOtI',
-			},
+			activities: [
+				{
+					type: args[1],
+					name: args[2],
+					url: args[3] ? args[3] : 'https://www.youtube.com/watch?v=XlgqZeeoOtI'
+				}
+			],
+			status: args[0]
 		} );
 
 		sendEmbed( { place: msg.channel, text: lang.status.text, deleteTime: 10 } );

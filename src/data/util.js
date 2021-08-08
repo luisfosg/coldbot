@@ -2,6 +2,7 @@ import { MessageEmbed } from 'discord.js';
 import moment from 'moment';
 
 import * as config from './configDiscord';
+import { client } from '../index';
 
 export function getLink( id, num ) {
 	const urls = {
@@ -33,7 +34,6 @@ export const parseTxtNumber = ( numString ) => {
 };
 
 export async function getUserWithId( {
-	client,
 	msg,
 	mention,
 	member = false

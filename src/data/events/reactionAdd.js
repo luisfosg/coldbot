@@ -16,13 +16,15 @@ export default {
 
 		const msgId = await getMsgTicket( reaction.message );
 
-		/* Verifica La Existencia de Tickets */
 		if ( reaction.message.id === msgId && reaction.emoji.name === '📩' ) {
-			createTicket( client, reaction.message, reaction.message.guild.member( user ) );
+			createTicket(
+				client,
+				reaction.message,
+				await reaction.message.guild.members.fetch( { user } )
+			);
 			reaction.users.remove( user );
 		}
 
-		/* Elimina los Tickets */
 		if ( reaction.message.channel.name.startsWith( 'ticket-' ) && reaction.emoji.name === '❌' ) {
 			reaction.message.channel.delete().catch( () => {} );
 		}

@@ -6,7 +6,7 @@ import { join } from 'path';
 
 const publicFolder = join( __dirname, '../../public/fonts' );
 
-export const importFonts = async ( client, lang ) => {
+export const importFonts = async ( _client, lang ) => {
 	const table = new Table( lang.init.fonts.title );
 	table.setHeading( lang.init.fonts.head1, lang.init.head );
 

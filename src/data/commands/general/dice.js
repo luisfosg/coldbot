@@ -34,7 +34,7 @@ export default {
 		minArgs: 0,
 		cooldown: 3,
 		dm: 'yes',
-		enable: false,
+		enable: true,
 		visible: true,
 		permissions: [],
 		necessary: []

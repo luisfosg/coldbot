@@ -28,7 +28,7 @@ const descriptionTicket = async ( channel, user, msg ) => {
 const createCategory = async ( msg, name ) => {
 	const channel = await msg.guild.channels.create( name, {
 		reason: 'Ticket Category',
-		type: 'category'
+		type: 'GUILD_CATEGORY'
 	} );
 
 	return channel;
@@ -36,6 +36,7 @@ const createCategory = async ( msg, name ) => {
 
 export const createTicket = async ( client, msg, member ) => {
 	let nameUser = member.nickname || member.user.username;
+
 	nameUser = nameUser.trim().toLowerCase().replace( /[^a-zA-Z1-9]/g, '' );
 	nameUser += `⚪${member.user.discriminator}`;
 
@@ -80,7 +81,6 @@ const description = async ( msg ) => {
 	return sendEmbed( {
 		title: lang.ticket.titleSupport,
 		text: lang.ticket.descripEnable,
-		timestamp: true,
 		returnEmbed: true
 	} );
 };
@@ -114,7 +114,7 @@ export default {
 		minArgs: 0,
 		cooldown: 0,
 		dm: 'not',
-		enable: false,
+		enable: true,
 		visible: true,
 		permissions: ['ADMINISTRATOR'],
 		necessary: ['ADD_REACTIONS', 'MANAGE_CHANNELS', 'MANAGE_MESSAGES', 'READ_MESSAGE_HISTORY']

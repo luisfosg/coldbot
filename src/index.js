@@ -14,7 +14,7 @@ import { importFonts } from './handlers/fonts';
 
 import language from './data/functions/language';
 
-const client = new Client( {
+export const client = new Client( {
 	intents,
 	partials
 } );
