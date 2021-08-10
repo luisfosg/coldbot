@@ -39,7 +39,7 @@ const profileImage = async ( msg, user ) => {
 	ctx.fillStyle = '#000';
 	ctx.fillText( `${lang.profile.nickname}: ${ member.nickname ? member.nickname : '----------' }`, 5, 105 );
 	ctx.fillText( lang.profile.tagImg.replace( '{{ tag }}', user.discriminator ), 5, 145 );
-	ctx.fillText( `${lang.profile.status}: ${ user.presence.status }`, 5, 165 );
+	ctx.fillText( `${lang.profile.status}: ${ member.presence.status }`, 5, 165 );
 	ctx.fillText( lang.profile.registerImg.replace(
 		'{{ date }}', getDate( { lang, date: user.createdAt, short: true } )
 	), 5, 205 );
@@ -67,7 +67,7 @@ const profile = async ( msg, user ) => {
 	const userFlags = ( await user.fetchFlags() ).toArray();
 
 	const fields = [
-		[lang.profile.status, user.presence.status, true],
+		[lang.profile.status, member.presence.status, true],
 		[lang.profile.tag, `#${ user.discriminator }`, true],
 		[lang.profile.nickname, member.nickname ? member.nickname : '--------', true],
 		[lang.profile.register, getDate( { lang, date: user.createdAt } )],
@@ -98,7 +98,7 @@ export default {
 		minArgs: 0,
 		cooldown: 10,
 		dm: 'not',
-		enable: false,
+		enable: true,
 		visible: true,
 		permissions: [],
 		necessary: ['ATTACH_FILES']

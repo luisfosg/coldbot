@@ -73,7 +73,7 @@ const checkCommand = async ( client, msg, CMD, args ) => {
 			place: msg,
 			text: lang.message.cooldown.replace( '{{ seg }}', commandFind.req.cooldown ),
 			reply: true,
-			deleteTime: 5
+			deleteTime: 10
 		} );
 	}
 

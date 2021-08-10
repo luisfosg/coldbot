@@ -68,15 +68,15 @@ export const sendMsg = ( {
 				files: att ? [att] : []
 			} ).then( ( msg ) => {
 				setTimeout( () => {
-					msg.delete();
+					msg.delete().catch( () => {} );
 				}, deleteTime * 1000 );
-			} );
+			} ).catch( () => {} );
 		}
 
 		return place.reply( {
 			content: text,
 			files: att ? [att] : []
-		} );
+		} ).catch( () => {} );
 	}
 
 	if ( deleteTime ) {
@@ -85,15 +85,15 @@ export const sendMsg = ( {
 			files: att ? [att] : []
 		} ).then( ( msg ) => {
 			setTimeout( () => {
-				msg.delete();
+				msg.delete().catch( () => {} );
 			}, deleteTime * 1000 );
-		} );
+		} ).catch( () => {} );
 	}
 
 	place.send( {
 		content: text,
 		files: att ? [att] : []
-	} );
+	} ).catch( () => {} );
 };
 
 export const sendEmbed = ( {
@@ -146,10 +146,10 @@ export const sendEmbed = ( {
 	if ( deleteTime ) {
 		return place.send( { embeds: [embed] } ).then( ( msg ) => {
 			setTimeout( () => {
-				msg.delete();
+				msg.delete().catch( () => {} );
 			}, deleteTime * 1000 );
-		} );
+		} ).catch( () => {} );
 	}
 
-	place.send( { embeds: [embed] } );
+	place.send( { embeds: [embed] } ).catch( () => {} );
 };

@@ -44,7 +44,7 @@ export default {
 		minArgs: 0,
 		cooldown: 0,
 		dm: 'not',
-		enable: false,
+		enable: true,
 		visible: true,
 		permissions: [],
 		necessary: []
@@ -60,8 +60,8 @@ export default {
 
 		roles.pop();
 		const fields = [
-			[lang.server.region, regions[server.region], true],
-			[lang.server.owner, `<@${server.owner.user.id}>`, true],
+			/* [lang.server.region, regions[server.region], true], */
+			/* [lang.server.owner, `<@${server.owner.user.id}>`, true], */
 			[lang.server.date, getDate( { lang, date: server.createdTimestamp } )],
 			['General', `
 			> **Name:** ${server.name}
@@ -69,12 +69,12 @@ export default {
 			> **Explicit Filter:** ${filterLevels[server.explicitContentFilter]}
 			> **Verification Level:** ${verificationLevels[server.verificationLevel]}
 			`, true],
-			['Presence', `
+			/* ['Presence', `
 			> **Online:** ${members.filter( ( member ) => member.presence.status === 'online' ).size}
 			> **Idle:** ${members.filter( ( member ) => member.presence.status === 'idle' ).size}
 			> **Do Not Disturb:** ${members.filter( ( member ) => member.presence.status === 'dnd' ).size}
 			> **Offline:** ${members.filter( ( member ) => member.presence.status === 'offline' ).size}
-			`, true],
+			`, true], */
 			['Statistics', `
 			> **Emoji Count:** ${emojis.size}
 			> **Regular Emoji Count:** ${emojis.filter( ( emoji ) => !emoji.animated ).size}
