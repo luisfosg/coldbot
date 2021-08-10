@@ -91,18 +91,19 @@ const checkCommand = async ( client, msg, CMD, args ) => {
 
 const verifySendMsg = async ( msg ) => {
 	if ( !msg.guild.me.permissions.has( 'SEND_MESSAGES' ) ) {
-		return sendEmbed( {
-			place: msg.author,
-			text: lang.message.notSendMsg,
+		sendEmbed( {
+			place: msg,
+			text: lang.message.notSendMsg.replace( '{{ server }}', msg.guild.name ),
 			deleteTime: 30
 		} );
+		return true;
 	}
 
 	if ( !msg.guild.me.permissions.has( 'EMBED_LINKS' ) ) {
 		sendMsg( {
 			place: msg.channel,
 			text: lang.message.notSendEmbeds,
-			deleteTime: 10
+			deleteTime: 20
 		} );
 		return true;
 	}

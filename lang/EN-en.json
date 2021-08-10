@@ -48,7 +48,7 @@
 		"invalidArgs": "Arguments missing, Usage example: {{ usage }}",
 		"cooldown": "You have to wait {{ seg }}s every time you use this command.",
 		"error": "An error occurred Contact your administrator: {{ dev }}",
-		"notSendMsg": "I cannot send messages to this server.",
+		"notSendMsg": "I cannot send messages to **{{ server }}** server.",
 		"notSendEmbeds": "I can't attach Embeds, Enable me the option to Insert Links D:"
 	},
 	"channelUpdate": {
@@ -82,7 +82,7 @@
 	"botinfo": {
 		"usage": "```{{ p }} botinfo```",
 		"description": "It shows the Cold Bot Information, number of servers, channels, developer, those things.",
-		"title": "Information - Cold Bot",
+		"title": "☁ Information - Cold Bot",
 		"descriptionBot": "Hi, I'm an ** open source ** multipurpose Bot, I hope you have fun using my features. and help me improve my shortcomings.",
 		"titleGeneral": "🔘 General",
 		"fieldGeneral": "============\n⚙ **Developer**: {{ dev }}\n📡 **Servers**: `{{ servers }}`\n👥 **Users**: `{{ users }}`\n📣 **Channels**: `{{ channels }}`",

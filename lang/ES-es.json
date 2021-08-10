@@ -48,7 +48,7 @@
 		"invalidArgs": "Faltan Argumentos, Uso del Comando | Ejemplos: {{ usage }}",
 		"cooldown": "Tienes que esperar {{ seg }}s cada que uses este comando.",
 		"error": "A Ocurrido un Error Contacta al Administrador: {{ dev }}",
-		"notSendMsg": "No puedo enviar Mensajes a este servidor.",
+		"notSendMsg": "No puedo enviar Mensajes en el servidor **{{ server }}.**",
 		"notSendEmbeds": "No puedo adjutar Embeds, Habilitame la opción de Insertar Enlaces D:"
 	},
 	"channelUpdate": {
@@ -86,7 +86,7 @@
 	"botinfo": {
 		"usage": "```{{ p }} botinfo```",
 		"description": "Da la Información de Cold Bot, numero de servidores, canales, desarrollador, esas cosas.",
-		"title": "Información - Cold Bot",
+		"title": "☁ Información - Cold Bot",
 		"descriptionBot": "Hola, Soy un Bot multiproposito de **codigo abierto**, espero que te diviertas utilizando mis funciones. y me ayudes a mejorar mis falencias.",
 		"titleGeneral": "🔘 General",
 		"fieldGeneral": "============\n⚙ **Desarrollador**: {{ dev }}\n📡 **Servidores**: `{{ servers }}`\n👥 **Usuarios**: `{{ users }}`\n📣 **Canales**: `{{ channels }}`",

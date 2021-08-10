@@ -1,7 +1,7 @@
 const cooldownMap = new Set();
 
 export const cooldown = ( user, command, seg ) => {
-	const name = `${ user.id }-${command}`;
+	const name = `${ user.id }-${ command }`;
 	if ( seg === 0 ) return true;
 	if ( cooldownMap.has( name ) ) return false;
 

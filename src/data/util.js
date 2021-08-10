@@ -63,21 +63,36 @@ export const sendMsg = ( {
 } ) => {
 	if ( reply ) {
 		if ( deleteTime ) {
-			return place.reply( text ).then( ( msg ) => {
-				msg.delete( { timeout: deleteTime * 1000 } );
+			return place.reply( {
+				content: text,
+				files: att ? [att] : []
+			} ).then( ( msg ) => {
+				setTimeout( () => {
+					msg.delete();
+				}, deleteTime * 1000 );
 			} );
 		}
-		return place.reply( text );
+
+		return place.reply( {
+			content: text,
+			files: att ? [att] : []
+		} );
 	}
 
 	if ( deleteTime ) {
-		return place.send( text ).then( ( msg ) => {
-			msg.delete( { timeout: deleteTime * 1000 } );
+		return place.send( {
+			content: text,
+			files: att ? [att] : []
+		} ).then( ( msg ) => {
+			setTimeout( () => {
+				msg.delete();
+			}, deleteTime * 1000 );
 		} );
 	}
+
 	place.send( {
 		content: text,
-		files: [att]
+		files: att ? [att] : []
 	} );
 };
 
