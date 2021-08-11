@@ -2,6 +2,12 @@
 	<img src="./public/images/banner.png" width="100%" >
 </div>
 
+> [Support Server](https://discord.gg/y6jrugZUxe)
+
+>  - Bot Version: **1.0.0**
+>  - NodeJS: **16.6.1**
+>  - Discord.js: **13.0.0**
+
 ----------
 
 <details>
@@ -121,3 +127,4 @@ DBNAME = // Database name, Optional
 ## 🔗 𝐿𝑖𝑛𝑘𝑠 𝑜𝑓 𝑖𝑛𝑡𝑒𝑟𝑒𝑠𝑡
 
 - [discord.js](https://discord.js.org/#/)
+- [NodeJS](https://nodejs.org/)
