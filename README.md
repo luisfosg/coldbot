@@ -81,7 +81,7 @@ Here You Can Find:
 - Tickets to support.
 - Logs
 - Command handler and event handler
-- and much more ...
+- and more...
 
 ## 👉 𝐼𝑛𝑠𝑡𝑎𝑙𝑙𝑎𝑡𝑖𝑜𝑛
 
@@ -121,7 +121,3 @@ DBNAME = // Database name, Optional
 ## 🔗 𝐿𝑖𝑛𝑘𝑠 𝑜𝑓 𝑖𝑛𝑡𝑒𝑟𝑒𝑠𝑡
 
 - [discord.js](https://discord.js.org/#/)
-
-## ✨ 𝐷𝑜𝑛𝑎𝑡𝑖𝑜𝑛
-
-- [ko-fi](https://ko-fi.com/luisfosg)
