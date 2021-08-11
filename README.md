@@ -1,5 +1,5 @@
 <div>
-	<img src="./public/images/banner.png" width="100%" >
+	<img src="./.assets/banner.png" width="100%" >
 </div>
 
 > [Support Server](https://discord.gg/y6jrugZUxe)
@@ -126,5 +126,5 @@ DBNAME = // Database name, Optional
 
 ## 🔗 𝐿𝑖𝑛𝑘𝑠 𝑜𝑓 𝑖𝑛𝑡𝑒𝑟𝑒𝑠𝑡
 
-- [discord.js](https://discord.js.org/#/)
-- [NodeJS](https://nodejs.org/)
+🔵 [discord.js](https://discord.js.org/#/) **|**
+🟢 [NodeJS](https://nodejs.org/)
