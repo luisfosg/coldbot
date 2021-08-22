@@ -8,6 +8,8 @@
 >  - NodeJS: **16.6.1**
 >  - Discord.js: **13.0.0**
 
+![Discord Profile](https://discord.c99.nl/widget/theme-3/829090920774500373.png)
+
 ----------
 
 <details>
