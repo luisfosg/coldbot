@@ -8,5 +8,5 @@ export const devs = [['Cold --init#6240', '364056638895685633'], ['Where are you
 export const suggestionChannel = ['670071956204290078', '855572804249976852']; // [0]:idServer [1]:idChannel
 export const reportsChannel = ['670071956204290078', '857056231334871050']; // [0]:idServer [1]:idChannel
 export const discordV = 'v13.0.0';
-export const nodeV = 'v16.6.1';
+export const nodeV = 'v16.8.0';
 export const botV = 'v1.0.0';

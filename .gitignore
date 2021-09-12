@@ -5,5 +5,4 @@ package-lock.json
 .vscode
 
 dist
-database.sqlite
 json.sqlite

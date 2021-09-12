@@ -16,6 +16,7 @@
 		"indent": ["error", "tab"],
 		"import/no-cycle": "off",
 		"import/prefer-default-export": "off",
+		"import/no-named-as-default": "off",
 		"template-curly-spacing": "off",
 		"linebreak-style": "off",
 		"consistent-return": "off",

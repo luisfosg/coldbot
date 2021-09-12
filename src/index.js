@@ -30,3 +30,5 @@ importLanguages( client ).then( () => {
 } );
 
 client.login( password );
+
+export default client;

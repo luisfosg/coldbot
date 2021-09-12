@@ -3,7 +3,7 @@
 </div>
 
 >  - Bot Version: **1.0.0**
->  - NodeJS: **16.6.1**
+>  - NodeJS: **16.8.0**
 >  - Discord.js: **13.0.0**
 
 ![Discord Profile](https://discord.c99.nl/widget/theme-3/829090920774500373.png)
