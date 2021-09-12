@@ -43,7 +43,7 @@
     "@commitlint/cli": "13.1.0",
     "@commitlint/config-conventional": "13.1.0",
     "@commitlint/cz-commitlint": "13.1.0",
-    "commitizen": "^4.2.4",
+    "commitizen": "4.2.4",
     "eslint": "7.32.0",
     "eslint-config-airbnb-base": "14.2.1",
     "eslint-plugin-import": "2.24.2",
@@ -53,6 +53,11 @@
   },
   "lint-staged": {
     "*.js": "npm run lint"
+  },
+	"commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   },
 	"config": {
     "commitizen": {
