@@ -1,17 +1,18 @@
 import { REST, Routes } from 'discord.js'
-
-const COMMANDS = [
-  {
-    name: 'ping',
-    description: 'Replies with Pong!',
-  },
-];
+import { importCommands } from './importCommands'
+import { InteractionCommand, BotCommand } from './types/command'
 
 export const refreshCommands = async (token: string, clientId: string) => {
   const rest = new REST({ version: '10' }).setToken(token)
 
+  const COMMANDS: BotCommand[] = await importCommands()
+  const interactionCommands: InteractionCommand[] = COMMANDS.map(command => ({
+    name: command.name,
+    description: command.description
+  }))
+
   try {
-    await rest.put(Routes.applicationCommands(clientId), { body: COMMANDS })
+    await rest.put(Routes.applicationCommands(clientId), { body: interactionCommands })
 
     console.log('Successfully reloaded application (/) commands.')
   } catch (error) {
