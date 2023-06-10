@@ -1,28 +1,17 @@
-import { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder } from 'discord.js';
+import { ActionRowBuilder, ButtonBuilder, ButtonStyle, CacheType, ChatInputCommandInteraction, EmbedBuilder } from 'discord.js'
 import { BotCommand } from '#types/command'
 
-const command: BotCommand = {
-  name: 'button',
-  description: 'Replies with Button',
-  options: [
-    {
-      name: 'argumento1',
-      description: 'Primer argumento',
-      type: 3,
-      required: true,
-    },
-  ],
-  execute: async (interaction) => {
-    const argumento1 = interaction.options.getString('argumento1');
+const execute = async (interaction: ChatInputCommandInteraction<CacheType>) => {
+  const argumento1 = interaction.options.getString('argumento1');
 
     const confirm = new ButtonBuilder()
-      .setCustomId('primary')
-      .setLabel('Primary')
+      .setCustomId('button/confirm')
+      .setLabel('Confirm')
       .setStyle(ButtonStyle.Primary)
       .setEmoji('🫣');
 
 		const cancel = new ButtonBuilder()
-			.setCustomId('cancel')
+			.setCustomId('button/cancel')
 			.setLabel('Cancel')
       .setEmoji('🥵')
 			.setStyle(ButtonStyle.Secondary);
@@ -48,7 +37,34 @@ const command: BotCommand = {
       .setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
 
     await interaction.reply({ embeds: [exampleEmbed], content: 'Texto!!!', components: [row] });
-  },
+}
+
+const command: BotCommand = {
+  name: 'button',
+  description: 'Replies with Button',
+  options: [
+    {
+      name: 'argumento1',
+      description: 'Primer argumento',
+      type: 3,
+      required: true,
+    },
+  ],
+  actions: [
+    {
+      name: 'cancel',
+      execute: async (interaction) => {
+        interaction.reply('Le diste a Cancelar');
+      },
+    },
+    {
+      name: 'confirm',
+      execute: async (interaction) => {
+        interaction.reply('Le diste a Confirmar');
+      },
+    }
+  ],
+  execute
 };
 
 export default command

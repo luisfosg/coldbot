@@ -10,7 +10,7 @@ export const refreshCommands = async (token: string, clientId: string) => {
   const interactionCommands: InteractionCommand[] = COMMANDS.map(command => ({
     name: command.name,
     description: command.description,
-    options: command.options
+    options: command.options || []
   }))
 
   try {
