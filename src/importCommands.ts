@@ -11,7 +11,7 @@ export const importCommands = async (): Promise<BotCommand[]> => {
   const commandFiles = fs.readdirSync(ENV.commandsFolderPath);
 
   for (const file of commandFiles) {
-    if (!file.endsWith('.ts')) continue;
+    if (!file.endsWith('.ts') && file.includes('.')) continue;
 
     const filePath = `${ENV.commandsFolderPath}/${file}`;
     const { default: commandModule } = await import(filePath);
@@ -20,5 +20,6 @@ export const importCommands = async (): Promise<BotCommand[]> => {
     COMMANDS.push(commandModule);
   }
 
+  console.log('LISTA DE COMANDOS EN USO: ', COMMANDS.map(command => command.name))
   return COMMANDS
 };
