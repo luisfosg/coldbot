@@ -16,13 +16,15 @@ const command: BotCommand = {
     const argumento1 = interaction.options.getString('argumento1');
 
     const confirm = new ButtonBuilder()
-			.setCustomId('confirm')
-			.setLabel('Confirm Ban')
-			.setStyle(ButtonStyle.Danger);
+      .setCustomId('primary')
+      .setLabel('Primary')
+      .setStyle(ButtonStyle.Primary)
+      .setEmoji('🫣');
 
 		const cancel = new ButtonBuilder()
 			.setCustomId('cancel')
 			.setLabel('Cancel')
+      .setEmoji('🥵')
 			.setStyle(ButtonStyle.Secondary);
 
 		const row: any = new ActionRowBuilder().addComponents(cancel, confirm);
