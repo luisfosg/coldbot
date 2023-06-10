@@ -1,9 +1,15 @@
 {
-    "compilerOptions": {
-      "target": "es2022",
-      "module": "commonjs",
-      "outDir": "dist",
-      "strict": true,
-      "esModuleInterop": true
+  "compilerOptions": {
+    "target": "es2022",
+    "module": "commonjs",
+    "outDir": "dist",
+    "strict": true,
+    "esModuleInterop": true,
+    "baseUrl": "./src",
+    "paths": {
+      "#commands/*": ["commands/*"],
+      "#types/*": ["types/*"],
+      "#utils/*": ["utils/*"],
     }
+  },
 }

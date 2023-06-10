@@ -1,7 +1,7 @@
 import { Collection } from 'discord.js';
 import fs from 'fs';
 
-import { BotCommand } from './types/command'
+import { BotCommand } from '#types/command'
 import { ENV } from './constants'
 
 export const commands = new Collection<string, BotCommand>();
