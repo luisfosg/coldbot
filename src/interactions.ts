@@ -2,6 +2,7 @@ import { client } from './server'
 import { commands } from './importCommands'
 
 client.on('interactionCreate', async interaction => {
+  console.log({ interaction });
   if (!interaction.isChatInputCommand()) return
   const commandName = interaction.commandName
 

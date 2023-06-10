@@ -9,7 +9,8 @@ export const refreshCommands = async (token: string, clientId: string) => {
   const COMMANDS: BotCommand[] = await importCommands()
   const interactionCommands: InteractionCommand[] = COMMANDS.map(command => ({
     name: command.name,
-    description: command.description
+    description: command.description,
+    options: command.options
   }))
 
   try {
