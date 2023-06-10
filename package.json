@@ -1,118 +1,20 @@
 {
   "name": "cold-bot",
   "version": "1.0.0",
-  "description": "Discord Bot",
-  "main": "index.js",
+  "description": "",
+  "main": "src/index.ts",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon src/index.js --exec babel-node",
-    "build": "cross-env NODE_ENV=production babel src --out-dir dist",
-    "start": "cross-env NODE_ENV=production node dist/index.js",
-    "lint": "eslint --fix",
-    "commit": "git-cz",
-    "prepare": "husky install"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "pnpm tsc && node dist/index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/LuisFOsG/Cold-Bot.git"
-  },
-  "author": "LuisFOsG",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/LuisFOsG/Cold-Bot/issues"
-  },
-  "homepage": "https://github.com/LuisFOsG/Cold-Bot#readme",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "@discordjs/rest": "0.1.0-canary.0",
-    "ascii-table": "0.0.9",
-    "canvas": "2.8.0",
-    "core-js": "3.17.3",
-    "cross-env": "7.0.3",
-    "discord-api-types": "0.23.1",
-    "discord.js": "13.1.0",
-    "dotenv": "10.0.0",
-    "figlet": "1.5.2",
-    "moment": "2.29.1",
-    "quick.db": "github:lorencerri/quick.db",
-    "regenerator-runtime": "0.13.9"
+    "@types/node": "20.2.6",
+    "discord.js": "14.11.0"
   },
   "devDependencies": {
-    "@babel/cli": "7.15.4",
-    "@babel/core": "7.15.5",
-    "@babel/node": "7.15.4",
-    "@babel/preset-env": "7.15.6",
-    "@commitlint/cli": "13.1.0",
-    "@commitlint/config-conventional": "13.1.0",
-    "@commitlint/cz-commitlint": "13.1.0",
-    "commitizen": "4.2.4",
-    "eslint": "7.32.0",
-    "eslint-config-airbnb-base": "14.2.1",
-    "eslint-plugin-import": "2.24.2",
-    "husky": "7.0.2",
-    "lint-staged": "11.1.2",
-    "nodemon": "2.0.12"
-  },
-  "lint-staged": {
-    "*.js": "npm run lint"
-  },
-	"commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
-	"config": {
-    "commitizen": {
-      "path": "@commitlint/cz-commitlint"
-    }
-  },
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "useBuiltIns": "usage",
-          "corejs": "3"
-        }
-      ]
-    ]
-  },
-  "eslintConfig":{
-    "env": {
-      "browser": false,
-      "es2021": true,
-      "node": true
-    },
-    "extends": [
-      "airbnb-base"
-    ],
-    "parserOptions": {
-      "ecmaVersion": 12,
-      "sourceType": "module"
-    },
-    "rules": {
-      "space-in-parens": ["error", "always"],
-      "indent": ["error", "tab"],
-      "import/no-cycle": "off",
-      "import/prefer-default-export": "off",
-      "import/no-named-as-default": "off",
-      "template-curly-spacing": "off",
-      "linebreak-style": "off",
-      "consistent-return": "off",
-      "comma-dangle": "off",
-      "no-param-reassign": "off",
-      "no-underscore-dangle": "off",
-      "no-plusplus": "off",
-      "no-unused-vars":"off",
-      "no-restricted-syntax":"off",
-      "no-await-in-loop":"off",
-      "no-shadow": "off",
-      "no-tabs": 0,
-      "no-console": "warn"
-    }
-  },
-  "eslintIgnore": [
-    "node_modules",
-    "dist",
-    "public",
-    "LICENSE"
-  ]
+    "typescript": "5.1.3"
+  }
 }

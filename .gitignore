@@ -1,8 +1,4 @@
 node_modules
-package-lock.json
 
-.env
-.vscode
-
+pnpm-lock.yaml
 dist
-json.sqlite
