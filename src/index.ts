@@ -1,5 +1,11 @@
-import dotenv from 'dotenv';
-dotenv.config();
+import dotenv from 'dotenv'
+dotenv.config()
 
-import './interaction'
-import './server';
+import { ENV } from './constants'
+
+import { client } from './server'
+import { refreshCommands } from './refreshCommands'
+import './interactions'
+
+refreshCommands(ENV.token, ENV.clientId)
+client.login(ENV.token)
