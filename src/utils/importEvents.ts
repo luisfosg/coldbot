@@ -1,27 +1,33 @@
 import { Collection } from 'discord.js';
 import fs from 'fs';
 
-import { BotCommand } from '@/types/command'
+import { client } from '#/server'
+import { BotEvent } from '@/types/event'
 import { ENV } from '#/constants'
 
-export const commands = new Collection<string, BotCommand>();
+export const events = new Collection<string, BotEvent>();
 
-export const importCommands = async (): Promise<BotCommand[]> => {
-  const COMMANDS = [];
+export const importEvents = async (): Promise<any> => {
+  const EVENTS = [];
   const env = ENV()
 
-  const commandFiles = fs.readdirSync(env.commandsFolderPath);
+  const eventFiles = fs.readdirSync(env.eventsFolderPath);
 
-  for (const file of commandFiles) {
-    if (!file.endsWith('.ts') && file.includes('.')) continue;
+  for (const file of eventFiles) {
+    if ((!file.endsWith('.ts') && !file.endsWith('.js')) && file.includes('.')) continue;
 
-    const filePath = `${env.commandsFolderPath}/${file}`;
-    const { default: commandModule } = await import(filePath);
+    const filePath = `${env.eventsFolderPath}/${file}`;
+    const eventModule = await import(filePath);
+    const event: BotEvent = eventModule.default
 
-    commands.set(commandModule.name, commandModule);
-    COMMANDS.push(commandModule);
+    events.set(event.name, event);
+    EVENTS.push(event);
+
+    client[event.once ? 'once' : 'on'](
+      event.name,
+      (...args: any) => event.execute(...args)
+    );
   }
 
-  console.log('LISTA DE COMANDOS EN USO: ', COMMANDS.map(command => command.name))
-  return COMMANDS
+  console.log('LISTA DE EVENTOS EN USO: ', EVENTS.map(event => event.name))
 };

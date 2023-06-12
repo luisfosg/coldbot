@@ -1,6 +1,7 @@
-import { client } from '#/server'
+import { ButtonInteraction, CacheType, ChatInputCommandInteraction, Events } from 'discord.js'
+
 import { commands } from '@/utils/importCommands'
-import { ButtonInteraction, CacheType, ChatInputCommandInteraction } from 'discord.js'
+import { BotEvent } from '@/types/event'
 
 const interactionButton = async (interaction: ButtonInteraction<CacheType>) => {
   const [commandName, customId] = interaction.customId.split('/');
@@ -35,7 +36,13 @@ const interactionChat = async (interaction: ChatInputCommandInteraction<CacheTyp
   }
 }
 
-client.on('interactionCreate', async interaction => {
-  if (interaction.isButton()) return interactionButton(interaction);
-  if (interaction.isChatInputCommand()) return interactionChat(interaction)
-})
+const event: BotEvent = {
+  name: Events.InteractionCreate,
+  description: 'Se ejecuta cuando curra una interacción',
+  execute: async (interaction) => {
+    if (interaction.isButton()) return interactionButton(interaction);
+    if (interaction.isChatInputCommand()) return interactionChat(interaction)
+  },
+};
+
+export default event

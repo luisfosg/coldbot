@@ -1,6 +1,6 @@
 const esbuild = require('esbuild');
 const { nodeExternalsPlugin } = require('esbuild-node-externals');
-const { execSync } = require('child_process');
+
 const dotenv = require('dotenv');
 const path = require('path');
 const fs = require('fs');
@@ -10,18 +10,22 @@ dotenv.config();
 const commandsFolderPath = path.resolve(__dirname, './src/commands');
 const commandFiles = fs.readdirSync(commandsFolderPath);
 
-const getFilePath = (file) => {
-  if (!file.endsWith('.ts') && file.includes('.')) return;
-  if (!file.endsWith('.ts')) return getFilePath(file + '/index.ts')
+const eventsFolderPath = path.resolve(__dirname, './src/events');
+const eventFiles = fs.readdirSync(eventsFolderPath);
 
-  return path.join('src/commands/', file)
+const getFilePath = (pathJoin, file) => {
+  if (!file.endsWith('.ts') && file.includes('.')) return;
+  if (!file.endsWith('.ts')) return getFilePath(pathJoin, file + '/index.ts')
+
+  return path.join(pathJoin, file)
 }
 
 esbuild
   .build({
     entryPoints: [
       'src/index.ts',
-      ...commandFiles.map((file) => getFilePath(file))
+      ...commandFiles.map((file) => getFilePath('src/commands/', file)),
+      ...eventFiles.map((file) => getFilePath('src/events/', file))
     ],
     bundle: true,
     platform: 'node',
