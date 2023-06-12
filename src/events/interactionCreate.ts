@@ -1,5 +1,5 @@
-import { client } from './server'
-import { commands } from './importCommands'
+import { client } from '#/server'
+import { commands } from '@/utils/importCommands'
 import { ButtonInteraction, CacheType, ChatInputCommandInteraction } from 'discord.js'
 
 const interactionButton = async (interaction: ButtonInteraction<CacheType>) => {

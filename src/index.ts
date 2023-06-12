@@ -1,11 +1,15 @@
-import dotenv from 'dotenv'
-dotenv.config()
+import dotenv from 'dotenv';
+import { ENV } from '#/constants'
+dotenv.config();
 
-import { ENV } from './constants'
+import { client } from '#/server'
+import { refreshCommands } from '#/refreshCommands'
 
-import { client } from './server'
-import { refreshCommands } from './refreshCommands'
-import './interactions'
+const initDiscordBot = async () => {
+  const env = ENV()
 
-refreshCommands(ENV.token, ENV.clientId)
-client.login(ENV.token)
+  refreshCommands(env.token, env.clientId)
+  client.login(env.token)
+}
+
+initDiscordBot()

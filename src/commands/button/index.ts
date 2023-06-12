@@ -1,4 +1,4 @@
-import { BotCommand } from '#types/command'
+import { BotCommand } from '@/types/command'
 
 import { ButtonCommand } from './execute'
 import { CancelAction } from './actions/cancel'

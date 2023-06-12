@@ -1,7 +1,7 @@
 import { REST, Routes } from 'discord.js'
 
-import { importCommands } from './importCommands'
-import { InteractionCommand, BotCommand } from '#types/command'
+import { importCommands } from '@/utils/importCommands'
+import { InteractionCommand, BotCommand } from '@/types/command'
 
 export const refreshCommands = async (token: string, clientId: string) => {
   const rest = new REST({ version: '10' }).setToken(token)

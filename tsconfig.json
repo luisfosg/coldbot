@@ -5,11 +5,13 @@
     "outDir": "dist",
     "strict": true,
     "esModuleInterop": true,
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "#commands/*": ["commands/*"],
-      "#types/*": ["types/*"],
-      "#utils/*": ["utils/*"],
+      "@/utils/*": ["src/utils/*"],
+      "@/commands/*": ["src/commands/*"],
+      "@/events/*": ["src/events/*"],
+      "@/types/*": ["src/types/*"],
+      "#/*": ["src/*"]
     }
   },
 }

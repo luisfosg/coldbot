@@ -1,4 +1,4 @@
-import { BotCommand } from '#types/command'
+import { BotCommand } from '@/types/command'
 
 const command: BotCommand = {
   name: 'ping',
