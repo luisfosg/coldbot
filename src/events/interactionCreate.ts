@@ -1,9 +1,8 @@
 import { ButtonInteraction, CacheType, ChatInputCommandInteraction, Events } from 'discord.js'
-
-import { commands } from '@/utils/importCommands'
 import { BotEvent } from '@/types/event'
 
 const interactionButton = async (interaction: ButtonInteraction<CacheType>) => {
+  const { commands } = await import('../constants')
   const [commandName, customId] = interaction.customId.split('/');
 
   if (!commands.has(commandName)) return;
@@ -22,6 +21,7 @@ const interactionButton = async (interaction: ButtonInteraction<CacheType>) => {
 }
 
 const interactionChat = async (interaction: ChatInputCommandInteraction<CacheType>) => {
+  const { commands } = await import('../constants')
   const commandName = interaction.commandName
 
   if (!commands.has(commandName)) return;

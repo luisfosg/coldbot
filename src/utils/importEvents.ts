@@ -11,7 +11,7 @@ export const importEvents = async (): Promise<any> => {
   const EVENTS = [];
   const env = ENV()
 
-  const eventFiles = fs.readdirSync(env.eventsFolderPath);
+  const eventFiles = await fs.promises.readdir(env.eventsFolderPath);
 
   for (const file of eventFiles) {
     if ((!file.endsWith('.ts') && !file.endsWith('.js')) && file.includes('.')) continue;

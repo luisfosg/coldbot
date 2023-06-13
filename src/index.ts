@@ -9,10 +9,13 @@ import { importEvents } from '@/utils/importEvents'
 const initDiscordBot = async () => {
   const env = ENV()
 
-  refreshCommands(env.token, env.clientId)
+  await refreshCommands(env.token, env.clientId)
   await importEvents()
 
   client.login(env.token)
 }
 
-initDiscordBot()
+initDiscordBot().catch((error) => {
+  console.error('Ocurrió un error:', error);
+  process.exit(1);
+});

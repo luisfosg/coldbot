@@ -1,44 +1,49 @@
-const esbuild = require('esbuild');
-const { nodeExternalsPlugin } = require('esbuild-node-externals');
+import { build } from 'esbuild';
+import { nodeExternalsPlugin } from 'esbuild-node-externals';
+import { config } from 'dotenv';
+import { resolve, dirname } from 'path';
+import { URL, fileURLToPath } from 'url';
+import { readdirSync } from 'fs';
 
-const dotenv = require('dotenv');
-const path = require('path');
-const fs = require('fs');
+config();
 
-dotenv.config();
+const moduleURL = new URL(import.meta.url);
+const __dirname = dirname(fileURLToPath(moduleURL));
 
-const commandsFolderPath = path.resolve(__dirname, './src/commands');
-const commandFiles = fs.readdirSync(commandsFolderPath);
+const commandsFolderPath = resolve(__dirname, './src/commands');
+const commandFiles = readdirSync(commandsFolderPath);
 
-const eventsFolderPath = path.resolve(__dirname, './src/events');
-const eventFiles = fs.readdirSync(eventsFolderPath);
+const eventsFolderPath = resolve(__dirname, './src/events');
+const eventFiles = readdirSync(eventsFolderPath);
 
-const getFilePath = (pathJoin, file) => {
+const getFilePath = (file) => {
   if (!file.endsWith('.ts') && file.includes('.')) return;
-  if (!file.endsWith('.ts')) return getFilePath(pathJoin, file + '/index.ts')
+  if (!file.endsWith('.ts')) return file + '/index.ts'
 
-  return path.join(pathJoin, file)
+  return file
 }
 
-esbuild
-  .build({
-    entryPoints: [
-      'src/index.ts',
-      ...commandFiles.map((file) => getFilePath('src/commands/', file)),
-      ...eventFiles.map((file) => getFilePath('src/events/', file))
-    ],
-    bundle: true,
-    platform: 'node',
-    target: ['node12'], // Versión de Node.js objetivo
-    outdir: 'dist', // Ruta del archivo de salida
-    plugins: [nodeExternalsPlugin()],
-    alias: {
-      '#': './src',
-      '@/utils': './src/utils',
-      '@/commands': './src/commands',
-      '@/types': './src/types',
-    },
-  })
+build({
+  entryPoints: [
+    'src/index.ts',
+    ...commandFiles.map((file) =>  getFilePath(`src/commands/${file}`)),
+    ...eventFiles.map((file) => getFilePath(`src/events/${file}`))
+  ],
+  splitting: true,
+  bundle: true,
+  platform: 'node',
+  target: "es2022",
+  format: 'esm',
+  minify: false,
+  outdir: 'dist',
+  plugins: [nodeExternalsPlugin()],
+  alias: {
+    '#': './src',
+    '@/utils': './src/utils',
+    '@/commands': './src/commands',
+    '@/types': './src/types',
+  },
+})
   .catch((err) => {
     console.error(err);
     process.exit(1);
