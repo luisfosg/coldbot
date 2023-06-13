@@ -38,7 +38,7 @@ const interactionChat = async (interaction: ChatInputCommandInteraction<CacheTyp
 
 const event: BotEvent = {
   name: Events.InteractionCreate,
-  description: 'Se ejecuta cuando curra una interacción',
+  description: 'Se ejecuta cuando ocurra una interacción',
   execute: async (interaction) => {
     if (interaction.isButton()) return interactionButton(interaction);
     if (interaction.isChatInputCommand()) return interactionChat(interaction)
