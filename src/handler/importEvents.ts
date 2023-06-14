@@ -1,10 +1,9 @@
-import { Collection } from 'discord.js'
 import Table from 'cli-table3'
 import fs from 'fs'
 
 import { client } from '#/server'
 import { BotEvent } from '@/types/event'
-import { ENV, util } from '#/constants'
+import { ENV, events, util } from '#/constants'
 
 const table = new Table({
   chars: util.charsTable,
@@ -12,8 +11,6 @@ const table = new Table({
   head: ['LIST OF EVENTS'],
   colWidths: [20]
 })
-
-export const events = new Collection<string, BotEvent>()
 
 export const importEvents = async (): Promise<void> => {
   const env = ENV()

@@ -2,8 +2,9 @@ import dotenv from 'dotenv'
 import { ENV } from '#/constants'
 
 import { client } from '#/server'
-import { refreshCommands } from '#/refreshCommands'
-import { importEvents } from '@/utils/importEvents'
+import { refreshCommands } from '#/handler/refreshCommands'
+import { importEvents } from '#/handler/importEvents'
+
 dotenv.config()
 
 const initDiscordBot = async () => {

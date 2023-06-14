@@ -1,6 +1,6 @@
 import { REST, Routes } from 'discord.js'
 
-import { importCommands } from '@/utils/importCommands'
+import { importCommands } from '#/handler/importCommands'
 import { InteractionCommand, BotCommand } from '@/types/command'
 
 export const refreshCommands = async (token: string, clientId: string) => {

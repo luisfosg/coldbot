@@ -3,6 +3,9 @@ import { dirname, resolve } from 'path'
 import { URL, fileURLToPath } from 'url'
 
 import { BotCommand } from '@/types/command'
+import { BotEvent } from '@/types/event'
+
+import utils from '@/utils/index'
 
 const moduleURL = new URL(import.meta.url)
 const __dirname = dirname(fileURLToPath(moduleURL))
@@ -17,23 +20,8 @@ export const ENV = () => (
 )
 
 export const commands = new Collection<string, BotCommand>()
+export const events = new Collection<string, BotEvent>()
 
 export const util = {
-  charsTable: {
-    top: '═',
-    'top-mid': '╤',
-    'top-left': '╔',
-    'top-right': '╗',
-    bottom: '═',
-    'bottom-mid': '╧',
-    'bottom-left': '╚',
-    'bottom-right': '╝',
-    left: '║',
-    'left-mid': '',
-    mid: '',
-    'mid-mid': '',
-    right: '║',
-    'right-mid': '',
-    middle: '│'
-  }
+  ...utils
 }
