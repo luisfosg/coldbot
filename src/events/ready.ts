@@ -1,4 +1,5 @@
 import { Events } from 'discord.js'
+import chalk from 'chalk'
 
 import { BotEvent } from '@/types/event'
 
@@ -9,7 +10,7 @@ const event: BotEvent = {
   execute: async (client) => {
     if(!client.user) return
 
-    console.log(`Logged in as ${client.user.tag}!`)
+    console.log(`Logged in as ${chalk.bgCyan(client.user.tag)}!`)
   },
 };
 

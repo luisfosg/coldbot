@@ -13,7 +13,9 @@
   "author": "",
   "license": "ISC",
   "nodemonConfig": {
-    "watch": ["src"],
+    "watch": [
+      "src"
+    ],
     "ext": "ts",
     "exec": "pnpm run start"
   },
@@ -23,6 +25,8 @@
     "dotenv": "16.1.4"
   },
   "devDependencies": {
+    "chalk": "5.2.0",
+    "cli-table3": "0.6.3",
     "esbuild": "0.18.1",
     "esbuild-node-externals": "1.7.0",
     "nodemon": "2.0.22",

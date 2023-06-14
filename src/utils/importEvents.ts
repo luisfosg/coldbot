@@ -1,14 +1,21 @@
 import { Collection } from 'discord.js';
+import Table from 'cli-table3'
 import fs from 'fs';
 
 import { client } from '#/server'
 import { BotEvent } from '@/types/event'
-import { ENV } from '#/constants'
+import { ENV, util } from '#/constants'
+
+var table = new Table({
+  chars: util.charsTable,
+  style: { 'padding-left': 1, 'padding-right': 1 },
+  head: ['LIST OF EVENTS'],
+  colWidths: [20]
+});
 
 export const events = new Collection<string, BotEvent>();
 
 export const importEvents = async (): Promise<any> => {
-  const EVENTS = [];
   const env = ENV()
 
   const eventFiles = await fs.promises.readdir(env.eventsFolderPath);
@@ -21,7 +28,7 @@ export const importEvents = async (): Promise<any> => {
     const event: BotEvent = eventModule.default
 
     events.set(event.name, event);
-    EVENTS.push(event);
+    table.push([event.name]);
 
     client[event.once ? 'once' : 'on'](
       event.name,
@@ -29,5 +36,5 @@ export const importEvents = async (): Promise<any> => {
     );
   }
 
-  console.log('LISTA DE EVENTOS EN USO: ', EVENTS.map(event => event.name))
+  console.log(table.toString())
 };

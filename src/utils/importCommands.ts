@@ -1,7 +1,15 @@
-import fs from 'fs';
+import Table from 'cli-table3'
+import fs from 'fs'
 
 import { BotCommand } from '@/types/command'
-import { ENV, commands } from '../constants'
+import { ENV, commands, util } from '../constants'
+
+var table = new Table({
+  chars: util.charsTable,
+  style: { 'padding-left': 1, 'padding-right': 1 },
+  head: ['LIST OF COMMANDS'],
+  colWidths: [20]
+});
 
 const getFilePath = (file: string) => {
   if (!file.endsWith('.js') && !file.endsWith('.ts')) return file + '/index.js'
@@ -21,9 +29,10 @@ export const importCommands = async (): Promise<BotCommand[]> => {
     const { default: commandModule } = await import(filePath);
 
     commands.set(commandModule.name, commandModule);
+    table.push([commandModule.name]);
     COMMANDS.push(commandModule);
   }
 
-  console.log('LISTA DE COMANDOS EN USO: ', COMMANDS.map(command => command.name));
+  console.log(table.toString());
   return COMMANDS;
 };
