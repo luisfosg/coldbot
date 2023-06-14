@@ -4,8 +4,8 @@ const command: BotCommand = {
   name: 'ping',
   description: 'Replies with Pong!',
   execute: async (interaction) => {
-    interaction.reply('Pong!');
-  },
-};
+    interaction.reply('Pong!')
+  }
+}
 
 export default command

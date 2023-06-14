@@ -3,5 +3,5 @@ export interface BotEvent {
   description: string;
   once?: boolean;
   desactive?: boolean
-  execute: (...args: any) => Promise<void>;
+  execute: (...args: any[]) => Promise<void>;
 }

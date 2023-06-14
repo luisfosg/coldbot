@@ -12,14 +12,14 @@ const command: BotCommand = {
       name: 'argumento1',
       description: 'Primer argumento',
       type: 3,
-      required: true,
-    },
+      required: true
+    }
   ],
   actions: [
     { name: 'cancel', execute: CancelAction },
     { name: 'confirm', execute: ConfirmAction }
   ],
   execute: ButtonCommand
-};
+}
 
 export default command

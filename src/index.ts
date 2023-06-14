@@ -1,10 +1,10 @@
-import dotenv from 'dotenv';
+import dotenv from 'dotenv'
 import { ENV } from '#/constants'
-dotenv.config();
 
 import { client } from '#/server'
 import { refreshCommands } from '#/refreshCommands'
 import { importEvents } from '@/utils/importEvents'
+dotenv.config()
 
 const initDiscordBot = async () => {
   const env = ENV()
@@ -16,6 +16,6 @@ const initDiscordBot = async () => {
 }
 
 initDiscordBot().catch((error) => {
-  console.error('Ocurrió un error:', error);
-  process.exit(1);
-});
+  console.error('Ocurrió un error:', error)
+  process.exit(1)
+})

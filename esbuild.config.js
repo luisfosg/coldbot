@@ -1,24 +1,24 @@
-import { build } from 'esbuild';
-import { nodeExternalsPlugin } from 'esbuild-node-externals';
+import { build } from 'esbuild'
+import { nodeExternalsPlugin } from 'esbuild-node-externals'
 
-import { config } from 'dotenv';
-import { resolve, dirname } from 'path';
-import { URL, fileURLToPath } from 'url';
-import { readdirSync } from 'fs';
+import { config } from 'dotenv'
+import { resolve, dirname } from 'path'
+import { URL, fileURLToPath } from 'url'
+import { readdirSync } from 'fs'
 
-config();
+config()
 
-const moduleURL = new URL(import.meta.url);
-const __dirname = dirname(fileURLToPath(moduleURL));
+const moduleURL = new URL(import.meta.url)
+const __dirname = dirname(fileURLToPath(moduleURL))
 
-const commandsFolderPath = resolve(__dirname, './src/commands');
-const commandFiles = readdirSync(commandsFolderPath);
+const commandsFolderPath = resolve(__dirname, './src/commands')
+const commandFiles = readdirSync(commandsFolderPath)
 
-const eventsFolderPath = resolve(__dirname, './src/events');
-const eventFiles = readdirSync(eventsFolderPath);
+const eventsFolderPath = resolve(__dirname, './src/events')
+const eventFiles = readdirSync(eventsFolderPath)
 
 const getFilePath = (file) => {
-  if (!file.endsWith('.ts') && file.includes('.')) return;
+  if (!file.endsWith('.ts') && file.includes('.')) return
   if (!file.endsWith('.ts')) return file + '/index.ts'
 
   return file
@@ -27,13 +27,13 @@ const getFilePath = (file) => {
 build({
   entryPoints: [
     'src/index.ts',
-    ...commandFiles.map((file) =>  getFilePath(`src/commands/${file}`)),
+    ...commandFiles.map((file) => getFilePath(`src/commands/${file}`)),
     ...eventFiles.map((file) => getFilePath(`src/events/${file}`))
   ],
   splitting: true,
   bundle: true,
   platform: 'node',
-  target: "es2022",
+  target: 'es2022',
   format: 'esm',
   minify: true,
   outdir: 'dist',
@@ -42,10 +42,10 @@ build({
     '#': './src',
     '@/utils': './src/utils',
     '@/commands': './src/commands',
-    '@/types': './src/types',
+    '@/types': './src/types'
   }
 })
   .catch((err) => {
-    console.error(err);
-    process.exit(1);
-  });
+    console.error(err)
+    process.exit(1)
+  })
