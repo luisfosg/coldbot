@@ -6,6 +6,7 @@
     "outDir": "dist",
     "strict": true,
     "esModuleInterop": true,
+    "rootDir": "src",
     "baseUrl": "./",
     "paths": {
       "@/utils/*": ["src/utils/*"],
@@ -15,4 +16,6 @@
       "#/*": ["src/*"]
     }
   },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
 }

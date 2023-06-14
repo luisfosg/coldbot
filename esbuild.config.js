@@ -1,5 +1,6 @@
 import { build } from 'esbuild';
 import { nodeExternalsPlugin } from 'esbuild-node-externals';
+
 import { config } from 'dotenv';
 import { resolve, dirname } from 'path';
 import { URL, fileURLToPath } from 'url';
@@ -34,7 +35,7 @@ build({
   platform: 'node',
   target: "es2022",
   format: 'esm',
-  minify: false,
+  minify: true,
   outdir: 'dist',
   plugins: [nodeExternalsPlugin()],
   alias: {
@@ -42,7 +43,7 @@ build({
     '@/utils': './src/utils',
     '@/commands': './src/commands',
     '@/types': './src/types',
-  },
+  }
 })
   .catch((err) => {
     console.error(err);

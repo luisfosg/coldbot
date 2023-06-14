@@ -5,13 +5,18 @@
   "description": "",
   "main": "src/index.ts",
   "scripts": {
-    "dev": "nodemon --watch 'src/**' --exec 'pnpm run start'",
+    "dev": "nodemon",
     "start": "pnpm run build && node dist/index.js",
     "build": "rm -rf dist && node esbuild.config.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "nodemonConfig": {
+    "watch": ["src"],
+    "ext": "ts",
+    "exec": "pnpm run start"
+  },
   "dependencies": {
     "@types/node": "20.3.1",
     "discord.js": "14.11.0",
