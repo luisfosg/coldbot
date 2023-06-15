@@ -2,7 +2,7 @@
   "name": "cold-bot",
   "type": "module",
   "version": "1.0.0",
-  "description": "",
+  "description": "a awesome discord bot with typescript",
   "main": "src/index.ts",
   "scripts": {
     "start": "pnpm run build && NODE_ENV=production node dist/index.js",
