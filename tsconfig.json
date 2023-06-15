@@ -2,6 +2,8 @@
   "compilerOptions": {
     "target": "es2022",
     "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "module": "ES2022",
     "outDir": "dist",
     "strict": true,
@@ -12,6 +14,7 @@
       "@/utils/*": ["src/utils/*"],
       "@/commands/*": ["src/commands/*"],
       "@/events/*": ["src/events/*"],
+      "@/entity/*": ["src/entity/*"],
       "@/types/*": ["src/types/*"],
       "#/*": ["src/*"]
     }

@@ -3,7 +3,7 @@ import fs from 'fs'
 
 import { client } from '#/server'
 import { BotEvent } from '@/types/event'
-import { ENV, events, util } from '#/constants'
+import { ENV as env, events, util } from '#/constants'
 
 const table = new Table({
   chars: util.charsTable,
@@ -13,8 +13,6 @@ const table = new Table({
 })
 
 export const importEvents = async (): Promise<void> => {
-  const env = ENV()
-
   const eventFiles = await fs.promises.readdir(env.eventsFolderPath)
 
   for (const file of eventFiles) {

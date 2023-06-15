@@ -42,7 +42,9 @@ build({
     '#': './src',
     '@/utils': './src/utils',
     '@/commands': './src/commands',
-    '@/types': './src/types'
+    '@/types': './src/types',
+    '@/events': './src/events',
+    '@/entity': './src/entity'
   }
 })
   .catch((err) => {

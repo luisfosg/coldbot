@@ -2,7 +2,7 @@ import Table from 'cli-table3'
 import fs from 'fs'
 
 import { BotCommand } from '@/types/command'
-import { ENV, commands, util } from '#/constants'
+import { ENV as env, commands, util } from '#/constants'
 
 const table = new Table({
   chars: util.charsTable,
@@ -13,7 +13,6 @@ const table = new Table({
 
 export const importCommands = async (): Promise<BotCommand[]> => {
   const COMMANDS: BotCommand[] = []
-  const env = ENV()
 
   const commandFiles = await fs.promises.readdir(env.commandsFolderPath)
 

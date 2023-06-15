@@ -1,22 +1,23 @@
-import dotenv from 'dotenv'
-import { ENV } from '#/constants'
+import { ENV as env } from '#/constants'
 
 import { client } from '#/server'
+import { db } from '#/db'
+
 import { refreshCommands } from '#/handler/refreshCommands'
 import { importEvents } from '#/handler/importEvents'
 
-dotenv.config({ path: `.env.${process.env.NODE_ENV}` })
-
 const initDiscordBot = async () => {
-  const env = ENV()
-
   await refreshCommands(env.token, env.clientId)
   await importEvents()
 
   client.login(env.token)
 }
 
-initDiscordBot().catch((error) => {
-  console.error('Ocurrió un error:', error)
+db.initialize()
+  .then(() => console.log('Database has been initialized!'))
+  .catch((err) => console.error('Error DB: ', err))
+
+initDiscordBot().catch(async (err) => {
+  console.error('Error Discord:', err)
   process.exit(1)
 })

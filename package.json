@@ -6,10 +6,8 @@
   "main": "src/index.ts",
   "scripts": {
     "start": "pnpm run build && NODE_ENV=production node dist/index.js",
-
     "dev": "NODE_ENV=local nodemon",
     "start:dev": "pnpm run build && node dist/index.js",
-
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "build": "rm -rf dist && node esbuild.config.js"
@@ -27,7 +25,11 @@
   "dependencies": {
     "@types/node": "20.3.1",
     "discord.js": "14.11.0",
-    "dotenv": "16.1.4"
+    "dotenv": "16.1.4",
+    "pg": "8.11.0",
+    "sqlite3": "5.1.6",
+    "reflect-metadata": "0.1.13",
+    "typeorm": "0.3.16"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "5.59.11",
@@ -42,7 +44,6 @@
     "eslint-plugin-promise": "6.1.1",
     "eslint-plugin-standard": "5.0.0",
     "nodemon": "2.0.22",
-    "prisma": "4.15.0",
     "typescript": "5.1.3"
   }
 }
