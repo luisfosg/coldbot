@@ -5,7 +5,7 @@ import { client } from '#/server'
 import { refreshCommands } from '#/handler/refreshCommands'
 import { importEvents } from '#/handler/importEvents'
 
-dotenv.config()
+dotenv.config({ path: `.env.${process.env.NODE_ENV}` })
 
 const initDiscordBot = async () => {
   const env = ENV()

@@ -3,4 +3,9 @@ node_modules
 pnpm-lock.yaml
 dist
 
-.env
+.env.local
+.env.production
+
+prisma/migrations
+dev.db
+dev.db-journal
