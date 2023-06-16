@@ -1,7 +1,12 @@
-import { ActionRowBuilder, ButtonBuilder, ButtonStyle, CacheType, ChatInputCommandInteraction, EmbedBuilder } from 'discord.js'
+import { ActionRowBuilder, ButtonBuilder, ButtonStyle, CacheType, ChatInputCommandInteraction, EmbedBuilder, Message } from 'discord.js'
 
-export const ButtonCommand = async (interaction: ChatInputCommandInteraction<CacheType>) => {
-  const argumento1 = interaction.options.getString('argumento1')
+export const ButtonCommand = async (
+  interaction: ChatInputCommandInteraction<CacheType> | Message,
+  args: string[]
+) => {
+  const argumento1 = interaction instanceof ChatInputCommandInteraction
+    ? interaction.options.getString('argumento1')
+    : args[0] || 'test'
 
   const confirm = new ButtonBuilder()
     .setCustomId('button/confirm')

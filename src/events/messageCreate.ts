@@ -14,10 +14,20 @@ const event: BotEvent = {
 
     // Elimina el prefijo y obtén los argumentos del comando
     const args = message.content.slice(PREFIX.length).trim().split(/ +/)
-    console.log({ args })
 
-    const command = args.shift()?.toLowerCase() || ''
-    message.reply(`Has usado este comando: ${command}`)
+    const commandName = args.shift()?.toLowerCase() || ''
+    const { commands } = await import('../constants')
+
+    if (!commands.has(commandName)) return
+    try {
+      const command = commands.get(commandName)
+      if (!command || !command.execute) return
+
+      await command.execute(message, args)
+    } catch (error) {
+      console.error(error)
+      await message.reply(`An error occurred while executing the command: ${commandName}`)
+    }
   }
 }
 

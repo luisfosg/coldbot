@@ -1,4 +1,4 @@
-import { ButtonInteraction, CacheType, ChatInputCommandInteraction } from 'discord.js'
+import { ButtonInteraction, CacheType, ChatInputCommandInteraction, Message } from 'discord.js'
 
 export interface OptionCommand {
   name: string;
@@ -23,5 +23,8 @@ export interface BotCommand {
   options?: OptionCommand[];
   actions?: Action[];
   permissions?: string[];
-  execute: (interaction: ChatInputCommandInteraction<CacheType>) => Promise<void>;
+  execute: (
+    interaction: ChatInputCommandInteraction<CacheType> | Message,
+    args?: string[]
+  ) => Promise<void>;
 }
