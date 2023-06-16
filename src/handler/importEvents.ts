@@ -2,6 +2,7 @@ import Table from 'cli-table3'
 import fs from 'fs'
 
 import { client } from '#/server'
+import { validEvent } from './validEvent'
 import { BotEvent } from '@/types/event'
 import { ENV as env, events, util } from '#/constants'
 
@@ -27,7 +28,7 @@ export const importEvents = async (): Promise<void> => {
 
     client[event.once ? 'once' : 'on'](
       event.name,
-      (...args: unknown[]) => event.execute(...args)
+      (...args: any[]) => validEvent(args, event)
     )
   }
 

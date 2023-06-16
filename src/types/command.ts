@@ -22,5 +22,6 @@ export interface BotCommand {
   description: string;
   options?: OptionCommand[];
   actions?: Action[];
+  permissions?: string[];
   execute: (interaction: ChatInputCommandInteraction<CacheType>) => Promise<void>;
 }
