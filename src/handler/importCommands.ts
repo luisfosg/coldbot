@@ -2,7 +2,7 @@ import Table from 'cli-table3'
 import fs from 'fs'
 
 import { BotCommand } from '@/types/command'
-import { ENV as env, commands, util } from '#/constants'
+import { commandsFolderPath, commands, util } from '#/constants'
 
 const table = new Table({
   chars: util.charsTable,
@@ -14,7 +14,7 @@ const table = new Table({
 export const importCommands = async (): Promise<BotCommand[]> => {
   const COMMANDS: BotCommand[] = []
 
-  const commandFiles = await fs.promises.readdir(env.commandsFolderPath)
+  const commandFiles = await fs.promises.readdir(commandsFolderPath)
 
   for (const file of commandFiles) {
     if ((!file.endsWith('.ts') && !file.endsWith('.js')) && file.includes('.')) continue

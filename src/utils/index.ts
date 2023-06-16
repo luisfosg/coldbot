@@ -1,3 +1,10 @@
+import { Message } from 'discord.js'
+
+import { client } from '#/server'
+import { PrefixFun } from '@/types/util'
+
+import { config } from '#/constants'
+
 const charsTable = {
   top: '═',
   'top-mid': '╤',
@@ -21,7 +28,28 @@ const getFilePath = (file: string) => {
   return file
 }
 
+const getPrefix = (message: Message): PrefixFun => {
+  let isPrefix = false
+  let args: string[] = []
+
+  const botMentions = [config.PREFIX, `<@${client?.user?.id}>`, `<!@${client?.user?.id}>`]
+  const msg = message.content
+
+  botMentions.forEach(mention => {
+    if (msg.startsWith(mention)) {
+      isPrefix = true
+      args = msg.slice(mention.length).trim().split(/ +/)
+    }
+  })
+
+  return {
+    isPrefix,
+    args
+  }
+}
+
 export default {
   charsTable,
-  getFilePath
+  getFilePath,
+  getPrefix
 }

@@ -22,14 +22,18 @@ export const ENV = {
   DB_HOST: process.env.DB_HOST || '',
   DB_PORT: process.env.DB_PORT || '',
   DB_USER: process.env.DB_USER || '',
-  DB_PASS: process.env.DB_PASS || '',
-
-  commandsFolderPath: resolve(__dirname, './commands'),
-  eventsFolderPath: resolve(__dirname, './events')
+  DB_PASS: process.env.DB_PASS || ''
 }
+
+export const commandsFolderPath = resolve(__dirname, './commands')
+export const eventsFolderPath = resolve(__dirname, './events')
 
 export const commands = new Collection<string, BotCommand>()
 export const events = new Collection<string, BotEvent>()
+
+export const config = {
+  PREFIX: '>'
+}
 
 export const util = {
   ...utils

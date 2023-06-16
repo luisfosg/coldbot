@@ -1,19 +1,15 @@
 import { Events, Message, PermissionFlagsBits } from 'discord.js'
 
+import { util } from '#/constants'
 import { BotEvent } from '@/types/event'
-
-const PREFIX = '!'
 
 const event: BotEvent = {
   name: Events.MessageCreate,
   description: 'Se ejecuta al enviar un mensaje al servidor',
   permissions: [PermissionFlagsBits.SendMessages],
   execute: async (message: Message) => {
-    if (message.author.bot) return
-    if (!message.content.startsWith(PREFIX)) return
-
-    // Elimina el prefijo y obtén los argumentos del comando
-    const args = message.content.slice(PREFIX.length).trim().split(/ +/)
+    const { isPrefix, args } = util.getPrefix(message)
+    if (!isPrefix) return
 
     const commandName = args.shift()?.toLowerCase() || ''
     const { commands } = await import('../constants')

@@ -4,7 +4,7 @@ import fs from 'fs'
 import { client } from '#/server'
 import { validEvent } from './validEvent'
 import { BotEvent } from '@/types/event'
-import { ENV as env, events, util } from '#/constants'
+import { eventsFolderPath, events, util } from '#/constants'
 
 const table = new Table({
   chars: util.charsTable,
@@ -14,12 +14,12 @@ const table = new Table({
 })
 
 export const importEvents = async (): Promise<void> => {
-  const eventFiles = await fs.promises.readdir(env.eventsFolderPath)
+  const eventFiles = await fs.promises.readdir(eventsFolderPath)
 
   for (const file of eventFiles) {
     if ((!file.endsWith('.ts') && !file.endsWith('.js')) && file.includes('.')) continue
 
-    const filePath = `${env.eventsFolderPath}/${file}`
+    const filePath = `${eventsFolderPath}/${file}`
     const eventModule = await import(filePath)
     const event: BotEvent = eventModule.default
 
