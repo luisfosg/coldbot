@@ -5,9 +5,6 @@
     "buildCommand": "pnpm run build"
   },
   "deploy": {
-    "startCommand": "NODE_ENV=production node dist/index.js",
-    "healthcheckPath": "/",
-    "healthcheckTimeout": 100,
-    "restartPolicyType": "never"
+    "startCommand": "NODE_ENV=production node dist/index.js"
   }
 }
