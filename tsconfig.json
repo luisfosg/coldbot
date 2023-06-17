@@ -14,6 +14,7 @@
       "@/utils/*": ["src/utils/*"],
       "@/commands/*": ["src/commands/*"],
       "@/events/*": ["src/events/*"],
+      "@/services/*": ["src/services/*"],
       "@/entity/*": ["src/entity/*"],
       "@/types/*": ["src/types/*"],
       "#/*": ["src/*"]

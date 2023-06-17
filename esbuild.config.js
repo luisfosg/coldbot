@@ -44,6 +44,7 @@ build({
     '@/commands': './src/commands',
     '@/types': './src/types',
     '@/events': './src/events',
+    '@/services': './src/services',
     '@/entity': './src/entity'
   }
 })

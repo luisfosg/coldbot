@@ -2,11 +2,11 @@ import { ActionRowBuilder, ButtonBuilder, ButtonStyle, CacheType, ChatInputComma
 
 export const ButtonCommand = async (
   interaction: ChatInputCommandInteraction<CacheType> | Message,
-  args: string[]
+  args: string[] | undefined
 ) => {
   const argumento1 = interaction instanceof ChatInputCommandInteraction
     ? interaction.options.getString('argumento1')
-    : args[0] || 'test'
+    : (args && args[0]) || 'test'
 
   const confirm = new ButtonBuilder()
     .setCustomId('button/confirm')
