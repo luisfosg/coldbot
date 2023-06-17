@@ -8,7 +8,7 @@ const event: BotEvent = {
   description: 'Se ejecuta al enviar un mensaje al servidor',
   permissions: [PermissionFlagsBits.SendMessages],
   execute: async (message: Message) => {
-    const { isPrefix, args } = util.getPrefix(message)
+    const { isPrefix, args } = await util.getPrefix(message)
     if (!isPrefix) return
 
     const commandName = args.shift()?.toLowerCase() || ''

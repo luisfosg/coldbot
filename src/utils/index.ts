@@ -2,7 +2,6 @@ import { Message } from 'discord.js'
 
 import { client } from '#/server'
 import { PrefixFun } from '@/types/util'
-
 import { config } from '#/constants'
 
 const charsTable = {
@@ -28,11 +27,16 @@ const getFilePath = (file: string) => {
   return file
 }
 
-const getPrefix = (message: Message): PrefixFun => {
+const getPrefix = async (message: Message): Promise<PrefixFun> => {
+  const { prefixService } = await import('@/services/prefix.service')
+
+  let prefix: string = await prefixService.get(message.guildId || '')
+  prefix = !prefix || prefix === '' ? config.PREFIX : prefix
+
   let isPrefix = false
   let args: string[] = []
 
-  const botMentions = [config.PREFIX, `<@${client?.user?.id}>`, `<!@${client?.user?.id}>`]
+  const botMentions = [prefix, `<@${client?.user?.id}>`, `<!@${client?.user?.id}>`]
   const msg = message.content
 
   botMentions.forEach(mention => {
