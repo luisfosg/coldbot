@@ -15,6 +15,13 @@ const get = async (guildId: string): Promise<string> => {
   return server.prefix
 }
 
+const set = async (guildId: string, newPrefix: string): Promise<void> => {
+  await serverService.edit(guildId, {
+    prefix: newPrefix
+  })
+}
+
 export const prefixService = {
-  get
+  get,
+  set
 }
