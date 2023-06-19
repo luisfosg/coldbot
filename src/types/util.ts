@@ -5,4 +5,5 @@ export interface PrefixFun {
 
 export interface ServerType {
   active?: boolean;
+  prefix?: string;
 }

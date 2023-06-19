@@ -3,6 +3,7 @@ import { Server } from '#/entity/server.entity'
 
 import { config } from '#/constants'
 import { ServerType } from '@/types/util'
+import { FindOptionsSelect } from 'typeorm'
 
 const add = async (guildId: string) => {
   const server = db.getRepository(Server).create({
@@ -14,14 +15,17 @@ const add = async (guildId: string) => {
   return await db.getRepository(Server).save(server)
 }
 
-const get = async (guildId: string) => {
+const get = async (guildId: string, guildFind?: FindOptionsSelect<Server>) => {
   return await db.getRepository(Server).findOne({
+    select: guildFind,
     where: { server_id: guildId }
   })
 }
 
-const getAll = async () => {
-  return await db.getRepository(Server).find()
+const getAll = async (guildFind?: FindOptionsSelect<Server>) => {
+  return await db.getRepository(Server).find({
+    select: guildFind
+  })
 }
 
 const edit = async (guildId: string, guild: ServerType) => {
@@ -35,7 +39,7 @@ const edit = async (guildId: string, guild: ServerType) => {
 }
 
 const has = async (guildId: string) => {
-  const server = await get(guildId)
+  const server = await get(guildId, { id: true })
   return !!server
 }
 
