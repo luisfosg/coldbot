@@ -1,4 +1,5 @@
 import { db } from '#/db'
+import { serverService } from '@/services/server.service'
 import { Server } from '#/entity/server.entity'
 
 const get = async (guildId: string): Promise<string> => {
@@ -6,7 +7,11 @@ const get = async (guildId: string): Promise<string> => {
     where: { server_id: guildId }
   })
 
-  if (!server) return ''
+  if (!server) {
+    await serverService.add(guildId)
+    return ''
+  }
+
   return server.prefix
 }
 

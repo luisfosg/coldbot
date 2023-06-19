@@ -1,14 +1,12 @@
-import { Guild } from 'discord.js'
-
 import { db } from '#/db'
 import { Server } from '#/entity/server.entity'
 
 import { config } from '#/constants'
 import { ServerType } from '@/types/util'
 
-const add = async (guild: Guild) => {
+const add = async (guildId: string) => {
   const server = db.getRepository(Server).create({
-    server_id: guild.id,
+    server_id: guildId,
     prefix: config.PREFIX,
     active: true
   })
@@ -41,13 +39,13 @@ const has = async (guildId: string) => {
   return !!server
 }
 
-const validAndCreate = async (guild: Guild) => {
-  const isAdd = await has(guild.id)
+const validAndCreate = async (guildId: string) => {
+  const isAdd = await has(guildId)
 
   if (!isAdd) {
-    await add(guild)
+    await add(guildId)
   } else {
-    await edit(guild.id, {
+    await edit(guildId, {
       active: true
     })
   }

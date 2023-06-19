@@ -8,7 +8,7 @@ const event: BotEvent = {
   description: 'El Bot entro a un servidor',
 
   execute: async (guild: Guild) => {
-    await serverService.validAndCreate(guild)
+    await serverService.validAndCreate(guild.id)
   }
 }
 

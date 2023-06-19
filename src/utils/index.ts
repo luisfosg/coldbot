@@ -31,7 +31,7 @@ const getPrefix = async (message: Message): Promise<PrefixFun> => {
   const { prefixService } = await import('@/services/prefix.service')
 
   let prefix: string = await prefixService.get(message.guildId || '')
-  prefix = !prefix || prefix === '' ? config.PREFIX : prefix
+  prefix = prefix === '' ? config.PREFIX : prefix
 
   let isPrefix = false
   let args: string[] = []
