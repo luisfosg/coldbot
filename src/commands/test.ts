@@ -5,6 +5,8 @@ import { BotCommand } from '@/types/command'
 const command: BotCommand = {
   name: 'test',
   description: 'Sirve para hacer tests',
+  onlyPrefix: true,
+
   execute: async (interaction) => {
     const res1 = await serverService.getAll()
 

@@ -20,6 +20,7 @@ export interface Action {
 export interface BotCommand {
   name: string;
   description: string;
+  onlyPrefix?: boolean;
   options?: OptionCommand[];
   actions?: Action[];
   permissions?: string[];

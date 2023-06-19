@@ -6,7 +6,9 @@ import { InteractionCommand, BotCommand } from '@/types/command'
 export const refreshCommands = async (token: string, clientId: string) => {
   const rest = new REST({ version: '10' }).setToken(token)
 
-  const COMMANDS: BotCommand[] = await importCommands()
+  let COMMANDS: BotCommand[] = await importCommands()
+  COMMANDS = COMMANDS.filter(command => !command.onlyPrefix)
+
   const interactionCommands: InteractionCommand[] = COMMANDS.map(command => ({
     name: command.name,
     description: command.description,
